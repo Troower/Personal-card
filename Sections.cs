@@ -13,15 +13,18 @@ namespace PersonalCard
     public partial class Sections : Form
     {
         Action<int, int, int> action;
+        int a = 0;
         public Sections(Action<int, int, int> action)
         {
             InitializeComponent();
             this.action = action;
         }
 
-        public Sections()
+        public Sections(Action<int, int, int> action,int a)
         {
             InitializeComponent();
+            this.action=action;
+            this.a = a;
         }
 
         private void tableLayoutPanel1_Paint(object sender, PaintEventArgs e)
