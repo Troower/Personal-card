@@ -36,7 +36,7 @@ namespace PersonalCard
                 new Sections((int a,int b, int c) => { 
                 
 
-                },1).ShowDialog();
+                }).ShowDialog();
             };
         }
         
