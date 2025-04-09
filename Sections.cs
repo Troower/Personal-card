@@ -34,6 +34,7 @@ namespace PersonalCard
 
         private void button1_Click(object sender, EventArgs e)
         {
+            if (a == 0) 
             action?.Invoke(0, 2, 0);
             this.Close();
         }
