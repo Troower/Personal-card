@@ -35,11 +35,16 @@
             textBox1 = new TextBox();
             groupBox1 = new GroupBox();
             flowLayoutPanel1 = new FlowLayoutPanel();
+            label12 = new Label();
+            label13 = new Label();
             textBox2 = new TextBox();
+            label14 = new Label();
             textBox3 = new TextBox();
             label1 = new Label();
             dateTimePicker1 = new DateTimePicker();
+            label15 = new Label();
             textBox4 = new TextBox();
+            label16 = new Label();
             textBox5 = new TextBox();
             comboBox1 = new ComboBox();
             comboBox2 = new ComboBox();
@@ -47,11 +52,17 @@
             comboBox5 = new ComboBox();
             groupBox2 = new GroupBox();
             flowLayoutPanel2 = new FlowLayoutPanel();
+            label2 = new Label();
             textBox6 = new TextBox();
+            label3 = new Label();
             textBox7 = new TextBox();
-            textBox8 = new TextBox();
+            label4 = new Label();
+            dateTimePicker2 = new DateTimePicker();
+            label5 = new Label();
             textBox9 = new TextBox();
+            label6 = new Label();
             textBox10 = new TextBox();
+            label7 = new Label();
             textBox11 = new TextBox();
             groupBox10 = new GroupBox();
             listBox1 = new ListBox();
@@ -62,9 +73,13 @@
             textBox12 = new TextBox();
             groupBox3 = new GroupBox();
             flowLayoutPanel3 = new FlowLayoutPanel();
+            label8 = new Label();
             textBox14 = new TextBox();
+            label9 = new Label();
             textBox15 = new TextBox();
+            label10 = new Label();
             textBox16 = new TextBox();
+            label11 = new Label();
             textBox17 = new TextBox();
             button4 = new Button();
             tableLayoutPanel1.SuspendLayout();
@@ -87,7 +102,7 @@
             tableLayoutPanel1.Controls.Add(button2, 0, 0);
             tableLayoutPanel1.Controls.Add(button1, 1, 0);
             tableLayoutPanel1.Dock = DockStyle.Bottom;
-            tableLayoutPanel1.Location = new Point(0, 459);
+            tableLayoutPanel1.Location = new Point(0, 556);
             tableLayoutPanel1.Margin = new Padding(4);
             tableLayoutPanel1.Name = "tableLayoutPanel1";
             tableLayoutPanel1.RowCount = 1;
@@ -128,10 +143,10 @@
             // 
             // textBox1
             // 
-            textBox1.Location = new Point(4, 4);
+            textBox1.Location = new Point(4, 25);
             textBox1.Margin = new Padding(4);
             textBox1.Name = "textBox1";
-            textBox1.PlaceholderText = "Фамилия*";
+            textBox1.PlaceholderText = "Фамилия";
             textBox1.Size = new Size(249, 29);
             textBox1.TabIndex = 1;
             // 
@@ -143,19 +158,24 @@
             groupBox1.Margin = new Padding(4);
             groupBox1.Name = "groupBox1";
             groupBox1.Padding = new Padding(4);
-            groupBox1.Size = new Size(267, 461);
+            groupBox1.Size = new Size(267, 562);
             groupBox1.TabIndex = 2;
             groupBox1.TabStop = false;
             groupBox1.Text = "Основная информация";
             // 
             // flowLayoutPanel1
             // 
+            flowLayoutPanel1.Controls.Add(label12);
             flowLayoutPanel1.Controls.Add(textBox1);
+            flowLayoutPanel1.Controls.Add(label13);
             flowLayoutPanel1.Controls.Add(textBox2);
+            flowLayoutPanel1.Controls.Add(label14);
             flowLayoutPanel1.Controls.Add(textBox3);
             flowLayoutPanel1.Controls.Add(label1);
             flowLayoutPanel1.Controls.Add(dateTimePicker1);
+            flowLayoutPanel1.Controls.Add(label15);
             flowLayoutPanel1.Controls.Add(textBox4);
+            flowLayoutPanel1.Controls.Add(label16);
             flowLayoutPanel1.Controls.Add(textBox5);
             flowLayoutPanel1.Controls.Add(comboBox1);
             flowLayoutPanel1.Controls.Add(comboBox2);
@@ -165,21 +185,48 @@
             flowLayoutPanel1.FlowDirection = FlowDirection.TopDown;
             flowLayoutPanel1.Location = new Point(4, 26);
             flowLayoutPanel1.Name = "flowLayoutPanel1";
-            flowLayoutPanel1.Size = new Size(259, 431);
+            flowLayoutPanel1.Size = new Size(259, 532);
             flowLayoutPanel1.TabIndex = 0;
+            // 
+            // label12
+            // 
+            label12.AutoSize = true;
+            label12.Location = new Point(3, 0);
+            label12.Name = "label12";
+            label12.Size = new Size(85, 21);
+            label12.TabIndex = 13;
+            label12.Text = "Фамилия*:";
+            // 
+            // label13
+            // 
+            label13.AutoSize = true;
+            label13.Location = new Point(3, 58);
+            label13.Name = "label13";
+            label13.Size = new Size(51, 21);
+            label13.TabIndex = 14;
+            label13.Text = "Имя*:";
             // 
             // textBox2
             // 
-            textBox2.Location = new Point(4, 41);
+            textBox2.Location = new Point(4, 83);
             textBox2.Margin = new Padding(4);
             textBox2.Name = "textBox2";
-            textBox2.PlaceholderText = "Имя*";
+            textBox2.PlaceholderText = "Имя";
             textBox2.Size = new Size(249, 29);
             textBox2.TabIndex = 2;
             // 
+            // label14
+            // 
+            label14.AutoSize = true;
+            label14.Location = new Point(3, 116);
+            label14.Name = "label14";
+            label14.Size = new Size(80, 21);
+            label14.TabIndex = 15;
+            label14.Text = "Отчество:";
+            // 
             // textBox3
             // 
-            textBox3.Location = new Point(4, 78);
+            textBox3.Location = new Point(4, 141);
             textBox3.Margin = new Padding(4, 4, 4, 10);
             textBox3.Name = "textBox3";
             textBox3.PlaceholderText = "Отчество";
@@ -190,7 +237,7 @@
             // 
             label1.AutoSize = true;
             label1.BorderStyle = BorderStyle.Fixed3D;
-            label1.Location = new Point(3, 117);
+            label1.Location = new Point(3, 180);
             label1.Name = "label1";
             label1.Size = new Size(130, 23);
             label1.TabIndex = 9;
@@ -198,26 +245,44 @@
             // 
             // dateTimePicker1
             // 
-            dateTimePicker1.Location = new Point(3, 143);
+            dateTimePicker1.Location = new Point(3, 206);
             dateTimePicker1.Name = "dateTimePicker1";
             dateTimePicker1.Size = new Size(200, 29);
             dateTimePicker1.TabIndex = 8;
             // 
+            // label15
+            // 
+            label15.AutoSize = true;
+            label15.Location = new Point(3, 238);
+            label15.Name = "label15";
+            label15.Size = new Size(142, 21);
+            label15.TabIndex = 16;
+            label15.Text = "Место рождения*:";
+            // 
             // textBox4
             // 
-            textBox4.Location = new Point(4, 179);
+            textBox4.Location = new Point(4, 263);
             textBox4.Margin = new Padding(4);
             textBox4.Name = "textBox4";
-            textBox4.PlaceholderText = "Место рождения*";
+            textBox4.PlaceholderText = "Место рождения";
             textBox4.Size = new Size(249, 29);
             textBox4.TabIndex = 4;
             // 
+            // label16
+            // 
+            label16.AutoSize = true;
+            label16.Location = new Point(3, 296);
+            label16.Name = "label16";
+            label16.Size = new Size(114, 21);
+            label16.TabIndex = 17;
+            label16.Text = "Гражданство*:";
+            // 
             // textBox5
             // 
-            textBox5.Location = new Point(4, 216);
+            textBox5.Location = new Point(4, 321);
             textBox5.Margin = new Padding(4);
             textBox5.Name = "textBox5";
-            textBox5.PlaceholderText = "Гражданство*";
+            textBox5.PlaceholderText = "Гражданство";
             textBox5.Size = new Size(249, 29);
             textBox5.TabIndex = 5;
             // 
@@ -225,7 +290,7 @@
             // 
             comboBox1.FormattingEnabled = true;
             comboBox1.Items.AddRange(new object[] { "М", "Ж" });
-            comboBox1.Location = new Point(3, 252);
+            comboBox1.Location = new Point(3, 357);
             comboBox1.Margin = new Padding(3, 3, 3, 8);
             comboBox1.Name = "comboBox1";
             comboBox1.Size = new Size(250, 29);
@@ -236,7 +301,7 @@
             // 
             comboBox2.FormattingEnabled = true;
             comboBox2.Items.AddRange(new object[] { "Подвижной", "Разъездной", "В пути", "Выполнение работы на дому", "Работа в полевых условиях", "Сезонный характер работы", "Выполнение временных работ", "Дистанционная работа" });
-            comboBox2.Location = new Point(3, 292);
+            comboBox2.Location = new Point(3, 397);
             comboBox2.Margin = new Padding(3, 3, 3, 10);
             comboBox2.Name = "comboBox2";
             comboBox2.Size = new Size(250, 29);
@@ -247,7 +312,7 @@
             // 
             comboBox3.FormattingEnabled = true;
             comboBox3.Items.AddRange(new object[] { "Основная", " По совместительству" });
-            comboBox3.Location = new Point(3, 334);
+            comboBox3.Location = new Point(3, 439);
             comboBox3.Margin = new Padding(3, 3, 3, 10);
             comboBox3.Name = "comboBox3";
             comboBox3.Size = new Size(250, 29);
@@ -258,7 +323,7 @@
             // 
             comboBox5.FormattingEnabled = true;
             comboBox5.Items.AddRange(new object[] { "Никогда не состоял (не состояла) в браке", "Состоит в зарегистрированном браке", "Состоит в незарегистрированном браке", "Вдовец (вдова)", "Разведен (разведена)", "Разошелся (разошлась)" });
-            comboBox5.Location = new Point(3, 376);
+            comboBox5.Location = new Point(3, 481);
             comboBox5.Margin = new Padding(3, 3, 3, 10);
             comboBox5.Name = "comboBox5";
             comboBox5.Size = new Size(250, 29);
@@ -271,72 +336,131 @@
             groupBox2.ForeColor = Color.WhiteSmoke;
             groupBox2.Location = new Point(777, -4);
             groupBox2.Name = "groupBox2";
-            groupBox2.Size = new Size(280, 461);
+            groupBox2.Size = new Size(280, 558);
             groupBox2.TabIndex = 3;
             groupBox2.TabStop = false;
             groupBox2.Text = "Документы";
             // 
             // flowLayoutPanel2
             // 
+            flowLayoutPanel2.Controls.Add(label2);
             flowLayoutPanel2.Controls.Add(textBox6);
+            flowLayoutPanel2.Controls.Add(label3);
             flowLayoutPanel2.Controls.Add(textBox7);
-            flowLayoutPanel2.Controls.Add(textBox8);
+            flowLayoutPanel2.Controls.Add(label4);
+            flowLayoutPanel2.Controls.Add(dateTimePicker2);
+            flowLayoutPanel2.Controls.Add(label5);
             flowLayoutPanel2.Controls.Add(textBox9);
+            flowLayoutPanel2.Controls.Add(label6);
             flowLayoutPanel2.Controls.Add(textBox10);
+            flowLayoutPanel2.Controls.Add(label7);
             flowLayoutPanel2.Controls.Add(textBox11);
             flowLayoutPanel2.Dock = DockStyle.Fill;
             flowLayoutPanel2.FlowDirection = FlowDirection.TopDown;
             flowLayoutPanel2.Location = new Point(3, 25);
             flowLayoutPanel2.Name = "flowLayoutPanel2";
-            flowLayoutPanel2.Size = new Size(274, 433);
+            flowLayoutPanel2.Size = new Size(274, 530);
             flowLayoutPanel2.TabIndex = 0;
+            // 
+            // label2
+            // 
+            label2.AutoSize = true;
+            label2.Location = new Point(3, 0);
+            label2.Name = "label2";
+            label2.Size = new Size(68, 21);
+            label2.TabIndex = 6;
+            label2.Text = "Номер*:";
             // 
             // textBox6
             // 
-            textBox6.Location = new Point(3, 3);
+            textBox6.Location = new Point(3, 24);
             textBox6.Name = "textBox6";
-            textBox6.PlaceholderText = "Номер*";
+            textBox6.PlaceholderText = "Номер";
             textBox6.Size = new Size(257, 29);
             textBox6.TabIndex = 0;
             // 
+            // label3
+            // 
+            label3.AutoSize = true;
+            label3.Location = new Point(3, 56);
+            label3.Name = "label3";
+            label3.Size = new Size(64, 21);
+            label3.TabIndex = 7;
+            label3.Text = "Серия*:";
+            // 
             // textBox7
             // 
-            textBox7.Location = new Point(3, 38);
+            textBox7.Location = new Point(3, 80);
             textBox7.Name = "textBox7";
-            textBox7.PlaceholderText = "Серия*";
+            textBox7.PlaceholderText = "Серия";
             textBox7.Size = new Size(257, 29);
             textBox7.TabIndex = 1;
             // 
-            // textBox8
+            // label4
             // 
-            textBox8.Location = new Point(3, 73);
-            textBox8.Name = "textBox8";
-            textBox8.PlaceholderText = "Дата выдачи*";
-            textBox8.Size = new Size(257, 29);
-            textBox8.TabIndex = 2;
+            label4.AutoSize = true;
+            label4.Location = new Point(3, 112);
+            label4.Name = "label4";
+            label4.Size = new Size(112, 21);
+            label4.TabIndex = 8;
+            label4.Text = "Дата выдачи*:";
+            // 
+            // dateTimePicker2
+            // 
+            dateTimePicker2.Location = new Point(3, 136);
+            dateTimePicker2.Name = "dateTimePicker2";
+            dateTimePicker2.Size = new Size(257, 29);
+            dateTimePicker2.TabIndex = 12;
+            // 
+            // label5
+            // 
+            label5.AutoSize = true;
+            label5.Location = new Point(3, 168);
+            label5.Name = "label5";
+            label5.Size = new Size(66, 21);
+            label5.TabIndex = 9;
+            label5.Text = "Выдан*:";
             // 
             // textBox9
             // 
-            textBox9.Location = new Point(3, 108);
+            textBox9.Location = new Point(3, 192);
             textBox9.Margin = new Padding(3, 3, 3, 10);
             textBox9.Name = "textBox9";
-            textBox9.PlaceholderText = "Выдан*";
+            textBox9.PlaceholderText = "Выдан";
             textBox9.Size = new Size(257, 29);
             textBox9.TabIndex = 3;
             // 
+            // label6
+            // 
+            label6.AutoSize = true;
+            label6.Location = new Point(3, 231);
+            label6.Name = "label6";
+            label6.Size = new Size(54, 21);
+            label6.TabIndex = 10;
+            label6.Text = "ИНН*:";
+            // 
             // textBox10
             // 
-            textBox10.Location = new Point(3, 150);
+            textBox10.Location = new Point(3, 255);
             textBox10.Name = "textBox10";
-            textBox10.PlaceholderText = "ИНН*";
+            textBox10.PlaceholderText = "ИНН";
             textBox10.Size = new Size(257, 29);
             textBox10.TabIndex = 4;
             // 
+            // label7
+            // 
+            label7.AutoSize = true;
+            label7.Location = new Point(3, 287);
+            label7.Name = "label7";
+            label7.Size = new Size(63, 21);
+            label7.TabIndex = 11;
+            label7.Text = "Снилс*:";
+            // 
             // textBox11
             // 
-            textBox11.Location = new Point(3, 185);
+            textBox11.Location = new Point(3, 311);
             textBox11.Name = "textBox11";
-            textBox11.PlaceholderText = "СНИЛС*";
+            textBox11.PlaceholderText = "СНИЛС";
             textBox11.Size = new Size(257, 29);
             textBox11.TabIndex = 5;
             // 
@@ -347,7 +471,7 @@
             groupBox10.ForeColor = Color.White;
             groupBox10.Location = new Point(287, 268);
             groupBox10.Name = "groupBox10";
-            groupBox10.Size = new Size(484, 189);
+            groupBox10.Size = new Size(484, 286);
             groupBox10.TabIndex = 12;
             groupBox10.TabStop = false;
             groupBox10.Text = "Язык";
@@ -361,7 +485,7 @@
             listBox1.ItemHeight = 21;
             listBox1.Location = new Point(3, 25);
             listBox1.Name = "listBox1";
-            listBox1.Size = new Size(219, 161);
+            listBox1.Size = new Size(219, 258);
             listBox1.TabIndex = 0;
             // 
             // tableLayoutPanel2
@@ -380,7 +504,7 @@
             tableLayoutPanel2.RowStyles.Add(new RowStyle(SizeType.Percent, 25F));
             tableLayoutPanel2.RowStyles.Add(new RowStyle(SizeType.Percent, 25F));
             tableLayoutPanel2.RowStyles.Add(new RowStyle(SizeType.Percent, 25F));
-            tableLayoutPanel2.Size = new Size(259, 161);
+            tableLayoutPanel2.Size = new Size(259, 258);
             tableLayoutPanel2.TabIndex = 1;
             tableLayoutPanel2.Paint += tableLayoutPanel2_Paint;
             // 
@@ -389,7 +513,7 @@
             comboBox4.Dock = DockStyle.Fill;
             comboBox4.FormattingEnabled = true;
             comboBox4.Items.AddRange(new object[] { "Владею свободно", "Читаю и могу объясняться", "Читаю и перевожу со словарем" });
-            comboBox4.Location = new Point(3, 43);
+            comboBox4.Location = new Point(3, 67);
             comboBox4.Margin = new Padding(3, 3, 3, 10);
             comboBox4.Name = "comboBox4";
             comboBox4.Size = new Size(253, 29);
@@ -403,10 +527,10 @@
             button5.BackgroundImageLayout = ImageLayout.Stretch;
             button5.Dock = DockStyle.Fill;
             button5.ForeColor = Color.White;
-            button5.Location = new Point(4, 86);
+            button5.Location = new Point(4, 134);
             button5.Margin = new Padding(4, 6, 4, 6);
             button5.Name = "button5";
-            button5.Size = new Size(251, 28);
+            button5.Size = new Size(251, 52);
             button5.TabIndex = 8;
             button5.Text = "Добавить";
             button5.UseVisualStyleBackColor = false;
@@ -419,10 +543,10 @@
             button3.BackgroundImageLayout = ImageLayout.Stretch;
             button3.Dock = DockStyle.Fill;
             button3.ForeColor = Color.White;
-            button3.Location = new Point(4, 126);
+            button3.Location = new Point(4, 198);
             button3.Margin = new Padding(4, 6, 4, 6);
             button3.Name = "button3";
-            button3.Size = new Size(251, 29);
+            button3.Size = new Size(251, 54);
             button3.TabIndex = 9;
             button3.Text = "Удалить";
             button3.UseVisualStyleBackColor = false;
@@ -449,9 +573,13 @@
             // 
             // flowLayoutPanel3
             // 
+            flowLayoutPanel3.Controls.Add(label8);
             flowLayoutPanel3.Controls.Add(textBox14);
+            flowLayoutPanel3.Controls.Add(label9);
             flowLayoutPanel3.Controls.Add(textBox15);
+            flowLayoutPanel3.Controls.Add(label10);
             flowLayoutPanel3.Controls.Add(textBox16);
+            flowLayoutPanel3.Controls.Add(label11);
             flowLayoutPanel3.Controls.Add(textBox17);
             flowLayoutPanel3.Dock = DockStyle.Fill;
             flowLayoutPanel3.FlowDirection = FlowDirection.TopDown;
@@ -460,33 +588,69 @@
             flowLayoutPanel3.Size = new Size(475, 241);
             flowLayoutPanel3.TabIndex = 0;
             // 
+            // label8
+            // 
+            label8.AutoSize = true;
+            label8.Location = new Point(3, 0);
+            label8.Name = "label8";
+            label8.Size = new Size(110, 21);
+            label8.TabIndex = 7;
+            label8.Text = "По паспорту*:";
+            // 
             // textBox14
             // 
-            textBox14.Location = new Point(3, 3);
+            textBox14.Location = new Point(3, 24);
             textBox14.Name = "textBox14";
-            textBox14.PlaceholderText = "По паспорту*";
+            textBox14.PlaceholderText = "По паспорту";
             textBox14.Size = new Size(468, 29);
             textBox14.TabIndex = 0;
             // 
+            // label9
+            // 
+            label9.AutoSize = true;
+            label9.Location = new Point(3, 56);
+            label9.Name = "label9";
+            label9.Size = new Size(165, 21);
+            label9.TabIndex = 8;
+            label9.Text = "Индекс по паспорту*:";
+            // 
             // textBox15
             // 
-            textBox15.Location = new Point(3, 38);
+            textBox15.Location = new Point(3, 80);
             textBox15.Name = "textBox15";
             textBox15.PlaceholderText = "Индекс по паспорту";
-            textBox15.Size = new Size(177, 29);
+            textBox15.Size = new Size(188, 29);
             textBox15.TabIndex = 1;
+            // 
+            // label10
+            // 
+            label10.AutoSize = true;
+            label10.Location = new Point(3, 112);
+            label10.Name = "label10";
+            label10.Size = new Size(106, 21);
+            label10.TabIndex = 9;
+            label10.Text = "Фактическое:";
             // 
             // textBox16
             // 
-            textBox16.Location = new Point(3, 73);
+            textBox16.Location = new Point(3, 136);
             textBox16.Name = "textBox16";
             textBox16.PlaceholderText = "Фактическое";
             textBox16.Size = new Size(468, 29);
             textBox16.TabIndex = 2;
             // 
+            // label11
+            // 
+            label11.AutoSize = true;
+            label11.Location = new Point(3, 168);
+            label11.Name = "label11";
+            label11.Size = new Size(169, 21);
+            label11.TabIndex = 10;
+            label11.Text = "Индекс фактического:";
+            // 
             // textBox17
             // 
-            textBox17.Location = new Point(3, 108);
+            textBox17.Location = new Point(3, 192);
             textBox17.Name = "textBox17";
             textBox17.PlaceholderText = "Индекс фактического";
             textBox17.Size = new Size(177, 29);
@@ -505,13 +669,14 @@
             button4.TabIndex = 6;
             button4.Text = "Редактировать";
             button4.UseVisualStyleBackColor = false;
+            button4.Click += button4_Click;
             // 
             // EditPersonalInfo
             // 
             AutoScaleDimensions = new SizeF(9F, 21F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(43, 64, 80);
-            ClientSize = new Size(1060, 520);
+            ClientSize = new Size(1060, 617);
             Controls.Add(groupBox3);
             Controls.Add(groupBox10);
             Controls.Add(groupBox2);
@@ -564,7 +729,6 @@
         private FlowLayoutPanel flowLayoutPanel2;
         private TextBox textBox6;
         private TextBox textBox7;
-        private TextBox textBox8;
         private TextBox textBox9;
         private TextBox textBox10;
         private TextBox textBox11;
@@ -583,5 +747,21 @@
         private ComboBox comboBox4;
         private ComboBox comboBox5;
         private Button button4;
+        private Label label2;
+        private Label label3;
+        private Label label4;
+        private DateTimePicker dateTimePicker2;
+        private Label label5;
+        private Label label6;
+        private Label label7;
+        private Label label12;
+        private Label label13;
+        private Label label14;
+        private Label label15;
+        private Label label16;
+        private Label label8;
+        private Label label9;
+        private Label label10;
+        private Label label11;
     }
 }

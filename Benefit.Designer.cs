@@ -37,12 +37,15 @@
             tableLayoutPanel1 = new TableLayoutPanel();
             button1 = new Button();
             button2 = new Button();
+            label2 = new Label();
+            label3 = new Label();
+            label4 = new Label();
             tableLayoutPanel1.SuspendLayout();
             SuspendLayout();
             // 
             // textBox1
             // 
-            textBox1.Location = new Point(12, 12);
+            textBox1.Location = new Point(11, 37);
             textBox1.Name = "textBox1";
             textBox1.PlaceholderText = "Наименование льготы";
             textBox1.Size = new Size(265, 29);
@@ -50,7 +53,7 @@
             // 
             // textBox2
             // 
-            textBox2.Location = new Point(12, 47);
+            textBox2.Location = new Point(11, 110);
             textBox2.Name = "textBox2";
             textBox2.PlaceholderText = "Номер документа";
             textBox2.Size = new Size(265, 29);
@@ -58,7 +61,7 @@
             // 
             // textBox3
             // 
-            textBox3.Location = new Point(12, 162);
+            textBox3.Location = new Point(12, 240);
             textBox3.Name = "textBox3";
             textBox3.PlaceholderText = "Основание";
             textBox3.Size = new Size(265, 29);
@@ -66,7 +69,7 @@
             // 
             // dateTimePicker1
             // 
-            dateTimePicker1.Location = new Point(12, 117);
+            dateTimePicker1.Location = new Point(11, 181);
             dateTimePicker1.Name = "dateTimePicker1";
             dateTimePicker1.Size = new Size(265, 29);
             dateTimePicker1.TabIndex = 3;
@@ -75,7 +78,7 @@
             // 
             label1.AutoSize = true;
             label1.BorderStyle = BorderStyle.Fixed3D;
-            label1.Location = new Point(14, 86);
+            label1.Location = new Point(12, 147);
             label1.Margin = new Padding(5);
             label1.Name = "label1";
             label1.Size = new Size(135, 23);
@@ -90,7 +93,7 @@
             tableLayoutPanel1.Controls.Add(button1, 1, 0);
             tableLayoutPanel1.Controls.Add(button2, 0, 0);
             tableLayoutPanel1.Dock = DockStyle.Bottom;
-            tableLayoutPanel1.Location = new Point(0, 195);
+            tableLayoutPanel1.Location = new Point(0, 278);
             tableLayoutPanel1.Margin = new Padding(5, 6, 5, 6);
             tableLayoutPanel1.Name = "tableLayoutPanel1";
             tableLayoutPanel1.RowCount = 1;
@@ -129,12 +132,42 @@
             button2.UseVisualStyleBackColor = false;
             button2.Click += button2_Click;
             // 
+            // label2
+            // 
+            label2.AutoSize = true;
+            label2.Location = new Point(12, 9);
+            label2.Name = "label2";
+            label2.Size = new Size(188, 21);
+            label2.TabIndex = 21;
+            label2.Text = "Наименование льготы*";
+            // 
+            // label3
+            // 
+            label3.AutoSize = true;
+            label3.Location = new Point(11, 86);
+            label3.Name = "label3";
+            label3.Size = new Size(216, 21);
+            label3.TabIndex = 22;
+            label3.Text = "Наименование документа*";
+            // 
+            // label4
+            // 
+            label4.AutoSize = true;
+            label4.Location = new Point(12, 213);
+            label4.Name = "label4";
+            label4.Size = new Size(94, 21);
+            label4.TabIndex = 23;
+            label4.Text = "Основание";
+            // 
             // Benefit
             // 
             AutoScaleDimensions = new SizeF(9F, 21F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(43, 64, 80);
-            ClientSize = new Size(288, 251);
+            ClientSize = new Size(288, 334);
+            Controls.Add(label4);
+            Controls.Add(label3);
+            Controls.Add(label2);
             Controls.Add(tableLayoutPanel1);
             Controls.Add(label1);
             Controls.Add(dateTimePicker1);
@@ -145,7 +178,7 @@
             ForeColor = Color.White;
             FormBorderStyle = FormBorderStyle.Fixed3D;
             Icon = (Icon)resources.GetObject("$this.Icon");
-            Margin = new Padding(4, 4, 4, 4);
+            Margin = new Padding(4);
             MaximizeBox = false;
             Name = "Benefit";
             StartPosition = FormStartPosition.CenterScreen;
@@ -165,5 +198,8 @@
         private TableLayoutPanel tableLayoutPanel1;
         private Button button1;
         private Button button2;
+        private Label label2;
+        private Label label3;
+        private Label label4;
     }
 }
