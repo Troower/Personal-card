@@ -47,7 +47,7 @@
             tableLayoutPanel1.Controls.Add(button1, 1, 0);
             tableLayoutPanel1.Controls.Add(button2, 0, 0);
             tableLayoutPanel1.Dock = DockStyle.Bottom;
-            tableLayoutPanel1.Location = new Point(0, 161);
+            tableLayoutPanel1.Location = new Point(0, 153);
             tableLayoutPanel1.Margin = new Padding(6, 8, 6, 8);
             tableLayoutPanel1.Name = "tableLayoutPanel1";
             tableLayoutPanel1.RowCount = 1;
@@ -88,7 +88,7 @@
             // textBox2
             // 
             textBox2.Location = new Point(15, 54);
-            textBox2.Margin = new Padding(4, 4, 4, 4);
+            textBox2.Margin = new Padding(4);
             textBox2.Name = "textBox2";
             textBox2.PlaceholderText = "Фио";
             textBox2.Size = new Size(256, 29);
@@ -97,7 +97,7 @@
             // dateTimePicker1
             // 
             dateTimePicker1.Location = new Point(15, 114);
-            dateTimePicker1.Margin = new Padding(4, 4, 4, 4);
+            dateTimePicker1.Margin = new Padding(4);
             dateTimePicker1.Name = "dateTimePicker1";
             dateTimePicker1.Size = new Size(256, 29);
             dateTimePicker1.TabIndex = 5;
@@ -106,7 +106,7 @@
             // 
             comboBox1.FormattingEnabled = true;
             comboBox1.Location = new Point(15, 17);
-            comboBox1.Margin = new Padding(4, 4, 4, 4);
+            comboBox1.Margin = new Padding(4);
             comboBox1.Name = "comboBox1";
             comboBox1.Size = new Size(256, 29);
             comboBox1.TabIndex = 6;
@@ -128,7 +128,7 @@
             AutoScaleDimensions = new SizeF(9F, 21F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(43, 64, 80);
-            ClientSize = new Size(298, 227);
+            ClientSize = new Size(298, 219);
             Controls.Add(label1);
             Controls.Add(comboBox1);
             Controls.Add(dateTimePicker1);
@@ -138,7 +138,7 @@
             ForeColor = Color.White;
             FormBorderStyle = FormBorderStyle.Fixed3D;
             Icon = (Icon)resources.GetObject("$this.Icon");
-            Margin = new Padding(4, 4, 4, 4);
+            Margin = new Padding(4);
             MaximizeBox = false;
             Name = "Family";
             StartPosition = FormStartPosition.CenterScreen;

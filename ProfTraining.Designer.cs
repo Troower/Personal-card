@@ -42,6 +42,10 @@
             tableLayoutPanel1 = new TableLayoutPanel();
             button1 = new Button();
             button2 = new Button();
+            label4 = new Label();
+            label5 = new Label();
+            label6 = new Label();
+            label7 = new Label();
             tableLayoutPanel1.SuspendLayout();
             SuspendLayout();
             // 
@@ -71,7 +75,7 @@
             // 
             label3.AutoSize = true;
             label3.BorderStyle = BorderStyle.Fixed3D;
-            label3.Location = new Point(12, 199);
+            label3.Location = new Point(13, 306);
             label3.Margin = new Padding(5);
             label3.Name = "label3";
             label3.Size = new Size(135, 23);
@@ -94,41 +98,41 @@
             // 
             // dateTimePicker3
             // 
-            dateTimePicker3.Location = new Point(12, 230);
+            dateTimePicker3.Location = new Point(12, 337);
             dateTimePicker3.Name = "dateTimePicker3";
             dateTimePicker3.Size = new Size(200, 29);
             dateTimePicker3.TabIndex = 12;
             // 
             // textBox1
             // 
-            textBox1.Location = new Point(12, 92);
+            textBox1.Location = new Point(12, 115);
             textBox1.Name = "textBox1";
             textBox1.PlaceholderText = "Специальность";
-            textBox1.Size = new Size(431, 29);
+            textBox1.Size = new Size(486, 29);
             textBox1.TabIndex = 13;
             // 
             // textBox2
             // 
-            textBox2.Location = new Point(12, 127);
+            textBox2.Location = new Point(12, 192);
             textBox2.Name = "textBox2";
             textBox2.PlaceholderText = "Наименование документа";
-            textBox2.Size = new Size(431, 29);
+            textBox2.Size = new Size(486, 29);
             textBox2.TabIndex = 14;
             // 
             // textBox3
             // 
-            textBox3.Location = new Point(12, 162);
+            textBox3.Location = new Point(12, 269);
             textBox3.Name = "textBox3";
             textBox3.PlaceholderText = "Номер документа";
-            textBox3.Size = new Size(431, 29);
+            textBox3.Size = new Size(486, 29);
             textBox3.TabIndex = 15;
             // 
             // textBox4
             // 
-            textBox4.Location = new Point(12, 265);
+            textBox4.Location = new Point(12, 400);
             textBox4.Name = "textBox4";
             textBox4.PlaceholderText = "Основание";
-            textBox4.Size = new Size(431, 29);
+            textBox4.Size = new Size(486, 29);
             textBox4.TabIndex = 16;
             // 
             // tableLayoutPanel1
@@ -139,12 +143,12 @@
             tableLayoutPanel1.Controls.Add(button1, 1, 0);
             tableLayoutPanel1.Controls.Add(button2, 0, 0);
             tableLayoutPanel1.Dock = DockStyle.Bottom;
-            tableLayoutPanel1.Location = new Point(0, 294);
+            tableLayoutPanel1.Location = new Point(0, 438);
             tableLayoutPanel1.Margin = new Padding(5, 6, 5, 6);
             tableLayoutPanel1.Name = "tableLayoutPanel1";
             tableLayoutPanel1.RowCount = 1;
             tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 50F));
-            tableLayoutPanel1.Size = new Size(453, 56);
+            tableLayoutPanel1.Size = new Size(510, 56);
             tableLayoutPanel1.TabIndex = 17;
             // 
             // button1
@@ -154,10 +158,10 @@
             button1.BackgroundImageLayout = ImageLayout.Stretch;
             button1.Dock = DockStyle.Fill;
             button1.ForeColor = Color.White;
-            button1.Location = new Point(231, 8);
+            button1.Location = new Point(260, 8);
             button1.Margin = new Padding(5, 8, 5, 8);
             button1.Name = "button1";
-            button1.Size = new Size(217, 40);
+            button1.Size = new Size(245, 40);
             button1.TabIndex = 5;
             button1.Text = "Редактировать";
             button1.UseVisualStyleBackColor = false;
@@ -172,18 +176,58 @@
             button2.Location = new Point(5, 8);
             button2.Margin = new Padding(5, 8, 5, 8);
             button2.Name = "button2";
-            button2.Size = new Size(216, 40);
+            button2.Size = new Size(245, 40);
             button2.TabIndex = 4;
             button2.Text = "Отмена";
             button2.UseVisualStyleBackColor = false;
             button2.Click += button2_Click;
+            // 
+            // label4
+            // 
+            label4.AutoSize = true;
+            label4.Location = new Point(12, 91);
+            label4.Name = "label4";
+            label4.Size = new Size(136, 21);
+            label4.TabIndex = 18;
+            label4.Text = "Специальность*:";
+            // 
+            // label5
+            // 
+            label5.AutoSize = true;
+            label5.Location = new Point(12, 168);
+            label5.Name = "label5";
+            label5.Size = new Size(220, 21);
+            label5.TabIndex = 19;
+            label5.Text = "Наименование документа*:";
+            // 
+            // label6
+            // 
+            label6.AutoSize = true;
+            label6.Location = new Point(12, 245);
+            label6.Name = "label6";
+            label6.Size = new Size(158, 21);
+            label6.TabIndex = 20;
+            label6.Text = "Номер документа*:";
+            // 
+            // label7
+            // 
+            label7.AutoSize = true;
+            label7.Location = new Point(13, 376);
+            label7.Name = "label7";
+            label7.Size = new Size(105, 21);
+            label7.TabIndex = 21;
+            label7.Text = "Основание*:";
             // 
             // ProfTraining
             // 
             AutoScaleDimensions = new SizeF(9F, 21F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(43, 64, 80);
-            ClientSize = new Size(453, 350);
+            ClientSize = new Size(510, 494);
+            Controls.Add(label7);
+            Controls.Add(label6);
+            Controls.Add(label5);
+            Controls.Add(label4);
             Controls.Add(tableLayoutPanel1);
             Controls.Add(textBox4);
             Controls.Add(textBox3);
@@ -224,5 +268,9 @@
         private TableLayoutPanel tableLayoutPanel1;
         private Button button1;
         private Button button2;
+        private Label label4;
+        private Label label5;
+        private Label label6;
+        private Label label7;
     }
 }

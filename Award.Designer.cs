@@ -37,12 +37,15 @@
             tableLayoutPanel1 = new TableLayoutPanel();
             button1 = new Button();
             button2 = new Button();
+            label1 = new Label();
+            label2 = new Label();
+            label4 = new Label();
             tableLayoutPanel1.SuspendLayout();
             SuspendLayout();
             // 
             // textBox1
             // 
-            textBox1.Location = new Point(12, 12);
+            textBox1.Location = new Point(12, 33);
             textBox1.Name = "textBox1";
             textBox1.PlaceholderText = "Наименование награды";
             textBox1.Size = new Size(340, 29);
@@ -50,7 +53,7 @@
             // 
             // textBox2
             // 
-            textBox2.Location = new Point(12, 47);
+            textBox2.Location = new Point(12, 107);
             textBox2.Name = "textBox2";
             textBox2.PlaceholderText = "Наименование документа";
             textBox2.Size = new Size(340, 29);
@@ -58,7 +61,7 @@
             // 
             // textBox3
             // 
-            textBox3.Location = new Point(12, 82);
+            textBox3.Location = new Point(12, 178);
             textBox3.Name = "textBox3";
             textBox3.PlaceholderText = "Номер документа";
             textBox3.Size = new Size(340, 29);
@@ -66,7 +69,7 @@
             // 
             // dateTimePicker1
             // 
-            dateTimePicker1.Location = new Point(12, 159);
+            dateTimePicker1.Location = new Point(12, 255);
             dateTimePicker1.Name = "dateTimePicker1";
             dateTimePicker1.Size = new Size(340, 29);
             dateTimePicker1.TabIndex = 3;
@@ -75,7 +78,7 @@
             // 
             label3.AutoSize = true;
             label3.BorderStyle = BorderStyle.Fixed3D;
-            label3.Location = new Point(12, 128);
+            label3.Location = new Point(12, 224);
             label3.Margin = new Padding(5);
             label3.Name = "label3";
             label3.Size = new Size(135, 23);
@@ -90,7 +93,7 @@
             tableLayoutPanel1.Controls.Add(button1, 1, 0);
             tableLayoutPanel1.Controls.Add(button2, 0, 0);
             tableLayoutPanel1.Dock = DockStyle.Bottom;
-            tableLayoutPanel1.Location = new Point(0, 200);
+            tableLayoutPanel1.Location = new Point(0, 293);
             tableLayoutPanel1.Margin = new Padding(5, 6, 5, 6);
             tableLayoutPanel1.Name = "tableLayoutPanel1";
             tableLayoutPanel1.RowCount = 1;
@@ -129,12 +132,42 @@
             button2.UseVisualStyleBackColor = false;
             button2.Click += button2_Click;
             // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.Location = new Point(12, 154);
+            label1.Name = "label1";
+            label1.Size = new Size(125, 21);
+            label1.TabIndex = 19;
+            label1.Text = "Номер док-та*:";
+            // 
+            // label2
+            // 
+            label2.AutoSize = true;
+            label2.Location = new Point(12, 83);
+            label2.Name = "label2";
+            label2.Size = new Size(187, 21);
+            label2.TabIndex = 20;
+            label2.Text = "Наименование док-та*:";
+            // 
+            // label4
+            // 
+            label4.AutoSize = true;
+            label4.Location = new Point(12, 9);
+            label4.Name = "label4";
+            label4.Size = new Size(202, 21);
+            label4.TabIndex = 21;
+            label4.Text = "Наименование награды*:";
+            // 
             // Award
             // 
             AutoScaleDimensions = new SizeF(9F, 21F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(43, 64, 80);
-            ClientSize = new Size(364, 256);
+            ClientSize = new Size(364, 349);
+            Controls.Add(label4);
+            Controls.Add(label2);
+            Controls.Add(label1);
             Controls.Add(tableLayoutPanel1);
             Controls.Add(label3);
             Controls.Add(dateTimePicker1);
@@ -165,5 +198,8 @@
         private TableLayoutPanel tableLayoutPanel1;
         private Button button1;
         private Button button2;
+        private Label label1;
+        private Label label2;
+        private Label label4;
     }
 }
