@@ -94,6 +94,10 @@
             Column1 = new DataGridViewTextBoxColumn();
             Column3 = new DataGridViewTextBoxColumn();
             Column4 = new DataGridViewTextBoxColumn();
+            contextMenuStrip1 = new ContextMenuStrip(components);
+            toolStripMenuItem2 = new ToolStripMenuItem();
+            toolStripMenuItem3 = new ToolStripMenuItem();
+            toolStripMenuItem4 = new ToolStripMenuItem();
             button4 = new Button();
             button3 = new Button();
             button2 = new Button();
@@ -274,6 +278,7 @@
             toolStrip1.SuspendLayout();
             groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
+            contextMenuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)splitContainer1).BeginInit();
             splitContainer1.Panel1.SuspendLayout();
             splitContainer1.Panel2.SuspendLayout();
@@ -544,7 +549,7 @@
             toolStripButton3.Name = "toolStripButton3";
             toolStripButton3.Size = new Size(64, 64);
             toolStripButton3.Text = "Редактировать сотрудника";
-            toolStripButton3.Click += button1_Click;
+            toolStripButton3.Click += toolStripButton1_Click;
             // 
             // toolStripButton2
             // 
@@ -687,6 +692,7 @@
             dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dataGridView1.Columns.AddRange(new DataGridViewColumn[] { Column2, Column1, Column3, Column4 });
+            dataGridView1.ContextMenuStrip = contextMenuStrip1;
             dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle2.BackColor = Color.Azure;
             dataGridViewCellStyle2.Font = new Font("Arial", 12F, FontStyle.Bold, GraphicsUnit.Point, 204);
@@ -740,6 +746,41 @@
             Column4.HeaderText = "Номер дела";
             Column4.Name = "Column4";
             Column4.ReadOnly = true;
+            // 
+            // contextMenuStrip1
+            // 
+            contextMenuStrip1.Items.AddRange(new ToolStripItem[] { toolStripMenuItem2, toolStripMenuItem3, toolStripMenuItem4 });
+            contextMenuStrip1.Name = "contextMenuStrip1";
+            contextMenuStrip1.Size = new Size(233, 70);
+            // 
+            // toolStripMenuItem2
+            // 
+            toolStripMenuItem2.BackgroundImage = Properties.Resources.Buttonphon;
+            toolStripMenuItem2.BackgroundImageLayout = ImageLayout.Stretch;
+            toolStripMenuItem2.ForeColor = Color.White;
+            toolStripMenuItem2.Name = "toolStripMenuItem2";
+            toolStripMenuItem2.Size = new Size(232, 22);
+            toolStripMenuItem2.Text = "Добавить пользователя";
+            toolStripMenuItem2.Click += toolStripButton1_Click;
+            // 
+            // toolStripMenuItem3
+            // 
+            toolStripMenuItem3.BackgroundImage = Properties.Resources.Buttonphon;
+            toolStripMenuItem3.BackgroundImageLayout = ImageLayout.Stretch;
+            toolStripMenuItem3.ForeColor = Color.White;
+            toolStripMenuItem3.Name = "toolStripMenuItem3";
+            toolStripMenuItem3.Size = new Size(232, 22);
+            toolStripMenuItem3.Text = "Редактировать пользователя";
+            toolStripMenuItem3.Click += toolStripButton1_Click;
+            // 
+            // toolStripMenuItem4
+            // 
+            toolStripMenuItem4.BackgroundImage = Properties.Resources.Buttonphon;
+            toolStripMenuItem4.BackgroundImageLayout = ImageLayout.Stretch;
+            toolStripMenuItem4.ForeColor = Color.White;
+            toolStripMenuItem4.Name = "toolStripMenuItem4";
+            toolStripMenuItem4.Size = new Size(232, 22);
+            toolStripMenuItem4.Text = "Удалить пользователя";
             // 
             // button4
             // 
@@ -3003,6 +3044,7 @@
             toolStrip1.PerformLayout();
             groupBox2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
+            contextMenuStrip1.ResumeLayout(false);
             splitContainer1.Panel1.ResumeLayout(false);
             splitContainer1.Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)splitContainer1).EndInit();
@@ -3300,5 +3342,9 @@
         private ToolStripMenuItem восстановленияToolStripMenuItem;
         private ToolStripMenuItem основнаяИнформацияToolStripMenuItem;
         private ToolStripMenuItem руководствоПользователяToolStripMenuItem;
+        private ContextMenuStrip contextMenuStrip1;
+        private ToolStripMenuItem toolStripMenuItem2;
+        private ToolStripMenuItem toolStripMenuItem3;
+        private ToolStripMenuItem toolStripMenuItem4;
     }
 }

@@ -248,7 +248,7 @@
             dateTimePicker1.Location = new Point(3, 206);
             dateTimePicker1.Name = "dateTimePicker1";
             dateTimePicker1.Size = new Size(200, 29);
-            dateTimePicker1.TabIndex = 8;
+            dateTimePicker1.TabIndex = 4;
             // 
             // label15
             // 
@@ -266,7 +266,7 @@
             textBox4.Name = "textBox4";
             textBox4.PlaceholderText = "Место рождения";
             textBox4.Size = new Size(249, 29);
-            textBox4.TabIndex = 4;
+            textBox4.TabIndex = 5;
             // 
             // label16
             // 
@@ -284,7 +284,7 @@
             textBox5.Name = "textBox5";
             textBox5.PlaceholderText = "Гражданство";
             textBox5.Size = new Size(249, 29);
-            textBox5.TabIndex = 5;
+            textBox5.TabIndex = 6;
             // 
             // comboBox1
             // 
@@ -305,7 +305,7 @@
             comboBox2.Margin = new Padding(3, 3, 3, 10);
             comboBox2.Name = "comboBox2";
             comboBox2.Size = new Size(250, 29);
-            comboBox2.TabIndex = 10;
+            comboBox2.TabIndex = 8;
             comboBox2.Text = "Характер работы*";
             // 
             // comboBox3
@@ -316,7 +316,7 @@
             comboBox3.Margin = new Padding(3, 3, 3, 10);
             comboBox3.Name = "comboBox3";
             comboBox3.Size = new Size(250, 29);
-            comboBox3.TabIndex = 11;
+            comboBox3.TabIndex = 9;
             comboBox3.Text = "Вид работы*";
             // 
             // comboBox5
@@ -327,7 +327,7 @@
             comboBox5.Margin = new Padding(3, 3, 3, 10);
             comboBox5.Name = "comboBox5";
             comboBox5.Size = new Size(250, 29);
-            comboBox5.TabIndex = 12;
+            comboBox5.TabIndex = 10;
             comboBox5.Text = "Состояние в браке*";
             // 
             // groupBox2
@@ -377,7 +377,7 @@
             textBox6.Name = "textBox6";
             textBox6.PlaceholderText = "Номер";
             textBox6.Size = new Size(257, 29);
-            textBox6.TabIndex = 0;
+            textBox6.TabIndex = 17;
             // 
             // label3
             // 
@@ -394,7 +394,7 @@
             textBox7.Name = "textBox7";
             textBox7.PlaceholderText = "Серия";
             textBox7.Size = new Size(257, 29);
-            textBox7.TabIndex = 1;
+            textBox7.TabIndex = 18;
             // 
             // label4
             // 
@@ -410,7 +410,7 @@
             dateTimePicker2.Location = new Point(3, 136);
             dateTimePicker2.Name = "dateTimePicker2";
             dateTimePicker2.Size = new Size(257, 29);
-            dateTimePicker2.TabIndex = 12;
+            dateTimePicker2.TabIndex = 19;
             // 
             // label5
             // 
@@ -428,7 +428,7 @@
             textBox9.Name = "textBox9";
             textBox9.PlaceholderText = "Выдан";
             textBox9.Size = new Size(257, 29);
-            textBox9.TabIndex = 3;
+            textBox9.TabIndex = 20;
             // 
             // label6
             // 
@@ -445,7 +445,7 @@
             textBox10.Name = "textBox10";
             textBox10.PlaceholderText = "ИНН";
             textBox10.Size = new Size(257, 29);
-            textBox10.TabIndex = 4;
+            textBox10.TabIndex = 21;
             // 
             // label7
             // 
@@ -462,7 +462,7 @@
             textBox11.Name = "textBox11";
             textBox11.PlaceholderText = "СНИЛС";
             textBox11.Size = new Size(257, 29);
-            textBox11.TabIndex = 5;
+            textBox11.TabIndex = 22;
             // 
             // groupBox10
             // 
@@ -517,7 +517,7 @@
             comboBox4.Margin = new Padding(3, 3, 3, 10);
             comboBox4.Name = "comboBox4";
             comboBox4.Size = new Size(253, 29);
-            comboBox4.TabIndex = 12;
+            comboBox4.TabIndex = 16;
             comboBox4.Text = "Степень знания";
             // 
             // button5
@@ -558,7 +558,7 @@
             textBox12.Name = "textBox12";
             textBox12.PlaceholderText = "Наименование языка";
             textBox12.Size = new Size(253, 29);
-            textBox12.TabIndex = 10;
+            textBox12.TabIndex = 15;
             // 
             // groupBox3
             // 
@@ -603,7 +603,7 @@
             textBox14.Name = "textBox14";
             textBox14.PlaceholderText = "По паспорту";
             textBox14.Size = new Size(468, 29);
-            textBox14.TabIndex = 0;
+            textBox14.TabIndex = 11;
             // 
             // label9
             // 
@@ -620,7 +620,7 @@
             textBox15.Name = "textBox15";
             textBox15.PlaceholderText = "Индекс по паспорту";
             textBox15.Size = new Size(188, 29);
-            textBox15.TabIndex = 1;
+            textBox15.TabIndex = 12;
             // 
             // label10
             // 
@@ -637,7 +637,7 @@
             textBox16.Name = "textBox16";
             textBox16.PlaceholderText = "Фактическое";
             textBox16.Size = new Size(468, 29);
-            textBox16.TabIndex = 2;
+            textBox16.TabIndex = 13;
             // 
             // label11
             // 
@@ -654,7 +654,7 @@
             textBox17.Name = "textBox17";
             textBox17.PlaceholderText = "Индекс фактического";
             textBox17.Size = new Size(177, 29);
-            textBox17.TabIndex = 3;
+            textBox17.TabIndex = 14;
             // 
             // button4
             // 
@@ -667,7 +667,7 @@
             button4.Name = "button4";
             button4.Size = new Size(523, 49);
             button4.TabIndex = 6;
-            button4.Text = "Редактировать";
+            button4.Text = "Выбрать секцию";
             button4.UseVisualStyleBackColor = false;
             button4.Click += button4_Click;
             // 
