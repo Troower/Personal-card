@@ -18,9 +18,8 @@ namespace PersonalCard
         {
 
             InitializeComponent();
-            string a = "";
-            foreach (string str in File.ReadAllLines(@"D:\IP-2b\Personal-card\config.ini")) a += str;
-            MessageBox.Show(a);
+            ConfigConnection cc=ConfigReader.ReadConfig();
+            MessageBox.Show(cc.Database+cc.Uid);
            
             
         }
