@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net.Security;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -12,6 +13,11 @@ namespace PersonalCard
         public string Database { get; set; }
         public string Password { get; set; }
         public string Uid {  get; set; }
+
+        public override string ToString()
+        {
+            return this.Server +this.Database+this.Uid+this.Password;
+        }
     }
     public class ConfigReader
     {
@@ -24,7 +30,7 @@ namespace PersonalCard
                 Server = str[0],
                 Database = str[1],
                 Uid = str[2],
-                Password = str[2]
+                Password = str[3]
             };
 
         }

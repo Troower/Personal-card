@@ -148,6 +148,7 @@
             Name = "Authorization";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Authorization";
+            Load += Authorization_Load;
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             tableLayoutPanel1.ResumeLayout(false);
             tableLayoutPanel1.PerformLayout();
