@@ -6,9 +6,7 @@ using System.Threading.Tasks;
 
 namespace PersonalCard
 {
-     internal class Person
+    internal class EditPerson
     {
-        
     }
-    
 }
