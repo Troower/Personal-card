@@ -57,11 +57,13 @@
             textBox2.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             textBox2.Location = new Point(47, 202);
             textBox2.Name = "textBox2";
-            textBox2.PasswordChar = '•';
             textBox2.PlaceholderText = "Введите пароль";
             textBox2.Size = new Size(171, 23);
             textBox2.TabIndex = 1;
             textBox2.TextAlign = HorizontalAlignment.Center;
+            textBox2.UseSystemPasswordChar = true;
+            textBox2.MouseEnter += textBox2_MouseEnter;
+            textBox2.MouseLeave += textBox2_MouseLeave;
             // 
             // button1
             // 

@@ -2,22 +2,14 @@ namespace PersonalCard
 {
     public partial class MainWindow : Form
     {
-        public MainWindow()
+        string connectionString;
+        public MainWindow(string connectionString)
         {
             InitializeComponent();
-            string[,] mas = new string[,] { { "Gtnh", "dasdas", "dasdasd" }, { "asdasdas", "dsadas", "asdas" }, { "asdasd", "asdasd", "asdada" } };
-            dataGridView1.Rows.Add(mas.GetLength(0));
-            for (int i = 0; i < mas.GetLength(0); i++)
-            {
-                for (int j = 0; j < mas.GetLength(1); j++)
-                {
-                    dataGridView1.Rows[i].Cells[j].Value = mas[i, j];
-                }
-            }
             toolStripStatusLabel3.Alignment = ToolStripItemAlignment.Right;
             toolStripStatusLabel2.Alignment = ToolStripItemAlignment.Right;
             toolStripButton5.Text = "Íàñòðîéêè ïîèñêà è\n ãîòîâûå ñïèñêè";
-
+            this.connectionString = connectionString;
         }
 
         private void çàêðûòüToolStripMenuItem_Click(object sender, EventArgs e)
