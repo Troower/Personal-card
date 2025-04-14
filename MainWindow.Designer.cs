@@ -90,6 +90,7 @@
             button1 = new Button();
             groupBox2 = new GroupBox();
             dataGridView1 = new DataGridView();
+            Column14 = new DataGridViewTextBoxColumn();
             Column2 = new DataGridViewTextBoxColumn();
             Column1 = new DataGridViewTextBoxColumn();
             Column3 = new DataGridViewTextBoxColumn();
@@ -118,28 +119,56 @@
             tabControl2 = new TabControl();
             tabPage3 = new TabPage();
             splitContainer2 = new SplitContainer();
-            flowLayoutPanel1 = new FlowLayoutPanel();
-            label1 = new Label();
-            label2 = new Label();
-            label3 = new Label();
-            label4 = new Label();
-            label5 = new Label();
-            label6 = new Label();
-            label16 = new Label();
-            label7 = new Label();
-            label14 = new Label();
             groupBox10 = new GroupBox();
             flowLayoutPanel7 = new FlowLayoutPanel();
-            label41 = new Label();
+            panel13 = new Panel();
+            label14 = new Label();
+            label52 = new Label();
+            panel12 = new Panel();
+            label7 = new Label();
+            label51 = new Label();
+            panel11 = new Panel();
+            label50 = new Label();
+            label16 = new Label();
+            panel10 = new Panel();
+            label5 = new Label();
+            label48 = new Label();
+            panel8 = new Panel();
+            panel9 = new Panel();
+            label6 = new Label();
+            label49 = new Label();
+            panel7 = new Panel();
+            label47 = new Label();
+            label4 = new Label();
+            panel6 = new Panel();
+            label3 = new Label();
+            label46 = new Label();
+            panel5 = new Panel();
+            label45 = new Label();
+            label2 = new Label();
+            panel4 = new Panel();
+            label1 = new Label();
+            label44 = new Label();
             splitContainer4 = new SplitContainer();
             groupBox7 = new GroupBox();
-            flowLayoutPanel3 = new FlowLayoutPanel();
-            label8 = new Label();
-            label9 = new Label();
-            label10 = new Label();
-            label11 = new Label();
-            label12 = new Label();
+            panel19 = new Panel();
+            label58 = new Label();
             label13 = new Label();
+            panel18 = new Panel();
+            label57 = new Label();
+            label12 = new Label();
+            panel17 = new Panel();
+            label56 = new Label();
+            label11 = new Label();
+            panel16 = new Panel();
+            label55 = new Label();
+            label10 = new Label();
+            panel15 = new Panel();
+            label54 = new Label();
+            label9 = new Label();
+            panel14 = new Panel();
+            label53 = new Label();
+            label8 = new Label();
             groupBox8 = new GroupBox();
             panel3 = new Panel();
             label19 = new Label();
@@ -297,15 +326,28 @@
             splitContainer2.Panel1.SuspendLayout();
             splitContainer2.Panel2.SuspendLayout();
             splitContainer2.SuspendLayout();
-            flowLayoutPanel1.SuspendLayout();
             groupBox10.SuspendLayout();
-            flowLayoutPanel7.SuspendLayout();
+            panel13.SuspendLayout();
+            panel12.SuspendLayout();
+            panel11.SuspendLayout();
+            panel10.SuspendLayout();
+            panel8.SuspendLayout();
+            panel9.SuspendLayout();
+            panel7.SuspendLayout();
+            panel6.SuspendLayout();
+            panel5.SuspendLayout();
+            panel4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)splitContainer4).BeginInit();
             splitContainer4.Panel1.SuspendLayout();
             splitContainer4.Panel2.SuspendLayout();
             splitContainer4.SuspendLayout();
             groupBox7.SuspendLayout();
-            flowLayoutPanel3.SuspendLayout();
+            panel19.SuspendLayout();
+            panel18.SuspendLayout();
+            panel17.SuspendLayout();
+            panel16.SuspendLayout();
+            panel15.SuspendLayout();
+            panel14.SuspendLayout();
             groupBox8.SuspendLayout();
             panel3.SuspendLayout();
             panel2.SuspendLayout();
@@ -591,7 +633,7 @@
             toolStripLabel1.Alignment = ToolStripItemAlignment.Right;
             toolStripLabel1.ForeColor = Color.White;
             toolStripLabel1.Name = "toolStripLabel1";
-            toolStripLabel1.Size = new Size(113, 64);
+            toolStripLabel1.Size = new Size(112, 64);
             toolStripLabel1.Text = "Поиск личных дел:";
             // 
             // toolStripLabel2
@@ -691,7 +733,7 @@
             dataGridViewCellStyle1.WrapMode = DataGridViewTriState.True;
             dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView1.Columns.AddRange(new DataGridViewColumn[] { Column2, Column1, Column3, Column4 });
+            dataGridView1.Columns.AddRange(new DataGridViewColumn[] { Column14, Column2, Column1, Column3, Column4 });
             dataGridView1.ContextMenuStrip = contextMenuStrip1;
             dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle2.BackColor = Color.Azure;
@@ -722,6 +764,14 @@
             dataGridView1.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dataGridView1.Size = new Size(280, 544);
             dataGridView1.TabIndex = 2;
+            dataGridView1.SelectionChanged += dataGridView1_SelectionChanged;
+            // 
+            // Column14
+            // 
+            Column14.HeaderText = "Id";
+            Column14.Name = "Column14";
+            Column14.ReadOnly = true;
+            Column14.Visible = false;
             // 
             // Column2
             // 
@@ -1061,165 +1111,370 @@
             // 
             // splitContainer2.Panel1
             // 
-            splitContainer2.Panel1.Controls.Add(flowLayoutPanel1);
+            splitContainer2.Panel1.Controls.Add(groupBox10);
+            splitContainer2.Panel1.Controls.Add(panel13);
+            splitContainer2.Panel1.Controls.Add(panel12);
+            splitContainer2.Panel1.Controls.Add(panel11);
+            splitContainer2.Panel1.Controls.Add(panel10);
+            splitContainer2.Panel1.Controls.Add(panel8);
+            splitContainer2.Panel1.Controls.Add(panel7);
+            splitContainer2.Panel1.Controls.Add(panel6);
+            splitContainer2.Panel1.Controls.Add(panel5);
+            splitContainer2.Panel1.Controls.Add(panel4);
             // 
             // splitContainer2.Panel2
             // 
             splitContainer2.Panel2.Controls.Add(splitContainer4);
             splitContainer2.Size = new Size(997, 462);
-            splitContainer2.SplitterDistance = 321;
+            splitContainer2.SplitterDistance = 456;
             splitContainer2.TabIndex = 0;
-            // 
-            // flowLayoutPanel1
-            // 
-            flowLayoutPanel1.Controls.Add(label1);
-            flowLayoutPanel1.Controls.Add(label2);
-            flowLayoutPanel1.Controls.Add(label3);
-            flowLayoutPanel1.Controls.Add(label4);
-            flowLayoutPanel1.Controls.Add(label5);
-            flowLayoutPanel1.Controls.Add(label6);
-            flowLayoutPanel1.Controls.Add(label16);
-            flowLayoutPanel1.Controls.Add(label7);
-            flowLayoutPanel1.Controls.Add(label14);
-            flowLayoutPanel1.Controls.Add(groupBox10);
-            flowLayoutPanel1.Dock = DockStyle.Fill;
-            flowLayoutPanel1.FlowDirection = FlowDirection.TopDown;
-            flowLayoutPanel1.Location = new Point(0, 0);
-            flowLayoutPanel1.Margin = new Padding(3, 4, 3, 4);
-            flowLayoutPanel1.Name = "flowLayoutPanel1";
-            flowLayoutPanel1.Size = new Size(321, 462);
-            flowLayoutPanel1.TabIndex = 0;
-            // 
-            // label1
-            // 
-            label1.AutoSize = true;
-            label1.BorderStyle = BorderStyle.Fixed3D;
-            label1.Location = new Point(5, 5);
-            label1.Margin = new Padding(5);
-            label1.Name = "label1";
-            label1.Size = new Size(84, 21);
-            label1.TabIndex = 0;
-            label1.Text = "Фамилия";
-            // 
-            // label2
-            // 
-            label2.AutoSize = true;
-            label2.BorderStyle = BorderStyle.Fixed3D;
-            label2.Location = new Point(5, 36);
-            label2.Margin = new Padding(5);
-            label2.Name = "label2";
-            label2.Size = new Size(43, 21);
-            label2.TabIndex = 1;
-            label2.Text = "Имя";
-            // 
-            // label3
-            // 
-            label3.AutoSize = true;
-            label3.BorderStyle = BorderStyle.Fixed3D;
-            label3.Location = new Point(5, 67);
-            label3.Margin = new Padding(5);
-            label3.Name = "label3";
-            label3.Size = new Size(86, 21);
-            label3.TabIndex = 2;
-            label3.Text = "Отчество";
-            // 
-            // label4
-            // 
-            label4.AutoSize = true;
-            label4.BorderStyle = BorderStyle.Fixed3D;
-            label4.Location = new Point(5, 98);
-            label4.Margin = new Padding(5);
-            label4.Name = "label4";
-            label4.Size = new Size(132, 21);
-            label4.TabIndex = 3;
-            label4.Text = "Дата рождения";
-            // 
-            // label5
-            // 
-            label5.AutoSize = true;
-            label5.BorderStyle = BorderStyle.Fixed3D;
-            label5.Location = new Point(5, 129);
-            label5.Margin = new Padding(5);
-            label5.Name = "label5";
-            label5.Size = new Size(144, 21);
-            label5.TabIndex = 4;
-            label5.Text = "Место рождения";
-            // 
-            // label6
-            // 
-            label6.AutoSize = true;
-            label6.BorderStyle = BorderStyle.Fixed3D;
-            label6.Location = new Point(5, 160);
-            label6.Margin = new Padding(5);
-            label6.Name = "label6";
-            label6.Size = new Size(116, 21);
-            label6.TabIndex = 5;
-            label6.Text = "Гражданство";
-            // 
-            // label16
-            // 
-            label16.AutoSize = true;
-            label16.BorderStyle = BorderStyle.Fixed3D;
-            label16.Location = new Point(5, 191);
-            label16.Margin = new Padding(5);
-            label16.Name = "label16";
-            label16.Size = new Size(43, 21);
-            label16.TabIndex = 9;
-            label16.Text = "Пол";
-            // 
-            // label7
-            // 
-            label7.AutoSize = true;
-            label7.BorderStyle = BorderStyle.Fixed3D;
-            label7.Location = new Point(5, 222);
-            label7.Margin = new Padding(5);
-            label7.Name = "label7";
-            label7.Size = new Size(150, 21);
-            label7.TabIndex = 6;
-            label7.Text = "Характер работы";
-            // 
-            // label14
-            // 
-            label14.AutoSize = true;
-            label14.BorderStyle = BorderStyle.Fixed3D;
-            label14.Location = new Point(5, 253);
-            label14.Margin = new Padding(5);
-            label14.Name = "label14";
-            label14.Size = new Size(108, 21);
-            label14.TabIndex = 7;
-            label14.Text = "Вид работы";
             // 
             // groupBox10
             // 
-            groupBox10.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             groupBox10.Controls.Add(flowLayoutPanel7);
+            groupBox10.Dock = DockStyle.Top;
             groupBox10.ForeColor = Color.White;
-            groupBox10.Location = new Point(3, 282);
+            groupBox10.Location = new Point(0, 279);
             groupBox10.Name = "groupBox10";
-            groupBox10.Size = new Size(154, 131);
+            groupBox10.Size = new Size(456, 180);
             groupBox10.TabIndex = 11;
             groupBox10.TabStop = false;
             groupBox10.Text = "Язык";
             // 
             // flowLayoutPanel7
             // 
-            flowLayoutPanel7.Controls.Add(label41);
             flowLayoutPanel7.Dock = DockStyle.Fill;
             flowLayoutPanel7.Location = new Point(3, 22);
             flowLayoutPanel7.Name = "flowLayoutPanel7";
-            flowLayoutPanel7.Size = new Size(148, 106);
+            flowLayoutPanel7.Size = new Size(450, 155);
             flowLayoutPanel7.TabIndex = 0;
             // 
-            // label41
+            // panel13
             // 
-            label41.AutoSize = true;
-            label41.BorderStyle = BorderStyle.Fixed3D;
-            label41.Location = new Point(5, 5);
-            label41.Margin = new Padding(5);
-            label41.Name = "label41";
-            label41.Size = new Size(131, 21);
-            label41.TabIndex = 10;
-            label41.Text = "Английский B2";
+            panel13.BorderStyle = BorderStyle.FixedSingle;
+            panel13.Controls.Add(label14);
+            panel13.Controls.Add(label52);
+            panel13.Dock = DockStyle.Top;
+            panel13.Location = new Point(0, 248);
+            panel13.Name = "panel13";
+            panel13.Size = new Size(456, 31);
+            panel13.TabIndex = 20;
+            // 
+            // label14
+            // 
+            label14.AutoSize = true;
+            label14.Dock = DockStyle.Left;
+            label14.Location = new Point(0, 0);
+            label14.Margin = new Padding(5);
+            label14.Name = "label14";
+            label14.Size = new Size(106, 19);
+            label14.TabIndex = 7;
+            label14.Text = "Вид работы";
+            // 
+            // label52
+            // 
+            label52.AutoSize = true;
+            label52.BackColor = Color.FromArgb(45, 50, 80);
+            label52.BorderStyle = BorderStyle.Fixed3D;
+            label52.Dock = DockStyle.Right;
+            label52.Location = new Point(346, 0);
+            label52.Margin = new Padding(5);
+            label52.Name = "label52";
+            label52.Size = new Size(108, 21);
+            label52.TabIndex = 7;
+            label52.Text = "Вид работы";
+            // 
+            // panel12
+            // 
+            panel12.BorderStyle = BorderStyle.FixedSingle;
+            panel12.Controls.Add(label7);
+            panel12.Controls.Add(label51);
+            panel12.Dock = DockStyle.Top;
+            panel12.Location = new Point(0, 217);
+            panel12.Name = "panel12";
+            panel12.Size = new Size(456, 31);
+            panel12.TabIndex = 19;
+            // 
+            // label7
+            // 
+            label7.AutoSize = true;
+            label7.Dock = DockStyle.Left;
+            label7.Location = new Point(0, 0);
+            label7.Margin = new Padding(5);
+            label7.Name = "label7";
+            label7.Size = new Size(148, 19);
+            label7.TabIndex = 6;
+            label7.Text = "Характер работы";
+            // 
+            // label51
+            // 
+            label51.AutoSize = true;
+            label51.BackColor = Color.FromArgb(45, 50, 80);
+            label51.BorderStyle = BorderStyle.Fixed3D;
+            label51.Dock = DockStyle.Right;
+            label51.Location = new Point(304, 0);
+            label51.Margin = new Padding(5);
+            label51.Name = "label51";
+            label51.RightToLeft = RightToLeft.No;
+            label51.Size = new Size(150, 21);
+            label51.TabIndex = 6;
+            label51.Text = "Характер работы";
+            label51.TextAlign = ContentAlignment.MiddleCenter;
+            // 
+            // panel11
+            // 
+            panel11.BorderStyle = BorderStyle.FixedSingle;
+            panel11.Controls.Add(label50);
+            panel11.Controls.Add(label16);
+            panel11.Dock = DockStyle.Top;
+            panel11.Location = new Point(0, 186);
+            panel11.Name = "panel11";
+            panel11.Size = new Size(456, 31);
+            panel11.TabIndex = 18;
+            // 
+            // label50
+            // 
+            label50.AutoSize = true;
+            label50.BackColor = Color.FromArgb(45, 50, 80);
+            label50.BorderStyle = BorderStyle.Fixed3D;
+            label50.Dock = DockStyle.Right;
+            label50.Location = new Point(411, 0);
+            label50.Margin = new Padding(5);
+            label50.Name = "label50";
+            label50.Size = new Size(43, 21);
+            label50.TabIndex = 9;
+            label50.Text = "Пол";
+            // 
+            // label16
+            // 
+            label16.AutoSize = true;
+            label16.Dock = DockStyle.Left;
+            label16.Location = new Point(0, 0);
+            label16.Margin = new Padding(5);
+            label16.Name = "label16";
+            label16.Size = new Size(41, 19);
+            label16.TabIndex = 9;
+            label16.Text = "Пол";
+            // 
+            // panel10
+            // 
+            panel10.BorderStyle = BorderStyle.FixedSingle;
+            panel10.Controls.Add(label5);
+            panel10.Controls.Add(label48);
+            panel10.Dock = DockStyle.Top;
+            panel10.Location = new Point(0, 155);
+            panel10.Name = "panel10";
+            panel10.Size = new Size(456, 31);
+            panel10.TabIndex = 17;
+            // 
+            // label5
+            // 
+            label5.AutoSize = true;
+            label5.Dock = DockStyle.Left;
+            label5.Location = new Point(0, 0);
+            label5.Margin = new Padding(5);
+            label5.Name = "label5";
+            label5.Size = new Size(142, 19);
+            label5.TabIndex = 4;
+            label5.Text = "Место рождения";
+            // 
+            // label48
+            // 
+            label48.AutoSize = true;
+            label48.BackColor = Color.FromArgb(45, 50, 80);
+            label48.BorderStyle = BorderStyle.Fixed3D;
+            label48.Dock = DockStyle.Right;
+            label48.Location = new Point(310, 0);
+            label48.Margin = new Padding(5);
+            label48.Name = "label48";
+            label48.Size = new Size(144, 21);
+            label48.TabIndex = 4;
+            label48.Text = "Место рождения";
+            // 
+            // panel8
+            // 
+            panel8.Controls.Add(panel9);
+            panel8.Dock = DockStyle.Top;
+            panel8.Location = new Point(0, 124);
+            panel8.Name = "panel8";
+            panel8.Size = new Size(456, 31);
+            panel8.TabIndex = 16;
+            // 
+            // panel9
+            // 
+            panel9.BorderStyle = BorderStyle.FixedSingle;
+            panel9.Controls.Add(label6);
+            panel9.Controls.Add(label49);
+            panel9.Dock = DockStyle.Top;
+            panel9.Location = new Point(0, 0);
+            panel9.Name = "panel9";
+            panel9.Size = new Size(456, 31);
+            panel9.TabIndex = 16;
+            // 
+            // label6
+            // 
+            label6.AutoSize = true;
+            label6.Dock = DockStyle.Left;
+            label6.Location = new Point(0, 0);
+            label6.Margin = new Padding(5);
+            label6.Name = "label6";
+            label6.Size = new Size(114, 19);
+            label6.TabIndex = 5;
+            label6.Text = "Гражданство";
+            // 
+            // label49
+            // 
+            label49.AutoSize = true;
+            label49.BackColor = Color.FromArgb(45, 50, 80);
+            label49.BorderStyle = BorderStyle.Fixed3D;
+            label49.Dock = DockStyle.Right;
+            label49.Location = new Point(338, 0);
+            label49.Margin = new Padding(5);
+            label49.Name = "label49";
+            label49.Size = new Size(116, 21);
+            label49.TabIndex = 5;
+            label49.Text = "Гражданство";
+            // 
+            // panel7
+            // 
+            panel7.BorderStyle = BorderStyle.FixedSingle;
+            panel7.Controls.Add(label47);
+            panel7.Controls.Add(label4);
+            panel7.Dock = DockStyle.Top;
+            panel7.Location = new Point(0, 93);
+            panel7.Name = "panel7";
+            panel7.Size = new Size(456, 31);
+            panel7.TabIndex = 15;
+            // 
+            // label47
+            // 
+            label47.AutoSize = true;
+            label47.BackColor = Color.FromArgb(45, 50, 80);
+            label47.BorderStyle = BorderStyle.Fixed3D;
+            label47.Dock = DockStyle.Right;
+            label47.Location = new Point(322, 0);
+            label47.Margin = new Padding(5);
+            label47.Name = "label47";
+            label47.Size = new Size(132, 21);
+            label47.TabIndex = 3;
+            label47.Text = "Дата рождения";
+            // 
+            // label4
+            // 
+            label4.AutoSize = true;
+            label4.Dock = DockStyle.Left;
+            label4.Location = new Point(0, 0);
+            label4.Margin = new Padding(5);
+            label4.Name = "label4";
+            label4.Size = new Size(130, 19);
+            label4.TabIndex = 3;
+            label4.Text = "Дата рождения";
+            // 
+            // panel6
+            // 
+            panel6.BorderStyle = BorderStyle.FixedSingle;
+            panel6.Controls.Add(label3);
+            panel6.Controls.Add(label46);
+            panel6.Dock = DockStyle.Top;
+            panel6.Location = new Point(0, 62);
+            panel6.Name = "panel6";
+            panel6.Size = new Size(456, 31);
+            panel6.TabIndex = 14;
+            // 
+            // label3
+            // 
+            label3.AutoSize = true;
+            label3.Dock = DockStyle.Left;
+            label3.Location = new Point(0, 0);
+            label3.Margin = new Padding(5);
+            label3.Name = "label3";
+            label3.Size = new Size(84, 19);
+            label3.TabIndex = 2;
+            label3.Text = "Отчество";
+            // 
+            // label46
+            // 
+            label46.AutoSize = true;
+            label46.BackColor = Color.FromArgb(45, 50, 80);
+            label46.BorderStyle = BorderStyle.Fixed3D;
+            label46.Dock = DockStyle.Right;
+            label46.Location = new Point(368, 0);
+            label46.Margin = new Padding(5);
+            label46.Name = "label46";
+            label46.Size = new Size(86, 21);
+            label46.TabIndex = 2;
+            label46.Text = "Отчество";
+            // 
+            // panel5
+            // 
+            panel5.BorderStyle = BorderStyle.FixedSingle;
+            panel5.Controls.Add(label45);
+            panel5.Controls.Add(label2);
+            panel5.Dock = DockStyle.Top;
+            panel5.Location = new Point(0, 31);
+            panel5.Name = "panel5";
+            panel5.Size = new Size(456, 31);
+            panel5.TabIndex = 13;
+            // 
+            // label45
+            // 
+            label45.AutoSize = true;
+            label45.BackColor = Color.FromArgb(45, 50, 80);
+            label45.BorderStyle = BorderStyle.Fixed3D;
+            label45.Dock = DockStyle.Right;
+            label45.Location = new Point(411, 0);
+            label45.Margin = new Padding(5);
+            label45.Name = "label45";
+            label45.Size = new Size(43, 21);
+            label45.TabIndex = 1;
+            label45.Text = "Имя";
+            // 
+            // label2
+            // 
+            label2.AutoSize = true;
+            label2.Dock = DockStyle.Left;
+            label2.Location = new Point(0, 0);
+            label2.Margin = new Padding(5);
+            label2.Name = "label2";
+            label2.Size = new Size(41, 19);
+            label2.TabIndex = 1;
+            label2.Text = "Имя";
+            // 
+            // panel4
+            // 
+            panel4.BackColor = Color.FromArgb(45, 70, 80);
+            panel4.BorderStyle = BorderStyle.FixedSingle;
+            panel4.Controls.Add(label1);
+            panel4.Controls.Add(label44);
+            panel4.Dock = DockStyle.Top;
+            panel4.Location = new Point(0, 0);
+            panel4.Name = "panel4";
+            panel4.Size = new Size(456, 31);
+            panel4.TabIndex = 12;
+            // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.Dock = DockStyle.Left;
+            label1.Location = new Point(0, 0);
+            label1.Margin = new Padding(5);
+            label1.Name = "label1";
+            label1.Size = new Size(82, 19);
+            label1.TabIndex = 0;
+            label1.Text = "Фамилия";
+            // 
+            // label44
+            // 
+            label44.AutoSize = true;
+            label44.BackColor = Color.FromArgb(45, 50, 80);
+            label44.BorderStyle = BorderStyle.Fixed3D;
+            label44.Dock = DockStyle.Right;
+            label44.Location = new Point(370, 0);
+            label44.Margin = new Padding(5);
+            label44.Name = "label44";
+            label44.Size = new Size(84, 21);
+            label44.TabIndex = 0;
+            label44.Text = "Фамилия";
             // 
             // splitContainer4
             // 
@@ -1236,105 +1491,244 @@
             // splitContainer4.Panel2
             // 
             splitContainer4.Panel2.Controls.Add(groupBox8);
-            splitContainer4.Size = new Size(672, 462);
-            splitContainer4.SplitterDistance = 207;
+            splitContainer4.Size = new Size(537, 462);
+            splitContainer4.SplitterDistance = 232;
             splitContainer4.TabIndex = 0;
             // 
             // groupBox7
             // 
-            groupBox7.Controls.Add(flowLayoutPanel3);
+            groupBox7.Controls.Add(panel19);
+            groupBox7.Controls.Add(panel18);
+            groupBox7.Controls.Add(panel17);
+            groupBox7.Controls.Add(panel16);
+            groupBox7.Controls.Add(panel15);
+            groupBox7.Controls.Add(panel14);
             groupBox7.Dock = DockStyle.Fill;
             groupBox7.ForeColor = Color.White;
             groupBox7.Location = new Point(0, 0);
             groupBox7.Margin = new Padding(3, 4, 3, 4);
             groupBox7.Name = "groupBox7";
             groupBox7.Padding = new Padding(3, 4, 3, 4);
-            groupBox7.Size = new Size(672, 207);
+            groupBox7.Size = new Size(537, 232);
             groupBox7.TabIndex = 0;
             groupBox7.TabStop = false;
             groupBox7.Text = "Документы";
             // 
-            // flowLayoutPanel3
+            // panel19
             // 
-            flowLayoutPanel3.Controls.Add(label8);
-            flowLayoutPanel3.Controls.Add(label9);
-            flowLayoutPanel3.Controls.Add(label10);
-            flowLayoutPanel3.Controls.Add(label11);
-            flowLayoutPanel3.Controls.Add(label12);
-            flowLayoutPanel3.Controls.Add(label13);
-            flowLayoutPanel3.Dock = DockStyle.Fill;
-            flowLayoutPanel3.FlowDirection = FlowDirection.TopDown;
-            flowLayoutPanel3.Location = new Point(3, 23);
-            flowLayoutPanel3.Margin = new Padding(3, 4, 3, 4);
-            flowLayoutPanel3.Name = "flowLayoutPanel3";
-            flowLayoutPanel3.Size = new Size(666, 180);
-            flowLayoutPanel3.TabIndex = 0;
+            panel19.BackColor = Color.FromArgb(45, 70, 80);
+            panel19.BorderStyle = BorderStyle.FixedSingle;
+            panel19.Controls.Add(label58);
+            panel19.Controls.Add(label13);
+            panel19.Dock = DockStyle.Top;
+            panel19.Location = new Point(3, 178);
+            panel19.Name = "panel19";
+            panel19.Size = new Size(531, 31);
+            panel19.TabIndex = 18;
             // 
-            // label8
+            // label58
             // 
-            label8.AutoSize = true;
-            label8.BorderStyle = BorderStyle.Fixed3D;
-            label8.Location = new Point(5, 5);
-            label8.Margin = new Padding(5);
-            label8.Name = "label8";
-            label8.Size = new Size(63, 21);
-            label8.TabIndex = 1;
-            label8.Text = "Номер";
-            // 
-            // label9
-            // 
-            label9.AutoSize = true;
-            label9.BorderStyle = BorderStyle.Fixed3D;
-            label9.Location = new Point(5, 36);
-            label9.Margin = new Padding(5);
-            label9.Name = "label9";
-            label9.Size = new Size(61, 21);
-            label9.TabIndex = 2;
-            label9.Text = "Серия";
-            // 
-            // label10
-            // 
-            label10.AutoSize = true;
-            label10.BorderStyle = BorderStyle.Fixed3D;
-            label10.Location = new Point(5, 67);
-            label10.Margin = new Padding(5);
-            label10.Name = "label10";
-            label10.Size = new Size(114, 21);
-            label10.TabIndex = 3;
-            label10.Text = "Дата выдачи";
-            // 
-            // label11
-            // 
-            label11.AutoSize = true;
-            label11.BorderStyle = BorderStyle.Fixed3D;
-            label11.Location = new Point(5, 98);
-            label11.Margin = new Padding(5);
-            label11.Name = "label11";
-            label11.Size = new Size(66, 21);
-            label11.TabIndex = 4;
-            label11.Text = "Выдан";
-            // 
-            // label12
-            // 
-            label12.AutoSize = true;
-            label12.BorderStyle = BorderStyle.Fixed3D;
-            label12.Location = new Point(5, 129);
-            label12.Margin = new Padding(5);
-            label12.Name = "label12";
-            label12.Size = new Size(47, 21);
-            label12.TabIndex = 5;
-            label12.Text = "ИНН";
+            label58.AutoSize = true;
+            label58.BackColor = Color.FromArgb(45, 50, 80);
+            label58.BorderStyle = BorderStyle.Fixed3D;
+            label58.Dock = DockStyle.Right;
+            label58.Location = new Point(459, 0);
+            label58.Margin = new Padding(5);
+            label58.Name = "label58";
+            label58.Size = new Size(70, 21);
+            label58.TabIndex = 12;
+            label58.Text = "СНИЛС";
             // 
             // label13
             // 
             label13.AutoSize = true;
-            label13.BorderStyle = BorderStyle.Fixed3D;
-            label13.Location = new Point(129, 5);
+            label13.Dock = DockStyle.Left;
+            label13.Location = new Point(0, 0);
             label13.Margin = new Padding(5);
             label13.Name = "label13";
-            label13.Size = new Size(70, 21);
+            label13.Size = new Size(68, 19);
             label13.TabIndex = 6;
             label13.Text = "СНИЛС";
+            // 
+            // panel18
+            // 
+            panel18.BackColor = Color.FromArgb(45, 70, 80);
+            panel18.BorderStyle = BorderStyle.FixedSingle;
+            panel18.Controls.Add(label57);
+            panel18.Controls.Add(label12);
+            panel18.Dock = DockStyle.Top;
+            panel18.Location = new Point(3, 147);
+            panel18.Name = "panel18";
+            panel18.Size = new Size(531, 31);
+            panel18.TabIndex = 17;
+            // 
+            // label57
+            // 
+            label57.AutoSize = true;
+            label57.BackColor = Color.FromArgb(45, 50, 80);
+            label57.BorderStyle = BorderStyle.Fixed3D;
+            label57.Dock = DockStyle.Right;
+            label57.Location = new Point(482, 0);
+            label57.Margin = new Padding(5);
+            label57.Name = "label57";
+            label57.Size = new Size(47, 21);
+            label57.TabIndex = 11;
+            label57.Text = "ИНН";
+            // 
+            // label12
+            // 
+            label12.AutoSize = true;
+            label12.Dock = DockStyle.Left;
+            label12.Location = new Point(0, 0);
+            label12.Margin = new Padding(5);
+            label12.Name = "label12";
+            label12.Size = new Size(45, 19);
+            label12.TabIndex = 5;
+            label12.Text = "ИНН";
+            // 
+            // panel17
+            // 
+            panel17.BackColor = Color.FromArgb(45, 70, 80);
+            panel17.BorderStyle = BorderStyle.FixedSingle;
+            panel17.Controls.Add(label56);
+            panel17.Controls.Add(label11);
+            panel17.Dock = DockStyle.Top;
+            panel17.Location = new Point(3, 116);
+            panel17.Name = "panel17";
+            panel17.Size = new Size(531, 31);
+            panel17.TabIndex = 16;
+            // 
+            // label56
+            // 
+            label56.AutoSize = true;
+            label56.BackColor = Color.FromArgb(45, 50, 80);
+            label56.BorderStyle = BorderStyle.Fixed3D;
+            label56.Dock = DockStyle.Right;
+            label56.Location = new Point(463, 0);
+            label56.Margin = new Padding(5);
+            label56.Name = "label56";
+            label56.Size = new Size(66, 21);
+            label56.TabIndex = 10;
+            label56.Text = "Выдан";
+            // 
+            // label11
+            // 
+            label11.AutoSize = true;
+            label11.Dock = DockStyle.Left;
+            label11.Location = new Point(0, 0);
+            label11.Margin = new Padding(5);
+            label11.Name = "label11";
+            label11.Size = new Size(64, 19);
+            label11.TabIndex = 4;
+            label11.Text = "Выдан";
+            // 
+            // panel16
+            // 
+            panel16.BackColor = Color.FromArgb(45, 70, 80);
+            panel16.BorderStyle = BorderStyle.FixedSingle;
+            panel16.Controls.Add(label55);
+            panel16.Controls.Add(label10);
+            panel16.Dock = DockStyle.Top;
+            panel16.Location = new Point(3, 85);
+            panel16.Name = "panel16";
+            panel16.Size = new Size(531, 31);
+            panel16.TabIndex = 15;
+            // 
+            // label55
+            // 
+            label55.AutoSize = true;
+            label55.BackColor = Color.FromArgb(45, 50, 80);
+            label55.BorderStyle = BorderStyle.Fixed3D;
+            label55.Dock = DockStyle.Right;
+            label55.Location = new Point(415, 0);
+            label55.Margin = new Padding(5);
+            label55.Name = "label55";
+            label55.Size = new Size(114, 21);
+            label55.TabIndex = 9;
+            label55.Text = "Дата выдачи";
+            // 
+            // label10
+            // 
+            label10.AutoSize = true;
+            label10.Dock = DockStyle.Left;
+            label10.Location = new Point(0, 0);
+            label10.Margin = new Padding(5);
+            label10.Name = "label10";
+            label10.Size = new Size(112, 19);
+            label10.TabIndex = 3;
+            label10.Text = "Дата выдачи";
+            // 
+            // panel15
+            // 
+            panel15.BackColor = Color.FromArgb(45, 70, 80);
+            panel15.BorderStyle = BorderStyle.FixedSingle;
+            panel15.Controls.Add(label54);
+            panel15.Controls.Add(label9);
+            panel15.Dock = DockStyle.Top;
+            panel15.Location = new Point(3, 54);
+            panel15.Name = "panel15";
+            panel15.Size = new Size(531, 31);
+            panel15.TabIndex = 14;
+            // 
+            // label54
+            // 
+            label54.AutoSize = true;
+            label54.BackColor = Color.FromArgb(45, 50, 80);
+            label54.BorderStyle = BorderStyle.Fixed3D;
+            label54.Dock = DockStyle.Right;
+            label54.Location = new Point(468, 0);
+            label54.Margin = new Padding(5);
+            label54.Name = "label54";
+            label54.Size = new Size(61, 21);
+            label54.TabIndex = 8;
+            label54.Text = "Серия";
+            // 
+            // label9
+            // 
+            label9.AutoSize = true;
+            label9.Dock = DockStyle.Left;
+            label9.Location = new Point(0, 0);
+            label9.Margin = new Padding(5);
+            label9.Name = "label9";
+            label9.Size = new Size(59, 19);
+            label9.TabIndex = 2;
+            label9.Text = "Серия";
+            // 
+            // panel14
+            // 
+            panel14.BackColor = Color.FromArgb(45, 70, 80);
+            panel14.BorderStyle = BorderStyle.FixedSingle;
+            panel14.Controls.Add(label53);
+            panel14.Controls.Add(label8);
+            panel14.Dock = DockStyle.Top;
+            panel14.Location = new Point(3, 23);
+            panel14.Name = "panel14";
+            panel14.Size = new Size(531, 31);
+            panel14.TabIndex = 13;
+            // 
+            // label53
+            // 
+            label53.AutoSize = true;
+            label53.BackColor = Color.FromArgb(45, 50, 80);
+            label53.BorderStyle = BorderStyle.Fixed3D;
+            label53.Dock = DockStyle.Right;
+            label53.Location = new Point(466, 0);
+            label53.Margin = new Padding(5);
+            label53.Name = "label53";
+            label53.Size = new Size(63, 21);
+            label53.TabIndex = 7;
+            label53.Text = "Номер";
+            // 
+            // label8
+            // 
+            label8.AutoSize = true;
+            label8.Dock = DockStyle.Left;
+            label8.Location = new Point(0, 0);
+            label8.Margin = new Padding(5);
+            label8.Name = "label8";
+            label8.Size = new Size(61, 19);
+            label8.TabIndex = 1;
+            label8.Text = "Номер";
             // 
             // groupBox8
             // 
@@ -1346,7 +1740,7 @@
             groupBox8.Margin = new Padding(3, 4, 3, 4);
             groupBox8.Name = "groupBox8";
             groupBox8.Padding = new Padding(3, 4, 3, 4);
-            groupBox8.Size = new Size(672, 251);
+            groupBox8.Size = new Size(537, 226);
             groupBox8.TabIndex = 0;
             groupBox8.TabStop = false;
             groupBox8.Text = "Место жительства";
@@ -1360,7 +1754,7 @@
             panel3.Location = new Point(3, 123);
             panel3.Margin = new Padding(3, 4, 3, 4);
             panel3.Name = "panel3";
-            panel3.Size = new Size(666, 100);
+            panel3.Size = new Size(531, 100);
             panel3.TabIndex = 1;
             // 
             // label19
@@ -1392,7 +1786,7 @@
             panel2.Location = new Point(3, 23);
             panel2.Margin = new Padding(3, 4, 3, 4);
             panel2.Name = "panel2";
-            panel2.Size = new Size(666, 100);
+            panel2.Size = new Size(531, 100);
             panel2.TabIndex = 0;
             // 
             // label20
@@ -3065,18 +3459,43 @@
             splitContainer2.Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)splitContainer2).EndInit();
             splitContainer2.ResumeLayout(false);
-            flowLayoutPanel1.ResumeLayout(false);
-            flowLayoutPanel1.PerformLayout();
             groupBox10.ResumeLayout(false);
-            flowLayoutPanel7.ResumeLayout(false);
-            flowLayoutPanel7.PerformLayout();
+            panel13.ResumeLayout(false);
+            panel13.PerformLayout();
+            panel12.ResumeLayout(false);
+            panel12.PerformLayout();
+            panel11.ResumeLayout(false);
+            panel11.PerformLayout();
+            panel10.ResumeLayout(false);
+            panel10.PerformLayout();
+            panel8.ResumeLayout(false);
+            panel9.ResumeLayout(false);
+            panel9.PerformLayout();
+            panel7.ResumeLayout(false);
+            panel7.PerformLayout();
+            panel6.ResumeLayout(false);
+            panel6.PerformLayout();
+            panel5.ResumeLayout(false);
+            panel5.PerformLayout();
+            panel4.ResumeLayout(false);
+            panel4.PerformLayout();
             splitContainer4.Panel1.ResumeLayout(false);
             splitContainer4.Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)splitContainer4).EndInit();
             splitContainer4.ResumeLayout(false);
             groupBox7.ResumeLayout(false);
-            flowLayoutPanel3.ResumeLayout(false);
-            flowLayoutPanel3.PerformLayout();
+            panel19.ResumeLayout(false);
+            panel19.PerformLayout();
+            panel18.ResumeLayout(false);
+            panel18.PerformLayout();
+            panel17.ResumeLayout(false);
+            panel17.PerformLayout();
+            panel16.ResumeLayout(false);
+            panel16.PerformLayout();
+            panel15.ResumeLayout(false);
+            panel15.PerformLayout();
+            panel14.ResumeLayout(false);
+            panel14.PerformLayout();
             groupBox8.ResumeLayout(false);
             panel3.ResumeLayout(false);
             panel3.PerformLayout();
@@ -3153,10 +3572,6 @@
         private Button button2;
         private ToolStripMenuItem редактироватьСотрудникаToolStripMenuItem;
         private Button button5;
-        private DataGridViewTextBoxColumn Column2;
-        private DataGridViewTextBoxColumn Column1;
-        private DataGridViewTextBoxColumn Column3;
-        private DataGridViewTextBoxColumn Column4;
         private Panel panel1;
         private TabPage tabPage1;
         private TabPage tabPage2;
@@ -3165,7 +3580,6 @@
         private TabPage tabPage5;
         private Label label1;
         private SplitContainer splitContainer2;
-        private FlowLayoutPanel flowLayoutPanel1;
         private Label label2;
         private Label label3;
         private Label label4;
@@ -3191,7 +3605,6 @@
         private GroupBox groupBox7;
         private Label label16;
         private Label label14;
-        private FlowLayoutPanel flowLayoutPanel3;
         private Label label8;
         private Label label9;
         private Label label10;
@@ -3328,7 +3741,6 @@
         private TableLayoutPanel tableLayoutPanel2;
         private ToolStripButton toolStripButton4;
         private GroupBox groupBox10;
-        private Label label41;
         private FlowLayoutPanel flowLayoutPanel7;
         private Label label42;
         private Label label43;
@@ -3346,5 +3758,41 @@
         private ToolStripMenuItem toolStripMenuItem2;
         private ToolStripMenuItem toolStripMenuItem3;
         private ToolStripMenuItem toolStripMenuItem4;
+        private DataGridViewTextBoxColumn Column14;
+        private DataGridViewTextBoxColumn Column2;
+        private DataGridViewTextBoxColumn Column1;
+        private DataGridViewTextBoxColumn Column3;
+        private DataGridViewTextBoxColumn Column4;
+        private Label label44;
+        private Label label45;
+        private Label label46;
+        private Label label47;
+        private Label label48;
+        private Label label49;
+        private Label label50;
+        private Label label51;
+        private Label label52;
+        private Panel panel4;
+        private Panel panel13;
+        private Panel panel12;
+        private Panel panel11;
+        private Panel panel10;
+        private Panel panel8;
+        private Panel panel9;
+        private Panel panel7;
+        private Panel panel6;
+        private Panel panel5;
+        private Panel panel19;
+        private Label label58;
+        private Panel panel18;
+        private Label label57;
+        private Panel panel17;
+        private Label label56;
+        private Panel panel16;
+        private Label label55;
+        private Panel panel15;
+        private Label label54;
+        private Panel panel14;
+        private Label label53;
     }
 }

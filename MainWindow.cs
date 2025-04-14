@@ -1,3 +1,5 @@
+using MySql.Data.MySqlClient;
+
 namespace PersonalCard
 {
     public partial class MainWindow : Form
@@ -10,6 +12,7 @@ namespace PersonalCard
             toolStripStatusLabel2.Alignment = ToolStripItemAlignment.Right;
             toolStripButton5.Text = "Настройки поиска и\n готовые списки";
             this.connectionString = connectionString;
+            fillPersonTable();
         }
 
         private void закрытьToolStripMenuItem_Click(object sender, EventArgs e)
@@ -220,6 +223,101 @@ namespace PersonalCard
         private void toolStripButton1_Click(object sender, EventArgs e)
         {
             new EditPersonalInfo(1).ShowDialog();
+        }
+
+
+        struct Person
+        {
+            public int id;
+            public string name;
+            public string lastName;
+            public string surname;
+            public string numCard;
+        }
+
+        private List<Person> giveAllPerson()
+        {
+            List<Person> AllPerson = new List<Person>();
+            MySqlConnection conn = new MySqlConnection(connectionString);
+            conn.Open();
+            string sql = $"Select `ID_empl`, `last_Name`, `Name`, `Surname`, `T_num_card` From `General_information`";
+            MySqlCommand cmd = new MySqlCommand(sql, conn);
+            Person person;
+            using (MySqlDataReader reader = cmd.ExecuteReader())
+            {
+                while (reader.Read())
+                {
+                    person = new Person();
+                    person.id = reader.GetInt32(0);
+                    person.name = reader.GetString(2);
+                    person.lastName = reader.GetString(1);
+                    person.surname = reader.GetString(3);
+                    person.numCard = reader.GetString(4);
+                    AllPerson.Add(person);
+                }
+
+
+            }
+            conn.Close();
+            return AllPerson;
+        }
+
+        private void fillPersonTable()
+        {
+            List<Person> persons = giveAllPerson();
+            dataGridView1.Rows.Add(persons.Count);
+            for (int i = 0; i < persons.Count; i++)
+            {
+
+
+                dataGridView1.Rows[i].Cells[0].Value = persons[i].id;
+                dataGridView1.Rows[i].Cells[1].Value = persons[i].lastName;
+                dataGridView1.Rows[i].Cells[2].Value = persons[i].name;
+                dataGridView1.Rows[i].Cells[3].Value = persons[i].surname;
+                dataGridView1.Rows[i].Cells[4].Value = persons[i].numCard;
+
+
+
+            }
+
+        }
+
+        private void dataGridView1_SelectionChanged(object sender, EventArgs e)
+        {
+            GeneralInformation generalInformation = GeneralInformation.LoadAllEmployeeData(connectionString, Convert.ToInt32(dataGridView1.Rows[dataGridView1.CurrentRow.Index].Cells[0].Value));
+            loadInformationUI(generalInformation);
+
+
+        }
+
+        private void loadInformationUI(GeneralInformation generalInformation) {
+            label45.Text = generalInformation.Name;
+            label44.Text = generalInformation.Last_name;
+            label46.Text = generalInformation.Surname;
+            label47.Text = generalInformation.Birthday.ToString().Split(' ')[0];
+            label48.Text = generalInformation.Place_birth;
+            label49.Text = generalInformation.Citizenship;
+            label50.Text = generalInformation.Male_Female;
+            label51.Text = generalInformation.Nature_work;
+            label52.Text = generalInformation.Type_work;
+            label53.Text =generalInformation.Nam_passport;
+            label54.Text =generalInformation.Serial_passport;
+            label55.Text =generalInformation.Date_give_passport.ToString().Split(' ')[0];
+            label56.Text =generalInformation.Who_give;
+            label57.Text =generalInformation.INN;
+            label58.Text =generalInformation.Num_pensia;
+            flowLayoutPanel7.Controls.Clear();
+            foreach (LanguageInf l in generalInformation.Languages)
+            {
+                Label label = new Label();
+                label.BackColor = Color.FromArgb(45, 50, 80);
+                label.BorderStyle = BorderStyle.Fixed3D;
+                label.AutoSize = true;
+                label.Text = $"{l.Language_name} {l.Degree_of_knowledge}";
+                label.ForeColor = Color.White;
+                flowLayoutPanel7.Controls.Add(label);
+            }
+
         }
     }
 }
