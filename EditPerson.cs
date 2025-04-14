@@ -731,10 +731,10 @@ namespace PersonalCard
             using (var conn = new MySqlConnection(_connectionString))
             {
                 string query = @"INSERT INTO military_registration 
-                (ID_empl, Category, Military_rank, Structure, Code_mas, Category_life, 
+                (ID_empl, Category, Military_rank,  Structure, Code_mas, Category_life, 
                 Military_commissariat_name, de_registration, Name_type, Additional_information) 
                 VALUES 
-                (@ID_empl, @Category, @Military_rank, @Structure, @Code_mas, @Category_life, 
+                (@ID_empl, @Category, @Military_rank,  @Structure, @Code_mas, @Category_life, 
                 @Military_commissariat_name, @De_registration, @Name_type, @Additional_information)";
 
                 var cmd = new MySqlCommand(query, conn);
@@ -750,7 +750,7 @@ namespace PersonalCard
             using (var conn = new MySqlConnection(_connectionString))
             {
                 string query = @"UPDATE military_registration SET 
-                Category = @Category, Military_rank = @Military_rank, Structure = @Structure, 
+                Category = @Category, Military_rank = @Military_rank,  Structure = @Structure, 
                 Code_mas = @Code_mas, Category_life = @Category_life, 
                 Military_commissariat_name = @Military_commissariat_name, de_registration = @De_registration, 
                 Name_type = @Name_type, Additional_information = @Additional_information 
@@ -782,6 +782,7 @@ namespace PersonalCard
             cmd.Parameters.AddWithValue("@ID_empl", registration.ID_empl);
             cmd.Parameters.AddWithValue("@Category", registration.Category);
             cmd.Parameters.AddWithValue("@Military_rank", registration.Military_rank);
+            
             cmd.Parameters.AddWithValue("@Structure", registration.Structure);
             cmd.Parameters.AddWithValue("@Code_mas", registration.Code_mas);
             cmd.Parameters.AddWithValue("@Category_life", registration.Category_life);
@@ -1135,7 +1136,7 @@ namespace PersonalCard
             cmd.Parameters.AddWithValue("@Period_work_end", vacation.Period_work_end ?? (object)DBNull.Value);
             cmd.Parameters.AddWithValue("@Quantity_day", vacation.Quantity_day);
             cmd.Parameters.AddWithValue("@Date_start", vacation.Date_start);
-            cmd.Parameters.AddWithValue("@Date_end", vacation.Date_end);
+            cmd.Parameters.AddWithValue("@Date_end", vacation.Date_end ?? (object)DBNull.Value);
             cmd.Parameters.AddWithValue("@Reason", vacation.Reason);
         }
     }
@@ -1202,15 +1203,15 @@ namespace PersonalCard
         private void AddParameters(MySqlCommand cmd, WorkExperienceInf experience)
         {
             cmd.Parameters.AddWithValue("@ID_empl", experience.ID_empl);
-            cmd.Parameters.AddWithValue("@Common_day", experience.Common_day ?? (object)DBNull.Value);
-            cmd.Parameters.AddWithValue("@Common_year", experience.Common_year ?? (object)DBNull.Value);
-            cmd.Parameters.AddWithValue("@Common_month", experience.Common_month ?? (object)DBNull.Value);
-            cmd.Parameters.AddWithValue("@Continuous_day", experience.Continuous_day ?? (object)DBNull.Value);
-            cmd.Parameters.AddWithValue("@Continuous_month", experience.Continuous_month ?? (object)DBNull.Value);
-            cmd.Parameters.AddWithValue("@Continuous_year", experience.Continuous_year ?? (object)DBNull.Value);
-            cmd.Parameters.AddWithValue("@Giver_day", experience.Giver_day ?? (object)DBNull.Value);
-            cmd.Parameters.AddWithValue("@Giver_month", experience.Giver_month ?? (object)DBNull.Value);
-            cmd.Parameters.AddWithValue("@Giver_year", experience.Giver_year ?? (object)DBNull.Value);
+            cmd.Parameters.AddWithValue("@Common_day", experience.Common_day );
+            cmd.Parameters.AddWithValue("@Common_year", experience.Common_year );
+            cmd.Parameters.AddWithValue("@Common_month", experience.Common_month );
+            cmd.Parameters.AddWithValue("@Continuous_day", experience.Continuous_day);
+            cmd.Parameters.AddWithValue("@Continuous_month", experience.Continuous_month );
+            cmd.Parameters.AddWithValue("@Continuous_year", experience.Continuous_year );
+            cmd.Parameters.AddWithValue("@Giver_day", experience.Giver_day );
+            cmd.Parameters.AddWithValue("@Giver_month", experience.Giver_month );
+            cmd.Parameters.AddWithValue("@Giver_year", experience.Giver_year );
         }
     }
 

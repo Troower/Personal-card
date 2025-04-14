@@ -731,7 +731,7 @@ namespace PersonalCard
         public DateTime? Period_work_end { get; set; }
         public int Quantity_day { get; set; }
         public DateTime Date_start { get; set; }
-        public DateTime Date_end { get; set; }
+        public DateTime? Date_end { get; set; }
         public string Reason { get; set; }
 
         public static List<VacationInf> GetByEmployeeId(string connectionString, int employeeId)
@@ -757,7 +757,7 @@ namespace PersonalCard
                             Period_work_end = reader.IsDBNull(reader.GetOrdinal("Period_work_end")) ?(DateTime?)null : reader.GetDateTime("Period_work_end"),
                             Quantity_day = Convert.ToInt32(reader["Quantity_day"]),
                             Date_start = reader.GetDateTime("Date_start"),
-                            Date_end = reader.GetDateTime("Date_end"),
+                            Date_end = reader.IsDBNull(reader.GetOrdinal("Date_end")) ? (DateTime?)null : reader.GetDateTime("Date_end"),
                             Reason = reader["Reason"].ToString(),
                             ID_empl = employeeId
                         });
@@ -773,15 +773,15 @@ namespace PersonalCard
     public class WorkExperienceInf
     {
         public int ID_empl { get; set; }
-        public int? Common_day { get; set; }
-        public int? Common_year { get; set; }
-        public int? Common_month { get; set; }
-        public int? Continuous_day { get; set; }
-        public int? Continuous_month { get; set; }
-        public int? Continuous_year { get; set; }
-        public int? Giver_day { get; set; }
-        public int? Giver_month { get; set; }
-        public int? Giver_year { get; set; }
+        public int Common_day { get; set; }
+        public int Common_year { get; set; }
+        public int Common_month { get; set; }
+        public int Continuous_day { get; set; }
+        public int Continuous_month { get; set; }
+        public int Continuous_year { get; set; }
+        public int Giver_day { get; set; }
+        public int Giver_month { get; set; }
+        public int Giver_year { get; set; }
 
         public static WorkExperienceInf GetByEmployeeId(string connectionString, int employeeId)
         {
@@ -800,15 +800,15 @@ namespace PersonalCard
                         return new WorkExperienceInf()
                         {
                             ID_empl = employeeId,
-                            Common_day = reader.IsDBNull(reader.GetOrdinal("common_day")) ? null : (int?)reader.GetInt32("common_day"),
-                            Common_year = reader.IsDBNull(reader.GetOrdinal("common_year")) ? null : (int?)reader.GetInt32("common_year"),
-                            Common_month = reader.IsDBNull(reader.GetOrdinal("common_month")) ? null : (int?)reader.GetInt32("common_month"),
-                            Continuous_day = reader.IsDBNull(reader.GetOrdinal("continuous_day")) ? null : (int?)reader.GetInt32("continuous_day"),
-                            Continuous_month = reader.IsDBNull(reader.GetOrdinal("continuous_month")) ? null : (int?)reader.GetInt32("continuous_month"),
-                            Continuous_year = reader.IsDBNull(reader.GetOrdinal("continuous_year")) ? null : (int?)reader.GetInt32("continuous_year"),
-                            Giver_day = reader.IsDBNull(reader.GetOrdinal("giver_day")) ? null : (int?)reader.GetInt32("giver_day"),
-                            Giver_month = reader.IsDBNull(reader.GetOrdinal("giver_month")) ? null : (int?)reader.GetInt32("giver_month"),
-                            Giver_year = reader.IsDBNull(reader.GetOrdinal("giver_year")) ? null : (int?)reader.GetInt32("giver_year")
+                            Common_day = reader.GetInt32("common_day"),
+                            Common_year = reader.GetInt32("common_day"),
+                            Common_month = reader.GetInt32("common_month"),
+                            Continuous_day = reader.GetInt32("continuous_day"),
+                            Continuous_month = reader.GetInt32("continuous_month"),
+                            Continuous_year = reader.GetInt32("continuous_year"),
+                            Giver_day = reader.GetInt32("giver_day"),
+                            Giver_month = reader.GetInt32("giver_month"),
+                            Giver_year = reader.GetInt32("giver_year")
                         };
                     }
                 }
