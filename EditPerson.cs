@@ -9,7 +9,7 @@ namespace PersonalCard
 {
     public class GeneralInformationRepository
     {
-        private readonly string _connectionString;
+        private readonly string _connectionString="";
 
         public GeneralInformationRepository(string connectionString)
         {

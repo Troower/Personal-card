@@ -1,5 +1,6 @@
 using MySql.Data.MySqlClient;
 using System.Linq;
+using ZstdSharp.Unsafe;
 
 namespace PersonalCard
 {
@@ -129,12 +130,36 @@ namespace PersonalCard
         {
             if (tabControl1.SelectedIndex == 0 && tabControl2.SelectedIndex == 0)
             {
-                new EditPersonalInfo().ShowDialog();
+                new EditPersonalInfo(generalInformation, (GeneralInformation inf) =>
+                {
+                    new GeneralInformationRepository(connectionString).Update(inf);
+                    MySqlConnection connection = new MySqlConnection(connectionString);
+                    string sql = $"DELETE FROM Language WHERE ID_empl ={inf.ID_empl}";
+                    connection.Open();
+                    MySqlCommand cmd = new MySqlCommand(sql, connection);
+                    cmd.ExecuteNonQuery();
+                    connection.Clone();
+                    foreach (LanguageInf lg in inf.Languages)
+                        new LanguageRepository(connectionString).Insert(lg);
+                }).ShowDialog();
+                reLoadPerson();
                 return;
             }
             if (tabControl1.SelectedIndex == 0 && tabControl2.SelectedIndex == 1)
             {
-                new Education().ShowDialog();
+                foreach (EducationInf education in generalInformation.Educations)
+                {
+                    if (education.ID_education == Convert.ToUInt32(dataGridView2.Rows[dataGridView2.CurrentRow.Index].Cells[7].Value))
+                    {
+                        new Education(education, (EducationInf inf) =>
+                        {
+                            new EducationRepository(connectionString).Update(inf);
+                        }).ShowDialog();
+                        break;
+                    }
+
+                }
+                reLoadPerson();
                 return;
             }
             if (tabControl1.SelectedIndex == 0 && tabControl2.SelectedIndex == 2)
@@ -199,6 +224,11 @@ namespace PersonalCard
             }
 
         }
+        private void reLoadPerson()
+        {
+            generalInformation = GeneralInformation.LoadAllEmployeeData(connectionString, generalInformation.ID_empl);
+            loadInformationUI(generalInformation);
+        }
 
         private void tabControl1_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -206,7 +236,8 @@ namespace PersonalCard
                 tabControl1.SelectedIndex == 0 && tabControl2.SelectedIndex == 3 ||
                 tabControl1.SelectedIndex == 2 ||
                 tabControl1.SelectedIndex == 3 ||
-                 tabControl1.SelectedIndex == 4) button12.Visible = true;
+                tabControl1.SelectedIndex == 4 ||
+                tabControl1.SelectedIndex == 5) button12.Visible = true;
             else button12.Visible = false;
         }
 
@@ -226,6 +257,7 @@ namespace PersonalCard
         }
 
 
+        GeneralInformation generalInformation;
         struct Person
         {
             public int id;
@@ -265,6 +297,7 @@ namespace PersonalCard
         private void fillPersonTable()
         {
             List<Person> persons = giveAllPerson();
+            if (persons.Count < 1) return;
             dataGridView1.Rows.Add(persons.Count);
             for (int i = 0; i < persons.Count; i++)
             {
@@ -279,7 +312,7 @@ namespace PersonalCard
 
         private void dataGridView1_SelectionChanged(object sender, EventArgs e)
         {
-            GeneralInformation generalInformation = GeneralInformation.LoadAllEmployeeData(connectionString, Convert.ToInt32(dataGridView1.Rows[dataGridView1.CurrentRow.Index].Cells[0].Value));
+            generalInformation = GeneralInformation.LoadAllEmployeeData(connectionString, Convert.ToInt32(dataGridView1.Rows[dataGridView1.CurrentRow.Index].Cells[0].Value));
             loadInformationUI(generalInformation);
 
 
@@ -314,7 +347,7 @@ namespace PersonalCard
                 label.BackColor = Color.FromArgb(45, 50, 80);
                 label.BorderStyle = BorderStyle.Fixed3D;
                 label.AutoSize = true;
-                label.Text = $"{l.Language_name} {l.Degree_of_knowledge}";
+                label.Text = $"{l.Language_name} - {l.Degree_of_knowledge}";
                 label.ForeColor = Color.White;
                 flowLayoutPanel7.Controls.Add(label);
             }
@@ -333,9 +366,10 @@ namespace PersonalCard
                     dataGridView2.Rows[i].Cells[1].Value = generalInformation.Educations[i].Name_doc_education;
                     dataGridView2.Rows[i].Cells[2].Value = generalInformation.Educations[i].Serial_doc_education;
                     dataGridView2.Rows[i].Cells[3].Value = generalInformation.Educations[i].Num_doc_education;
-                    dataGridView2.Rows[i].Cells[4].Value = generalInformation.Educations[i].Year_end.ToString().Split(' ')[0];
+                    dataGridView2.Rows[i].Cells[4].Value = generalInformation.Educations[i].Year_end;
                     dataGridView2.Rows[i].Cells[5].Value = generalInformation.Educations[i].Qualification_doc_education;
                     dataGridView2.Rows[i].Cells[6].Value = generalInformation.Educations[i].Direction_or_specialty;
+                    dataGridView2.Rows[i].Cells[7].Value = generalInformation.Educations[i].ID_education;
                 }
             }
             if (HasData(generalInformation.AfterEducation))
@@ -350,6 +384,7 @@ namespace PersonalCard
             }
 
             //Профессия
+
             label60.Text = generalInformation.Profession.Basic;
             label61.Text = generalInformation.Profession.Another;
 
@@ -383,35 +418,24 @@ namespace PersonalCard
                     dataGridView3.Rows[i].Cells[0].Value = generalInformation.FamilyCompositions[i].Degree_of_kinship;
                     dataGridView3.Rows[i].Cells[1].Value = generalInformation.FamilyCompositions[i].FIO;
                     dataGridView3.Rows[i].Cells[2].Value = generalInformation.FamilyCompositions[i].Date_birth.ToString().Split(' ')[0];
+                    dataGridView3.Rows[i].Cells[3].Value = generalInformation.FamilyCompositions[i].ID_person;
                 }
             }
 
             //Воинский учет
-            if (HasData(generalInformation.MilitaryRegistration))
-            {
-                label71.Text = generalInformation.MilitaryRegistration.Category;
-                label72.Text = generalInformation.MilitaryRegistration.Military_rank;
-                label73.Text = generalInformation.MilitaryRegistration.Structure;
-                label74.Text = generalInformation.MilitaryRegistration.Code_mas;
-                label75.Text = generalInformation.MilitaryRegistration.Category_life;
-                label76.Text = generalInformation.MilitaryRegistration.Military_commissariat_name;
-                label77.Text = generalInformation.MilitaryRegistration.Name_type;
-                label78.Text = generalInformation.MilitaryRegistration.Additional_information;
-                label79.Text = generalInformation.MilitaryRegistration.De_registration;
 
-            }
-            else
-            {
-                label71.Text = "";
-                label72.Text = "";
-                label73.Text = "";
-                label74.Text = "";
-                label75.Text = "";
-                label76.Text = "";
-                label77.Text = "";
-                label78.Text = "";
-                label79.Text = "";
-            }
+            label71.Text = generalInformation.MilitaryRegistration.Category;
+            label72.Text = generalInformation.MilitaryRegistration.Military_rank;
+            label73.Text = generalInformation.MilitaryRegistration.Structure;
+            label74.Text = generalInformation.MilitaryRegistration.Code_mas;
+            label75.Text = generalInformation.MilitaryRegistration.Category_life;
+            label76.Text = generalInformation.MilitaryRegistration.Military_commissariat_name;
+            label77.Text = generalInformation.MilitaryRegistration.Name_type;
+            label78.Text = generalInformation.MilitaryRegistration.Additional_information;
+            label79.Text = generalInformation.MilitaryRegistration.De_registration;
+
+
+
 
             //Прием\перевод
             dataGridView4.Rows.Clear();
@@ -425,6 +449,7 @@ namespace PersonalCard
                     dataGridView4.Rows[i].Cells[2].Value = generalInformation.HiringTransfers[i].Position_category;
                     dataGridView4.Rows[i].Cells[3].Value = generalInformation.HiringTransfers[i].Tariff_rate;
                     dataGridView4.Rows[i].Cells[4].Value = generalInformation.HiringTransfers[i].Reason;
+                    dataGridView4.Rows[i].Cells[5].Value = generalInformation.HiringTransfers[i].ID_ht;
                 }
             }
 
@@ -440,6 +465,7 @@ namespace PersonalCard
                     dataGridView6.Rows[i].Cells[2].Value = generalInformation.Certifications[i].Num_doc;
                     dataGridView6.Rows[i].Cells[3].Value = generalInformation.Certifications[i].Date_doc.ToString().Split(' ')[0];
                     dataGridView6.Rows[i].Cells[4].Value = generalInformation.Certifications[i].Reason;
+                    dataGridView6.Rows[i].Cells[5].Value = generalInformation.Certifications[i].ID_att;
                 }
             }
 
@@ -458,6 +484,7 @@ namespace PersonalCard
                     dataGridView5.Rows[i].Cells[5].Value = generalInformation.ProfessionalDevelopments[i].Ser_doc;
                     dataGridView5.Rows[i].Cells[6].Value = generalInformation.ProfessionalDevelopments[i].Date_give_doc.ToString().Split(' ')[0];
                     dataGridView5.Rows[i].Cells[7].Value = generalInformation.ProfessionalDevelopments[i].Reason;
+                    dataGridView5.Rows[i].Cells[8].Value = generalInformation.ProfessionalDevelopments[i].ID_cval;
                 }
             }
 
@@ -475,7 +502,7 @@ namespace PersonalCard
                     dataGridView7.Rows[i].Cells[4].Value = generalInformation.ProfessionalRetrainings[i].Num_doc;
                     dataGridView7.Rows[i].Cells[5].Value = generalInformation.ProfessionalRetrainings[i].Date_give_doc.ToString().Split(' ')[0];
                     dataGridView7.Rows[i].Cells[6].Value = generalInformation.ProfessionalRetrainings[i].Reason;
-
+                    dataGridView7.Rows[i].Cells[7].Value = generalInformation.ProfessionalRetrainings[i].ID_retr;
                 }
             }
 
@@ -490,6 +517,7 @@ namespace PersonalCard
                     dataGridView9.Rows[i].Cells[1].Value = generalInformation.Awards[i].Name_doc;
                     dataGridView9.Rows[i].Cells[2].Value = generalInformation.Awards[i].Num_doc;
                     dataGridView9.Rows[i].Cells[3].Value = generalInformation.Awards[i].Date_give_doc.ToString().Split(' ')[0];
+                    dataGridView9.Rows[i].Cells[4].Value = generalInformation.Awards[i].ID_reward;
                 }
             }
 
@@ -507,6 +535,7 @@ namespace PersonalCard
                     dataGridView8.Rows[i].Cells[4].Value = generalInformation.Vacations[i].Date_start.ToString().Split(' ')[0];
                     dataGridView8.Rows[i].Cells[5].Value = generalInformation.Vacations[i].Date_end == (DateTime?)null ? generalInformation.Vacations[i].Date_end : generalInformation.Vacations[i].Date_end.ToString().Split(' ')[0];
                     dataGridView8.Rows[i].Cells[6].Value = generalInformation.Vacations[i].Reason;
+                    dataGridView8.Rows[i].Cells[7].Value = generalInformation.Vacations[i].ID_vac;
 
                 }
             }
@@ -522,6 +551,7 @@ namespace PersonalCard
                     dataGridView10.Rows[i].Cells[1].Value = generalInformation.SocialBenefits[i].Num_doc;
                     dataGridView10.Rows[i].Cells[2].Value = generalInformation.SocialBenefits[i].Date_give_doc.ToString().Split(' ')[0];
                     dataGridView10.Rows[i].Cells[3].Value = generalInformation.SocialBenefits[i].Reason;
+                    dataGridView10.Rows[i].Cells[4].Value = generalInformation.SocialBenefits[i].ID_ben;
                 }
             }
 
@@ -539,17 +569,20 @@ namespace PersonalCard
             }
 
             //Увольнение
-            if (HasData(generalInformation.Dismissal)) {
+            if (HasData(generalInformation.Dismissal))
+            {
                 label40.Text = generalInformation.Dismissal.Reason;
-                label80.Text =generalInformation.Dismissal.Date_dismiss.ToString().Split(' ')[0];
-                label81.Text =generalInformation.Dismissal.Num_order;
-                label82.Text =generalInformation.Dismissal.Date_order.ToString().Split(' ')[0];
+                label80.Text = generalInformation.Dismissal.Date_dismiss.ToString().Split(' ')[0];
+                label81.Text = generalInformation.Dismissal.Num_order;
+                label82.Text = generalInformation.Dismissal.Date_order.ToString().Split(' ')[0];
             }
-            else {
-                label40.Text ="";
-                label80.Text ="";
-                label81.Text ="";
-                label82.Text ="";
+            else
+            {
+
+                label40.Text = "";
+                label80.Text = "";
+                label81.Text = "";
+                label82.Text = "";
             }
 
         }
@@ -574,6 +607,17 @@ namespace PersonalCard
             return false;
         }
 
-        
+        private void dataGridView2_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            foreach (EducationInf education in generalInformation.Educations)
+            {
+                if (education.ID_education == Convert.ToUInt32(dataGridView2.Rows[dataGridView2.CurrentRow.Index].Cells[7].Value))
+                {
+                    new Education(education).ShowDialog();
+                    break;
+                }
+
+            }
+        }
     }
 }

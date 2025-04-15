@@ -34,18 +34,18 @@
             button2 = new Button();
             flowLayoutPanel1 = new FlowLayoutPanel();
             comboBox1 = new ComboBox();
+            label2 = new Label();
             textBox1 = new TextBox();
+            label3 = new Label();
             textBox2 = new TextBox();
+            label4 = new Label();
             textBox3 = new TextBox();
             label1 = new Label();
-            dateTimePicker1 = new DateTimePicker();
-            textBox4 = new TextBox();
-            textBox5 = new TextBox();
-            label2 = new Label();
-            label3 = new Label();
-            label4 = new Label();
+            textBox6 = new TextBox();
             label5 = new Label();
+            textBox4 = new TextBox();
             label6 = new Label();
+            textBox5 = new TextBox();
             tableLayoutPanel1.SuspendLayout();
             flowLayoutPanel1.SuspendLayout();
             SuspendLayout();
@@ -80,6 +80,7 @@
             button1.TabIndex = 5;
             button1.Text = "Редактировать";
             button1.UseVisualStyleBackColor = false;
+            button1.Click += button1_Click;
             // 
             // button2
             // 
@@ -107,7 +108,7 @@
             flowLayoutPanel1.Controls.Add(label4);
             flowLayoutPanel1.Controls.Add(textBox3);
             flowLayoutPanel1.Controls.Add(label1);
-            flowLayoutPanel1.Controls.Add(dateTimePicker1);
+            flowLayoutPanel1.Controls.Add(textBox6);
             flowLayoutPanel1.Controls.Add(label5);
             flowLayoutPanel1.Controls.Add(textBox4);
             flowLayoutPanel1.Controls.Add(label6);
@@ -131,6 +132,15 @@
             comboBox1.TabIndex = 6;
             comboBox1.Text = "Тип образования*";
             // 
+            // label2
+            // 
+            label2.AutoSize = true;
+            label2.Location = new Point(3, 43);
+            label2.Name = "label2";
+            label2.Size = new Size(187, 21);
+            label2.TabIndex = 11;
+            label2.Text = "Наименование док-та*:";
+            // 
             // textBox1
             // 
             textBox1.Location = new Point(4, 68);
@@ -140,6 +150,15 @@
             textBox1.Size = new Size(621, 29);
             textBox1.TabIndex = 0;
             // 
+            // label3
+            // 
+            label3.AutoSize = true;
+            label3.Location = new Point(3, 101);
+            label3.Name = "label3";
+            label3.Size = new Size(120, 21);
+            label3.TabIndex = 12;
+            label3.Text = "Серия док-та*:";
+            // 
             // textBox2
             // 
             textBox2.Location = new Point(4, 126);
@@ -148,6 +167,15 @@
             textBox2.PlaceholderText = "Серия документа*";
             textBox2.Size = new Size(621, 29);
             textBox2.TabIndex = 1;
+            // 
+            // label4
+            // 
+            label4.AutoSize = true;
+            label4.Location = new Point(3, 159);
+            label4.Name = "label4";
+            label4.Size = new Size(125, 21);
+            label4.TabIndex = 13;
+            label4.Text = "Номер док-та*:";
             // 
             // textBox3
             // 
@@ -169,76 +197,50 @@
             label1.TabIndex = 10;
             label1.Text = "Год окончания*";
             // 
-            // dateTimePicker1
+            // textBox6
             // 
-            dateTimePicker1.Location = new Point(4, 244);
-            dateTimePicker1.Margin = new Padding(4, 4, 4, 10);
-            dateTimePicker1.Name = "dateTimePicker1";
-            dateTimePicker1.Size = new Size(621, 29);
-            dateTimePicker1.TabIndex = 4;
+            textBox6.Location = new Point(4, 244);
+            textBox6.Margin = new Padding(4);
+            textBox6.Name = "textBox6";
+            textBox6.PlaceholderText = "Год окончания*";
+            textBox6.Size = new Size(621, 29);
+            textBox6.TabIndex = 16;
+            // 
+            // label5
+            // 
+            label5.AutoSize = true;
+            label5.Location = new Point(3, 277);
+            label5.Name = "label5";
+            label5.Size = new Size(208, 21);
+            label5.TabIndex = 14;
+            label5.Text = "Квалификация по док-ту*:";
             // 
             // textBox4
             // 
-            textBox4.Location = new Point(4, 308);
+            textBox4.Location = new Point(4, 302);
             textBox4.Margin = new Padding(4);
             textBox4.Name = "textBox4";
             textBox4.PlaceholderText = "Квалификация по документу";
             textBox4.Size = new Size(621, 29);
             textBox4.TabIndex = 3;
             // 
+            // label6
+            // 
+            label6.AutoSize = true;
+            label6.Location = new Point(3, 335);
+            label6.Name = "label6";
+            label6.Size = new Size(273, 21);
+            label6.TabIndex = 15;
+            label6.Text = "Направление или специальность*:";
+            // 
             // textBox5
             // 
-            textBox5.Location = new Point(4, 366);
+            textBox5.Location = new Point(4, 360);
             textBox5.Margin = new Padding(4);
             textBox5.Name = "textBox5";
             textBox5.PlaceholderText = "Направление или специальность*";
             textBox5.Size = new Size(621, 29);
             textBox5.TabIndex = 5;
-            // 
-            // label2
-            // 
-            label2.AutoSize = true;
-            label2.Location = new Point(3, 43);
-            label2.Name = "label2";
-            label2.Size = new Size(187, 21);
-            label2.TabIndex = 11;
-            label2.Text = "Наименование док-та*:";
-            // 
-            // label3
-            // 
-            label3.AutoSize = true;
-            label3.Location = new Point(3, 101);
-            label3.Name = "label3";
-            label3.Size = new Size(120, 21);
-            label3.TabIndex = 12;
-            label3.Text = "Серия док-та*:";
-            // 
-            // label4
-            // 
-            label4.AutoSize = true;
-            label4.Location = new Point(3, 159);
-            label4.Name = "label4";
-            label4.Size = new Size(125, 21);
-            label4.TabIndex = 13;
-            label4.Text = "Номер док-та*:";
-            // 
-            // label5
-            // 
-            label5.AutoSize = true;
-            label5.Location = new Point(3, 283);
-            label5.Name = "label5";
-            label5.Size = new Size(208, 21);
-            label5.TabIndex = 14;
-            label5.Text = "Квалификация по док-ту*:";
-            // 
-            // label6
-            // 
-            label6.AutoSize = true;
-            label6.Location = new Point(3, 341);
-            label6.Name = "label6";
-            label6.Size = new Size(273, 21);
-            label6.TabIndex = 15;
-            label6.Text = "Направление или специальность*:";
             // 
             // Education
             // 
@@ -256,7 +258,7 @@
             MaximizeBox = false;
             Name = "Education";
             StartPosition = FormStartPosition.CenterScreen;
-            Text = "Education";
+            Text = "Образование";
             tableLayoutPanel1.ResumeLayout(false);
             flowLayoutPanel1.ResumeLayout(false);
             flowLayoutPanel1.PerformLayout();
@@ -273,7 +275,6 @@
         private TextBox textBox2;
         private TextBox textBox3;
         private TextBox textBox4;
-        private DateTimePicker dateTimePicker1;
         private TextBox textBox5;
         private ComboBox comboBox1;
         private Label label1;
@@ -282,5 +283,6 @@
         private Label label4;
         private Label label5;
         private Label label6;
+        private TextBox textBox6;
     }
 }

@@ -140,6 +140,7 @@
             button1.TabIndex = 5;
             button1.Text = "Редактировать";
             button1.UseVisualStyleBackColor = false;
+            button1.Click += button1_Click;
             // 
             // textBox1
             // 
@@ -550,6 +551,7 @@
             button3.TabIndex = 9;
             button3.Text = "Удалить";
             button3.UseVisualStyleBackColor = false;
+            button3.Click += button3_Click;
             // 
             // textBox12
             // 

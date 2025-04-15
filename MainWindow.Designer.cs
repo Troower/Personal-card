@@ -190,6 +190,7 @@
             dataGridViewTextBoxColumn4 = new DataGridViewTextBoxColumn();
             Column5 = new DataGridViewTextBoxColumn();
             Column6 = new DataGridViewTextBoxColumn();
+            Column17 = new DataGridViewTextBoxColumn();
             tabPage5 = new TabPage();
             splitContainer3 = new SplitContainer();
             groupBox1 = new GroupBox();
@@ -218,6 +219,7 @@
             dataGridViewTextBoxColumn5 = new DataGridViewTextBoxColumn();
             dataGridViewTextBoxColumn6 = new DataGridViewTextBoxColumn();
             dataGridViewTextBoxColumn7 = new DataGridViewTextBoxColumn();
+            Column18 = new DataGridViewTextBoxColumn();
             label15 = new Label();
             label35 = new Label();
             tabPage2 = new TabPage();
@@ -256,6 +258,7 @@
             dataGridViewTextBoxColumn10 = new DataGridViewTextBoxColumn();
             dataGridViewTextBoxColumn11 = new DataGridViewTextBoxColumn();
             Column8 = new DataGridViewTextBoxColumn();
+            Column19 = new DataGridViewTextBoxColumn();
             label37 = new Label();
             tabPage8 = new TabPage();
             tabControl3 = new TabControl();
@@ -266,6 +269,7 @@
             dataGridViewTextBoxColumn21 = new DataGridViewTextBoxColumn();
             dataGridViewTextBoxColumn22 = new DataGridViewTextBoxColumn();
             Column9 = new DataGridViewTextBoxColumn();
+            Column20 = new DataGridViewTextBoxColumn();
             tabPage10 = new TabPage();
             dataGridView5 = new DataGridView();
             dataGridViewTextBoxColumn12 = new DataGridViewTextBoxColumn();
@@ -276,6 +280,7 @@
             Column11 = new DataGridViewTextBoxColumn();
             Column12 = new DataGridViewTextBoxColumn();
             Column13 = new DataGridViewTextBoxColumn();
+            Column21 = new DataGridViewTextBoxColumn();
             tabPage11 = new TabPage();
             dataGridView7 = new DataGridView();
             dataGridViewTextBoxColumn16 = new DataGridViewTextBoxColumn();
@@ -285,6 +290,7 @@
             dataGridViewTextBoxColumn25 = new DataGridViewTextBoxColumn();
             dataGridViewTextBoxColumn26 = new DataGridViewTextBoxColumn();
             dataGridViewTextBoxColumn27 = new DataGridViewTextBoxColumn();
+            Column22 = new DataGridViewTextBoxColumn();
             label38 = new Label();
             tabPage12 = new TabPage();
             tabControl4 = new TabControl();
@@ -294,6 +300,7 @@
             dataGridViewTextBoxColumn35 = new DataGridViewTextBoxColumn();
             dataGridViewTextBoxColumn36 = new DataGridViewTextBoxColumn();
             dataGridViewTextBoxColumn37 = new DataGridViewTextBoxColumn();
+            Column23 = new DataGridViewTextBoxColumn();
             tabPage14 = new TabPage();
             dataGridView8 = new DataGridView();
             dataGridViewTextBoxColumn23 = new DataGridViewTextBoxColumn();
@@ -303,12 +310,14 @@
             dataGridViewTextBoxColumn31 = new DataGridViewTextBoxColumn();
             dataGridViewTextBoxColumn32 = new DataGridViewTextBoxColumn();
             dataGridViewTextBoxColumn33 = new DataGridViewTextBoxColumn();
+            Column24 = new DataGridViewTextBoxColumn();
             tabPage15 = new TabPage();
             dataGridView10 = new DataGridView();
             dataGridViewTextBoxColumn38 = new DataGridViewTextBoxColumn();
             dataGridViewTextBoxColumn40 = new DataGridViewTextBoxColumn();
             dataGridViewTextBoxColumn41 = new DataGridViewTextBoxColumn();
             dataGridViewTextBoxColumn39 = new DataGridViewTextBoxColumn();
+            Column25 = new DataGridViewTextBoxColumn();
             label39 = new Label();
             tabPage16 = new TabPage();
             dataGridView11 = new DataGridView();
@@ -461,7 +470,7 @@
             menuStrip1.Location = new Point(0, 0);
             menuStrip1.Name = "menuStrip1";
             menuStrip1.Padding = new Padding(9, 4, 0, 4);
-            menuStrip1.Size = new Size(1322, 28);
+            menuStrip1.Size = new Size(758, 28);
             menuStrip1.TabIndex = 0;
             menuStrip1.Text = "menuStrip1";
             // 
@@ -623,7 +632,7 @@
             toolStrip1.Items.AddRange(new ToolStripItem[] { toolStripButton1, toolStripButton3, toolStripButton2, toolStripButton5, toolStripTextBox1, toolStripLabel1, toolStripLabel2, toolStripButton4, toolStripButton6 });
             toolStrip1.Location = new Point(0, 28);
             toolStrip1.Name = "toolStrip1";
-            toolStrip1.Size = new Size(1322, 67);
+            toolStrip1.Size = new Size(758, 67);
             toolStrip1.TabIndex = 1;
             toolStrip1.Text = "toolStrip1";
             // 
@@ -691,7 +700,7 @@
             toolStripLabel1.Alignment = ToolStripItemAlignment.Right;
             toolStripLabel1.ForeColor = Color.White;
             toolStripLabel1.Name = "toolStripLabel1";
-            toolStripLabel1.Size = new Size(112, 64);
+            toolStripLabel1.Size = new Size(113, 64);
             toolStripLabel1.Text = "Поиск личных дел:";
             // 
             // toolStripLabel2
@@ -733,10 +742,10 @@
             button5.BackgroundImageLayout = ImageLayout.Stretch;
             button5.Dock = DockStyle.Fill;
             button5.ForeColor = Color.White;
-            button5.Location = new Point(1191, 4);
+            button5.Location = new Point(680, 4);
             button5.Margin = new Padding(3, 4, 3, 4);
             button5.Name = "button5";
-            button5.Size = new Size(128, 54);
+            button5.Size = new Size(75, 54);
             button5.TabIndex = 2;
             button5.Text = "Изменить подраздел";
             button5.UseVisualStyleBackColor = false;
@@ -749,10 +758,10 @@
             button1.BackgroundImageLayout = ImageLayout.Stretch;
             button1.Dock = DockStyle.Fill;
             button1.ForeColor = Color.White;
-            button1.Location = new Point(1059, 4);
+            button1.Location = new Point(605, 4);
             button1.Margin = new Padding(3, 4, 3, 4);
             button1.Name = "button1";
-            button1.Size = new Size(126, 54);
+            button1.Size = new Size(69, 54);
             button1.TabIndex = 1;
             button1.Text = "Редактировать";
             button1.UseVisualStyleBackColor = false;
@@ -769,7 +778,7 @@
             groupBox2.Margin = new Padding(6, 4, 6, 4);
             groupBox2.Name = "groupBox2";
             groupBox2.Padding = new Padding(6, 4, 6, 4);
-            groupBox2.Size = new Size(292, 571);
+            groupBox2.Size = new Size(167, 571);
             groupBox2.TabIndex = 3;
             groupBox2.TabStop = false;
             groupBox2.Text = "Сотрудники";
@@ -820,7 +829,7 @@
             dataGridView1.RowHeadersVisible = false;
             dataGridView1.RowTemplate.DefaultCellStyle.ForeColor = SystemColors.Desktop;
             dataGridView1.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            dataGridView1.Size = new Size(280, 544);
+            dataGridView1.Size = new Size(155, 544);
             dataGridView1.TabIndex = 2;
             dataGridView1.SelectionChanged += dataGridView1_SelectionChanged;
             // 
@@ -897,10 +906,10 @@
             button4.BackgroundImageLayout = ImageLayout.Stretch;
             button4.Dock = DockStyle.Fill;
             button4.ForeColor = Color.White;
-            button4.Location = new Point(135, 4);
+            button4.Location = new Point(78, 4);
             button4.Margin = new Padding(3, 4, 3, 4);
             button4.Name = "button4";
-            button4.Size = new Size(126, 54);
+            button4.Size = new Size(69, 54);
             button4.TabIndex = 3;
             button4.Text = "Добавить";
             button4.UseVisualStyleBackColor = false;
@@ -912,10 +921,10 @@
             button3.BackgroundImageLayout = ImageLayout.Stretch;
             button3.Dock = DockStyle.Fill;
             button3.ForeColor = Color.White;
-            button3.Location = new Point(267, 4);
+            button3.Location = new Point(153, 4);
             button3.Margin = new Padding(3, 4, 3, 4);
             button3.Name = "button3";
-            button3.Size = new Size(126, 54);
+            button3.Size = new Size(69, 54);
             button3.TabIndex = 3;
             button3.Text = "Удалить";
             button3.UseVisualStyleBackColor = false;
@@ -930,7 +939,7 @@
             button2.Location = new Point(3, 4);
             button2.Margin = new Padding(3, 4, 3, 4);
             button2.Name = "button2";
-            button2.Size = new Size(126, 54);
+            button2.Size = new Size(69, 54);
             button2.TabIndex = 3;
             button2.Text = "Сотрудники";
             button2.UseVisualStyleBackColor = false;
@@ -953,8 +962,8 @@
             // 
             splitContainer1.Panel2.Controls.Add(splitContainer5);
             splitContainer1.Panel2MinSize = 300;
-            splitContainer1.Size = new Size(1322, 571);
-            splitContainer1.SplitterDistance = 292;
+            splitContainer1.Size = new Size(758, 571);
+            splitContainer1.SplitterDistance = 167;
             splitContainer1.SplitterWidth = 5;
             splitContainer1.TabIndex = 4;
             splitContainer1.SplitterMoved += splitContainer1_SplitterMoved;
@@ -984,7 +993,7 @@
             splitContainer5.Panel2.ForeColor = Color.White;
             splitContainer5.Panel2Collapsed = true;
             splitContainer5.Panel2MinSize = 125;
-            splitContainer5.Size = new Size(1025, 571);
+            splitContainer5.Size = new Size(586, 571);
             splitContainer5.SplitterDistance = 300;
             splitContainer5.TabIndex = 0;
             splitContainer5.SplitterMoving += splitContainer5_SplitterMoving;
@@ -997,7 +1006,7 @@
             panel1.Location = new Point(0, 0);
             panel1.Margin = new Padding(0, 4, 0, 4);
             panel1.Name = "panel1";
-            panel1.Size = new Size(1025, 27);
+            panel1.Size = new Size(586, 27);
             panel1.TabIndex = 1;
             // 
             // menuStrip2
@@ -1009,7 +1018,7 @@
             menuStrip2.Items.AddRange(new ToolStripItem[] { изменитьРазделToolStripMenuItem });
             menuStrip2.Location = new Point(0, 0);
             menuStrip2.Name = "menuStrip2";
-            menuStrip2.Size = new Size(1025, 27);
+            menuStrip2.Size = new Size(586, 27);
             menuStrip2.TabIndex = 0;
             menuStrip2.Text = "menuStrip2";
             // 
@@ -1112,7 +1121,7 @@
             tabControl1.Margin = new Padding(3, 4, 3, 4);
             tabControl1.Name = "tabControl1";
             tabControl1.SelectedIndex = 0;
-            tabControl1.Size = new Size(1025, 571);
+            tabControl1.Size = new Size(586, 571);
             tabControl1.TabIndex = 0;
             tabControl1.SelectedIndexChanged += tabControl1_SelectedIndexChanged;
             // 
@@ -1126,7 +1135,7 @@
             tabPage1.Margin = new Padding(3, 4, 3, 4);
             tabPage1.Name = "tabPage1";
             tabPage1.Padding = new Padding(3, 4, 3, 4);
-            tabPage1.Size = new Size(1017, 539);
+            tabPage1.Size = new Size(578, 539);
             tabPage1.TabIndex = 0;
             tabPage1.Text = "Общие сведения";
             // 
@@ -1142,7 +1151,7 @@
             tabControl2.Margin = new Padding(3, 4, 3, 4);
             tabControl2.Name = "tabControl2";
             tabControl2.SelectedIndex = 0;
-            tabControl2.Size = new Size(1011, 505);
+            tabControl2.Size = new Size(572, 505);
             tabControl2.TabIndex = 0;
             tabControl2.SelectedIndexChanged += tabControl1_SelectedIndexChanged;
             // 
@@ -1155,7 +1164,7 @@
             tabPage3.Margin = new Padding(3, 4, 3, 4);
             tabPage3.Name = "tabPage3";
             tabPage3.Padding = new Padding(3, 4, 3, 4);
-            tabPage3.Size = new Size(1003, 470);
+            tabPage3.Size = new Size(564, 470);
             tabPage3.TabIndex = 0;
             tabPage3.Text = "Личная информация";
             // 
@@ -1183,8 +1192,8 @@
             // splitContainer2.Panel2
             // 
             splitContainer2.Panel2.Controls.Add(splitContainer4);
-            splitContainer2.Size = new Size(997, 462);
-            splitContainer2.SplitterDistance = 456;
+            splitContainer2.Size = new Size(558, 462);
+            splitContainer2.SplitterDistance = 254;
             splitContainer2.TabIndex = 0;
             // 
             // groupBox10
@@ -1194,7 +1203,7 @@
             groupBox10.ForeColor = Color.White;
             groupBox10.Location = new Point(0, 279);
             groupBox10.Name = "groupBox10";
-            groupBox10.Size = new Size(456, 180);
+            groupBox10.Size = new Size(254, 180);
             groupBox10.TabIndex = 11;
             groupBox10.TabStop = false;
             groupBox10.Text = "Язык";
@@ -1204,7 +1213,7 @@
             flowLayoutPanel7.Dock = DockStyle.Fill;
             flowLayoutPanel7.Location = new Point(3, 22);
             flowLayoutPanel7.Name = "flowLayoutPanel7";
-            flowLayoutPanel7.Size = new Size(450, 155);
+            flowLayoutPanel7.Size = new Size(248, 155);
             flowLayoutPanel7.TabIndex = 0;
             // 
             // panel13
@@ -1215,7 +1224,7 @@
             panel13.Dock = DockStyle.Top;
             panel13.Location = new Point(0, 248);
             panel13.Name = "panel13";
-            panel13.Size = new Size(456, 31);
+            panel13.Size = new Size(254, 31);
             panel13.TabIndex = 20;
             // 
             // label14
@@ -1235,7 +1244,7 @@
             label52.BackColor = Color.FromArgb(45, 50, 80);
             label52.BorderStyle = BorderStyle.Fixed3D;
             label52.Dock = DockStyle.Right;
-            label52.Location = new Point(346, 0);
+            label52.Location = new Point(144, 0);
             label52.Margin = new Padding(5);
             label52.Name = "label52";
             label52.Size = new Size(108, 21);
@@ -1250,7 +1259,7 @@
             panel12.Dock = DockStyle.Top;
             panel12.Location = new Point(0, 217);
             panel12.Name = "panel12";
-            panel12.Size = new Size(456, 31);
+            panel12.Size = new Size(254, 31);
             panel12.TabIndex = 19;
             // 
             // label7
@@ -1270,7 +1279,7 @@
             label51.BackColor = Color.FromArgb(45, 50, 80);
             label51.BorderStyle = BorderStyle.Fixed3D;
             label51.Dock = DockStyle.Right;
-            label51.Location = new Point(304, 0);
+            label51.Location = new Point(102, 0);
             label51.Margin = new Padding(5);
             label51.Name = "label51";
             label51.RightToLeft = RightToLeft.No;
@@ -1287,7 +1296,7 @@
             panel11.Dock = DockStyle.Top;
             panel11.Location = new Point(0, 186);
             panel11.Name = "panel11";
-            panel11.Size = new Size(456, 31);
+            panel11.Size = new Size(254, 31);
             panel11.TabIndex = 18;
             // 
             // label50
@@ -1296,7 +1305,7 @@
             label50.BackColor = Color.FromArgb(45, 50, 80);
             label50.BorderStyle = BorderStyle.Fixed3D;
             label50.Dock = DockStyle.Right;
-            label50.Location = new Point(411, 0);
+            label50.Location = new Point(209, 0);
             label50.Margin = new Padding(5);
             label50.Name = "label50";
             label50.Size = new Size(43, 21);
@@ -1322,7 +1331,7 @@
             panel10.Dock = DockStyle.Top;
             panel10.Location = new Point(0, 155);
             panel10.Name = "panel10";
-            panel10.Size = new Size(456, 31);
+            panel10.Size = new Size(254, 31);
             panel10.TabIndex = 17;
             // 
             // label5
@@ -1342,7 +1351,7 @@
             label48.BackColor = Color.FromArgb(45, 50, 80);
             label48.BorderStyle = BorderStyle.Fixed3D;
             label48.Dock = DockStyle.Right;
-            label48.Location = new Point(310, 0);
+            label48.Location = new Point(108, 0);
             label48.Margin = new Padding(5);
             label48.Name = "label48";
             label48.Size = new Size(144, 21);
@@ -1355,7 +1364,7 @@
             panel8.Dock = DockStyle.Top;
             panel8.Location = new Point(0, 124);
             panel8.Name = "panel8";
-            panel8.Size = new Size(456, 31);
+            panel8.Size = new Size(254, 31);
             panel8.TabIndex = 16;
             // 
             // panel9
@@ -1366,7 +1375,7 @@
             panel9.Dock = DockStyle.Top;
             panel9.Location = new Point(0, 0);
             panel9.Name = "panel9";
-            panel9.Size = new Size(456, 31);
+            panel9.Size = new Size(254, 31);
             panel9.TabIndex = 16;
             // 
             // label6
@@ -1386,7 +1395,7 @@
             label49.BackColor = Color.FromArgb(45, 50, 80);
             label49.BorderStyle = BorderStyle.Fixed3D;
             label49.Dock = DockStyle.Right;
-            label49.Location = new Point(338, 0);
+            label49.Location = new Point(136, 0);
             label49.Margin = new Padding(5);
             label49.Name = "label49";
             label49.Size = new Size(116, 21);
@@ -1401,7 +1410,7 @@
             panel7.Dock = DockStyle.Top;
             panel7.Location = new Point(0, 93);
             panel7.Name = "panel7";
-            panel7.Size = new Size(456, 31);
+            panel7.Size = new Size(254, 31);
             panel7.TabIndex = 15;
             // 
             // label47
@@ -1410,7 +1419,7 @@
             label47.BackColor = Color.FromArgb(45, 50, 80);
             label47.BorderStyle = BorderStyle.Fixed3D;
             label47.Dock = DockStyle.Right;
-            label47.Location = new Point(322, 0);
+            label47.Location = new Point(120, 0);
             label47.Margin = new Padding(5);
             label47.Name = "label47";
             label47.Size = new Size(132, 21);
@@ -1436,7 +1445,7 @@
             panel6.Dock = DockStyle.Top;
             panel6.Location = new Point(0, 62);
             panel6.Name = "panel6";
-            panel6.Size = new Size(456, 31);
+            panel6.Size = new Size(254, 31);
             panel6.TabIndex = 14;
             // 
             // label3
@@ -1456,7 +1465,7 @@
             label46.BackColor = Color.FromArgb(45, 50, 80);
             label46.BorderStyle = BorderStyle.Fixed3D;
             label46.Dock = DockStyle.Right;
-            label46.Location = new Point(368, 0);
+            label46.Location = new Point(166, 0);
             label46.Margin = new Padding(5);
             label46.Name = "label46";
             label46.Size = new Size(86, 21);
@@ -1471,7 +1480,7 @@
             panel5.Dock = DockStyle.Top;
             panel5.Location = new Point(0, 31);
             panel5.Name = "panel5";
-            panel5.Size = new Size(456, 31);
+            panel5.Size = new Size(254, 31);
             panel5.TabIndex = 13;
             // 
             // label45
@@ -1480,7 +1489,7 @@
             label45.BackColor = Color.FromArgb(45, 50, 80);
             label45.BorderStyle = BorderStyle.Fixed3D;
             label45.Dock = DockStyle.Right;
-            label45.Location = new Point(411, 0);
+            label45.Location = new Point(209, 0);
             label45.Margin = new Padding(5);
             label45.Name = "label45";
             label45.Size = new Size(43, 21);
@@ -1507,7 +1516,7 @@
             panel4.Dock = DockStyle.Top;
             panel4.Location = new Point(0, 0);
             panel4.Name = "panel4";
-            panel4.Size = new Size(456, 31);
+            panel4.Size = new Size(254, 31);
             panel4.TabIndex = 12;
             // 
             // label1
@@ -1528,7 +1537,7 @@
             label44.BackColor = Color.FromArgb(45, 50, 80);
             label44.BorderStyle = BorderStyle.Fixed3D;
             label44.Dock = DockStyle.Right;
-            label44.Location = new Point(370, 0);
+            label44.Location = new Point(168, 0);
             label44.Margin = new Padding(5);
             label44.Name = "label44";
             label44.Size = new Size(84, 21);
@@ -1550,7 +1559,7 @@
             // splitContainer4.Panel2
             // 
             splitContainer4.Panel2.Controls.Add(groupBox8);
-            splitContainer4.Size = new Size(537, 462);
+            splitContainer4.Size = new Size(300, 462);
             splitContainer4.SplitterDistance = 232;
             splitContainer4.TabIndex = 0;
             // 
@@ -1568,7 +1577,7 @@
             groupBox7.Margin = new Padding(3, 4, 3, 4);
             groupBox7.Name = "groupBox7";
             groupBox7.Padding = new Padding(3, 4, 3, 4);
-            groupBox7.Size = new Size(537, 232);
+            groupBox7.Size = new Size(300, 232);
             groupBox7.TabIndex = 0;
             groupBox7.TabStop = false;
             groupBox7.Text = "Документы";
@@ -1582,7 +1591,7 @@
             panel19.Dock = DockStyle.Top;
             panel19.Location = new Point(3, 178);
             panel19.Name = "panel19";
-            panel19.Size = new Size(531, 31);
+            panel19.Size = new Size(294, 31);
             panel19.TabIndex = 18;
             // 
             // label58
@@ -1591,7 +1600,7 @@
             label58.BackColor = Color.FromArgb(45, 50, 80);
             label58.BorderStyle = BorderStyle.Fixed3D;
             label58.Dock = DockStyle.Right;
-            label58.Location = new Point(459, 0);
+            label58.Location = new Point(222, 0);
             label58.Margin = new Padding(5);
             label58.Name = "label58";
             label58.Size = new Size(70, 21);
@@ -1618,7 +1627,7 @@
             panel18.Dock = DockStyle.Top;
             panel18.Location = new Point(3, 147);
             panel18.Name = "panel18";
-            panel18.Size = new Size(531, 31);
+            panel18.Size = new Size(294, 31);
             panel18.TabIndex = 17;
             // 
             // label57
@@ -1627,7 +1636,7 @@
             label57.BackColor = Color.FromArgb(45, 50, 80);
             label57.BorderStyle = BorderStyle.Fixed3D;
             label57.Dock = DockStyle.Right;
-            label57.Location = new Point(482, 0);
+            label57.Location = new Point(245, 0);
             label57.Margin = new Padding(5);
             label57.Name = "label57";
             label57.Size = new Size(47, 21);
@@ -1654,7 +1663,7 @@
             panel17.Dock = DockStyle.Top;
             panel17.Location = new Point(3, 116);
             panel17.Name = "panel17";
-            panel17.Size = new Size(531, 31);
+            panel17.Size = new Size(294, 31);
             panel17.TabIndex = 16;
             // 
             // label56
@@ -1663,7 +1672,7 @@
             label56.BackColor = Color.FromArgb(45, 50, 80);
             label56.BorderStyle = BorderStyle.Fixed3D;
             label56.Dock = DockStyle.Right;
-            label56.Location = new Point(463, 0);
+            label56.Location = new Point(226, 0);
             label56.Margin = new Padding(5);
             label56.Name = "label56";
             label56.Size = new Size(66, 21);
@@ -1690,7 +1699,7 @@
             panel16.Dock = DockStyle.Top;
             panel16.Location = new Point(3, 85);
             panel16.Name = "panel16";
-            panel16.Size = new Size(531, 31);
+            panel16.Size = new Size(294, 31);
             panel16.TabIndex = 15;
             // 
             // label55
@@ -1699,7 +1708,7 @@
             label55.BackColor = Color.FromArgb(45, 50, 80);
             label55.BorderStyle = BorderStyle.Fixed3D;
             label55.Dock = DockStyle.Right;
-            label55.Location = new Point(415, 0);
+            label55.Location = new Point(178, 0);
             label55.Margin = new Padding(5);
             label55.Name = "label55";
             label55.Size = new Size(114, 21);
@@ -1726,7 +1735,7 @@
             panel15.Dock = DockStyle.Top;
             panel15.Location = new Point(3, 54);
             panel15.Name = "panel15";
-            panel15.Size = new Size(531, 31);
+            panel15.Size = new Size(294, 31);
             panel15.TabIndex = 14;
             // 
             // label54
@@ -1735,7 +1744,7 @@
             label54.BackColor = Color.FromArgb(45, 50, 80);
             label54.BorderStyle = BorderStyle.Fixed3D;
             label54.Dock = DockStyle.Right;
-            label54.Location = new Point(468, 0);
+            label54.Location = new Point(231, 0);
             label54.Margin = new Padding(5);
             label54.Name = "label54";
             label54.Size = new Size(61, 21);
@@ -1762,7 +1771,7 @@
             panel14.Dock = DockStyle.Top;
             panel14.Location = new Point(3, 23);
             panel14.Name = "panel14";
-            panel14.Size = new Size(531, 31);
+            panel14.Size = new Size(294, 31);
             panel14.TabIndex = 13;
             // 
             // label53
@@ -1771,7 +1780,7 @@
             label53.BackColor = Color.FromArgb(45, 50, 80);
             label53.BorderStyle = BorderStyle.Fixed3D;
             label53.Dock = DockStyle.Right;
-            label53.Location = new Point(466, 0);
+            label53.Location = new Point(229, 0);
             label53.Margin = new Padding(5);
             label53.Name = "label53";
             label53.Size = new Size(63, 21);
@@ -1799,7 +1808,7 @@
             groupBox8.Margin = new Padding(3, 4, 3, 4);
             groupBox8.Name = "groupBox8";
             groupBox8.Padding = new Padding(3, 4, 3, 4);
-            groupBox8.Size = new Size(537, 226);
+            groupBox8.Size = new Size(300, 226);
             groupBox8.TabIndex = 0;
             groupBox8.TabStop = false;
             groupBox8.Text = "Место жительства";
@@ -1814,7 +1823,7 @@
             panel3.Location = new Point(3, 123);
             panel3.Margin = new Padding(3, 4, 3, 4);
             panel3.Name = "panel3";
-            panel3.Size = new Size(531, 100);
+            panel3.Size = new Size(294, 100);
             panel3.TabIndex = 1;
             // 
             // label59
@@ -1823,7 +1832,7 @@
             label59.BackColor = Color.FromArgb(45, 50, 80);
             label59.BorderStyle = BorderStyle.Fixed3D;
             label59.Dock = DockStyle.Right;
-            label59.Location = new Point(383, 19);
+            label59.Location = new Point(146, 19);
             label59.Margin = new Padding(5);
             label59.Name = "label59";
             label59.Size = new Size(144, 21);
@@ -1861,7 +1870,7 @@
             panel2.Location = new Point(3, 23);
             panel2.Margin = new Padding(3, 4, 3, 4);
             panel2.Name = "panel2";
-            panel2.Size = new Size(531, 100);
+            panel2.Size = new Size(294, 100);
             panel2.TabIndex = 0;
             // 
             // label41
@@ -1870,7 +1879,7 @@
             label41.BackColor = Color.FromArgb(45, 50, 80);
             label41.BorderStyle = BorderStyle.Fixed3D;
             label41.Dock = DockStyle.Right;
-            label41.Location = new Point(383, 19);
+            label41.Location = new Point(146, 19);
             label41.Margin = new Padding(5);
             label41.Name = "label41";
             label41.Size = new Size(144, 21);
@@ -1902,11 +1911,11 @@
             // 
             tabPage4.BackColor = Color.FromArgb(45, 70, 80);
             tabPage4.Controls.Add(dataGridView2);
-            tabPage4.Location = new Point(4, 27);
+            tabPage4.Location = new Point(4, 31);
             tabPage4.Margin = new Padding(3, 4, 3, 4);
             tabPage4.Name = "tabPage4";
             tabPage4.Padding = new Padding(3, 4, 3, 4);
-            tabPage4.Size = new Size(1003, 474);
+            tabPage4.Size = new Size(564, 470);
             tabPage4.TabIndex = 1;
             tabPage4.Text = "Образование";
             // 
@@ -1927,7 +1936,7 @@
             dataGridViewCellStyle4.WrapMode = DataGridViewTriState.True;
             dataGridView2.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle4;
             dataGridView2.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView2.Columns.AddRange(new DataGridViewColumn[] { Column7, dataGridViewTextBoxColumn1, dataGridViewTextBoxColumn2, dataGridViewTextBoxColumn3, dataGridViewTextBoxColumn4, Column5, Column6 });
+            dataGridView2.Columns.AddRange(new DataGridViewColumn[] { Column7, dataGridViewTextBoxColumn1, dataGridViewTextBoxColumn2, dataGridViewTextBoxColumn3, dataGridViewTextBoxColumn4, Column5, Column6, Column17 });
             dataGridViewCellStyle5.Alignment = DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle5.BackColor = Color.Azure;
             dataGridViewCellStyle5.Font = new Font("Arial", 12F, FontStyle.Bold, GraphicsUnit.Point, 204);
@@ -1955,8 +1964,9 @@
             dataGridView2.RowHeadersVisible = false;
             dataGridView2.RowTemplate.DefaultCellStyle.ForeColor = SystemColors.Desktop;
             dataGridView2.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            dataGridView2.Size = new Size(997, 466);
+            dataGridView2.Size = new Size(558, 462);
             dataGridView2.TabIndex = 3;
+            dataGridView2.CellDoubleClick += dataGridView2_CellDoubleClick;
             // 
             // Column7
             // 
@@ -1975,12 +1985,14 @@
             dataGridViewTextBoxColumn2.HeaderText = "Серия";
             dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
             dataGridViewTextBoxColumn2.ReadOnly = true;
+            dataGridViewTextBoxColumn2.Visible = false;
             // 
             // dataGridViewTextBoxColumn3
             // 
             dataGridViewTextBoxColumn3.HeaderText = "Номер";
             dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
             dataGridViewTextBoxColumn3.ReadOnly = true;
+            dataGridViewTextBoxColumn3.Visible = false;
             // 
             // dataGridViewTextBoxColumn4
             // 
@@ -2000,6 +2012,13 @@
             Column6.Name = "Column6";
             Column6.ReadOnly = true;
             // 
+            // Column17
+            // 
+            Column17.HeaderText = "Id";
+            Column17.Name = "Column17";
+            Column17.ReadOnly = true;
+            Column17.Visible = false;
+            // 
             // tabPage5
             // 
             tabPage5.BackColor = Color.FromArgb(45, 70, 80);
@@ -2007,7 +2026,7 @@
             tabPage5.Location = new Point(4, 27);
             tabPage5.Margin = new Padding(3, 4, 3, 4);
             tabPage5.Name = "tabPage5";
-            tabPage5.Size = new Size(1003, 474);
+            tabPage5.Size = new Size(564, 474);
             tabPage5.TabIndex = 2;
             tabPage5.Text = "Профессия";
             // 
@@ -2026,8 +2045,8 @@
             // splitContainer3.Panel2
             // 
             splitContainer3.Panel2.Controls.Add(groupBox3);
-            splitContainer3.Size = new Size(1003, 474);
-            splitContainer3.SplitterDistance = 635;
+            splitContainer3.Size = new Size(564, 474);
+            splitContainer3.SplitterDistance = 357;
             splitContainer3.TabIndex = 0;
             // 
             // groupBox1
@@ -2040,7 +2059,7 @@
             groupBox1.Margin = new Padding(3, 4, 3, 4);
             groupBox1.Name = "groupBox1";
             groupBox1.Padding = new Padding(3, 4, 3, 4);
-            groupBox1.Size = new Size(635, 474);
+            groupBox1.Size = new Size(357, 474);
             groupBox1.TabIndex = 0;
             groupBox1.TabStop = false;
             groupBox1.Text = "Профессия";
@@ -2054,7 +2073,7 @@
             panel21.Dock = DockStyle.Top;
             panel21.Location = new Point(3, 54);
             panel21.Name = "panel21";
-            panel21.Size = new Size(629, 31);
+            panel21.Size = new Size(351, 31);
             panel21.TabIndex = 14;
             // 
             // label61
@@ -2063,7 +2082,7 @@
             label61.BackColor = Color.FromArgb(45, 50, 80);
             label61.BorderStyle = BorderStyle.Fixed3D;
             label61.Dock = DockStyle.Right;
-            label61.Location = new Point(561, 0);
+            label61.Location = new Point(283, 0);
             label61.Margin = new Padding(5);
             label61.Name = "label61";
             label61.Size = new Size(66, 21);
@@ -2090,7 +2109,7 @@
             panel20.Dock = DockStyle.Top;
             panel20.Location = new Point(3, 23);
             panel20.Name = "panel20";
-            panel20.Size = new Size(629, 31);
+            panel20.Size = new Size(351, 31);
             panel20.TabIndex = 13;
             // 
             // label60
@@ -2099,7 +2118,7 @@
             label60.BackColor = Color.FromArgb(45, 50, 80);
             label60.BorderStyle = BorderStyle.Fixed3D;
             label60.Dock = DockStyle.Right;
-            label60.Location = new Point(537, 0);
+            label60.Location = new Point(259, 0);
             label60.Margin = new Padding(5);
             label60.Name = "label60";
             label60.Size = new Size(90, 21);
@@ -2126,7 +2145,7 @@
             groupBox3.Margin = new Padding(3, 4, 3, 4);
             groupBox3.Name = "groupBox3";
             groupBox3.Padding = new Padding(3, 4, 3, 4);
-            groupBox3.Size = new Size(364, 474);
+            groupBox3.Size = new Size(203, 474);
             groupBox3.TabIndex = 0;
             groupBox3.TabStop = false;
             groupBox3.Text = "Стаж работы";
@@ -2146,7 +2165,7 @@
             tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 33.3333321F));
             tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 33.3333321F));
             tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 33.3333321F));
-            tableLayoutPanel1.Size = new Size(358, 447);
+            tableLayoutPanel1.Size = new Size(197, 447);
             tableLayoutPanel1.TabIndex = 0;
             // 
             // groupBox4
@@ -2160,7 +2179,7 @@
             groupBox4.Margin = new Padding(3, 4, 3, 4);
             groupBox4.Name = "groupBox4";
             groupBox4.Padding = new Padding(3, 4, 3, 4);
-            groupBox4.Size = new Size(352, 140);
+            groupBox4.Size = new Size(191, 140);
             groupBox4.TabIndex = 0;
             groupBox4.TabStop = false;
             groupBox4.Text = "Общий";
@@ -2212,7 +2231,7 @@
             groupBox5.Margin = new Padding(3, 4, 3, 4);
             groupBox5.Name = "groupBox5";
             groupBox5.Padding = new Padding(3, 4, 3, 4);
-            groupBox5.Size = new Size(352, 140);
+            groupBox5.Size = new Size(191, 140);
             groupBox5.TabIndex = 1;
             groupBox5.TabStop = false;
             groupBox5.Text = "Непрерывный";
@@ -2264,7 +2283,7 @@
             groupBox6.Margin = new Padding(3, 4, 3, 4);
             groupBox6.Name = "groupBox6";
             groupBox6.Padding = new Padding(3, 4, 3, 4);
-            groupBox6.Size = new Size(352, 143);
+            groupBox6.Size = new Size(191, 143);
             groupBox6.TabIndex = 2;
             groupBox6.TabStop = false;
             groupBox6.Text = "Дающий право на надбавку";
@@ -2313,7 +2332,7 @@
             tabPage6.Location = new Point(4, 27);
             tabPage6.Margin = new Padding(3, 4, 3, 4);
             tabPage6.Name = "tabPage6";
-            tabPage6.Size = new Size(1003, 474);
+            tabPage6.Size = new Size(564, 474);
             tabPage6.TabIndex = 3;
             tabPage6.Text = "Состав семьи";
             // 
@@ -2334,7 +2353,7 @@
             dataGridViewCellStyle7.WrapMode = DataGridViewTriState.True;
             dataGridView3.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle7;
             dataGridView3.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView3.Columns.AddRange(new DataGridViewColumn[] { dataGridViewTextBoxColumn5, dataGridViewTextBoxColumn6, dataGridViewTextBoxColumn7 });
+            dataGridView3.Columns.AddRange(new DataGridViewColumn[] { dataGridViewTextBoxColumn5, dataGridViewTextBoxColumn6, dataGridViewTextBoxColumn7, Column18 });
             dataGridViewCellStyle8.Alignment = DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle8.BackColor = Color.Azure;
             dataGridViewCellStyle8.Font = new Font("Arial", 12F, FontStyle.Bold, GraphicsUnit.Point, 204);
@@ -2362,7 +2381,7 @@
             dataGridView3.RowHeadersVisible = false;
             dataGridView3.RowTemplate.DefaultCellStyle.ForeColor = SystemColors.Desktop;
             dataGridView3.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            dataGridView3.Size = new Size(1003, 446);
+            dataGridView3.Size = new Size(564, 446);
             dataGridView3.TabIndex = 3;
             // 
             // dataGridViewTextBoxColumn5
@@ -2383,6 +2402,13 @@
             dataGridViewTextBoxColumn7.Name = "dataGridViewTextBoxColumn7";
             dataGridViewTextBoxColumn7.ReadOnly = true;
             // 
+            // Column18
+            // 
+            Column18.HeaderText = "id";
+            Column18.Name = "Column18";
+            Column18.ReadOnly = true;
+            Column18.Visible = false;
+            // 
             // label15
             // 
             label15.BorderStyle = BorderStyle.Fixed3D;
@@ -2391,7 +2417,7 @@
             label15.Location = new Point(0, 0);
             label15.Margin = new Padding(5);
             label15.Name = "label15";
-            label15.Size = new Size(1003, 28);
+            label15.Size = new Size(564, 28);
             label15.TabIndex = 0;
             label15.Text = "Состояние в браке: ";
             label15.TextAlign = ContentAlignment.MiddleCenter;
@@ -2402,7 +2428,7 @@
             label35.Dock = DockStyle.Top;
             label35.Location = new Point(3, 4);
             label35.Name = "label35";
-            label35.Size = new Size(1011, 26);
+            label35.Size = new Size(572, 26);
             label35.TabIndex = 1;
             label35.Text = "Общие сведения";
             label35.TextAlign = ContentAlignment.MiddleCenter;
@@ -2425,7 +2451,7 @@
             tabPage2.Margin = new Padding(3, 4, 3, 4);
             tabPage2.Name = "tabPage2";
             tabPage2.Padding = new Padding(3, 4, 3, 4);
-            tabPage2.Size = new Size(1017, 543);
+            tabPage2.Size = new Size(578, 543);
             tabPage2.TabIndex = 1;
             tabPage2.Text = "Воинский учет";
             // 
@@ -2438,7 +2464,7 @@
             panel30.Dock = DockStyle.Top;
             panel30.Location = new Point(3, 278);
             panel30.Name = "panel30";
-            panel30.Size = new Size(1011, 31);
+            panel30.Size = new Size(572, 31);
             panel30.TabIndex = 21;
             // 
             // label79
@@ -2447,7 +2473,7 @@
             label79.BackColor = Color.FromArgb(45, 50, 80);
             label79.BorderStyle = BorderStyle.Fixed3D;
             label79.Dock = DockStyle.Right;
-            label79.Location = new Point(1007, 0);
+            label79.Location = new Point(568, 0);
             label79.Margin = new Padding(5);
             label79.Name = "label79";
             label79.Size = new Size(2, 21);
@@ -2474,7 +2500,7 @@
             panel29.Dock = DockStyle.Top;
             panel29.Location = new Point(3, 247);
             panel29.Name = "panel29";
-            panel29.Size = new Size(1011, 31);
+            panel29.Size = new Size(572, 31);
             panel29.TabIndex = 20;
             // 
             // label78
@@ -2483,7 +2509,7 @@
             label78.BackColor = Color.FromArgb(45, 50, 80);
             label78.BorderStyle = BorderStyle.Fixed3D;
             label78.Dock = DockStyle.Right;
-            label78.Location = new Point(1007, 0);
+            label78.Location = new Point(568, 0);
             label78.Margin = new Padding(5);
             label78.Name = "label78";
             label78.Size = new Size(2, 21);
@@ -2510,7 +2536,7 @@
             panel28.Dock = DockStyle.Top;
             panel28.Location = new Point(3, 216);
             panel28.Name = "panel28";
-            panel28.Size = new Size(1011, 31);
+            panel28.Size = new Size(572, 31);
             panel28.TabIndex = 19;
             // 
             // label77
@@ -2519,7 +2545,7 @@
             label77.BackColor = Color.FromArgb(45, 50, 80);
             label77.BorderStyle = BorderStyle.Fixed3D;
             label77.Dock = DockStyle.Right;
-            label77.Location = new Point(1007, 0);
+            label77.Location = new Point(568, 0);
             label77.Margin = new Padding(5);
             label77.Name = "label77";
             label77.Size = new Size(2, 21);
@@ -2547,7 +2573,7 @@
             panel27.Dock = DockStyle.Top;
             panel27.Location = new Point(3, 185);
             panel27.Name = "panel27";
-            panel27.Size = new Size(1011, 31);
+            panel27.Size = new Size(572, 31);
             panel27.TabIndex = 18;
             // 
             // label76
@@ -2556,7 +2582,7 @@
             label76.BackColor = Color.FromArgb(45, 50, 80);
             label76.BorderStyle = BorderStyle.Fixed3D;
             label76.Dock = DockStyle.Right;
-            label76.Location = new Point(1007, 0);
+            label76.Location = new Point(568, 0);
             label76.Margin = new Padding(5);
             label76.Name = "label76";
             label76.Size = new Size(2, 21);
@@ -2583,7 +2609,7 @@
             panel26.Dock = DockStyle.Top;
             panel26.Location = new Point(3, 154);
             panel26.Name = "panel26";
-            panel26.Size = new Size(1011, 31);
+            panel26.Size = new Size(572, 31);
             panel26.TabIndex = 17;
             // 
             // label75
@@ -2592,7 +2618,7 @@
             label75.BackColor = Color.FromArgb(45, 50, 80);
             label75.BorderStyle = BorderStyle.Fixed3D;
             label75.Dock = DockStyle.Right;
-            label75.Location = new Point(1007, 0);
+            label75.Location = new Point(568, 0);
             label75.Margin = new Padding(5);
             label75.Name = "label75";
             label75.Size = new Size(2, 21);
@@ -2619,7 +2645,7 @@
             panel25.Dock = DockStyle.Top;
             panel25.Location = new Point(3, 123);
             panel25.Name = "panel25";
-            panel25.Size = new Size(1011, 31);
+            panel25.Size = new Size(572, 31);
             panel25.TabIndex = 16;
             // 
             // label74
@@ -2628,7 +2654,7 @@
             label74.BackColor = Color.FromArgb(45, 50, 80);
             label74.BorderStyle = BorderStyle.Fixed3D;
             label74.Dock = DockStyle.Right;
-            label74.Location = new Point(1007, 0);
+            label74.Location = new Point(568, 0);
             label74.Margin = new Padding(5);
             label74.Name = "label74";
             label74.Size = new Size(2, 21);
@@ -2655,7 +2681,7 @@
             panel24.Dock = DockStyle.Top;
             panel24.Location = new Point(3, 92);
             panel24.Name = "panel24";
-            panel24.Size = new Size(1011, 31);
+            panel24.Size = new Size(572, 31);
             panel24.TabIndex = 15;
             // 
             // label73
@@ -2664,7 +2690,7 @@
             label73.BackColor = Color.FromArgb(45, 50, 80);
             label73.BorderStyle = BorderStyle.Fixed3D;
             label73.Dock = DockStyle.Right;
-            label73.Location = new Point(1007, 0);
+            label73.Location = new Point(568, 0);
             label73.Margin = new Padding(5);
             label73.Name = "label73";
             label73.Size = new Size(2, 21);
@@ -2691,7 +2717,7 @@
             panel23.Dock = DockStyle.Top;
             panel23.Location = new Point(3, 61);
             panel23.Name = "panel23";
-            panel23.Size = new Size(1011, 31);
+            panel23.Size = new Size(572, 31);
             panel23.TabIndex = 14;
             // 
             // label72
@@ -2700,7 +2726,7 @@
             label72.BackColor = Color.FromArgb(45, 50, 80);
             label72.BorderStyle = BorderStyle.Fixed3D;
             label72.Dock = DockStyle.Right;
-            label72.Location = new Point(1007, 0);
+            label72.Location = new Point(568, 0);
             label72.Margin = new Padding(5);
             label72.Name = "label72";
             label72.Size = new Size(2, 21);
@@ -2727,7 +2753,7 @@
             panel22.Dock = DockStyle.Top;
             panel22.Location = new Point(3, 30);
             panel22.Name = "panel22";
-            panel22.Size = new Size(1011, 31);
+            panel22.Size = new Size(572, 31);
             panel22.TabIndex = 13;
             // 
             // label71
@@ -2736,7 +2762,7 @@
             label71.BackColor = Color.FromArgb(45, 50, 80);
             label71.BorderStyle = BorderStyle.Fixed3D;
             label71.Dock = DockStyle.Right;
-            label71.Location = new Point(1007, 0);
+            label71.Location = new Point(568, 0);
             label71.Margin = new Padding(5);
             label71.Name = "label71";
             label71.Size = new Size(2, 21);
@@ -2760,7 +2786,7 @@
             label36.Dock = DockStyle.Top;
             label36.Location = new Point(3, 4);
             label36.Name = "label36";
-            label36.Size = new Size(1011, 26);
+            label36.Size = new Size(572, 26);
             label36.TabIndex = 2;
             label36.Text = "Воинский учет";
             label36.TextAlign = ContentAlignment.MiddleCenter;
@@ -2774,7 +2800,7 @@
             tabPage7.Margin = new Padding(3, 4, 3, 4);
             tabPage7.Name = "tabPage7";
             tabPage7.Padding = new Padding(3, 4, 3, 4);
-            tabPage7.Size = new Size(1017, 543);
+            tabPage7.Size = new Size(578, 543);
             tabPage7.TabIndex = 2;
             tabPage7.Text = "Прием/перевод на работу";
             // 
@@ -2795,7 +2821,7 @@
             dataGridViewCellStyle10.WrapMode = DataGridViewTriState.True;
             dataGridView4.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle10;
             dataGridView4.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView4.Columns.AddRange(new DataGridViewColumn[] { dataGridViewTextBoxColumn8, dataGridViewTextBoxColumn9, dataGridViewTextBoxColumn10, dataGridViewTextBoxColumn11, Column8 });
+            dataGridView4.Columns.AddRange(new DataGridViewColumn[] { dataGridViewTextBoxColumn8, dataGridViewTextBoxColumn9, dataGridViewTextBoxColumn10, dataGridViewTextBoxColumn11, Column8, Column19 });
             dataGridViewCellStyle11.Alignment = DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle11.BackColor = Color.Azure;
             dataGridViewCellStyle11.Font = new Font("Arial", 12F, FontStyle.Bold, GraphicsUnit.Point, 204);
@@ -2823,7 +2849,7 @@
             dataGridView4.RowHeadersVisible = false;
             dataGridView4.RowTemplate.DefaultCellStyle.ForeColor = SystemColors.Desktop;
             dataGridView4.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            dataGridView4.Size = new Size(1011, 509);
+            dataGridView4.Size = new Size(572, 509);
             dataGridView4.TabIndex = 3;
             // 
             // dataGridViewTextBoxColumn8
@@ -2849,6 +2875,7 @@
             dataGridViewTextBoxColumn11.HeaderText = "Тарифная ставка";
             dataGridViewTextBoxColumn11.Name = "dataGridViewTextBoxColumn11";
             dataGridViewTextBoxColumn11.ReadOnly = true;
+            dataGridViewTextBoxColumn11.Visible = false;
             // 
             // Column8
             // 
@@ -2856,13 +2883,20 @@
             Column8.Name = "Column8";
             Column8.ReadOnly = true;
             // 
+            // Column19
+            // 
+            Column19.HeaderText = "id";
+            Column19.Name = "Column19";
+            Column19.ReadOnly = true;
+            Column19.Visible = false;
+            // 
             // label37
             // 
             label37.BackColor = Color.LightBlue;
             label37.Dock = DockStyle.Top;
             label37.Location = new Point(3, 4);
             label37.Name = "label37";
-            label37.Size = new Size(1011, 26);
+            label37.Size = new Size(572, 26);
             label37.TabIndex = 4;
             label37.Text = "Прием/Перевод на работу";
             label37.TextAlign = ContentAlignment.MiddleCenter;
@@ -2876,7 +2910,7 @@
             tabPage8.Margin = new Padding(3, 4, 3, 4);
             tabPage8.Name = "tabPage8";
             tabPage8.Padding = new Padding(3, 4, 3, 4);
-            tabPage8.Size = new Size(1017, 543);
+            tabPage8.Size = new Size(578, 543);
             tabPage8.TabIndex = 3;
             tabPage8.Text = "Кадровое развитие";
             // 
@@ -2891,7 +2925,7 @@
             tabControl3.Margin = new Padding(3, 4, 3, 4);
             tabControl3.Name = "tabControl3";
             tabControl3.SelectedIndex = 0;
-            tabControl3.Size = new Size(1011, 509);
+            tabControl3.Size = new Size(572, 509);
             tabControl3.TabIndex = 1;
             tabControl3.SelectedIndexChanged += tabControl1_SelectedIndexChanged;
             // 
@@ -2904,7 +2938,7 @@
             tabPage9.Margin = new Padding(3, 4, 3, 4);
             tabPage9.Name = "tabPage9";
             tabPage9.Padding = new Padding(3, 4, 3, 4);
-            tabPage9.Size = new Size(1003, 474);
+            tabPage9.Size = new Size(564, 474);
             tabPage9.TabIndex = 0;
             tabPage9.Text = "Аттестация";
             // 
@@ -2925,7 +2959,7 @@
             dataGridViewCellStyle13.WrapMode = DataGridViewTriState.True;
             dataGridView6.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle13;
             dataGridView6.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView6.Columns.AddRange(new DataGridViewColumn[] { dataGridViewTextBoxColumn19, dataGridViewTextBoxColumn20, dataGridViewTextBoxColumn21, dataGridViewTextBoxColumn22, Column9 });
+            dataGridView6.Columns.AddRange(new DataGridViewColumn[] { dataGridViewTextBoxColumn19, dataGridViewTextBoxColumn20, dataGridViewTextBoxColumn21, dataGridViewTextBoxColumn22, Column9, Column20 });
             dataGridViewCellStyle14.Alignment = DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle14.BackColor = Color.Azure;
             dataGridViewCellStyle14.Font = new Font("Arial", 12F, FontStyle.Bold, GraphicsUnit.Point, 204);
@@ -2953,7 +2987,7 @@
             dataGridView6.RowHeadersVisible = false;
             dataGridView6.RowTemplate.DefaultCellStyle.ForeColor = SystemColors.Desktop;
             dataGridView6.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            dataGridView6.Size = new Size(997, 466);
+            dataGridView6.Size = new Size(558, 466);
             dataGridView6.TabIndex = 3;
             // 
             // dataGridViewTextBoxColumn19
@@ -2988,6 +3022,13 @@
             Column9.Name = "Column9";
             Column9.ReadOnly = true;
             // 
+            // Column20
+            // 
+            Column20.HeaderText = "id";
+            Column20.Name = "Column20";
+            Column20.ReadOnly = true;
+            Column20.Visible = false;
+            // 
             // tabPage10
             // 
             tabPage10.BackColor = Color.FromArgb(45, 70, 80);
@@ -2996,7 +3037,7 @@
             tabPage10.Margin = new Padding(3, 4, 3, 4);
             tabPage10.Name = "tabPage10";
             tabPage10.Padding = new Padding(3, 4, 3, 4);
-            tabPage10.Size = new Size(1003, 478);
+            tabPage10.Size = new Size(564, 478);
             tabPage10.TabIndex = 1;
             tabPage10.Text = "Повышение квалификации";
             // 
@@ -3017,7 +3058,7 @@
             dataGridViewCellStyle16.WrapMode = DataGridViewTriState.True;
             dataGridView5.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle16;
             dataGridView5.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView5.Columns.AddRange(new DataGridViewColumn[] { dataGridViewTextBoxColumn12, dataGridViewTextBoxColumn13, dataGridViewTextBoxColumn14, dataGridViewTextBoxColumn15, Column10, Column11, Column12, Column13 });
+            dataGridView5.Columns.AddRange(new DataGridViewColumn[] { dataGridViewTextBoxColumn12, dataGridViewTextBoxColumn13, dataGridViewTextBoxColumn14, dataGridViewTextBoxColumn15, Column10, Column11, Column12, Column13, Column21 });
             dataGridViewCellStyle17.Alignment = DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle17.BackColor = Color.Azure;
             dataGridViewCellStyle17.Font = new Font("Arial", 12F, FontStyle.Bold, GraphicsUnit.Point, 204);
@@ -3045,7 +3086,7 @@
             dataGridView5.RowHeadersVisible = false;
             dataGridView5.RowTemplate.DefaultCellStyle.ForeColor = SystemColors.Desktop;
             dataGridView5.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            dataGridView5.Size = new Size(997, 470);
+            dataGridView5.Size = new Size(558, 470);
             dataGridView5.TabIndex = 3;
             // 
             // dataGridViewTextBoxColumn12
@@ -3099,6 +3140,13 @@
             Column13.Name = "Column13";
             Column13.ReadOnly = true;
             // 
+            // Column21
+            // 
+            Column21.HeaderText = "Id";
+            Column21.Name = "Column21";
+            Column21.ReadOnly = true;
+            Column21.Visible = false;
+            // 
             // tabPage11
             // 
             tabPage11.BackColor = Color.FromArgb(45, 70, 80);
@@ -3106,7 +3154,7 @@
             tabPage11.Location = new Point(4, 27);
             tabPage11.Margin = new Padding(3, 4, 3, 4);
             tabPage11.Name = "tabPage11";
-            tabPage11.Size = new Size(1003, 478);
+            tabPage11.Size = new Size(564, 478);
             tabPage11.TabIndex = 2;
             tabPage11.Text = "Проф переподготовка";
             // 
@@ -3127,7 +3175,7 @@
             dataGridViewCellStyle19.WrapMode = DataGridViewTriState.True;
             dataGridView7.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle19;
             dataGridView7.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView7.Columns.AddRange(new DataGridViewColumn[] { dataGridViewTextBoxColumn16, dataGridViewTextBoxColumn17, dataGridViewTextBoxColumn18, dataGridViewTextBoxColumn24, dataGridViewTextBoxColumn25, dataGridViewTextBoxColumn26, dataGridViewTextBoxColumn27 });
+            dataGridView7.Columns.AddRange(new DataGridViewColumn[] { dataGridViewTextBoxColumn16, dataGridViewTextBoxColumn17, dataGridViewTextBoxColumn18, dataGridViewTextBoxColumn24, dataGridViewTextBoxColumn25, dataGridViewTextBoxColumn26, dataGridViewTextBoxColumn27, Column22 });
             dataGridViewCellStyle20.Alignment = DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle20.BackColor = Color.Azure;
             dataGridViewCellStyle20.Font = new Font("Arial", 12F, FontStyle.Bold, GraphicsUnit.Point, 204);
@@ -3155,7 +3203,7 @@
             dataGridView7.RowHeadersVisible = false;
             dataGridView7.RowTemplate.DefaultCellStyle.ForeColor = SystemColors.Desktop;
             dataGridView7.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            dataGridView7.Size = new Size(1003, 478);
+            dataGridView7.Size = new Size(564, 478);
             dataGridView7.TabIndex = 4;
             // 
             // dataGridViewTextBoxColumn16
@@ -3203,13 +3251,20 @@
             dataGridViewTextBoxColumn27.Name = "dataGridViewTextBoxColumn27";
             dataGridViewTextBoxColumn27.ReadOnly = true;
             // 
+            // Column22
+            // 
+            Column22.HeaderText = "id";
+            Column22.Name = "Column22";
+            Column22.ReadOnly = true;
+            Column22.Visible = false;
+            // 
             // label38
             // 
             label38.BackColor = Color.LightBlue;
             label38.Dock = DockStyle.Top;
             label38.Location = new Point(3, 4);
             label38.Name = "label38";
-            label38.Size = new Size(1011, 26);
+            label38.Size = new Size(572, 26);
             label38.TabIndex = 2;
             label38.Text = "Кадровое развитие";
             label38.TextAlign = ContentAlignment.MiddleCenter;
@@ -3223,7 +3278,7 @@
             tabPage12.Margin = new Padding(3, 4, 3, 4);
             tabPage12.Name = "tabPage12";
             tabPage12.Padding = new Padding(3, 4, 3, 4);
-            tabPage12.Size = new Size(1017, 543);
+            tabPage12.Size = new Size(578, 543);
             tabPage12.TabIndex = 4;
             tabPage12.Text = "Льготы, отпуска и награды";
             // 
@@ -3238,7 +3293,7 @@
             tabControl4.Margin = new Padding(3, 4, 3, 4);
             tabControl4.Name = "tabControl4";
             tabControl4.SelectedIndex = 0;
-            tabControl4.Size = new Size(1011, 509);
+            tabControl4.Size = new Size(572, 509);
             tabControl4.TabIndex = 1;
             tabControl4.SelectedIndexChanged += tabControl1_SelectedIndexChanged;
             // 
@@ -3251,7 +3306,7 @@
             tabPage13.Margin = new Padding(3, 4, 3, 4);
             tabPage13.Name = "tabPage13";
             tabPage13.Padding = new Padding(3, 4, 3, 4);
-            tabPage13.Size = new Size(1003, 474);
+            tabPage13.Size = new Size(564, 474);
             tabPage13.TabIndex = 0;
             tabPage13.Text = "Награды";
             // 
@@ -3272,7 +3327,7 @@
             dataGridViewCellStyle22.WrapMode = DataGridViewTriState.True;
             dataGridView9.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle22;
             dataGridView9.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView9.Columns.AddRange(new DataGridViewColumn[] { dataGridViewTextBoxColumn34, dataGridViewTextBoxColumn35, dataGridViewTextBoxColumn36, dataGridViewTextBoxColumn37 });
+            dataGridView9.Columns.AddRange(new DataGridViewColumn[] { dataGridViewTextBoxColumn34, dataGridViewTextBoxColumn35, dataGridViewTextBoxColumn36, dataGridViewTextBoxColumn37, Column23 });
             dataGridViewCellStyle23.Alignment = DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle23.BackColor = Color.Azure;
             dataGridViewCellStyle23.Font = new Font("Arial", 12F, FontStyle.Bold, GraphicsUnit.Point, 204);
@@ -3300,7 +3355,7 @@
             dataGridView9.RowHeadersVisible = false;
             dataGridView9.RowTemplate.DefaultCellStyle.ForeColor = SystemColors.Desktop;
             dataGridView9.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            dataGridView9.Size = new Size(997, 466);
+            dataGridView9.Size = new Size(558, 466);
             dataGridView9.TabIndex = 4;
             // 
             // dataGridViewTextBoxColumn34
@@ -3327,6 +3382,13 @@
             dataGridViewTextBoxColumn37.Name = "dataGridViewTextBoxColumn37";
             dataGridViewTextBoxColumn37.ReadOnly = true;
             // 
+            // Column23
+            // 
+            Column23.HeaderText = "id";
+            Column23.Name = "Column23";
+            Column23.ReadOnly = true;
+            Column23.Visible = false;
+            // 
             // tabPage14
             // 
             tabPage14.BackColor = Color.FromArgb(45, 70, 80);
@@ -3335,7 +3397,7 @@
             tabPage14.Margin = new Padding(3, 4, 3, 4);
             tabPage14.Name = "tabPage14";
             tabPage14.Padding = new Padding(3, 4, 3, 4);
-            tabPage14.Size = new Size(1003, 478);
+            tabPage14.Size = new Size(564, 478);
             tabPage14.TabIndex = 1;
             tabPage14.Text = "Отпуск";
             // 
@@ -3356,7 +3418,7 @@
             dataGridViewCellStyle25.WrapMode = DataGridViewTriState.True;
             dataGridView8.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle25;
             dataGridView8.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView8.Columns.AddRange(new DataGridViewColumn[] { dataGridViewTextBoxColumn23, dataGridViewTextBoxColumn28, dataGridViewTextBoxColumn29, dataGridViewTextBoxColumn30, dataGridViewTextBoxColumn31, dataGridViewTextBoxColumn32, dataGridViewTextBoxColumn33 });
+            dataGridView8.Columns.AddRange(new DataGridViewColumn[] { dataGridViewTextBoxColumn23, dataGridViewTextBoxColumn28, dataGridViewTextBoxColumn29, dataGridViewTextBoxColumn30, dataGridViewTextBoxColumn31, dataGridViewTextBoxColumn32, dataGridViewTextBoxColumn33, Column24 });
             dataGridViewCellStyle26.Alignment = DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle26.BackColor = Color.Azure;
             dataGridViewCellStyle26.Font = new Font("Arial", 12F, FontStyle.Bold, GraphicsUnit.Point, 204);
@@ -3384,7 +3446,7 @@
             dataGridView8.RowHeadersVisible = false;
             dataGridView8.RowTemplate.DefaultCellStyle.ForeColor = SystemColors.Desktop;
             dataGridView8.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            dataGridView8.Size = new Size(997, 470);
+            dataGridView8.Size = new Size(558, 470);
             dataGridView8.TabIndex = 3;
             // 
             // dataGridViewTextBoxColumn23
@@ -3398,12 +3460,14 @@
             dataGridViewTextBoxColumn28.HeaderText = "Период работы с";
             dataGridViewTextBoxColumn28.Name = "dataGridViewTextBoxColumn28";
             dataGridViewTextBoxColumn28.ReadOnly = true;
+            dataGridViewTextBoxColumn28.Visible = false;
             // 
             // dataGridViewTextBoxColumn29
             // 
             dataGridViewTextBoxColumn29.HeaderText = "Период работы по";
             dataGridViewTextBoxColumn29.Name = "dataGridViewTextBoxColumn29";
             dataGridViewTextBoxColumn29.ReadOnly = true;
+            dataGridViewTextBoxColumn29.Visible = false;
             // 
             // dataGridViewTextBoxColumn30
             // 
@@ -3429,6 +3493,13 @@
             dataGridViewTextBoxColumn33.Name = "dataGridViewTextBoxColumn33";
             dataGridViewTextBoxColumn33.ReadOnly = true;
             // 
+            // Column24
+            // 
+            Column24.HeaderText = "id";
+            Column24.Name = "Column24";
+            Column24.ReadOnly = true;
+            Column24.Visible = false;
+            // 
             // tabPage15
             // 
             tabPage15.BackColor = Color.FromArgb(45, 70, 80);
@@ -3436,7 +3507,7 @@
             tabPage15.Location = new Point(4, 27);
             tabPage15.Margin = new Padding(3, 4, 3, 4);
             tabPage15.Name = "tabPage15";
-            tabPage15.Size = new Size(1003, 478);
+            tabPage15.Size = new Size(564, 478);
             tabPage15.TabIndex = 2;
             tabPage15.Text = "Льготы";
             // 
@@ -3457,7 +3528,7 @@
             dataGridViewCellStyle28.WrapMode = DataGridViewTriState.True;
             dataGridView10.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle28;
             dataGridView10.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView10.Columns.AddRange(new DataGridViewColumn[] { dataGridViewTextBoxColumn38, dataGridViewTextBoxColumn40, dataGridViewTextBoxColumn41, dataGridViewTextBoxColumn39 });
+            dataGridView10.Columns.AddRange(new DataGridViewColumn[] { dataGridViewTextBoxColumn38, dataGridViewTextBoxColumn40, dataGridViewTextBoxColumn41, dataGridViewTextBoxColumn39, Column25 });
             dataGridViewCellStyle29.Alignment = DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle29.BackColor = Color.Azure;
             dataGridViewCellStyle29.Font = new Font("Arial", 12F, FontStyle.Bold, GraphicsUnit.Point, 204);
@@ -3485,7 +3556,7 @@
             dataGridView10.RowHeadersVisible = false;
             dataGridView10.RowTemplate.DefaultCellStyle.ForeColor = SystemColors.Desktop;
             dataGridView10.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            dataGridView10.Size = new Size(1003, 478);
+            dataGridView10.Size = new Size(564, 478);
             dataGridView10.TabIndex = 5;
             // 
             // dataGridViewTextBoxColumn38
@@ -3512,13 +3583,20 @@
             dataGridViewTextBoxColumn39.Name = "dataGridViewTextBoxColumn39";
             dataGridViewTextBoxColumn39.ReadOnly = true;
             // 
+            // Column25
+            // 
+            Column25.HeaderText = "id";
+            Column25.Name = "Column25";
+            Column25.ReadOnly = true;
+            Column25.Visible = false;
+            // 
             // label39
             // 
             label39.BackColor = Color.LightBlue;
             label39.Dock = DockStyle.Top;
             label39.Location = new Point(3, 4);
             label39.Name = "label39";
-            label39.Size = new Size(1011, 26);
+            label39.Size = new Size(572, 26);
             label39.TabIndex = 2;
             label39.Text = "Льготы, отпуска и награды";
             label39.TextAlign = ContentAlignment.MiddleCenter;
@@ -3531,7 +3609,7 @@
             tabPage16.Margin = new Padding(3, 4, 3, 4);
             tabPage16.Name = "tabPage16";
             tabPage16.Padding = new Padding(3, 4, 3, 4);
-            tabPage16.Size = new Size(1017, 543);
+            tabPage16.Size = new Size(578, 543);
             tabPage16.TabIndex = 5;
             tabPage16.Text = "Дополнительные сведения";
             // 
@@ -3580,7 +3658,7 @@
             dataGridView11.RowHeadersVisible = false;
             dataGridView11.RowTemplate.DefaultCellStyle.ForeColor = SystemColors.Desktop;
             dataGridView11.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            dataGridView11.Size = new Size(1011, 535);
+            dataGridView11.Size = new Size(572, 535);
             dataGridView11.TabIndex = 4;
             // 
             // Column16
@@ -3609,7 +3687,7 @@
             tabPage17.Margin = new Padding(3, 4, 3, 4);
             tabPage17.Name = "tabPage17";
             tabPage17.Padding = new Padding(3, 4, 3, 4);
-            tabPage17.Size = new Size(1017, 543);
+            tabPage17.Size = new Size(578, 543);
             tabPage17.TabIndex = 6;
             tabPage17.Text = "Увольнение";
             // 
@@ -3622,7 +3700,7 @@
             panel34.Dock = DockStyle.Top;
             panel34.Location = new Point(3, 123);
             panel34.Name = "panel34";
-            panel34.Size = new Size(1011, 31);
+            panel34.Size = new Size(572, 31);
             panel34.TabIndex = 17;
             // 
             // label82
@@ -3631,7 +3709,7 @@
             label82.BackColor = Color.FromArgb(45, 50, 80);
             label82.BorderStyle = BorderStyle.Fixed3D;
             label82.Dock = DockStyle.Right;
-            label82.Location = new Point(1007, 0);
+            label82.Location = new Point(568, 0);
             label82.Margin = new Padding(5);
             label82.Name = "label82";
             label82.Size = new Size(2, 21);
@@ -3657,7 +3735,7 @@
             panel33.Dock = DockStyle.Top;
             panel33.Location = new Point(3, 92);
             panel33.Name = "panel33";
-            panel33.Size = new Size(1011, 31);
+            panel33.Size = new Size(572, 31);
             panel33.TabIndex = 16;
             // 
             // label81
@@ -3666,7 +3744,7 @@
             label81.BackColor = Color.FromArgb(45, 50, 80);
             label81.BorderStyle = BorderStyle.Fixed3D;
             label81.Dock = DockStyle.Right;
-            label81.Location = new Point(1007, 0);
+            label81.Location = new Point(568, 0);
             label81.Margin = new Padding(5);
             label81.Name = "label81";
             label81.Size = new Size(2, 21);
@@ -3692,7 +3770,7 @@
             panel32.Dock = DockStyle.Top;
             panel32.Location = new Point(3, 61);
             panel32.Name = "panel32";
-            panel32.Size = new Size(1011, 31);
+            panel32.Size = new Size(572, 31);
             panel32.TabIndex = 15;
             // 
             // label80
@@ -3701,7 +3779,7 @@
             label80.BackColor = Color.FromArgb(45, 50, 80);
             label80.BorderStyle = BorderStyle.Fixed3D;
             label80.Dock = DockStyle.Right;
-            label80.Location = new Point(1007, 0);
+            label80.Location = new Point(568, 0);
             label80.Margin = new Padding(5);
             label80.Name = "label80";
             label80.Size = new Size(2, 21);
@@ -3727,7 +3805,7 @@
             panel31.Dock = DockStyle.Top;
             panel31.Location = new Point(3, 30);
             panel31.Name = "panel31";
-            panel31.Size = new Size(1011, 31);
+            panel31.Size = new Size(572, 31);
             panel31.TabIndex = 14;
             // 
             // label40
@@ -3736,7 +3814,7 @@
             label40.BackColor = Color.FromArgb(45, 50, 80);
             label40.BorderStyle = BorderStyle.Fixed3D;
             label40.Dock = DockStyle.Right;
-            label40.Location = new Point(1007, 0);
+            label40.Location = new Point(568, 0);
             label40.Margin = new Padding(5);
             label40.Name = "label40";
             label40.Size = new Size(2, 21);
@@ -3760,7 +3838,7 @@
             label30.Dock = DockStyle.Top;
             label30.Location = new Point(3, 4);
             label30.Name = "label30";
-            label30.Size = new Size(1011, 26);
+            label30.Size = new Size(572, 26);
             label30.TabIndex = 4;
             label30.Text = "Увольнение";
             label30.TextAlign = ContentAlignment.MiddleCenter;
@@ -3909,7 +3987,7 @@
             statusStrip1.LayoutStyle = ToolStripLayoutStyle.HorizontalStackWithOverflow;
             statusStrip1.Location = new Point(0, 736);
             statusStrip1.Name = "statusStrip1";
-            statusStrip1.Size = new Size(1322, 25);
+            statusStrip1.Size = new Size(758, 25);
             statusStrip1.TabIndex = 5;
             statusStrip1.Text = "statusStrip1";
             // 
@@ -3951,10 +4029,10 @@
             button11.BackgroundImageLayout = ImageLayout.Stretch;
             button11.Dock = DockStyle.Fill;
             button11.ForeColor = Color.White;
-            button11.Location = new Point(399, 4);
+            button11.Location = new Point(228, 4);
             button11.Margin = new Padding(3, 4, 3, 4);
             button11.Name = "button11";
-            button11.Size = new Size(126, 54);
+            button11.Size = new Size(69, 54);
             button11.TabIndex = 6;
             button11.Text = "Уволить";
             button11.UseVisualStyleBackColor = false;
@@ -3982,7 +4060,7 @@
             tableLayoutPanel2.Name = "tableLayoutPanel2";
             tableLayoutPanel2.RowCount = 1;
             tableLayoutPanel2.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
-            tableLayoutPanel2.Size = new Size(1322, 62);
+            tableLayoutPanel2.Size = new Size(758, 62);
             tableLayoutPanel2.TabIndex = 7;
             // 
             // button12
@@ -3992,10 +4070,10 @@
             button12.BackgroundImageLayout = ImageLayout.Stretch;
             button12.Dock = DockStyle.Fill;
             button12.ForeColor = Color.White;
-            button12.Location = new Point(927, 4);
+            button12.Location = new Point(530, 4);
             button12.Margin = new Padding(3, 4, 3, 4);
             button12.Name = "button12";
-            button12.Size = new Size(126, 54);
+            button12.Size = new Size(69, 54);
             button12.TabIndex = 7;
             button12.Text = "Добавить запись";
             button12.UseVisualStyleBackColor = false;
@@ -4007,7 +4085,7 @@
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(43, 64, 80);
             BackgroundImageLayout = ImageLayout.Stretch;
-            ClientSize = new Size(1322, 761);
+            ClientSize = new Size(758, 761);
             Controls.Add(tableLayoutPanel2);
             Controls.Add(statusStrip1);
             Controls.Add(splitContainer1);
@@ -4206,13 +4284,6 @@
         private Label label6;
         private Label label7;
         private DataGridView dataGridView2;
-        private DataGridViewTextBoxColumn Column7;
-        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
-        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
-        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
-        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn4;
-        private DataGridViewTextBoxColumn Column5;
-        private DataGridViewTextBoxColumn Column6;
         private SplitContainer splitContainer3;
         private GroupBox groupBox1;
         private GroupBox groupBox3;
@@ -4232,9 +4303,6 @@
         private Label label15;
         private TabPage tabPage6;
         private DataGridView dataGridView3;
-        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn5;
-        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn6;
-        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn7;
         private SplitContainer splitContainer4;
         private GroupBox groupBox8;
         private Panel panel2;
@@ -4262,11 +4330,6 @@
         private Label label28;
         private Label label29;
         private DataGridView dataGridView4;
-        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn8;
-        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn9;
-        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn10;
-        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn11;
-        private DataGridViewTextBoxColumn Column8;
         private TabPage tabPage8;
         private TabControl tabControl3;
         private TabPage tabPage9;
@@ -4281,24 +4344,9 @@
         private TabPage tabPage14;
         private DataGridView dataGridView8;
         private TabPage tabPage15;
-        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn23;
-        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn28;
-        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn29;
-        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn30;
-        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn31;
-        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn32;
-        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn33;
         private ToolStripMenuItem дополнительныеСведенияToolStripMenuItem;
         private DataGridView dataGridView9;
-        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn34;
-        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn35;
-        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn36;
-        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn37;
         private DataGridView dataGridView10;
-        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn38;
-        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn40;
-        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn41;
-        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn39;
         private TabPage tabPage16;
         private TabPage tabPage17;
         private Label label32;
@@ -4419,26 +4467,6 @@
         private Label label73;
         private Label label72;
         private Label label71;
-        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn12;
-        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn13;
-        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn14;
-        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn15;
-        private DataGridViewTextBoxColumn Column10;
-        private DataGridViewTextBoxColumn Column11;
-        private DataGridViewTextBoxColumn Column12;
-        private DataGridViewTextBoxColumn Column13;
-        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn19;
-        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn20;
-        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn21;
-        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn22;
-        private DataGridViewTextBoxColumn Column9;
-        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn16;
-        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn17;
-        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn18;
-        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn24;
-        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn25;
-        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn26;
-        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn27;
         private DataGridView dataGridView11;
         private DataGridViewTextBoxColumn Column16;
         private DataGridViewTextBoxColumn Column15;
@@ -4452,5 +4480,64 @@
         private Label label34;
         private Label label81;
         private Label label80;
+        private DataGridViewTextBoxColumn Column7;
+        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
+        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
+        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
+        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn4;
+        private DataGridViewTextBoxColumn Column5;
+        private DataGridViewTextBoxColumn Column6;
+        private DataGridViewTextBoxColumn Column17;
+        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn5;
+        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn6;
+        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn7;
+        private DataGridViewTextBoxColumn Column18;
+        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn8;
+        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn9;
+        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn10;
+        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn11;
+        private DataGridViewTextBoxColumn Column8;
+        private DataGridViewTextBoxColumn Column19;
+        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn19;
+        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn20;
+        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn21;
+        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn22;
+        private DataGridViewTextBoxColumn Column9;
+        private DataGridViewTextBoxColumn Column20;
+        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn12;
+        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn13;
+        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn14;
+        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn15;
+        private DataGridViewTextBoxColumn Column10;
+        private DataGridViewTextBoxColumn Column11;
+        private DataGridViewTextBoxColumn Column12;
+        private DataGridViewTextBoxColumn Column13;
+        private DataGridViewTextBoxColumn Column21;
+        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn16;
+        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn17;
+        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn18;
+        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn24;
+        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn25;
+        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn26;
+        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn27;
+        private DataGridViewTextBoxColumn Column22;
+        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn34;
+        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn35;
+        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn36;
+        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn37;
+        private DataGridViewTextBoxColumn Column23;
+        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn23;
+        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn28;
+        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn29;
+        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn30;
+        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn31;
+        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn32;
+        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn33;
+        private DataGridViewTextBoxColumn Column24;
+        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn38;
+        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn40;
+        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn41;
+        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn39;
+        private DataGridViewTextBoxColumn Column25;
     }
 }
