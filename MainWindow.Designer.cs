@@ -3605,11 +3605,11 @@
             tabPage17.Controls.Add(panel31);
             tabPage17.Controls.Add(label30);
             tabPage17.ForeColor = Color.White;
-            tabPage17.Location = new Point(4, 28);
+            tabPage17.Location = new Point(4, 24);
             tabPage17.Margin = new Padding(3, 4, 3, 4);
             tabPage17.Name = "tabPage17";
             tabPage17.Padding = new Padding(3, 4, 3, 4);
-            tabPage17.Size = new Size(1017, 539);
+            tabPage17.Size = new Size(1017, 543);
             tabPage17.TabIndex = 6;
             tabPage17.Text = "Увольнение";
             // 
