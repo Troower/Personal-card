@@ -57,8 +57,8 @@
             numericUpDown2 = new NumericUpDown();
             numericUpDown1 = new NumericUpDown();
             groupBox5 = new GroupBox();
-            label10 = new Label();
             label11 = new Label();
+            label10 = new Label();
             tableLayoutPanel1.SuspendLayout();
             groupBox1.SuspendLayout();
             groupBox3.SuspendLayout();
@@ -106,6 +106,7 @@
             button1.TabIndex = 5;
             button1.Text = "Редактировать";
             button1.UseVisualStyleBackColor = false;
+            button1.Click += button1_Click;
             // 
             // button2
             // 
@@ -121,6 +122,7 @@
             button2.TabIndex = 4;
             button2.Text = "Отмена";
             button2.UseVisualStyleBackColor = false;
+            button2.Click += button2_Click;
             // 
             // textBox1
             // 
@@ -202,7 +204,7 @@
             // 
             // numericUpDown7
             // 
-            numericUpDown7.Location = new Point(267, 44);
+            numericUpDown7.Location = new Point(15, 44);
             numericUpDown7.Name = "numericUpDown7";
             numericUpDown7.Size = new Size(120, 29);
             numericUpDown7.TabIndex = 2;
@@ -216,7 +218,7 @@
             // 
             // numericUpDown9
             // 
-            numericUpDown9.Location = new Point(15, 44);
+            numericUpDown9.Location = new Point(267, 44);
             numericUpDown9.Name = "numericUpDown9";
             numericUpDown9.Size = new Size(120, 29);
             numericUpDown9.TabIndex = 0;
@@ -227,8 +229,8 @@
             groupBox2.Controls.Add(label5);
             groupBox2.Controls.Add(label6);
             groupBox2.Controls.Add(numericUpDown4);
-            groupBox2.Controls.Add(numericUpDown5);
             groupBox2.Controls.Add(numericUpDown6);
+            groupBox2.Controls.Add(numericUpDown5);
             groupBox2.ForeColor = Color.White;
             groupBox2.Location = new Point(7, 124);
             groupBox2.Margin = new Padding(3, 4, 3, 4);
@@ -268,7 +270,7 @@
             // 
             // numericUpDown4
             // 
-            numericUpDown4.Location = new Point(267, 44);
+            numericUpDown4.Location = new Point(15, 44);
             numericUpDown4.Name = "numericUpDown4";
             numericUpDown4.Size = new Size(120, 29);
             numericUpDown4.TabIndex = 2;
@@ -282,7 +284,7 @@
             // 
             // numericUpDown6
             // 
-            numericUpDown6.Location = new Point(15, 44);
+            numericUpDown6.Location = new Point(267, 44);
             numericUpDown6.Name = "numericUpDown6";
             numericUpDown6.Size = new Size(120, 29);
             numericUpDown6.TabIndex = 0;
@@ -367,15 +369,6 @@
             groupBox5.TabStop = false;
             groupBox5.Text = "Профессия";
             // 
-            // label10
-            // 
-            label10.AutoSize = true;
-            label10.Location = new Point(7, 35);
-            label10.Name = "label10";
-            label10.Size = new Size(88, 21);
-            label10.TabIndex = 5;
-            label10.Text = "Основная:";
-            // 
             // label11
             // 
             label11.AutoSize = true;
@@ -384,6 +377,15 @@
             label11.Size = new Size(67, 21);
             label11.TabIndex = 6;
             label11.Text = "Другая:";
+            // 
+            // label10
+            // 
+            label10.AutoSize = true;
+            label10.Location = new Point(7, 35);
+            label10.Name = "label10";
+            label10.Size = new Size(88, 21);
+            label10.TabIndex = 5;
+            label10.Text = "Основная:";
             // 
             // Profesion
             // 

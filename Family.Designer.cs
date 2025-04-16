@@ -69,6 +69,7 @@
             button1.TabIndex = 5;
             button1.Text = "Редактировать";
             button1.UseVisualStyleBackColor = false;
+            button1.Click += button1_Click;
             // 
             // button2
             // 
@@ -84,6 +85,7 @@
             button2.TabIndex = 4;
             button2.Text = "Отмена";
             button2.UseVisualStyleBackColor = false;
+            button2.Click += button2_Click;
             // 
             // textBox2
             // 
@@ -105,6 +107,7 @@
             // comboBox1
             // 
             comboBox1.FormattingEnabled = true;
+            comboBox1.Items.AddRange(new object[] { "Муж", "Жена", "Сын", "Дочь" });
             comboBox1.Location = new Point(15, 17);
             comboBox1.Margin = new Padding(4);
             comboBox1.Name = "comboBox1";

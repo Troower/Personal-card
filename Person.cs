@@ -167,7 +167,7 @@ namespace PersonalCard
         public string Name_organisation { get; set; }
         public string Name_education_docAfter { get; set; }
         public string Num_doc_education { get; set; }
-        public DateTime Year_end { get; set; }
+        public int Year_end { get; set; }
         public DateTime Date_give_doc { get; set; }
         public string Direction_or_speciality { get; set; }
         public string Type_education { get; set; }
@@ -190,7 +190,7 @@ namespace PersonalCard
                         afterEducation.Name_organisation = reader["Name_organisation"].ToString();
                         afterEducation.Name_education_docAfter = reader["Name_education_docAfter"].ToString();
                         afterEducation.Num_doc_education = reader["Num_doc_education"].ToString();
-                        afterEducation.Year_end = reader.GetDateTime("Year_end");
+                        afterEducation.Year_end = reader.GetInt32("Year_end");
                         afterEducation.Date_give_doc = reader.GetDateTime("Date_give_doc");
                         afterEducation.Direction_or_speciality = reader["Direction_or_speciality"].ToString();
                         afterEducation.Type_education = reader["Type_education"].ToString();
@@ -335,7 +335,7 @@ namespace PersonalCard
         public int Year_end { get; set; }
         public string Qualification_doc_education { get; set; }
         public string Direction_or_specialty { get; set; }
-        public string Code_OKSO { get; set; }
+        
         public string Type_education { get; set; }
 
         public static List<EducationInf> GetByEmployeeId(string connectionString, int employeeId)
@@ -363,7 +363,6 @@ namespace PersonalCard
                             Year_end = Convert.ToInt32(reader["Year_end"]),
                             Qualification_doc_education = reader["Qualification_doc_education"].ToString(),
                             Direction_or_specialty = reader["direction_or_specialty"].ToString(),
-                            Code_OKSO = reader["Code_OKSO"].ToString(),
                             Type_education = reader["Type_education"].ToString(),
                             ID_empl = employeeId
                         });

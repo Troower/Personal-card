@@ -126,8 +126,70 @@ namespace PersonalCard
             EditNavigation();
         }
 
+        private void AddNavigation() {
+            //образование
+            if (tabControl1.SelectedIndex == 0 && tabControl2.SelectedIndex == 1)
+            {
+                new Education(generalInformation.ID_empl,(EducationInf inf) => {
+                    new EducationRepository(connectionString).Insert(inf);
+                }).ShowDialog();
+                reLoadPerson();
+            }
+            //Семья
+            if (tabControl1.SelectedIndex == 0 && tabControl2.SelectedIndex == 3)
+            {
+                new Family(generalInformation.ID_empl, (FamilyCompositionInf family) => {
+                    new FamilyCompositionRepository(connectionString).Insert(family);
+                }).ShowDialog();
+                return;
+            }
+            
+            if (tabControl1.SelectedIndex == 2)
+            {
+                new HiringTransfer().ShowDialog();
+                return;
+            }
+            if (tabControl1.SelectedIndex == 3 && tabControl3.SelectedIndex == 0)
+            {
+                new Сertification().ShowDialog();
+                return;
+            }
+            if (tabControl1.SelectedIndex == 3 && tabControl3.SelectedIndex == 1)
+            {
+                new AdvTraining().ShowDialog();
+                return;
+            }
+            if (tabControl1.SelectedIndex == 3 && tabControl3.SelectedIndex == 2)
+            {
+                new ProfTraining().ShowDialog();
+                return;
+            }
+            if (tabControl1.SelectedIndex == 4 && tabControl4.SelectedIndex == 0)
+            {
+                new Award().ShowDialog();
+                return;
+            }
+            if (tabControl1.SelectedIndex == 4 && tabControl4.SelectedIndex == 1)
+            {
+                new Vacation().ShowDialog();
+                return;
+            }
+            if (tabControl1.SelectedIndex == 4 && tabControl4.SelectedIndex == 2)
+            {
+                new Benefit().ShowDialog();
+                return;
+            }
+            if (tabControl1.SelectedIndex == 5)
+            {
+                new Additional().ShowDialog();
+                return;
+            }
+            
+
+        }
         private void EditNavigation()
         {
+            //основная информация
             if (tabControl1.SelectedIndex == 0 && tabControl2.SelectedIndex == 0)
             {
                 new EditPersonalInfo(generalInformation, (GeneralInformation inf) =>
@@ -145,6 +207,7 @@ namespace PersonalCard
                 reLoadPerson();
                 return;
             }
+            //образование           
             if (tabControl1.SelectedIndex == 0 && tabControl2.SelectedIndex == 1)
             {
                 foreach (EducationInf education in generalInformation.Educations)
@@ -162,26 +225,93 @@ namespace PersonalCard
                 reLoadPerson();
                 return;
             }
+            //Профессия+стаж
             if (tabControl1.SelectedIndex == 0 && tabControl2.SelectedIndex == 2)
             {
-                new Profesion().ShowDialog();
+                new Profesion(generalInformation.Profession,generalInformation.WorkExperience,(ProfessionInf profession,WorkExperienceInf work) =>
+                {
+                    if (profession.ID_empl == 0)
+                    {
+                        profession.ID_empl = generalInformation.ID_empl;
+                        new ProfessionRepository(connectionString).Insert(profession);
+                    }
+                    else
+                    {
+                        new ProfessionRepository(connectionString).Update(profession);
+                    }
+                    if (work.ID_empl == 0)
+                    {
+                        work.ID_empl = generalInformation.ID_empl;
+                        new WorkExperienceRepository(connectionString).Insert(work);
+
+                    }
+                    else
+                    {
+                        new WorkExperienceRepository(connectionString).Update(work);
+                    }
+
+                }).ShowDialog();
+                reLoadPerson() ;
                 return;
             }
+            
+            //семья
             if (tabControl1.SelectedIndex == 0 && tabControl2.SelectedIndex == 3)
             {
-                new Family().ShowDialog();
+                foreach (FamilyCompositionInf famaly in generalInformation.FamilyCompositions)
+                {
+                    if (famaly.ID_person == Convert.ToUInt32(dataGridView3.Rows[dataGridView3.CurrentRow.Index].Cells[3].Value))
+                    {
+                        new Family(famaly, (FamilyCompositionInf family) => {
+                            new FamilyCompositionRepository(connectionString).Update(family);
+                        }).ShowDialog();
+                        break;
+                    }
+
+                }
+                reLoadPerson();
                 return;
             }
+
+            //Воинский учет
             if (tabControl1.SelectedIndex == 1)
             {
-                new Military().ShowDialog();
+                if (HasData(generalInformation.MilitaryRegistration))
+                {
+                    new Military(generalInformation.MilitaryRegistration, (MilitaryRegistrationInf military) =>
+                    {
+                        new MilitaryRegistrationRepository(connectionString).Update(military);
+                    }).ShowDialog();
+                }
+                else
+                {
+                    new Military(generalInformation.MilitaryRegistration, (MilitaryRegistrationInf military) =>
+                    {
+                        military.ID_empl=generalInformation.ID_empl;
+                        new MilitaryRegistrationRepository(connectionString).Insert(military);
+                    }).ShowDialog();
+
+                }
+                reLoadPerson();
                 return;
             }
+            
+            //Прием/Перевод на работу
             if (tabControl1.SelectedIndex == 2)
             {
-                new HiringTransfer().ShowDialog();
+                foreach (HiringTransferInf hiring in generalInformation.HiringTransfers)
+                {
+                    if (hiring.ID_ht == Convert.ToUInt32(dataGridView4.Rows[dataGridView4.CurrentRow.Index].Cells[5].Value))
+                    {
+                        new HiringTransfer().ShowDialog();
+                        break;
+                    }
+                }
+                reLoadPerson();
                 return;
             }
+
+
             if (tabControl1.SelectedIndex == 3 && tabControl3.SelectedIndex == 0)
             {
                 new Сertification().ShowDialog();
@@ -620,12 +750,27 @@ namespace PersonalCard
 
         private void button14_Click(object sender, EventArgs e)
         {
-           
+            new AfterEducation(generalInformation.AfterEducation).Show();
         }
 
         private void button13_Click(object sender, EventArgs e)
         {
-            new AfterEducation(generalInformation.AfterEducation ,(AfterEducationInf after) => { }).Show();
+            if (HasData(generalInformation.AfterEducation))
+                new AfterEducation(generalInformation.AfterEducation, (AfterEducationInf after) =>
+                {
+                    new AfterEducationRepository(connectionString).Update(after);
+                }).ShowDialog();
+            else new AfterEducation(generalInformation.AfterEducation, (AfterEducationInf after) =>
+            {
+                after.ID_empl = generalInformation.ID_empl;
+                new AfterEducationRepository(connectionString).Insert(after);
+            }).ShowDialog();
+            reLoadPerson();
+        }
+
+        private void button12_Click(object sender, EventArgs e)
+        {
+            AddNavigation();
         }
     }
 }

@@ -456,11 +456,11 @@ namespace PersonalCard
             using (var conn = new MySqlConnection(_connectionString))
             {
                 string query = @"INSERT INTO Education 
-                (ID_empl, Name_orgnisation, Name_doc_education, Serial_doc_education, Num_doc_education, 
-                Year_end, Qualification_doc_education, direction_or_specialty, Code_OKSO, Type_education) 
+                (ID_education,ID_empl, Name_orgnisation, Name_doc_education, Serial_doc_education, Num_doc_education, 
+                Year_end, Qualification_doc_education, direction_or_specialty,  Type_education) 
                 VALUES 
-                (@ID_empl, @Name_orgnisation, @Name_doc_education, @Serial_doc_education, @Num_doc_education, 
-                @Year_end, @Qualification_doc_education, @Direction_or_specialty, @Code_OKSO, @Type_education)";
+                (NULL ,@ID_empl , @Name_orgnisation, @Name_doc_education, @Serial_doc_education, @Num_doc_education, 
+                @Year_end, @Qualification_doc_education, @Direction_or_specialty,  @Type_education)";
 
                 var cmd = new MySqlCommand(query, conn);
                 AddParameters(cmd, education);
@@ -478,7 +478,7 @@ namespace PersonalCard
                 Name_orgnisation = @Name_orgnisation, Name_doc_education = @Name_doc_education, 
                 Serial_doc_education = @Serial_doc_education, Num_doc_education = @Num_doc_education, 
                 Year_end = @Year_end, Qualification_doc_education = @Qualification_doc_education, 
-                direction_or_specialty = @Direction_or_specialty, Code_OKSO = @Code_OKSO, Type_education = @Type_education 
+                direction_or_specialty = @Direction_or_specialty,  Type_education = @Type_education 
                 WHERE ID_education = @ID_education";
 
                 var cmd = new MySqlCommand(query, conn);
@@ -513,7 +513,6 @@ namespace PersonalCard
             cmd.Parameters.AddWithValue("@Year_end", education.Year_end);
             cmd.Parameters.AddWithValue("@Qualification_doc_education", education.Qualification_doc_education);
             cmd.Parameters.AddWithValue("@Direction_or_specialty", education.Direction_or_specialty);
-            cmd.Parameters.AddWithValue("@Code_OKSO", education.Code_OKSO);
             cmd.Parameters.AddWithValue("@Type_education", education.Type_education);
         }
     }
@@ -532,9 +531,9 @@ namespace PersonalCard
             using (var conn = new MySqlConnection(_connectionString))
             {
                 string query = @"INSERT INTO family_composition 
-                (ID_empl, FIO, Degree_of_kinship, date_birth) 
+                (ID_person,ID_empl, FIO, Degree_of_kinship, date_birth) 
                 VALUES 
-                (@ID_empl, @FIO, @Degree_of_kinship, @Date_birth)";
+                (NULL,@ID_empl, @FIO, @Degree_of_kinship, @Date_birth)";
 
                 var cmd = new MySqlCommand(query, conn);
                 AddParameters(cmd, familyMember);

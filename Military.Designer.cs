@@ -80,7 +80,7 @@
             // 
             // textBox4
             // 
-            textBox4.Location = new Point(3, 360);
+            textBox4.Location = new Point(3, 304);
             textBox4.Name = "textBox4";
             textBox4.PlaceholderText = "Кодовое значение ВУС*";
             textBox4.Size = new Size(618, 29);
@@ -96,7 +96,7 @@
             // 
             // textBox6
             // 
-            textBox6.Location = new Point(3, 304);
+            textBox6.Location = new Point(3, 248);
             textBox6.Name = "textBox6";
             textBox6.PlaceholderText = "Наименование вон. ком. по месту жительства*";
             textBox6.Size = new Size(618, 29);
@@ -104,7 +104,7 @@
             // 
             // textBox7
             // 
-            textBox7.Location = new Point(3, 248);
+            textBox7.Location = new Point(3, 451);
             textBox7.Name = "textBox7";
             textBox7.PlaceholderText = "Дополнительная информация к типу воинского учета";
             textBox7.Size = new Size(618, 29);
@@ -112,7 +112,7 @@
             // 
             // textBox8
             // 
-            textBox8.Location = new Point(3, 451);
+            textBox8.Location = new Point(3, 360);
             textBox8.Name = "textBox8";
             textBox8.PlaceholderText = "Отметка о снятии с воинского учета";
             textBox8.Size = new Size(618, 29);
@@ -158,6 +158,7 @@
             button1.TabIndex = 5;
             button1.Text = "Редактировать";
             button1.UseVisualStyleBackColor = false;
+            button1.Click += button1_Click;
             // 
             // button2
             // 
@@ -185,15 +186,15 @@
             flowLayoutPanel1.Controls.Add(textBox3);
             flowLayoutPanel1.Controls.Add(label4);
             flowLayoutPanel1.Controls.Add(textBox5);
-            flowLayoutPanel1.Controls.Add(label5);
-            flowLayoutPanel1.Controls.Add(textBox7);
             flowLayoutPanel1.Controls.Add(label6);
             flowLayoutPanel1.Controls.Add(textBox6);
             flowLayoutPanel1.Controls.Add(label7);
             flowLayoutPanel1.Controls.Add(textBox4);
-            flowLayoutPanel1.Controls.Add(comboBox1);
             flowLayoutPanel1.Controls.Add(label8);
             flowLayoutPanel1.Controls.Add(textBox8);
+            flowLayoutPanel1.Controls.Add(comboBox1);
+            flowLayoutPanel1.Controls.Add(label5);
+            flowLayoutPanel1.Controls.Add(textBox7);
             flowLayoutPanel1.Dock = DockStyle.Fill;
             flowLayoutPanel1.FlowDirection = FlowDirection.TopDown;
             flowLayoutPanel1.Location = new Point(0, 0);
@@ -240,7 +241,7 @@
             // label5
             // 
             label5.AutoSize = true;
-            label5.Location = new Point(3, 224);
+            label5.Location = new Point(3, 427);
             label5.Name = "label5";
             label5.Size = new Size(328, 21);
             label5.TabIndex = 13;
@@ -249,7 +250,7 @@
             // label6
             // 
             label6.AutoSize = true;
-            label6.Location = new Point(3, 280);
+            label6.Location = new Point(3, 224);
             label6.Name = "label6";
             label6.Size = new Size(369, 21);
             label6.TabIndex = 14;
@@ -258,7 +259,7 @@
             // label7
             // 
             label7.AutoSize = true;
-            label7.Location = new Point(3, 336);
+            label7.Location = new Point(3, 280);
             label7.Name = "label7";
             label7.Size = new Size(191, 21);
             label7.TabIndex = 15;
@@ -267,7 +268,7 @@
             // label8
             // 
             label8.AutoSize = true;
-            label8.Location = new Point(3, 427);
+            label8.Location = new Point(3, 336);
             label8.Name = "label8";
             label8.Size = new Size(285, 21);
             label8.TabIndex = 16;
