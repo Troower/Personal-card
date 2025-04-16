@@ -372,16 +372,14 @@ namespace PersonalCard
                     dataGridView2.Rows[i].Cells[7].Value = generalInformation.Educations[i].ID_education;
                 }
             }
-            if (HasData(generalInformation.AfterEducation))
-            {
-                dataGridView2.Rows.Add(1);
-                dataGridView2.Rows[generalInformation.Educations.Count].Cells[0].Value = generalInformation.AfterEducation.Type_education;
-                dataGridView2.Rows[generalInformation.Educations.Count].Cells[1].Value = generalInformation.AfterEducation.Name_education_docAfter;
-                dataGridView2.Rows[generalInformation.Educations.Count].Cells[2].Value = generalInformation.AfterEducation.Serial_doc_education;
-                dataGridView2.Rows[generalInformation.Educations.Count].Cells[3].Value = generalInformation.AfterEducation.Num_doc_education;
-                dataGridView2.Rows[generalInformation.Educations.Count].Cells[4].Value = generalInformation.AfterEducation.Year_end.ToString().Split(' ')[0];
-                dataGridView2.Rows[generalInformation.Educations.Count].Cells[6].Value = generalInformation.AfterEducation.Direction_or_speciality;
-            }
+
+
+            label84.Text = generalInformation.AfterEducation.Type_education;
+            label86.Text = generalInformation.AfterEducation.Name_education_docAfter;
+            label88.Text = generalInformation.AfterEducation.Year_end.ToString().Split(' ')[0];
+            label90.Text = generalInformation.AfterEducation.Direction_or_speciality;
+
+
 
             //Профессия
 
@@ -618,6 +616,16 @@ namespace PersonalCard
                 }
 
             }
+        }
+
+        private void button14_Click(object sender, EventArgs e)
+        {
+           
+        }
+
+        private void button13_Click(object sender, EventArgs e)
+        {
+            new AfterEducation(generalInformation.AfterEducation ,(AfterEducationInf after) => { }).Show();
         }
     }
 }

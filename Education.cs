@@ -18,6 +18,7 @@ namespace PersonalCard
         {
             InitializeComponent();
             this.education = education;
+            textBox7.Text=education.Name_orgnisation;
             comboBox1.Text = education.Type_education;
             textBox1.Text = education.Name_doc_education;
             textBox2.Text = education.Serial_doc_education;
@@ -32,6 +33,7 @@ namespace PersonalCard
             InitializeComponent();
             this.education = education;
             comboBox1.Text = education.Type_education;
+            textBox7.Text = education.Name_orgnisation;
             textBox1.Text = education.Name_doc_education;
             textBox2.Text = education.Serial_doc_education;
             textBox3.Text = education.Num_doc_education;
@@ -47,6 +49,7 @@ namespace PersonalCard
             textBox5.Enabled = false;
             tableLayoutPanel1.Visible = false;
         }
+        
 
         public Education()
         {
@@ -66,7 +69,8 @@ namespace PersonalCard
             String.IsNullOrEmpty(textBox3.Text) ||
             String.IsNullOrEmpty(textBox6.Text) ||
             String.IsNullOrEmpty(textBox4.Text) ||
-            String.IsNullOrEmpty(textBox5.Text))
+            String.IsNullOrEmpty(textBox5.Text)||
+             String.IsNullOrEmpty(textBox7.Text))
             {
                 MessageBox.Show("Заполните все необходимые поля!", "Ошибка",
                     MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -78,6 +82,7 @@ namespace PersonalCard
                     MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
+            education.Name_orgnisation=textBox7.Text ;
             education.Type_education = comboBox1.Text;
             education.Name_doc_education = textBox1.Text;
             education.Serial_doc_education = textBox2.Text;

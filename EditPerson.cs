@@ -179,10 +179,10 @@ namespace PersonalCard
             using (var conn = new MySqlConnection(_connectionString))
             {
                 string query = @"INSERT INTO After_Education 
-                (ID_empl, Name_organisation, Name_education_docAfter, Serial_doc_education, 
+                (ID_empl, Name_organisation, Name_education_docAfter,
                 Num_doc_education, Year_end, Date_give_doc, Direction_or_speciality, Type_education) 
                 VALUES 
-                (@ID_empl, @Name_organisation, @Name_education_docAfter, @Serial_doc_education, 
+                (@ID_empl, @Name_organisation, @Name_education_docAfter, 
                 @Num_doc_education, @Year_end, @Date_give_doc, @Direction_or_speciality, @Type_education)";
 
                 var cmd = new MySqlCommand(query, conn);
@@ -200,7 +200,6 @@ namespace PersonalCard
                 string query = @"UPDATE After_Education SET 
                 Name_organisation = @Name_organisation, 
                 Name_education_docAfter = @Name_education_docAfter, 
-                Serial_doc_education = @Serial_doc_education, 
                 Num_doc_education = @Num_doc_education, 
                 Year_end = @Year_end, 
                 Date_give_doc = @Date_give_doc, 
@@ -234,7 +233,6 @@ namespace PersonalCard
             cmd.Parameters.AddWithValue("@ID_empl", afterEducation.ID_empl);
             cmd.Parameters.AddWithValue("@Name_organisation", afterEducation.Name_organisation);
             cmd.Parameters.AddWithValue("@Name_education_docAfter", afterEducation.Name_education_docAfter);
-            cmd.Parameters.AddWithValue("@Serial_doc_education", afterEducation.Serial_doc_education);
             cmd.Parameters.AddWithValue("@Num_doc_education", afterEducation.Num_doc_education);
             cmd.Parameters.AddWithValue("@Year_end", afterEducation.Year_end);
             cmd.Parameters.AddWithValue("@Date_give_doc", afterEducation.Date_give_doc);
