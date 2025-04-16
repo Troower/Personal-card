@@ -47,7 +47,7 @@ namespace PersonalCard
             if (splitContainer1.Panel1.Width < 250) splitContainer1.Panel1Collapsed = true;
         }
 
-
+        //Переход секции
         private void button5_Click(object sender, EventArgs e)
         {
             new Sections((int a, int b, int c) =>
@@ -141,47 +141,101 @@ namespace PersonalCard
                 new Family(generalInformation.ID_empl, (FamilyCompositionInf family) => {
                     new FamilyCompositionRepository(connectionString).Insert(family);
                 }).ShowDialog();
+                reLoadPerson();
                 return;
             }
-            
+            //Прием/Перевод на работу
             if (tabControl1.SelectedIndex == 2)
             {
-                new HiringTransfer().ShowDialog();
+                HiringTransferInf hiringTransfer=new HiringTransferInf();
+                new HiringTransfer(hiringTransfer, (HiringTransferInf inf) => {
+                   inf.ID_empl=generalInformation.ID_empl;
+                    new HiringTransferRepository(connectionString).Insert(inf);
+                }).ShowDialog();
+                reLoadPerson();
                 return;
             }
+            //Аттестация
             if (tabControl1.SelectedIndex == 3 && tabControl3.SelectedIndex == 0)
             {
-                new Сertification().ShowDialog();
+                CertificationInf certification=new ();
+                new Сertification(certification, (CertificationInf cer) =>
+                {
+                    cer.ID_empl = generalInformation.ID_empl;
+                    new CertificationRepository(connectionString).Insert(cer);
+                }).ShowDialog();
+                reLoadPerson();
                 return;
             }
+            //Повышение квалификации
             if (tabControl1.SelectedIndex == 3 && tabControl3.SelectedIndex == 1)
             {
-                new AdvTraining().ShowDialog();
+                ProfessionalDevelopmentInf professional = new();
+                new AdvTraining(professional,(ProfessionalDevelopmentInf prof) =>
+                {
+                    prof.ID_empl= generalInformation.ID_empl;
+                    new ProfessionalDevelopmentRepository(connectionString).Insert(prof);
+                }).ShowDialog();
+                reLoadPerson();
                 return;
             }
+            //Проф. переподготовка
             if (tabControl1.SelectedIndex == 3 && tabControl3.SelectedIndex == 2)
             {
-                new ProfTraining().ShowDialog();
+                ProfessionalRetrainingInf professional = new();
+                new ProfTraining(professional, (ProfessionalRetrainingInf prof) => {
+                    prof.ID_empl=generalInformation.ID_empl;
+                    new ProfessionalRetrainingRepository(connectionString).Insert(prof);
+                }).ShowDialog();
+                reLoadPerson();
                 return;
             }
+            //награды
             if (tabControl1.SelectedIndex == 4 && tabControl4.SelectedIndex == 0)
             {
-                new Award().ShowDialog();
+                AwardInf award = new();
+                new Award(award, (AwardInf award) =>
+                {
+                    award.ID_empl = generalInformation.ID_empl;
+                    new AwardRepository(connectionString).Insert(award);
+                }).ShowDialog();
+                reLoadPerson();
                 return;
             }
+            //отпуск
             if (tabControl1.SelectedIndex == 4 && tabControl4.SelectedIndex == 1)
             {
-                new Vacation().ShowDialog();
+                VacationInf vacation = new();
+                new Vacation(vacation, (VacationInf vacation) =>
+                {
+                    vacation.ID_empl= generalInformation.ID_empl;
+                    new VacationRepository(connectionString).Insert(vacation);
+                }).ShowDialog();
+                reLoadPerson();
                 return;
             }
+            //льготы
             if (tabControl1.SelectedIndex == 4 && tabControl4.SelectedIndex == 2)
             {
-                new Benefit().ShowDialog();
+                SocialBenefitInf benefit = new();
+                new Benefit(benefit, (SocialBenefitInf benefit) =>
+                {
+                    benefit.ID_empl=generalInformation.ID_empl;
+                    new SocialBenefitRepository(connectionString).Insert(benefit);
+                }).ShowDialog();
+                reLoadPerson();
                 return;
             }
+            //дополнительные сведения
             if (tabControl1.SelectedIndex == 5)
             {
-                new Additional().ShowDialog();
+                AdditionalInformationInf additional = new();
+                new Additional(additional, (AdditionalInformationInf additional) =>
+                {
+                    additional.ID_empl = generalInformation.ID_empl;
+                    new AdditionalInformationRepository(connectionString).Insert(additional);
+                }).ShowDialog();
+                reLoadPerson();
                 return;
             }
             
@@ -303,7 +357,9 @@ namespace PersonalCard
                 {
                     if (hiring.ID_ht == Convert.ToUInt32(dataGridView4.Rows[dataGridView4.CurrentRow.Index].Cells[5].Value))
                     {
-                        new HiringTransfer().ShowDialog();
+                        new HiringTransfer(hiring,(HiringTransferInf inf) => { 
+                        new HiringTransferRepository(connectionString).Update(inf);
+                        }).ShowDialog();
                         break;
                     }
                 }
@@ -311,48 +367,229 @@ namespace PersonalCard
                 return;
             }
 
-
+            //Атестация
             if (tabControl1.SelectedIndex == 3 && tabControl3.SelectedIndex == 0)
             {
-                new Сertification().ShowDialog();
-                return;
-            }
-            if (tabControl1.SelectedIndex == 3 && tabControl3.SelectedIndex == 1)
-            {
-                new AdvTraining().ShowDialog();
-                return;
-            }
-            if (tabControl1.SelectedIndex == 3 && tabControl3.SelectedIndex == 2)
-            {
-                new ProfTraining().ShowDialog();
-                return;
-            }
-            if (tabControl1.SelectedIndex == 4 && tabControl4.SelectedIndex == 0)
-            {
-                new Award().ShowDialog();
-                return;
-            }
-            if (tabControl1.SelectedIndex == 4 && tabControl4.SelectedIndex == 1)
-            {
-                new Vacation().ShowDialog();
-                return;
-            }
-            if (tabControl1.SelectedIndex == 4 && tabControl4.SelectedIndex == 2)
-            {
-                new Benefit().ShowDialog();
-                return;
-            }
-            if (tabControl1.SelectedIndex == 5)
-            {
-                new Additional().ShowDialog();
-                return;
-            }
-            if (tabControl1.SelectedIndex == 6)
-            {
-                new Dissmisal().ShowDialog();
+                foreach(CertificationInf certification in generalInformation.Certifications)
+                {
+                    if(certification.ID_att== Convert.ToUInt32(dataGridView6.Rows[dataGridView6.CurrentRow.Index].Cells[5].Value))
+                    {
+                        new Сertification(certification,(CertificationInf cer) =>
+                        {
+                            new CertificationRepository(connectionString).Update(cer);
+                        }).ShowDialog();
+                        break;
+                    }
+                }
+                reLoadPerson();
                 return;
             }
 
+            //Повышение квалификации
+            if (tabControl1.SelectedIndex == 3 && tabControl3.SelectedIndex == 1)
+            {
+                foreach(ProfessionalDevelopmentInf professional in generalInformation.ProfessionalDevelopments)
+                {
+                    if(professional.ID_cval == Convert.ToUInt32(dataGridView5.Rows[dataGridView5.CurrentRow.Index].Cells[8].Value))
+                    {
+                        new AdvTraining(professional,(ProfessionalDevelopmentInf prof) => { 
+                        new ProfessionalDevelopmentRepository(connectionString).Update(prof);
+                        }).ShowDialog();
+                        break;
+                    }
+                }
+                reLoadPerson();
+                return;
+            }
+            //Проф. переподготовка
+            if (tabControl1.SelectedIndex == 3 && tabControl3.SelectedIndex == 2)
+            {
+                foreach (ProfessionalRetrainingInf professional in generalInformation.ProfessionalRetrainings)
+                {
+                    if (professional.ID_retr == Convert.ToUInt32(dataGridView7.Rows[dataGridView7.CurrentRow.Index].Cells[7].Value))
+                    {
+                        new ProfTraining(professional, (ProfessionalRetrainingInf prof) => {
+                            new ProfessionalRetrainingRepository(connectionString).Update(prof);
+                        }).ShowDialog();
+                        break;
+                    }
+                }
+                reLoadPerson();
+                return;
+                
+            }
+            //награды
+            if (tabControl1.SelectedIndex == 4 && tabControl4.SelectedIndex == 0)
+            {
+                foreach(AwardInf award in generalInformation.Awards)
+                {
+                    if (award.ID_reward == Convert.ToUInt32(dataGridView9.Rows[dataGridView9.CurrentRow.Index].Cells[4].Value))
+                    {
+                        new Award(award, (AwardInf award) =>
+                        {
+                            new AwardRepository(connectionString).Update(award);
+                        }).ShowDialog();
+                        break;
+                    }
+                }
+                reLoadPerson();
+                return;
+            }
+            
+            //Отпуск
+            if (tabControl1.SelectedIndex == 4 && tabControl4.SelectedIndex == 1)
+            {
+                foreach(VacationInf vacation in generalInformation.Vacations)
+                {
+                    if (vacation.ID_vac == Convert.ToUInt32(dataGridView8.Rows[dataGridView8.CurrentRow.Index].Cells[7].Value))
+                    {
+                        new Vacation(vacation, (VacationInf vacation) =>
+                        {
+                            new VacationRepository(connectionString).Update(vacation);
+                        }).ShowDialog();
+                    }
+                }
+                reLoadPerson();
+                return;
+            }
+
+            //льготы
+            if (tabControl1.SelectedIndex == 4 && tabControl4.SelectedIndex == 2)
+            {
+                foreach(SocialBenefitInf benefit in generalInformation.SocialBenefits)
+                {
+                    if(benefit.ID_ben == Convert.ToUInt32(dataGridView10.Rows[dataGridView10.CurrentRow.Index].Cells[4].Value))
+                    {
+                        new Benefit(benefit, (SocialBenefitInf benefit) =>
+                        {
+                            new SocialBenefitRepository(connectionString).Update(benefit);
+                        }).ShowDialog();
+                    }
+                }
+                reLoadPerson();
+                return;
+            }
+
+            //дополнительные сведения
+            if (tabControl1.SelectedIndex == 5)
+            {
+                foreach(AdditionalInformationInf additional in generalInformation.AdditionalInformations)
+                {
+                    if(additional.ID_mixing== Convert.ToUInt32(dataGridView11.Rows[dataGridView11.CurrentRow.Index].Cells[0].Value))
+                    {
+                        new Additional(additional, (AdditionalInformationInf additional) =>
+                        {
+                            new AdditionalInformationRepository(connectionString).Update(additional);
+                        }).ShowDialog();
+                    }
+                }
+                reLoadPerson();
+                return;
+            }
+            
+            //Увольнение
+            if (tabControl1.SelectedIndex == 6)
+            {
+                if (HasData(generalInformation.Dismissal))
+                {
+                    new Dissmisal(generalInformation.Dismissal, (DismissalInf dismissal) =>
+                    {
+                        new DismissalRepository(connectionString).Update(dismissal);
+                    }).ShowDialog();
+                    reLoadPerson();
+                }
+                else
+                {
+                    MessageBox.Show("Для редактирования сперва надо уволить сотрудника. Нажмите на кнопку увольнение которая находится на панели инструментов!", "Ошибка",
+                    MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                return;
+            }
+
+        }
+
+        private void DeleteNavigation()
+        {
+            //основная информация
+            if (tabControl1.SelectedIndex == 0 && tabControl2.SelectedIndex == 0)
+            {
+                
+            }
+            //образование           
+            if (tabControl1.SelectedIndex == 0 && tabControl2.SelectedIndex == 1)
+            {
+               
+            }
+            //Профессия+стаж
+            if (tabControl1.SelectedIndex == 0 && tabControl2.SelectedIndex == 2)
+            {
+                
+            }
+
+            //семья
+            if (tabControl1.SelectedIndex == 0 && tabControl2.SelectedIndex == 3)
+            {
+                
+            }
+
+            //Воинский учет
+            if (tabControl1.SelectedIndex == 1)
+            {
+                
+            }
+
+            //Прием/Перевод на работу
+            if (tabControl1.SelectedIndex == 2)
+            {
+                
+            }
+
+            //Атестация
+            if (tabControl1.SelectedIndex == 3 && tabControl3.SelectedIndex == 0)
+            {
+                
+            }
+
+            //Повышение квалификации
+            if (tabControl1.SelectedIndex == 3 && tabControl3.SelectedIndex == 1)
+            {
+               
+            }
+            //Проф. переподготовка
+            if (tabControl1.SelectedIndex == 3 && tabControl3.SelectedIndex == 2)
+            {
+               
+
+            }
+            //награды
+            if (tabControl1.SelectedIndex == 4 && tabControl4.SelectedIndex == 0)
+            {
+                
+            }
+
+            //Отпуск
+            if (tabControl1.SelectedIndex == 4 && tabControl4.SelectedIndex == 1)
+            {
+                
+            }
+
+            //льготы
+            if (tabControl1.SelectedIndex == 4 && tabControl4.SelectedIndex == 2)
+            {
+                
+            }
+
+            //дополнительные сведения
+            if (tabControl1.SelectedIndex == 5)
+            {
+               
+            }
+
+            //Увольнение
+            if (tabControl1.SelectedIndex == 6)
+            {
+                
+            }
         }
         private void reLoadPerson()
         {

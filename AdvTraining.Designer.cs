@@ -48,6 +48,8 @@
             label6 = new Label();
             label7 = new Label();
             label8 = new Label();
+            textBox6 = new TextBox();
+            label9 = new Label();
             tableLayoutPanel1.SuspendLayout();
             SuspendLayout();
             // 
@@ -67,7 +69,7 @@
             // 
             // dateTimePicker3
             // 
-            dateTimePicker3.Location = new Point(14, 413);
+            dateTimePicker3.Location = new Point(14, 416);
             dateTimePicker3.Name = "dateTimePicker3";
             dateTimePicker3.Size = new Size(200, 29);
             dateTimePicker3.TabIndex = 2;
@@ -97,11 +99,10 @@
             // label3
             // 
             label3.AutoSize = true;
-            label3.BorderStyle = BorderStyle.Fixed3D;
-            label3.Location = new Point(14, 382);
+            label3.Location = new Point(14, 385);
             label3.Margin = new Padding(5);
             label3.Name = "label3";
-            label3.Size = new Size(135, 23);
+            label3.Size = new Size(133, 21);
             label3.TabIndex = 8;
             label3.Text = "Дата документа:";
             // 
@@ -123,7 +124,7 @@
             // 
             // textBox3
             // 
-            textBox3.Location = new Point(14, 254);
+            textBox3.Location = new Point(14, 236);
             textBox3.Name = "textBox3";
             textBox3.PlaceholderText = "Наименование документа";
             textBox3.Size = new Size(406, 29);
@@ -131,15 +132,15 @@
             // 
             // textBox4
             // 
-            textBox4.Location = new Point(14, 333);
+            textBox4.Location = new Point(14, 292);
             textBox4.Name = "textBox4";
-            textBox4.PlaceholderText = "Серия и номер документа";
+            textBox4.PlaceholderText = "Серия  документа";
             textBox4.Size = new Size(406, 29);
             textBox4.TabIndex = 12;
             // 
             // textBox5
             // 
-            textBox5.Location = new Point(14, 481);
+            textBox5.Location = new Point(15, 472);
             textBox5.Name = "textBox5";
             textBox5.PlaceholderText = "Основание";
             textBox5.Size = new Size(406, 29);
@@ -153,7 +154,7 @@
             tableLayoutPanel1.Controls.Add(button1, 1, 0);
             tableLayoutPanel1.Controls.Add(button2, 0, 0);
             tableLayoutPanel1.Dock = DockStyle.Bottom;
-            tableLayoutPanel1.Location = new Point(0, 516);
+            tableLayoutPanel1.Location = new Point(0, 509);
             tableLayoutPanel1.Margin = new Padding(5, 6, 5, 6);
             tableLayoutPanel1.Name = "tableLayoutPanel1";
             tableLayoutPanel1.RowCount = 1;
@@ -175,6 +176,7 @@
             button1.TabIndex = 5;
             button1.Text = "Редактировать";
             button1.UseVisualStyleBackColor = false;
+            button1.Click += button1_Click;
             // 
             // button2
             // 
@@ -213,7 +215,7 @@
             // label6
             // 
             label6.AutoSize = true;
-            label6.Location = new Point(14, 230);
+            label6.Location = new Point(15, 212);
             label6.Name = "label6";
             label6.Size = new Size(220, 21);
             label6.TabIndex = 17;
@@ -222,27 +224,46 @@
             // label7
             // 
             label7.AutoSize = true;
-            label7.Location = new Point(14, 309);
+            label7.Location = new Point(14, 268);
             label7.Name = "label7";
-            label7.Size = new Size(221, 21);
+            label7.Size = new Size(153, 21);
             label7.TabIndex = 18;
-            label7.Text = "Серия и номер документа*:";
+            label7.Text = "Серия документа*:";
             // 
             // label8
             // 
             label8.AutoSize = true;
-            label8.Location = new Point(14, 457);
+            label8.Location = new Point(15, 448);
             label8.Name = "label8";
             label8.Size = new Size(105, 21);
             label8.TabIndex = 19;
             label8.Text = "Основание*:";
+            // 
+            // textBox6
+            // 
+            textBox6.Location = new Point(14, 348);
+            textBox6.Name = "textBox6";
+            textBox6.PlaceholderText = "Номер документа";
+            textBox6.Size = new Size(406, 29);
+            textBox6.TabIndex = 20;
+            // 
+            // label9
+            // 
+            label9.AutoSize = true;
+            label9.Location = new Point(14, 324);
+            label9.Name = "label9";
+            label9.Size = new Size(158, 21);
+            label9.TabIndex = 21;
+            label9.Text = "Номер документа*:";
             // 
             // AdvTraining
             // 
             AutoScaleDimensions = new SizeF(9F, 21F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(43, 64, 80);
-            ClientSize = new Size(429, 572);
+            ClientSize = new Size(429, 565);
+            Controls.Add(label9);
+            Controls.Add(textBox6);
             Controls.Add(label8);
             Controls.Add(label7);
             Controls.Add(label6);
@@ -295,5 +316,7 @@
         private Label label6;
         private Label label7;
         private Label label8;
+        private TextBox textBox6;
+        private Label label9;
     }
 }

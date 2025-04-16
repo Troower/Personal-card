@@ -125,6 +125,7 @@
             button1.TabIndex = 5;
             button1.Text = "Редактировать";
             button1.UseVisualStyleBackColor = false;
+            button1.Click += button1_Click;
             // 
             // button2
             // 
@@ -140,6 +141,7 @@
             button2.TabIndex = 4;
             button2.Text = "Отмена";
             button2.UseVisualStyleBackColor = false;
+            button2.Click += button2_Click;
             // 
             // label2
             // 
@@ -173,9 +175,9 @@
             label5.AutoSize = true;
             label5.Location = new Point(14, 317);
             label5.Name = "label5";
-            label5.Size = new Size(95, 21);
+            label5.Size = new Size(105, 21);
             label5.TabIndex = 14;
-            label5.Text = "Основная*:";
+            label5.Text = "Основание*:";
             // 
             // HiringTransfer
             // 

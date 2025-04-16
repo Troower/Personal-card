@@ -942,9 +942,9 @@ namespace PersonalCard
             using (var conn = new MySqlConnection(_connectionString))
             {
                 string query = @"INSERT INTO professional_retraining 
-                (ID_empl, Date_start, Date_end, Name_doc, Ser_doc, Num_doc, Date_give_doc, Reason, Speciality) 
+                (ID_empl, Date_start, Date_end, Name_doc,  Num_doc, Date_give_doc, Reason, Speciality) 
                 VALUES 
-                (@ID_empl, @Date_start, @Date_end, @Name_doc, @Ser_doc, @Num_doc, @Date_give_doc, @Reason, @Speciality)";
+                (@ID_empl, @Date_start, @Date_end, @Name_doc,  @Num_doc, @Date_give_doc, @Reason, @Speciality)";
 
                 var cmd = new MySqlCommand(query, conn);
                 AddParameters(cmd, retraining);
@@ -960,7 +960,7 @@ namespace PersonalCard
             {
                 string query = @"UPDATE professional_retraining SET 
                 Date_start = @Date_start, Date_end = @Date_end, Name_doc = @Name_doc, 
-                Ser_doc = @Ser_doc, Num_doc = @Num_doc, Date_give_doc = @Date_give_doc, 
+                Num_doc = @Num_doc, Date_give_doc = @Date_give_doc, 
                 Reason = @Reason, Speciality = @Speciality 
                 WHERE ID_retr = @ID_retr";
 
@@ -992,7 +992,6 @@ namespace PersonalCard
             cmd.Parameters.AddWithValue("@Date_start", retraining.Date_start);
             cmd.Parameters.AddWithValue("@Date_end", retraining.Date_end);
             cmd.Parameters.AddWithValue("@Name_doc", retraining.Name_doc);
-            cmd.Parameters.AddWithValue("@Ser_doc", retraining.Ser_doc);
             cmd.Parameters.AddWithValue("@Num_doc", retraining.Num_doc);
             cmd.Parameters.AddWithValue("@Date_give_doc", retraining.Date_give_doc);
             cmd.Parameters.AddWithValue("@Reason", retraining.Reason);

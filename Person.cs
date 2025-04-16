@@ -635,7 +635,6 @@ namespace PersonalCard
         public DateTime Date_start { get; set; }
         public DateTime Date_end { get; set; }
         public string Name_doc { get; set; }
-        public string Ser_doc { get; set; }
         public string Num_doc { get; set; }
         public DateTime Date_give_doc { get; set; }
         public string Reason { get; set; }
@@ -662,7 +661,6 @@ namespace PersonalCard
                             Date_start = reader.GetDateTime("Date_start"),
                             Date_end = reader.GetDateTime("Date_end"),
                             Name_doc = reader["Name_doc"].ToString(),
-                            Ser_doc = reader["Ser_doc"].ToString(),
                             Num_doc = reader["Num_doc"].ToString(),
                             Date_give_doc = reader.GetDateTime("Date_give_doc"),
                             Reason = reader["Reason"].ToString(),

@@ -115,6 +115,7 @@
             button1.TabIndex = 5;
             button1.Text = "Редактировать";
             button1.UseVisualStyleBackColor = false;
+            button1.Click += button1_Click;
             // 
             // button2
             // 
@@ -146,9 +147,9 @@
             label3.AutoSize = true;
             label3.Location = new Point(11, 86);
             label3.Name = "label3";
-            label3.Size = new Size(216, 21);
+            label3.Size = new Size(154, 21);
             label3.TabIndex = 22;
-            label3.Text = "Наименование документа*";
+            label3.Text = "Номер документа*";
             // 
             // label4
             // 
