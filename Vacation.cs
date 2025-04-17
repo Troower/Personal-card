@@ -18,6 +18,26 @@ namespace PersonalCard
         {
             InitializeComponent();
         }
+        public Vacation(VacationInf vacation)
+        {
+            InitializeComponent();
+            dateTimePicker2.Value = vacation.Period_work_end ?? DateTime.Now;
+            dateTimePicker1.Value = vacation.Period_work_start > DateTime.MinValue ? vacation.Period_work_start : DateTime.Now;
+            dateTimePicker4.Value = vacation.Date_end ?? DateTime.Now;
+            dateTimePicker3.Value = vacation.Date_start > DateTime.MinValue ? vacation.Date_start : DateTime.Now;
+            textBox1.Text = vacation.Type_vacation;
+            textBox2.Text = vacation.Quantity_day.ToString();
+            textBox3.Text = vacation.Reason;
+            dateTimePicker1.Enabled = false;
+            dateTimePicker2.Enabled = false;
+            dateTimePicker3.Enabled = false;
+            dateTimePicker4.Enabled = false;
+            textBox1.Enabled = false;
+            textBox2.Enabled = false;
+            textBox3.Enabled = false;
+            tableLayoutPanel1.Visible = false;
+            this.Size = new System.Drawing.Size(this.Width, this.Height - tableLayoutPanel1.Height);
+        }
         public Vacation(VacationInf vacation, Action<VacationInf> action)
         {
             InitializeComponent();

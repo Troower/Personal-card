@@ -23,7 +23,7 @@ namespace PersonalCard
             InitializeComponent();
             this.afterEducation = afterEducation;
             this.action = action;
-            comboBox1.Text = afterEducation.Type_education;
+            if(!String.IsNullOrEmpty(afterEducation.Type_education)) comboBox1.Text = afterEducation.Type_education;
             textBox7.Text = afterEducation.Name_organisation;
             textBox1.Text=afterEducation.Name_education_docAfter;
             textBox3.Text = afterEducation.Num_doc_education;
@@ -57,7 +57,9 @@ namespace PersonalCard
             textBox6.Enabled = false;
             dateTimePicker1.Enabled = false;
             textBox5.Enabled = false;
+            
             tableLayoutPanel1.Visible = false;
+            this.Size = new System.Drawing.Size(this.Width, this.Height - tableLayoutPanel1.Height);
         }
         private void button2_Click(object sender, EventArgs e)
         {

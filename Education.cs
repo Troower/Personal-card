@@ -20,14 +20,16 @@ namespace PersonalCard
         {
             InitializeComponent();
             this.education = education;
+            
             textBox7.Text=education.Name_orgnisation;
-            comboBox1.Text = education.Type_education;
+            if (!String.IsNullOrEmpty(education.Type_education)) comboBox1.Text = education.Type_education;
             textBox1.Text = education.Name_doc_education;
             textBox2.Text = education.Serial_doc_education;
             textBox3.Text = education.Num_doc_education;
             textBox6.Text = education.Year_end.ToString();
             textBox4.Text = education.Qualification_doc_education;
             textBox5.Text = education.Direction_or_specialty;
+            if (String.IsNullOrEmpty(textBox1.Text)) { button1.Text = "Добавить"; }
             this.action = action;
         }
         public Education(EducationInf education)
@@ -49,17 +51,14 @@ namespace PersonalCard
             textBox6.Enabled = false;
             textBox4.Enabled = false;
             textBox5.Enabled = false;
+            textBox7.Enabled = false;
             tableLayoutPanel1.Visible = false;
+            tableLayoutPanel1.Visible = false;
+            this.Size = new System.Drawing.Size(this.Width, this.Height - tableLayoutPanel1.Height);
         }
         
-        //добавление
-        public Education(int id, Action<EducationInf> action)
-        {
-            InitializeComponent();
-            add = id;
-            this.action = action;
-            button1.Text = "Добавить";
-        }
+       
+       
         public Education()
         {
             InitializeComponent();
@@ -92,36 +91,17 @@ namespace PersonalCard
                     MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
-            if (add != 0)
-            {
-                EducationInf education = new EducationInf();
-                education.ID_empl = add;
-                education.Name_orgnisation = textBox7.Text;
-                education.Type_education = comboBox1.Text;
-                education.Name_doc_education = textBox1.Text;
-                education.Serial_doc_education = textBox2.Text;
-                education.Num_doc_education = textBox3.Text;
-                education.Year_end = a;
-                education.Qualification_doc_education = textBox4.Text;
-                education.Direction_or_specialty = textBox5.Text;
-                action?.Invoke(education);
 
-            }
-            else
-            {
-                education.Name_orgnisation = textBox7.Text;
-                education.Type_education = comboBox1.Text;
-                education.Name_doc_education = textBox1.Text;
-                education.Serial_doc_education = textBox2.Text;
-                education.Num_doc_education = textBox3.Text;
-                education.Year_end = a;
-                education.Qualification_doc_education = textBox4.Text;
-                education.Direction_or_specialty = textBox5.Text;
-                action?.Invoke(education);
-                MessageBox.Show("Редактирование прошло успешно!", "Информация", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
-
-            }
-
+            education.Name_orgnisation = textBox7.Text;
+            education.Type_education = comboBox1.Text;
+            education.Name_doc_education = textBox1.Text;
+            education.Serial_doc_education = textBox2.Text;
+            education.Num_doc_education = textBox3.Text;
+            education.Year_end = a;
+            education.Qualification_doc_education = textBox4.Text;
+            education.Direction_or_specialty = textBox5.Text;
+            action?.Invoke(education);
+            MessageBox.Show("Операция прошла успешно!", "Информация", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
 
             this.Close();
         }

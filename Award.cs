@@ -19,6 +19,20 @@ namespace PersonalCard
         {
             InitializeComponent();
         }
+        public Award(AwardInf award)
+        {
+            InitializeComponent();
+            dateTimePicker1.Value = award.Date_give_doc > DateTime.MinValue ? award.Date_give_doc : DateTime.Now;
+            textBox1.Text = award.Name_reward;
+            textBox2.Text = award.Name_doc;
+            textBox3.Text = award.Num_doc;
+            dateTimePicker1.Enabled = false;
+            textBox1.Enabled = false;
+            textBox2.Enabled = false;
+            textBox3.Enabled = false;
+            tableLayoutPanel1.Visible = false;
+            this.Size = new System.Drawing.Size(this.Width, this.Height - tableLayoutPanel1.Height);
+        }
         public Award(AwardInf award, Action<AwardInf> action)
         {
             InitializeComponent();

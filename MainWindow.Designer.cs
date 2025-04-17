@@ -191,7 +191,10 @@
             Column5 = new DataGridViewTextBoxColumn();
             Column6 = new DataGridViewTextBoxColumn();
             Column17 = new DataGridViewTextBoxColumn();
+            contextMenuStrip2 = new ContextMenuStrip(components);
+            удалитьToolStripMenuItem = new ToolStripMenuItem();
             groupBox11 = new GroupBox();
+            button15 = new Button();
             button14 = new Button();
             panel38 = new Panel();
             label89 = new Label();
@@ -238,6 +241,7 @@
             label15 = new Label();
             label35 = new Label();
             tabPage2 = new TabPage();
+            button16 = new Button();
             panel30 = new Panel();
             label79 = new Label();
             label29 = new Label();
@@ -339,6 +343,7 @@
             Column16 = new DataGridViewTextBoxColumn();
             Column15 = new DataGridViewTextBoxColumn();
             tabPage17 = new TabPage();
+            button17 = new Button();
             panel34 = new Panel();
             label82 = new Label();
             label34 = new Label();
@@ -419,6 +424,7 @@
             panel2.SuspendLayout();
             tabPage4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dataGridView2).BeginInit();
+            contextMenuStrip2.SuspendLayout();
             groupBox11.SuspendLayout();
             panel38.SuspendLayout();
             panel37.SuspendLayout();
@@ -1967,6 +1973,7 @@
             dataGridView2.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle4;
             dataGridView2.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dataGridView2.Columns.AddRange(new DataGridViewColumn[] { Column7, dataGridViewTextBoxColumn1, dataGridViewTextBoxColumn2, dataGridViewTextBoxColumn3, dataGridViewTextBoxColumn4, Column5, Column6, Column17 });
+            dataGridView2.ContextMenuStrip = contextMenuStrip2;
             dataGridViewCellStyle5.Alignment = DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle5.BackColor = Color.Azure;
             dataGridViewCellStyle5.Font = new Font("Arial", 12F, FontStyle.Bold, GraphicsUnit.Point, 204);
@@ -2058,8 +2065,30 @@
             Column17.ReadOnly = true;
             Column17.Visible = false;
             // 
+            // contextMenuStrip2
+            // 
+            contextMenuStrip2.BackColor = Color.White;
+            contextMenuStrip2.BackgroundImage = Properties.Resources.Buttonphon;
+            contextMenuStrip2.BackgroundImageLayout = ImageLayout.Stretch;
+            contextMenuStrip2.Items.AddRange(new ToolStripItem[] { удалитьToolStripMenuItem });
+            contextMenuStrip2.Name = "contextMenuStrip2";
+            contextMenuStrip2.Size = new Size(132, 28);
+            contextMenuStrip2.Text = "Удалить";
+            // 
+            // удалитьToolStripMenuItem
+            // 
+            удалитьToolStripMenuItem.BackgroundImage = Properties.Resources.Buttonphon;
+            удалитьToolStripMenuItem.BackgroundImageLayout = ImageLayout.Stretch;
+            удалитьToolStripMenuItem.Font = new Font("Segoe UI Semibold", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 204);
+            удалитьToolStripMenuItem.ForeColor = Color.White;
+            удалитьToolStripMenuItem.Name = "удалитьToolStripMenuItem";
+            удалитьToolStripMenuItem.Size = new Size(131, 24);
+            удалитьToolStripMenuItem.Text = "Удалить";
+            удалитьToolStripMenuItem.Click += удалитьToolStripMenuItem_Click;
+            // 
             // groupBox11
             // 
+            groupBox11.Controls.Add(button15);
             groupBox11.Controls.Add(button14);
             groupBox11.Controls.Add(panel38);
             groupBox11.Controls.Add(panel37);
@@ -2074,6 +2103,18 @@
             groupBox11.TabIndex = 4;
             groupBox11.TabStop = false;
             groupBox11.Text = "Послевузовское";
+            // 
+            // button15
+            // 
+            button15.BackgroundImage = Properties.Resources.Buttonphon;
+            button15.BackgroundImageLayout = ImageLayout.Stretch;
+            button15.Dock = DockStyle.Bottom;
+            button15.Location = new Point(3, 380);
+            button15.Name = "button15";
+            button15.Size = new Size(276, 25);
+            button15.TabIndex = 18;
+            button15.Text = "Удалить";
+            button15.UseVisualStyleBackColor = true;
             // 
             // button14
             // 
@@ -2415,37 +2456,37 @@
             // label64
             // 
             label64.Dock = DockStyle.Left;
-            label64.Font = new Font("Arial", 22F, FontStyle.Bold);
+            label64.Font = new Font("Arial", 15.75F, FontStyle.Bold);
             label64.Location = new Point(235, 23);
             label64.Margin = new Padding(20);
             label64.Name = "label64";
             label64.Size = new Size(114, 113);
             label64.TabIndex = 2;
-            label64.Text = "0D";
+            label64.Text = "0";
             label64.TextAlign = ContentAlignment.MiddleCenter;
             // 
             // label63
             // 
             label63.Dock = DockStyle.Left;
-            label63.Font = new Font("Arial", 22F, FontStyle.Bold);
+            label63.Font = new Font("Arial", 15.75F, FontStyle.Bold);
             label63.Location = new Point(119, 23);
             label63.Margin = new Padding(20);
             label63.Name = "label63";
             label63.Size = new Size(116, 113);
             label63.TabIndex = 1;
-            label63.Text = "0M";
+            label63.Text = "0";
             label63.TextAlign = ContentAlignment.MiddleCenter;
             // 
             // label62
             // 
             label62.Dock = DockStyle.Left;
-            label62.Font = new Font("Arial", 22F, FontStyle.Bold);
+            label62.Font = new Font("Arial", 15.75F, FontStyle.Bold, GraphicsUnit.Point, 204);
             label62.Location = new Point(3, 23);
             label62.Margin = new Padding(20);
             label62.Name = "label62";
             label62.Size = new Size(116, 113);
             label62.TabIndex = 0;
-            label62.Text = "0Y";
+            label62.Text = "0";
             label62.TextAlign = ContentAlignment.MiddleCenter;
             // 
             // groupBox5
@@ -2467,37 +2508,37 @@
             // label67
             // 
             label67.Dock = DockStyle.Left;
-            label67.Font = new Font("Arial", 22F, FontStyle.Bold);
+            label67.Font = new Font("Arial", 15.75F, FontStyle.Bold);
             label67.Location = new Point(235, 23);
             label67.Margin = new Padding(20);
             label67.Name = "label67";
             label67.Size = new Size(116, 113);
             label67.TabIndex = 3;
-            label67.Text = "0D";
+            label67.Text = "0";
             label67.TextAlign = ContentAlignment.MiddleCenter;
             // 
             // label66
             // 
             label66.Dock = DockStyle.Left;
-            label66.Font = new Font("Arial", 22F, FontStyle.Bold);
+            label66.Font = new Font("Arial", 15.75F, FontStyle.Bold);
             label66.Location = new Point(119, 23);
             label66.Margin = new Padding(20);
             label66.Name = "label66";
             label66.Size = new Size(116, 113);
             label66.TabIndex = 2;
-            label66.Text = "0M";
+            label66.Text = "0";
             label66.TextAlign = ContentAlignment.MiddleCenter;
             // 
             // label65
             // 
             label65.Dock = DockStyle.Left;
-            label65.Font = new Font("Arial", 22F, FontStyle.Bold);
+            label65.Font = new Font("Arial", 15.75F, FontStyle.Bold);
             label65.Location = new Point(3, 23);
             label65.Margin = new Padding(20);
             label65.Name = "label65";
             label65.Size = new Size(116, 113);
             label65.TabIndex = 1;
-            label65.Text = "0Y";
+            label65.Text = "0";
             label65.TextAlign = ContentAlignment.MiddleCenter;
             // 
             // groupBox6
@@ -2519,37 +2560,37 @@
             // label70
             // 
             label70.Dock = DockStyle.Left;
-            label70.Font = new Font("Arial", 22F, FontStyle.Bold);
+            label70.Font = new Font("Arial", 15.75F, FontStyle.Bold);
             label70.Location = new Point(235, 23);
             label70.Margin = new Padding(20);
             label70.Name = "label70";
             label70.Size = new Size(116, 116);
             label70.TabIndex = 3;
-            label70.Text = "0D";
+            label70.Text = "0";
             label70.TextAlign = ContentAlignment.MiddleCenter;
             // 
             // label69
             // 
             label69.Dock = DockStyle.Left;
-            label69.Font = new Font("Arial", 22F, FontStyle.Bold);
+            label69.Font = new Font("Arial", 15.75F, FontStyle.Bold);
             label69.Location = new Point(119, 23);
             label69.Margin = new Padding(20);
             label69.Name = "label69";
             label69.Size = new Size(116, 116);
             label69.TabIndex = 2;
-            label69.Text = "0M";
+            label69.Text = "0";
             label69.TextAlign = ContentAlignment.MiddleCenter;
             // 
             // label68
             // 
             label68.Dock = DockStyle.Left;
-            label68.Font = new Font("Arial", 22F, FontStyle.Bold);
+            label68.Font = new Font("Arial", 15.75F, FontStyle.Bold);
             label68.Location = new Point(3, 23);
             label68.Margin = new Padding(20);
             label68.Name = "label68";
             label68.Size = new Size(116, 116);
             label68.TabIndex = 1;
-            label68.Text = "0Y";
+            label68.Text = "0";
             label68.TextAlign = ContentAlignment.MiddleCenter;
             // 
             // tabPage6
@@ -2582,6 +2623,7 @@
             dataGridView3.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle7;
             dataGridView3.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dataGridView3.Columns.AddRange(new DataGridViewColumn[] { dataGridViewTextBoxColumn5, dataGridViewTextBoxColumn6, dataGridViewTextBoxColumn7, Column18 });
+            dataGridView3.ContextMenuStrip = contextMenuStrip2;
             dataGridViewCellStyle8.Alignment = DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle8.BackColor = Color.Azure;
             dataGridViewCellStyle8.Font = new Font("Arial", 12F, FontStyle.Bold, GraphicsUnit.Point, 204);
@@ -2612,6 +2654,7 @@
             dataGridView3.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dataGridView3.Size = new Size(911, 446);
             dataGridView3.TabIndex = 3;
+            dataGridView3.CellDoubleClick += dataGridView3_CellDoubleClick;
             // 
             // dataGridViewTextBoxColumn5
             // 
@@ -2669,6 +2712,7 @@
             // tabPage2
             // 
             tabPage2.BackColor = Color.FromArgb(45, 70, 80);
+            tabPage2.Controls.Add(button16);
             tabPage2.Controls.Add(panel30);
             tabPage2.Controls.Add(panel29);
             tabPage2.Controls.Add(panel28);
@@ -2687,6 +2731,18 @@
             tabPage2.Size = new Size(925, 543);
             tabPage2.TabIndex = 1;
             tabPage2.Text = "Воинский учет";
+            // 
+            // button16
+            // 
+            button16.BackgroundImage = Properties.Resources.Buttonphon;
+            button16.BackgroundImageLayout = ImageLayout.Stretch;
+            button16.Dock = DockStyle.Bottom;
+            button16.Location = new Point(3, 508);
+            button16.Name = "button16";
+            button16.Size = new Size(919, 31);
+            button16.TabIndex = 22;
+            button16.Text = "Удалить";
+            button16.UseVisualStyleBackColor = true;
             // 
             // panel30
             // 
@@ -3055,6 +3111,7 @@
             dataGridView4.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle10;
             dataGridView4.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dataGridView4.Columns.AddRange(new DataGridViewColumn[] { dataGridViewTextBoxColumn8, dataGridViewTextBoxColumn9, dataGridViewTextBoxColumn10, dataGridViewTextBoxColumn11, Column8, Column19 });
+            dataGridView4.ContextMenuStrip = contextMenuStrip2;
             dataGridViewCellStyle11.Alignment = DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle11.BackColor = Color.Azure;
             dataGridViewCellStyle11.Font = new Font("Arial", 12F, FontStyle.Bold, GraphicsUnit.Point, 204);
@@ -3085,6 +3142,7 @@
             dataGridView4.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dataGridView4.Size = new Size(919, 509);
             dataGridView4.TabIndex = 3;
+            dataGridView4.CellDoubleClick += dataGridView4_CellDoubleClick;
             // 
             // dataGridViewTextBoxColumn8
             // 
@@ -3144,6 +3202,7 @@
             // tabPage8
             // 
             tabPage8.BackColor = Color.FromArgb(45, 70, 80);
+            tabPage8.ContextMenuStrip = contextMenuStrip2;
             tabPage8.Controls.Add(tabControl3);
             tabPage8.Controls.Add(label38);
             tabPage8.Location = new Point(4, 24);
@@ -3157,6 +3216,7 @@
             // tabControl3
             // 
             tabControl3.Appearance = TabAppearance.FlatButtons;
+            tabControl3.ContextMenuStrip = contextMenuStrip2;
             tabControl3.Controls.Add(tabPage9);
             tabControl3.Controls.Add(tabPage10);
             tabControl3.Controls.Add(tabPage11);
@@ -3230,6 +3290,7 @@
             dataGridView6.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dataGridView6.Size = new Size(905, 466);
             dataGridView6.TabIndex = 3;
+            dataGridView6.CellDoubleClick += dataGridView6_CellDoubleClick;
             // 
             // dataGridViewTextBoxColumn19
             // 
@@ -3306,6 +3367,7 @@
             dataGridView5.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle16;
             dataGridView5.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dataGridView5.Columns.AddRange(new DataGridViewColumn[] { dataGridViewTextBoxColumn12, dataGridViewTextBoxColumn13, dataGridViewTextBoxColumn14, dataGridViewTextBoxColumn15, Column10, Column11, Column12, Column13, Column21 });
+            dataGridView5.ContextMenuStrip = contextMenuStrip2;
             dataGridViewCellStyle17.Alignment = DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle17.BackColor = Color.Azure;
             dataGridViewCellStyle17.Font = new Font("Arial", 12F, FontStyle.Bold, GraphicsUnit.Point, 204);
@@ -3336,6 +3398,7 @@
             dataGridView5.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dataGridView5.Size = new Size(905, 470);
             dataGridView5.TabIndex = 3;
+            dataGridView5.CellDoubleClick += dataGridView5_CellDoubleClick;
             // 
             // dataGridViewTextBoxColumn12
             // 
@@ -3463,6 +3526,7 @@
             dataGridView7.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dataGridView7.Size = new Size(911, 478);
             dataGridView7.TabIndex = 4;
+            dataGridView7.CellDoubleClick += dataGridView7_CellDoubleClick;
             // 
             // dataGridViewTextBoxColumn16
             // 
@@ -3594,6 +3658,7 @@
             dataGridView9.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle22;
             dataGridView9.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dataGridView9.Columns.AddRange(new DataGridViewColumn[] { dataGridViewTextBoxColumn34, dataGridViewTextBoxColumn35, dataGridViewTextBoxColumn36, dataGridViewTextBoxColumn37, Column23 });
+            dataGridView9.ContextMenuStrip = contextMenuStrip2;
             dataGridViewCellStyle23.Alignment = DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle23.BackColor = Color.Azure;
             dataGridViewCellStyle23.Font = new Font("Arial", 12F, FontStyle.Bold, GraphicsUnit.Point, 204);
@@ -3624,6 +3689,7 @@
             dataGridView9.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dataGridView9.Size = new Size(905, 466);
             dataGridView9.TabIndex = 4;
+            dataGridView9.CellDoubleClick += dataGridView9_CellDoubleClick;
             // 
             // dataGridViewTextBoxColumn34
             // 
@@ -3691,6 +3757,7 @@
             dataGridView8.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle25;
             dataGridView8.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dataGridView8.Columns.AddRange(new DataGridViewColumn[] { dataGridViewTextBoxColumn23, dataGridViewTextBoxColumn28, dataGridViewTextBoxColumn29, dataGridViewTextBoxColumn30, dataGridViewTextBoxColumn31, dataGridViewTextBoxColumn32, dataGridViewTextBoxColumn33, Column24 });
+            dataGridView8.ContextMenuStrip = contextMenuStrip2;
             dataGridViewCellStyle26.Alignment = DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle26.BackColor = Color.Azure;
             dataGridViewCellStyle26.Font = new Font("Arial", 12F, FontStyle.Bold, GraphicsUnit.Point, 204);
@@ -3721,6 +3788,7 @@
             dataGridView8.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dataGridView8.Size = new Size(905, 470);
             dataGridView8.TabIndex = 3;
+            dataGridView8.CellDoubleClick += dataGridView8_CellDoubleClick;
             // 
             // dataGridViewTextBoxColumn23
             // 
@@ -3810,6 +3878,7 @@
             dataGridView10.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle28;
             dataGridView10.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dataGridView10.Columns.AddRange(new DataGridViewColumn[] { dataGridViewTextBoxColumn38, dataGridViewTextBoxColumn40, dataGridViewTextBoxColumn41, dataGridViewTextBoxColumn39, Column25 });
+            dataGridView10.ContextMenuStrip = contextMenuStrip2;
             dataGridViewCellStyle29.Alignment = DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle29.BackColor = Color.Azure;
             dataGridViewCellStyle29.Font = new Font("Arial", 12F, FontStyle.Bold, GraphicsUnit.Point, 204);
@@ -3840,6 +3909,7 @@
             dataGridView10.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dataGridView10.Size = new Size(911, 478);
             dataGridView10.TabIndex = 5;
+            dataGridView10.CellDoubleClick += dataGridView10_CellDoubleClick;
             // 
             // dataGridViewTextBoxColumn38
             // 
@@ -3918,6 +3988,7 @@
             dataGridView11.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle31;
             dataGridView11.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dataGridView11.Columns.AddRange(new DataGridViewColumn[] { Column16, Column15 });
+            dataGridView11.ContextMenuStrip = contextMenuStrip2;
             dataGridViewCellStyle32.Alignment = DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle32.BackColor = Color.Azure;
             dataGridViewCellStyle32.Font = new Font("Arial", 12F, FontStyle.Bold, GraphicsUnit.Point, 204);
@@ -3948,6 +4019,7 @@
             dataGridView11.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dataGridView11.Size = new Size(919, 535);
             dataGridView11.TabIndex = 4;
+            dataGridView11.CellDoubleClick += dataGridView11_CellDoubleClick;
             // 
             // Column16
             // 
@@ -3967,6 +4039,7 @@
             // tabPage17
             // 
             tabPage17.BackColor = Color.FromArgb(45, 70, 80);
+            tabPage17.Controls.Add(button17);
             tabPage17.Controls.Add(panel34);
             tabPage17.Controls.Add(panel33);
             tabPage17.Controls.Add(panel32);
@@ -3980,6 +4053,18 @@
             tabPage17.Size = new Size(925, 543);
             tabPage17.TabIndex = 6;
             tabPage17.Text = "Увольнение";
+            // 
+            // button17
+            // 
+            button17.BackgroundImage = Properties.Resources.Buttonphon;
+            button17.BackgroundImageLayout = ImageLayout.Stretch;
+            button17.Dock = DockStyle.Bottom;
+            button17.Location = new Point(3, 510);
+            button17.Name = "button17";
+            button17.Size = new Size(919, 29);
+            button17.TabIndex = 19;
+            button17.Text = "Востановить сотрудника";
+            button17.UseVisualStyleBackColor = true;
             // 
             // panel34
             // 
@@ -4269,6 +4354,11 @@
             button6.UseVisualStyleBackColor = false;
             button6.Click += button10_Click;
             // 
+            // timer1
+            // 
+            timer1.Interval = 1000;
+            timer1.Tick += timer1_Tick;
+            // 
             // statusStrip1
             // 
             statusStrip1.BackgroundImage = Properties.Resources.Buttonphon;
@@ -4393,6 +4483,7 @@
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Главное меню";
             WindowState = FormWindowState.Maximized;
+            Load += MainWindow_Load;
             menuStrip1.ResumeLayout(false);
             menuStrip1.PerformLayout();
             toolStrip1.ResumeLayout(false);
@@ -4464,6 +4555,7 @@
             panel2.PerformLayout();
             tabPage4.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)dataGridView2).EndInit();
+            contextMenuStrip2.ResumeLayout(false);
             groupBox11.ResumeLayout(false);
             panel38.ResumeLayout(false);
             panel38.PerformLayout();
@@ -4855,5 +4947,10 @@
         private Label label87;
         private Label label88;
         private Button button14;
+        private ContextMenuStrip contextMenuStrip2;
+        private ToolStripMenuItem удалитьToolStripMenuItem;
+        private Button button15;
+        private Button button16;
+        private Button button17;
     }
 }

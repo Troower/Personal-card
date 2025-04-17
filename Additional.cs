@@ -26,6 +26,15 @@ namespace PersonalCard
             if (String.IsNullOrEmpty(additional.Information)) button1.Text = "Добавить";
             else textBox1.Text = additional.Information;
         }
+        public Additional(AdditionalInformationInf additional)
+        {
+            InitializeComponent();
+            this.additional = additional;
+            textBox1.Text = additional.Information;
+            textBox1.Enabled=false;
+            tableLayoutPanel1.Visible = false;
+            this.Size = new System.Drawing.Size(this.Width, this.Height - tableLayoutPanel1.Height);
+        }
 
         private void button2_Click(object sender, EventArgs e)
         {

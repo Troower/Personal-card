@@ -19,6 +19,23 @@ namespace PersonalCard
         {
             InitializeComponent();
         }
+        public Сertification(CertificationInf certification)
+        {
+            InitializeComponent();
+            this.certification = certification;
+            dateTimePicker1.Value = certification.Date_att > DateTime.MinValue ? certification.Date_att : DateTime.Now;
+            dateTimePicker2.Value = certification.Date_doc > DateTime.MinValue ? certification.Date_doc : DateTime.Now;
+            textBox2.Text = certification.Decision;
+            textBox3.Text = certification.Num_doc;
+            textBox4.Text = certification.Reason;
+            dateTimePicker1.Enabled=false;
+            dateTimePicker2.Enabled = false;
+            textBox2.Enabled = false;
+            textBox3.Enabled = false;
+            textBox4.Enabled = false;
+            tableLayoutPanel1.Visible = false;
+            this.Size = new System.Drawing.Size(this.Width, this.Height - tableLayoutPanel1.Height);
+        }
         public Сertification(CertificationInf certification, Action<CertificationInf> action)
         {
             InitializeComponent();

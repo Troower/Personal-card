@@ -19,6 +19,20 @@ namespace PersonalCard
         {
             InitializeComponent();
         }
+        public Benefit(SocialBenefitInf benefit)
+        {
+            InitializeComponent();
+            dateTimePicker1.Value = benefit.Date_give_doc > DateTime.MinValue ? benefit.Date_give_doc : DateTime.Now;
+            textBox1.Text = benefit.Name_benefit;
+            textBox2.Text = benefit.Num_doc;
+            textBox3.Text = benefit.Reason;
+            dateTimePicker1.Enabled = false;
+            textBox3 .Enabled = false;
+            textBox1 .Enabled = false;  
+            textBox2 .Enabled = false; 
+            tableLayoutPanel1.Visible = false;
+            this.Size = new System.Drawing.Size(this.Width, this.Height - tableLayoutPanel1.Height);
+        }
         public Benefit(SocialBenefitInf benefit, Action<SocialBenefitInf> action)
         {
             InitializeComponent();

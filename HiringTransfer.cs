@@ -19,6 +19,23 @@ namespace PersonalCard
         {
             InitializeComponent();
         }
+        public HiringTransfer(HiringTransferInf hiringTransfer)
+        {
+            InitializeComponent();
+            this.hiringTransfer = hiringTransfer;
+            textBox1.Text = hiringTransfer.Struct;
+            textBox3.Text = hiringTransfer.Position_category;
+            textBox4.Text = hiringTransfer.Tariff_rate.ToString();
+            textBox5.Text = hiringTransfer.Reason;
+            dateTimePicker1.Value = hiringTransfer.Date;
+            textBox1.Enabled=false;
+            textBox3.Enabled = false;
+            textBox4.Enabled = false;
+            textBox5.Enabled = false;
+            dateTimePicker1.Enabled = false;
+            tableLayoutPanel1.Visible=false;
+            this.Size = new System.Drawing.Size(this.Width,this.Height-tableLayoutPanel1.Height);
+        }
         public HiringTransfer(HiringTransferInf hiringTransfer, Action<HiringTransferInf> action)
         {
             InitializeComponent();

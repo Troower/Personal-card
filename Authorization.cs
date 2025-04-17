@@ -32,11 +32,12 @@ namespace PersonalCard
             ConfigConnection cnf = ConfigReader.ReadConfig();
             MySqlConnection conn = new MySqlConnection(cnf.ToString());
             conn.Open();
-            string sql = $"SELECT `password`, `lock`, `role` from `Users` where `login` = @login";
+            string sql = $"SELECT  * from `Users` where `login` = @login";
            
             MySqlCommand cmd = new MySqlCommand(sql, conn);
             cmd.Parameters.AddWithValue("@login", textBox1.Text);
             string connectionString="";
+            string name="";
             using (MySqlDataReader reader = cmd.ExecuteReader())
             {
                 if (!reader.HasRows)
@@ -46,21 +47,22 @@ namespace PersonalCard
                 }
                 if (reader.Read())
                 {
-                    if (!PwdHash.VerifyPassword(textBox2.Text, reader.GetString(0)))
+                    if (!PwdHash.VerifyPassword(textBox2.Text, reader.GetString("password")))
                     {
                         MessageBox.Show("Данные для входа неверны!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         return;
                     }
-                    else if (reader.GetInt32(1) == 1)
+                    else if (reader.GetInt32("lock") == 1)
                     {
                         MessageBox.Show("Пользователь заблокировани!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         return;
                     }
-                    connectionString= cnf.Server+cnf.Database+"UID="+reader.GetString(2)+";Pwd=;";
+                    connectionString= cnf.Server+cnf.Database+"UID="+reader.GetString("role") +";Pwd=;";
+                    name = $"Пользователь {reader.GetString("Name")} {reader.GetString("LastName")}";
                 }
             }
             conn.Close();
-            MainWindow mainWindow = new MainWindow(connectionString);
+            MainWindow mainWindow = new MainWindow(connectionString,name);
             this.Hide();
             mainWindow.ShowDialog();
             this.Show();

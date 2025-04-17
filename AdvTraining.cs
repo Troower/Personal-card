@@ -34,6 +34,30 @@ namespace PersonalCard
             textBox6.Text =professional.Num_doc;
             textBox5.Text =professional.Reason;
         }
+        public AdvTraining(ProfessionalDevelopmentInf professional)
+        {
+            InitializeComponent();
+            dateTimePicker1.Value = professional.Date_start > DateTime.MinValue ? professional.Date_start : DateTime.Now;
+            dateTimePicker2.Value = professional.Date_end > DateTime.MinValue ? professional.Date_end : DateTime.Now;
+            dateTimePicker3.Value = professional.Date_give_doc > DateTime.MinValue ? professional.Date_give_doc : DateTime.Now;
+            textBox1.Text = professional.Type_cvalification;
+            textBox2.Text = professional.Name_education_company;
+            textBox3.Text = professional.Name_doc;
+            textBox4.Text = professional.Ser_doc;
+            textBox6.Text = professional.Num_doc;
+            textBox5.Text = professional.Reason;
+            textBox1.Enabled = false;
+            textBox2.Enabled = false;
+            textBox3.Enabled = false;
+            textBox4.Enabled = false;
+            textBox5.Enabled = false;
+            textBox6.Enabled = false;
+            dateTimePicker1.Enabled = false;
+            dateTimePicker2.Enabled = false;
+            dateTimePicker3.Enabled = false;
+            tableLayoutPanel1.Visible = false;
+            this.Size = new System.Drawing.Size(this.Width, this.Height - tableLayoutPanel1.Height);
+        }
         public AdvTraining()
         {
             InitializeComponent();
