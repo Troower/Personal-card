@@ -7,8 +7,8 @@ namespace PersonalCard
     public partial class MainWindow : Form
     {
         string connectionString;
-        
-        public MainWindow(string connectionString,string name)
+
+        public MainWindow(string connectionString, string name)
         {
             InitializeComponent();
             this.connectionString = connectionString;
@@ -526,86 +526,163 @@ namespace PersonalCard
 
         private void DeleteNavigation()
         {
-            //основная информация
-            if (tabControl1.SelectedIndex == 0 && tabControl2.SelectedIndex == 0)
-            {
-
-            }
             //образование           
             if (tabControl1.SelectedIndex == 0 && tabControl2.SelectedIndex == 1)
             {
+                foreach (EducationInf education in generalInformation.Educations)
+                {
+                    if (education.ID_education == Convert.ToUInt32(dataGridView2.Rows[dataGridView2.CurrentRow.Index].Cells[7].Value))
+                    {
+                        if (MessageBox.Show("Подтвердите удаление выделенной записи", "Подтверждение", MessageBoxButtons.OKCancel, MessageBoxIcon.Asterisk) == DialogResult.Cancel) return;
+                        new EducationRepository(connectionString).Delete(education.ID_education);
+                        break;
+                    }
 
+                }
+                reLoadPerson();
+                return;
             }
-            //Профессия+стаж
-            if (tabControl1.SelectedIndex == 0 && tabControl2.SelectedIndex == 2)
-            {
-
-            }
-
             //семья
             if (tabControl1.SelectedIndex == 0 && tabControl2.SelectedIndex == 3)
             {
+                foreach (FamilyCompositionInf famaly in generalInformation.FamilyCompositions)
+                {
+                    if (famaly.ID_person == Convert.ToUInt32(dataGridView3.Rows[dataGridView3.CurrentRow.Index].Cells[3].Value))
+                    {
+                        if (MessageBox.Show("Подтвердите удаление выделенной записи", "Подтверждение", MessageBoxButtons.OKCancel, MessageBoxIcon.Asterisk) == DialogResult.Cancel) return;
+                        new FamilyCompositionRepository(connectionString).Delete(famaly.ID_person);
+                        break;
+                    }
 
+                }
+                reLoadPerson();
+                return;
             }
-
-            //Воинский учет
-            if (tabControl1.SelectedIndex == 1)
-            {
-
-            }
-
             //Прием/Перевод на работу
             if (tabControl1.SelectedIndex == 2)
             {
-
+                foreach (HiringTransferInf hiring in generalInformation.HiringTransfers)
+                {
+                    if (hiring.ID_ht == Convert.ToUInt32(dataGridView4.Rows[dataGridView4.CurrentRow.Index].Cells[5].Value))
+                    {
+                        if (MessageBox.Show("Подтвердите удаление выделенной записи", "Подтверждение", MessageBoxButtons.OKCancel, MessageBoxIcon.Asterisk) == DialogResult.Cancel) return;
+                        new HiringTransferRepository(connectionString).Delete(hiring.ID_ht);
+                        break;
+                    }
+                }
+                reLoadPerson();
+                return;
             }
-
             //Атестация
             if (tabControl1.SelectedIndex == 3 && tabControl3.SelectedIndex == 0)
             {
-
+                foreach (CertificationInf certification in generalInformation.Certifications)
+                {
+                    if (certification.ID_att == Convert.ToUInt32(dataGridView6.Rows[dataGridView6.CurrentRow.Index].Cells[5].Value))
+                    {
+                        if (MessageBox.Show("Подтвердите удаление выделенной записи", "Подтверждение", MessageBoxButtons.OKCancel, MessageBoxIcon.Asterisk) == DialogResult.Cancel) return;
+                        new CertificationRepository(connectionString).Delete(certification.ID_att);
+                        break;
+                    }
+                }
+                reLoadPerson();
+                return;
             }
-
             //Повышение квалификации
             if (tabControl1.SelectedIndex == 3 && tabControl3.SelectedIndex == 1)
             {
-
+                foreach (ProfessionalDevelopmentInf professional in generalInformation.ProfessionalDevelopments)
+                {
+                    if (professional.ID_cval == Convert.ToUInt32(dataGridView5.Rows[dataGridView5.CurrentRow.Index].Cells[8].Value))
+                    {
+                        if (MessageBox.Show("Подтвердите удаление выделенной записи", "Подтверждение", MessageBoxButtons.OKCancel, MessageBoxIcon.Asterisk) == DialogResult.Cancel) return;
+                        new ProfessionalDevelopmentRepository(connectionString).Delete(professional.ID_cval);
+                        break;
+                    }
+                }
+                reLoadPerson();
+                return;
             }
             //Проф. переподготовка
             if (tabControl1.SelectedIndex == 3 && tabControl3.SelectedIndex == 2)
             {
-
+                foreach (ProfessionalRetrainingInf professional in generalInformation.ProfessionalRetrainings)
+                {
+                    if (professional.ID_retr == Convert.ToUInt32(dataGridView7.Rows[dataGridView7.CurrentRow.Index].Cells[7].Value))
+                    {
+                        if (MessageBox.Show("Подтвердите удаление выделенной записи", "Подтверждение", MessageBoxButtons.OKCancel, MessageBoxIcon.Asterisk) == DialogResult.Cancel) return;
+                        new ProfessionalRetrainingRepository(connectionString).Delete(professional.ID_retr);
+                        break;
+                    }
+                }
+                reLoadPerson();
+                return;
 
             }
             //награды
             if (tabControl1.SelectedIndex == 4 && tabControl4.SelectedIndex == 0)
             {
-
+                foreach (AwardInf award in generalInformation.Awards)
+                {
+                    if (award.ID_reward == Convert.ToUInt32(dataGridView9.Rows[dataGridView9.CurrentRow.Index].Cells[4].Value))
+                    {
+                        if (MessageBox.Show("Подтвердите удаление выделенной записи", "Подтверждение", MessageBoxButtons.OKCancel, MessageBoxIcon.Asterisk) == DialogResult.Cancel) return;
+                        new AwardRepository(connectionString).Delete(award.ID_reward);
+                        break;
+                    }
+                }
+                reLoadPerson();
+                return;
             }
 
             //Отпуск
             if (tabControl1.SelectedIndex == 4 && tabControl4.SelectedIndex == 1)
             {
-
+                foreach (VacationInf vacation in generalInformation.Vacations)
+                {
+                    if (vacation.ID_vac == Convert.ToUInt32(dataGridView8.Rows[dataGridView8.CurrentRow.Index].Cells[7].Value))
+                    {
+                        if (MessageBox.Show("Подтвердите удаление выделенной записи", "Подтверждение", MessageBoxButtons.OKCancel, MessageBoxIcon.Asterisk) == DialogResult.Cancel) return;
+                        new VacationRepository(connectionString).Delete(vacation.ID_vac);
+                        break;
+                    }
+                }
+                reLoadPerson();
+                return;
             }
 
             //льготы
             if (tabControl1.SelectedIndex == 4 && tabControl4.SelectedIndex == 2)
             {
-
+                foreach (SocialBenefitInf benefit in generalInformation.SocialBenefits)
+                {
+                    if (benefit.ID_ben == Convert.ToUInt32(dataGridView10.Rows[dataGridView10.CurrentRow.Index].Cells[4].Value))
+                    {
+                        if (MessageBox.Show("Подтвердите удаление выделенной записи", "Подтверждение", MessageBoxButtons.OKCancel, MessageBoxIcon.Asterisk) == DialogResult.Cancel) return;
+                        new SocialBenefitRepository(connectionString).Delete(benefit.ID_ben);
+                        break;
+                    }
+                }
+                reLoadPerson();
+                return;
             }
 
             //дополнительные сведения
             if (tabControl1.SelectedIndex == 5)
             {
-
+                foreach (AdditionalInformationInf additional in generalInformation.AdditionalInformations)
+                {
+                    if (additional.ID_mixing == Convert.ToUInt32(dataGridView11.Rows[dataGridView11.CurrentRow.Index].Cells[0].Value))
+                    {
+                        if (MessageBox.Show("Подтвердите удаление выделенной записи", "Подтверждение", MessageBoxButtons.OKCancel, MessageBoxIcon.Asterisk) == DialogResult.Cancel) return;
+                        new AdditionalInformationRepository(connectionString).Delete(additional.ID_mixing);
+                        break;
+                    }
+                }
+                reLoadPerson();
+                return;
             }
 
-            //Увольнение
-            if (tabControl1.SelectedIndex == 6)
-            {
-
-            }
         }
         private void reLoadPerson()
         {
@@ -679,6 +756,7 @@ namespace PersonalCard
 
         private void fillPersonTable()
         {
+            dataGridView1.Rows.Clear();
             List<Person> persons = giveAllPerson();
             if (persons.Count < 1) return;
             dataGridView1.Rows.Add(persons.Count);
@@ -690,7 +768,7 @@ namespace PersonalCard
                 dataGridView1.Rows[i].Cells[3].Value = persons[i].surname;
                 dataGridView1.Rows[i].Cells[4].Value = persons[i].numCard;
             }
-
+            viewDismissedEmpl();
         }
 
         private void dataGridView1_SelectionChanged(object sender, EventArgs e)
@@ -703,6 +781,7 @@ namespace PersonalCard
 
         private void loadInformationUI(GeneralInformation generalInformation)
         {
+            toolStripLabel2.Text = $"Сотрудник: {generalInformation.Name} {generalInformation.Last_name}";
             //Личная информация
             label45.Text = generalInformation.Name;
             label44.Text = generalInformation.Last_name;
@@ -1151,7 +1230,95 @@ namespace PersonalCard
             toolStripStatusLabel3.Alignment = ToolStripItemAlignment.Right;
             toolStripStatusLabel2.Alignment = ToolStripItemAlignment.Right;
             toolStripButton5.Text = "Настройки поиска и\n готовые списки";
-           
+
+        }
+
+        //удаление воиского учета
+        private void button16_Click(object sender, EventArgs e)
+
+        {
+            if (HasData(generalInformation.MilitaryRegistration))
+            {
+                if (MessageBox.Show("Подтвердите удаление", "Подтверждение", MessageBoxButtons.OKCancel, MessageBoxIcon.Asterisk) == DialogResult.Cancel) return;
+
+                new MilitaryRegistrationRepository(connectionString).Delete(generalInformation.ID_empl);
+            }
+            reLoadPerson();
+        }
+
+        //удаление послевуз. образования
+        private void button15_Click(object sender, EventArgs e)
+        {
+            if (HasData(generalInformation.AfterEducation))
+            {
+
+                if (MessageBox.Show("Подтвердите удаление", "Подтверждение", MessageBoxButtons.OKCancel, MessageBoxIcon.Asterisk) == DialogResult.Cancel) { return; }
+                new AfterEducationRepository(connectionString).Delete(generalInformation.ID_empl);
+            }
+            reLoadPerson();
+        }
+
+        private void toolStripButton4_Click(object sender, EventArgs e)
+        {
+
+            if (HasData(generalInformation.Dismissal))
+            {
+                MessageBox.Show("Работник уже уволен", "Информация", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+            DismissalInf dismissal = new DismissalInf();
+            new Dissmisal(dismissal, (DismissalInf dismissal) =>
+            {
+                dismissal.ID_empl = generalInformation.ID_empl;
+                new DismissalRepository(connectionString).Insert(dismissal);
+            }).ShowDialog();
+            reLoadPerson();
+            viewDismissedEmpl();
+        }
+
+        private void button17_Click(object sender, EventArgs e)
+        {
+            if (MessageBox.Show("Подтвердите востановление сотрудника", "Подтверждение", MessageBoxButtons.OKCancel, MessageBoxIcon.Asterisk) == DialogResult.Cancel) { return; }
+            if (!HasData(generalInformation.Dismissal))
+            {
+                MessageBox.Show("Работник не уволен", "Информация", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+            new DismissalRepository(connectionString).Delete(generalInformation.ID_empl);
+            MessageBox.Show("Работник востановлен!", "Информация", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            viewDismissedEmpl();
+        }
+
+        private void viewDismissedEmpl()
+        {
+            DismissalInf dismissal;
+            for (int i = 0; i < dataGridView1.Rows.Count; i++)
+            {
+                dismissal = DismissalInf.GetByEmployeeId(connectionString, Convert.ToInt32(dataGridView1.Rows[i].Cells[0].Value));
+                if (HasData(dismissal))
+                {
+                    dataGridView1.Rows[i].DefaultCellStyle.BackColor = Color.FromArgb(213, 12, 12);
+                    dataGridView1.Rows[i].DefaultCellStyle.SelectionBackColor = Color.FromArgb(213, 12, 12);
+                }
+                else
+                {
+                    dataGridView1.Rows[i].DefaultCellStyle.BackColor = Color.Azure;
+                    dataGridView1.Rows[i].DefaultCellStyle.SelectionBackColor = Color.DarkSlateGray;
+                }
+            }
+        }
+
+        private void toolStripButton3_Click(object sender, EventArgs e)
+        {
+            EditNavigation();
+        }
+
+        private void toolStripButton2_Click(object sender, EventArgs e)
+        {
+            splitContainer1.Panel1Collapsed = false;
+            if (MessageBox.Show($"Подтвердите удаление сотрудника {generalInformation.Name} {generalInformation.Last_name}", "Подтверждение", MessageBoxButtons.OKCancel, MessageBoxIcon.Asterisk) == DialogResult.Cancel) { return; }
+            new GeneralInformationRepository(connectionString).Delete(generalInformation.ID_empl);
+            fillPersonTable();
         }
     }
 }

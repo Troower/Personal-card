@@ -685,7 +685,7 @@
             toolStripButton3.Name = "toolStripButton3";
             toolStripButton3.Size = new Size(64, 64);
             toolStripButton3.Text = "Редактировать сотрудника";
-            toolStripButton3.Click += toolStripButton1_Click;
+            toolStripButton3.Click += toolStripButton3_Click;
             // 
             // toolStripButton2
             // 
@@ -697,6 +697,7 @@
             toolStripButton2.Name = "toolStripButton2";
             toolStripButton2.Size = new Size(64, 64);
             toolStripButton2.Text = "Удалить сотрудника";
+            toolStripButton2.Click += toolStripButton2_Click;
             // 
             // toolStripButton5
             // 
@@ -750,6 +751,7 @@
             toolStripButton4.Name = "toolStripButton4";
             toolStripButton4.Size = new Size(64, 64);
             toolStripButton4.Text = "Уволить сотрудника";
+            toolStripButton4.Click += toolStripButton4_Click;
             // 
             // toolStripButton6
             // 
@@ -2115,6 +2117,7 @@
             button15.TabIndex = 18;
             button15.Text = "Удалить";
             button15.UseVisualStyleBackColor = true;
+            button15.Click += button15_Click;
             // 
             // button14
             // 
@@ -2743,6 +2746,7 @@
             button16.TabIndex = 22;
             button16.Text = "Удалить";
             button16.UseVisualStyleBackColor = true;
+            button16.Click += button16_Click;
             // 
             // panel30
             // 
@@ -4065,6 +4069,7 @@
             button17.TabIndex = 19;
             button17.Text = "Востановить сотрудника";
             button17.UseVisualStyleBackColor = true;
+            button17.Click += button17_Click;
             // 
             // panel34
             // 
