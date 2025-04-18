@@ -9,7 +9,7 @@ namespace PersonalCard
 {
     public class GeneralInformationRepository
     {
-        private readonly string _connectionString="";
+        private readonly string _connectionString = "";
 
         public GeneralInformationRepository(string connectionString)
         {
@@ -35,6 +35,20 @@ namespace PersonalCard
                 conn.Open();
                 return cmd.ExecuteNonQuery() > 0;
             }
+        }
+        public bool Insert(GeneralInformation info, MySqlCommand cmd)
+        {
+            cmd.CommandText = @"INSERT INTO General_information 
+                (ID_empl, Last_name, Name, Surname, Birthday, Place_birth, Citizenship, Marital_status, 
+                Nam_passport, Serial_passport, Date_give_passport, Who_give, Number_phone, Date_create_card, 
+                T_num_card, INN, Num_pensia, First_char_lastname, Nature_work, Type_work, Male_Female) 
+                VALUES 
+                (@ID_empl, @Last_name, @Name, @Surname, @Birthday, @Place_birth, @Citizenship, @Marital_status, 
+                @Nam_passport, @Serial_passport, @Date_give_passport, @Who_give, @Number_phone, @Date_create_card, 
+                @T_num_card, @INN, @Num_pensia, @First_char_lastname, @Nature_work, @Type_work, @Male_Female)";
+
+            AddParameters(cmd, info);
+            return cmd.ExecuteNonQuery() > 0;
         }
 
         public bool Update(GeneralInformation info)
@@ -122,6 +136,16 @@ namespace PersonalCard
                 return cmd.ExecuteNonQuery() > 0;
             }
         }
+        public bool Insert(AddressOfResidenceInf address, MySqlCommand cmd)
+        {
+            cmd.CommandText = @"INSERT INTO address_of_residence 
+            (ID_empl, by_registration, actual, Index_by_register, index_actual, date_registration) 
+            VALUES 
+            (@ID_empl, @By_registration, @Actual, @Index_by_register, @Index_actual, @Date_registration)";
+
+            AddParameters(cmd, address);
+            return cmd.ExecuteNonQuery() > 0;
+        }
 
         public bool Update(AddressOfResidenceInf address)
         {
@@ -191,6 +215,18 @@ namespace PersonalCard
                 conn.Open();
                 return cmd.ExecuteNonQuery() > 0;
             }
+        }
+        public bool Insert(AfterEducationInf afterEducation, MySqlCommand cmd)
+        {
+            cmd.CommandText = @"INSERT INTO After_Education 
+            (ID_empl, Name_organisation, Name_education_docAfter,
+             Num_doc_education, Year_end, Date_give_doc, Direction_or_speciality, Type_education) 
+             VALUES 
+             (@ID_empl, @Name_organisation, @Name_education_docAfter, 
+            @Num_doc_education, @Year_end, @Date_give_doc, @Direction_or_speciality, @Type_education)";
+
+            AddParameters(cmd, afterEducation);
+            return cmd.ExecuteNonQuery() > 0;
         }
 
         public bool Update(AfterEducationInf afterEducation)
@@ -266,7 +302,16 @@ namespace PersonalCard
                 return cmd.ExecuteNonQuery() > 0;
             }
         }
+        public bool Insert(AwardInf award, MySqlCommand cmd)
+        {
+            cmd.CommandText = @"INSERT INTO awards 
+             (ID_empl, Name_reward, Name_doc, Num_doc, Date_give_doc) 
+            VALUES 
+            (@ID_empl, @Name_reward, @Name_doc, @Num_doc, @Date_give_doc)";
 
+            AddParameters(cmd, award);
+            return cmd.ExecuteNonQuery() > 0;
+        }
         public bool Update(AwardInf award)
         {
             using (var conn = new MySqlConnection(_connectionString))
@@ -333,7 +378,16 @@ namespace PersonalCard
                 return cmd.ExecuteNonQuery() > 0;
             }
         }
+        public bool Insert(CertificationInf certification, MySqlCommand cmd)
+        {
+            cmd.CommandText = @"INSERT INTO certification 
+             (ID_empl, Decision, Num_doc, Date_doc, Reason, Date_att) 
+            VALUES 
+            (@ID_empl, @Decision, @Num_doc, @Date_doc, @Reason, @Date_att)";
 
+            AddParameters(cmd, certification);
+            return cmd.ExecuteNonQuery() > 0;
+        }
         public bool Update(CertificationInf certification)
         {
             using (var conn = new MySqlConnection(_connectionString))
@@ -400,6 +454,17 @@ namespace PersonalCard
                 conn.Open();
                 return cmd.ExecuteNonQuery() > 0;
             }
+        }
+
+        public bool Insert(DismissalInf dismissal, MySqlCommand cmd)
+        {
+            cmd.CommandText = @"INSERT INTO dismissal 
+             (ID_empl, Date_dismiss, Num_order, Date_order, Reason) 
+            VALUES 
+                (@ID_empl, @Date_dismiss, @Num_order, @Date_order, @Reason)";
+
+            AddParameters(cmd, dismissal);
+            return cmd.ExecuteNonQuery() > 0;
         }
 
         public bool Update(DismissalInf dismissal)
@@ -470,6 +535,17 @@ namespace PersonalCard
             }
         }
 
+        public bool Insert(EducationInf education, MySqlCommand cmd)
+        {
+            cmd.CommandText = @"INSERT INTO Education 
+            (ID_education,ID_empl, Name_orgnisation, Name_doc_education, Serial_doc_education, Num_doc_education, 
+            Year_end, Qualification_doc_education, direction_or_specialty,  Type_education) 
+            VALUES 
+            (NULL ,@ID_empl , @Name_orgnisation, @Name_doc_education, @Serial_doc_education, @Num_doc_education, 
+            @Year_end, @Qualification_doc_education, @Direction_or_specialty,  @Type_education)";
+            AddParameters(cmd, education);
+            return cmd.ExecuteNonQuery() > 0;
+        }
         public bool Update(EducationInf education)
         {
             using (var conn = new MySqlConnection(_connectionString))
@@ -542,6 +618,16 @@ namespace PersonalCard
                 return cmd.ExecuteNonQuery() > 0;
             }
         }
+        public bool Insert(FamilyCompositionInf familyMember, MySqlCommand cmd)
+        {
+            cmd.CommandText = @"INSERT INTO family_composition 
+            (ID_person,ID_empl, FIO, Degree_of_kinship, date_birth) 
+             VALUES 
+            (NULL,@ID_empl, @FIO, @Degree_of_kinship, @Date_birth)";
+
+            AddParameters(cmd, familyMember);
+            return cmd.ExecuteNonQuery() > 0;
+        }
 
         public bool Update(FamilyCompositionInf familyMember)
         {
@@ -607,7 +693,16 @@ namespace PersonalCard
                 return cmd.ExecuteNonQuery() > 0;
             }
         }
+        public bool Insert(HiringTransferInf transfer, MySqlCommand cmd)
+        {
+            cmd.CommandText = @"INSERT INTO hiring_transfer 
+            (ID_empl, Date, Struct, position_category, Tariff_rate, Reason) 
+            VALUES 
+            (@ID_empl, @Date, @Struct, @Position_category, @Tariff_rate, @Reason)";
 
+            AddParameters(cmd, transfer);
+            return cmd.ExecuteNonQuery() > 0;
+        }
         public bool Update(HiringTransferInf transfer)
         {
             using (var conn = new MySqlConnection(_connectionString))
@@ -675,6 +770,16 @@ namespace PersonalCard
                 return cmd.ExecuteNonQuery() > 0;
             }
         }
+        public bool Insert(LanguageInf language, MySqlCommand cmd)
+        {
+            cmd.CommandText = @"INSERT INTO Language 
+            (ID_empl, Language_name, Degree_of_knowledge) 
+            VALUES 
+            (@ID_empl, @Language_name, @Degree_of_knowledge)";
+
+            AddParameters(cmd, language);
+            return cmd.ExecuteNonQuery() > 0;
+        }
 
         public bool Update(LanguageInf language)
         {
@@ -740,6 +845,18 @@ namespace PersonalCard
                 conn.Open();
                 return cmd.ExecuteNonQuery() > 0;
             }
+        }
+        public bool Insert(MilitaryRegistrationInf registration, MySqlCommand cmd)
+        {
+            cmd.CommandText = @"INSERT INTO military_registration 
+            (ID_empl, Category, Military_rank,  Structure, Code_mas, Category_life, 
+            Military_commissariat_name, de_registration, Name_type, Additional_information) 
+             VALUES 
+            (@ID_empl, @Category, @Military_rank,  @Structure, @Code_mas, @Category_life, 
+            @Military_commissariat_name, @De_registration, @Name_type, @Additional_information)";
+
+            AddParameters(cmd, registration);
+            return cmd.ExecuteNonQuery() > 0;
         }
 
         public bool Update(MilitaryRegistrationInf registration)
@@ -815,7 +932,16 @@ namespace PersonalCard
                 return cmd.ExecuteNonQuery() > 0;
             }
         }
+        public bool Insert(ProfessionInf profession, MySqlCommand cmd)
+        {
+            cmd.CommandText = @"INSERT INTO Profession 
+             (ID_empl, basic, another) 
+            VALUES 
+            (@ID_empl, @Basic, @Another)";
 
+            AddParameters(cmd, profession);
+            return cmd.ExecuteNonQuery() > 0;
+        }
         public bool Update(ProfessionInf profession)
         {
             using (var conn = new MySqlConnection(_connectionString))
@@ -879,6 +1005,18 @@ namespace PersonalCard
                 conn.Open();
                 return cmd.ExecuteNonQuery() > 0;
             }
+        }
+        public bool Insert(ProfessionalDevelopmentInf development, MySqlCommand cmd)
+        {
+            cmd.CommandText = @"INSERT INTO professional_development 
+            (ID_empl, Date_start, Date_end, Type_cvalification, Name_education_company, 
+            Name_doc, Ser_doc, Num_doc, Date_give_doc, Reason) 
+            VALUES 
+            (@ID_empl, @Date_start, @Date_end, @Type_cvalification, @Name_education_company, 
+             @Name_doc, @Ser_doc, @Num_doc, @Date_give_doc, @Reason)";
+
+            AddParameters(cmd, development);
+            return cmd.ExecuteNonQuery() > 0;
         }
 
         public bool Update(ProfessionalDevelopmentInf development)
@@ -953,6 +1091,16 @@ namespace PersonalCard
                 return cmd.ExecuteNonQuery() > 0;
             }
         }
+        public bool Insert(ProfessionalRetrainingInf retraining, MySqlCommand cmd)
+        {
+            cmd.CommandText = @"INSERT INTO professional_retraining 
+            (ID_empl, Date_start, Date_end, Name_doc,  Num_doc, Date_give_doc, Reason, Speciality) 
+             VALUES 
+            (@ID_empl, @Date_start, @Date_end, @Name_doc,  @Num_doc, @Date_give_doc, @Reason, @Speciality)";
+
+            AddParameters(cmd, retraining);
+            return cmd.ExecuteNonQuery() > 0;
+        }
 
         public bool Update(ProfessionalRetrainingInf retraining)
         {
@@ -1025,6 +1173,16 @@ namespace PersonalCard
             }
         }
 
+        public bool Insert(SocialBenefitInf benefit, MySqlCommand cmd)
+        {
+            cmd.CommandText = @"INSERT INTO social_benefits 
+            (ID_empl, Name_benefit, Num_doc, Date_give_doc, Reason) 
+            VALUES 
+            (@ID_empl, @Name_benefit, @Num_doc, @Date_give_doc, @Reason)";
+
+            AddParameters(cmd, benefit);
+            return cmd.ExecuteNonQuery() > 0;
+        }
         public bool Update(SocialBenefitInf benefit)
         {
             using (var conn = new MySqlConnection(_connectionString))
@@ -1091,7 +1249,16 @@ namespace PersonalCard
                 return cmd.ExecuteNonQuery() > 0;
             }
         }
+        public bool Insert(VacationInf vacation, MySqlCommand cmd)
+        {
+            cmd.CommandText = @"INSERT INTO vacation 
+            (ID_empl, Type_vacation, Period_work_start, Period_work_end, Quantity_day, Date_start, Date_end, Reason) 
+            VALUES 
+            (@ID_empl, @Type_vacation, @Period_work_start, @Period_work_end, @Quantity_day, @Date_start, @Date_end, @Reason)";
 
+            AddParameters(cmd, vacation);
+            return cmd.ExecuteNonQuery() > 0;
+        }
         public bool Update(VacationInf vacation)
         {
             using (var conn = new MySqlConnection(_connectionString))
@@ -1163,6 +1330,19 @@ namespace PersonalCard
                 conn.Open();
                 return cmd.ExecuteNonQuery() > 0;
             }
+        }
+
+        public bool Insert(WorkExperienceInf experience, MySqlCommand cmd)
+        {
+            cmd.CommandText = @"INSERT INTO work_experience 
+            (ID_empl, common_day, common_year, common_month, continuous_day, 
+            continuous_month, continuous_year, giver_day, giver_month, giver_year) 
+            VALUES 
+            (@ID_empl, @Common_day, @Common_year, @Common_month, @Continuous_day, 
+             @Continuous_month, @Continuous_year, @Giver_day, @Giver_month, @Giver_year)";
+
+            AddParameters(cmd, experience);
+            return cmd.ExecuteNonQuery() > 0;
         }
 
         public bool Update(WorkExperienceInf experience)
@@ -1237,6 +1417,17 @@ namespace PersonalCard
             }
         }
 
+        public bool Insert(AdditionalInformationInf info, MySqlCommand cmd)
+        {
+            cmd.CommandText = @"INSERT INTO Additional_information 
+             (ID_empl, Information) 
+            VALUES 
+            (@ID_empl, @Information)";
+
+            AddParameters(cmd, info);
+            return cmd.ExecuteNonQuery() > 0;
+        }
+
         public bool Update(AdditionalInformationInf info)
         {
             using (var conn = new MySqlConnection(_connectionString))
@@ -1288,7 +1479,7 @@ namespace PersonalCard
             using (var conn = new MySqlConnection(_connectionString))
             {
                 string query = @"INSERT INTO Users 
-                (Name, LastName, Surname, login, password, role, lock) 
+                (Name, LastName, Surname, login, `password`, role, `lock`) 
                 VALUES 
                 (@Name, @LastName, @Surname, @Login, @Password, @Role, @Lock)";
 
@@ -1299,6 +1490,16 @@ namespace PersonalCard
                 return cmd.ExecuteNonQuery() > 0;
             }
         }
+        public bool Insert(UserInf user, MySqlCommand cmd)
+        {
+            cmd.CommandText = @"INSERT INTO Users 
+            (Name, LastName, Surname, login, `password`, role, `lock`) 
+             VALUES 
+            (@Name, @LastName, @Surname, @Login, @Password, @Role, @Lock)";
+
+            AddParameters(cmd, user);
+            return cmd.ExecuteNonQuery() > 0;
+        }
 
         public bool Update(UserInf user)
         {
@@ -1306,7 +1507,7 @@ namespace PersonalCard
             {
                 string query = @"UPDATE Users SET 
                 Name = @Name, LastName = @LastName, Surname = @Surname, 
-                login = @Login, password = @Password, role = @Role, lock = @Lock 
+                login = @Login, `password` = @Password, role = @Role, `lock` = @Lock 
                 WHERE id_User = @Id_User";
 
                 var cmd = new MySqlCommand(query, conn);

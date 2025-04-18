@@ -703,7 +703,7 @@ namespace PersonalCard
 
         private void óïðàâëåíèåÏîëüçîâàòåëÿìèToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            new Administration().ShowDialog();
+            new Administration(connectionString).ShowDialog();
         }
 
         private void îñíîâíàÿÈíôîðìàöèÿToolStripMenuItem_Click(object sender, EventArgs e)
@@ -713,7 +713,143 @@ namespace PersonalCard
 
         private void toolStripButton1_Click(object sender, EventArgs e)
         {
-            new EditPersonalInfo(1).ShowDialog();
+
+            new EditPersonalInfo(1, (GeneralInformation general) =>
+            {
+                int idEm = 0;
+                MySqlConnection connection = new(connectionString);
+                connection.Open();
+                using (MySqlTransaction transaction = connection.BeginTransaction())
+                {
+                    try
+                    {
+                        var cmd = connection.CreateCommand();
+                        cmd.Transaction = transaction;
+                        new GeneralInformationRepository(connectionString).Insert(general, cmd);
+                        cmd.CommandText = "SELECT LAST_INSERT_ID()";
+                        idEm = Convert.ToInt32(cmd.ExecuteScalar());
+                        general.ID_empl = idEm;
+                        cmd.Parameters.Clear();
+                        if (general.Profession != null)
+                        {
+                            general.Profession.ID_empl = general.ID_empl;
+                            new ProfessionRepository(connectionString).Insert(general.Profession, cmd);
+                            cmd.Parameters.Clear();
+                            general.WorkExperience.ID_empl = general.ID_empl;
+                            new WorkExperienceRepository(connectionString).Insert(general.WorkExperience, cmd);
+                            cmd.Parameters.Clear();
+                        }
+                        
+                        if (general.SocialBenefits!=null)
+                        {
+                            foreach (SocialBenefitInf i in general.SocialBenefits)
+                            {
+                                i.ID_empl = general.ID_empl;
+                                new SocialBenefitRepository(connectionString).Insert(i, cmd);
+                                cmd.Parameters.Clear();
+                            }
+
+                        }
+                        if (general.Vacations!=null)
+                        {
+                            foreach (VacationInf i in general.Vacations)
+                            {
+                                i.ID_empl = general.ID_empl;
+                                new VacationRepository(connectionString).Insert(i, cmd);
+                                cmd.Parameters.Clear();
+                            }
+                        }
+                        if (general.MilitaryRegistration != null)
+                        {
+                            general.MilitaryRegistration.ID_empl = general.ID_empl;
+                            new MilitaryRegistrationRepository(connectionString).Insert(general.MilitaryRegistration, cmd);
+                            cmd.Parameters.Clear();
+                        }
+                        if (general.AfterEducation != null)
+                        {
+                            general.AfterEducation.ID_empl = general.ID_empl;
+                            new AfterEducationRepository(connectionString).Insert(general.AfterEducation, cmd);
+                            cmd.Parameters.Clear();
+                        }
+                        if (general.HiringTransfers!=null)
+                        {
+                            foreach (HiringTransferInf i in general.HiringTransfers)
+                            {
+                                i.ID_empl = general.ID_empl;
+                                new HiringTransferRepository(connectionString).Insert(i, cmd);
+                                cmd.Parameters.Clear();
+                            }
+                        }
+                        if (general.FamilyCompositions!=null)
+                        {
+                            foreach (FamilyCompositionInf i in general.FamilyCompositions)
+                            {
+                                i.ID_empl = general.ID_empl;
+                                new FamilyCompositionRepository(connectionString).Insert(i, cmd);
+                                cmd.Parameters.Clear();
+                            }
+                        }
+                        if (general.ProfessionalDevelopments!=null)
+                        {
+                            foreach (ProfessionalDevelopmentInf i in general.ProfessionalDevelopments)
+                            {
+                                i.ID_empl = general.ID_empl;
+                                new ProfessionalDevelopmentRepository(connectionString).Insert(i, cmd);
+                                cmd.Parameters.Clear();
+                            }
+                        }
+                        if (general.Educations != null)
+                        {
+                            foreach (EducationInf i in general.Educations)
+                            {
+                                i.ID_empl = general.ID_empl;
+                                new EducationRepository(connectionString).Insert(i, cmd);
+                                cmd.Parameters.Clear();
+                            }
+                        }
+                        if (general.ProfessionalRetrainings != null)
+                        {
+                            foreach (ProfessionalRetrainingInf i in general.ProfessionalRetrainings)
+                            {
+                                i.ID_empl = general.ID_empl;
+                                new ProfessionalRetrainingRepository(connectionString).Insert(i, cmd);
+                                cmd.Parameters.Clear();
+                            }
+                        }
+                        if (general.Certifications!= null)
+                        {
+                            foreach (CertificationInf i in general.Certifications)
+                            {
+                                i.ID_empl = general.ID_empl;
+                                new CertificationRepository(connectionString).Insert(i, cmd);
+                                cmd.Parameters.Clear();
+                            }
+                        }
+                        if (general.Awards != null)
+                        {
+                            foreach (AwardInf i in general.Awards)
+                            {
+                                i.ID_empl = general.ID_empl;
+                                new AwardRepository(connectionString).Insert(i, cmd);
+                                cmd.Parameters.Clear();
+                            }
+                        }
+                        if (general.AdditionalInformations!=null)
+                        {
+                            foreach (AdditionalInformationInf i in general.AdditionalInformations)
+                            {
+                                i.ID_empl = general.ID_empl;
+                                new AdditionalInformationRepository(connectionString).Insert(i, cmd);
+                                cmd.Parameters.Clear();
+                            }
+                        }
+                        transaction.Commit();
+                    }
+                    catch (Exception ex) { MessageBox.Show(ex.Message); transaction.Rollback(); }
+                }
+                connection.Close();
+            }).ShowDialog();
+            fillPersonTable();
         }
 
 
@@ -1297,8 +1433,8 @@ namespace PersonalCard
                 dismissal = DismissalInf.GetByEmployeeId(connectionString, Convert.ToInt32(dataGridView1.Rows[i].Cells[0].Value));
                 if (HasData(dismissal))
                 {
-                    dataGridView1.Rows[i].DefaultCellStyle.BackColor = Color.FromArgb(213, 12, 12);
-                    dataGridView1.Rows[i].DefaultCellStyle.SelectionBackColor = Color.FromArgb(213, 12, 12);
+                    dataGridView1.Rows[i].DefaultCellStyle.BackColor = Color.LightCoral;
+                    dataGridView1.Rows[i].DefaultCellStyle.SelectionBackColor = Color.LightCoral;
                 }
                 else
                 {
@@ -1310,7 +1446,20 @@ namespace PersonalCard
 
         private void toolStripButton3_Click(object sender, EventArgs e)
         {
-            EditNavigation();
+            new EditPersonalInfo(generalInformation, (GeneralInformation inf) =>
+            {
+                new GeneralInformationRepository(connectionString).Update(inf);
+                MySqlConnection connection = new MySqlConnection(connectionString);
+                string sql = $"DELETE FROM Language WHERE ID_empl ={inf.ID_empl}";
+                connection.Open();
+                MySqlCommand cmd = new MySqlCommand(sql, connection);
+                cmd.ExecuteNonQuery();
+                connection.Clone();
+                foreach (LanguageInf lg in inf.Languages)
+                    new LanguageRepository(connectionString).Insert(lg);
+            }).ShowDialog();
+            reLoadPerson();
+            return;
         }
 
         private void toolStripButton2_Click(object sender, EventArgs e)

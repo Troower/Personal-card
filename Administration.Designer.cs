@@ -34,19 +34,19 @@
             DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Administration));
             dataGridView1 = new DataGridView();
+            Column7 = new DataGridViewTextBoxColumn();
             Column2 = new DataGridViewTextBoxColumn();
             Column1 = new DataGridViewTextBoxColumn();
             Column3 = new DataGridViewTextBoxColumn();
-            Column4 = new DataGridViewTextBoxColumn();
-            Column5 = new DataGridViewTextBoxColumn();
             Column6 = new DataGridViewTextBoxColumn();
             tableLayoutPanel1 = new TableLayoutPanel();
+            button6 = new Button();
+            button3 = new Button();
+            button1 = new Button();
+            button5 = new Button();
             panel1 = new Panel();
             button2 = new Button();
             button4 = new Button();
-            button5 = new Button();
-            button3 = new Button();
-            button1 = new Button();
             toolTip1 = new ToolTip(components);
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             tableLayoutPanel1.SuspendLayout();
@@ -70,7 +70,7 @@
             dataGridViewCellStyle1.WrapMode = DataGridViewTriState.True;
             dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView1.Columns.AddRange(new DataGridViewColumn[] { Column2, Column1, Column3, Column4, Column5, Column6 });
+            dataGridView1.Columns.AddRange(new DataGridViewColumn[] { Column7, Column2, Column1, Column3, Column6 });
             dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle2.BackColor = Color.Azure;
             dataGridViewCellStyle2.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point, 204);
@@ -100,6 +100,14 @@
             dataGridView1.Size = new Size(1029, 584);
             dataGridView1.TabIndex = 3;
             dataGridView1.CellContentClick += dataGridView1_CellContentClick;
+            dataGridView1.SelectionChanged += dataGridView1_SelectionChanged;
+            // 
+            // Column7
+            // 
+            Column7.HeaderText = "id";
+            Column7.Name = "Column7";
+            Column7.ReadOnly = true;
+            Column7.Visible = false;
             // 
             // Column2
             // 
@@ -119,18 +127,6 @@
             Column3.Name = "Column3";
             Column3.ReadOnly = true;
             // 
-            // Column4
-            // 
-            Column4.HeaderText = "Логин";
-            Column4.Name = "Column4";
-            Column4.ReadOnly = true;
-            // 
-            // Column5
-            // 
-            Column5.HeaderText = "Пароль";
-            Column5.Name = "Column5";
-            Column5.ReadOnly = true;
-            // 
             // Column6
             // 
             Column6.HeaderText = "Роль";
@@ -139,31 +135,94 @@
             // 
             // tableLayoutPanel1
             // 
-            tableLayoutPanel1.ColumnCount = 4;
-            tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 25F));
-            tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 25F));
-            tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 25F));
-            tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 25F));
-            tableLayoutPanel1.Controls.Add(panel1, 2, 0);
-            tableLayoutPanel1.Controls.Add(button5, 3, 0);
+            tableLayoutPanel1.ColumnCount = 5;
+            tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 20F));
+            tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 20F));
+            tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 20F));
+            tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 20F));
+            tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 20F));
+            tableLayoutPanel1.Controls.Add(button6, 2, 0);
             tableLayoutPanel1.Controls.Add(button3, 0, 0);
             tableLayoutPanel1.Controls.Add(button1, 1, 0);
+            tableLayoutPanel1.Controls.Add(button5, 4, 0);
+            tableLayoutPanel1.Controls.Add(panel1, 3, 0);
             tableLayoutPanel1.Dock = DockStyle.Bottom;
             tableLayoutPanel1.Location = new Point(0, 584);
             tableLayoutPanel1.Name = "tableLayoutPanel1";
             tableLayoutPanel1.RowCount = 1;
             tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
+            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Absolute, 20F));
             tableLayoutPanel1.Size = new Size(1029, 46);
             tableLayoutPanel1.TabIndex = 0;
+            // 
+            // button6
+            // 
+            button6.BackColor = Color.FromArgb(43, 64, 80);
+            button6.BackgroundImage = Properties.Resources.Buttonphon;
+            button6.BackgroundImageLayout = ImageLayout.Stretch;
+            button6.Dock = DockStyle.Fill;
+            button6.ForeColor = Color.White;
+            button6.Location = new Point(413, 3);
+            button6.Name = "button6";
+            button6.Size = new Size(199, 40);
+            button6.TabIndex = 7;
+            button6.Text = "Удалить";
+            button6.UseVisualStyleBackColor = false;
+            button6.Click += button6_Click;
+            // 
+            // button3
+            // 
+            button3.BackColor = Color.FromArgb(43, 64, 80);
+            button3.BackgroundImage = Properties.Resources.Buttonphon;
+            button3.BackgroundImageLayout = ImageLayout.Stretch;
+            button3.Dock = DockStyle.Fill;
+            button3.ForeColor = Color.White;
+            button3.Location = new Point(3, 3);
+            button3.Name = "button3";
+            button3.Size = new Size(199, 40);
+            button3.TabIndex = 6;
+            button3.Text = "Добавить";
+            button3.UseVisualStyleBackColor = false;
+            button3.Click += button3_Click;
+            // 
+            // button1
+            // 
+            button1.BackColor = Color.FromArgb(43, 64, 80);
+            button1.BackgroundImage = Properties.Resources.Buttonphon;
+            button1.BackgroundImageLayout = ImageLayout.Stretch;
+            button1.Dock = DockStyle.Fill;
+            button1.ForeColor = Color.White;
+            button1.Location = new Point(208, 3);
+            button1.Name = "button1";
+            button1.Size = new Size(199, 40);
+            button1.TabIndex = 4;
+            button1.Text = "Редактировать";
+            button1.UseVisualStyleBackColor = false;
+            button1.Click += button1_Click;
+            // 
+            // button5
+            // 
+            button5.BackColor = Color.FromArgb(43, 64, 80);
+            button5.BackgroundImage = Properties.Resources.Buttonphon;
+            button5.BackgroundImageLayout = ImageLayout.Stretch;
+            button5.Dock = DockStyle.Fill;
+            button5.ForeColor = Color.White;
+            button5.Location = new Point(823, 3);
+            button5.Name = "button5";
+            button5.Size = new Size(203, 40);
+            button5.TabIndex = 3;
+            button5.Text = "Закрыть";
+            button5.UseVisualStyleBackColor = false;
+            button5.Click += button5_Click;
             // 
             // panel1
             // 
             panel1.Controls.Add(button2);
             panel1.Controls.Add(button4);
             panel1.Dock = DockStyle.Fill;
-            panel1.Location = new Point(517, 3);
+            panel1.Location = new Point(618, 3);
             panel1.Name = "panel1";
-            panel1.Size = new Size(251, 40);
+            panel1.Size = new Size(199, 40);
             panel1.TabIndex = 6;
             // 
             // button2
@@ -175,10 +234,11 @@
             button2.ForeColor = Color.White;
             button2.Location = new Point(0, 0);
             button2.Name = "button2";
-            button2.Size = new Size(192, 40);
+            button2.Size = new Size(140, 40);
             button2.TabIndex = 5;
-            button2.Text = "Заблокировать";
+            button2.Text = "Блокировка";
             button2.UseVisualStyleBackColor = false;
+            button2.Click += button2_Click;
             // 
             // button4
             // 
@@ -186,55 +246,18 @@
             button4.BackgroundImageLayout = ImageLayout.Stretch;
             button4.Dock = DockStyle.Right;
             button4.Font = new Font("Microsoft Sans Serif", 21.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            button4.Location = new Point(192, 0);
+            button4.Location = new Point(140, 0);
             button4.Name = "button4";
             button4.Size = new Size(59, 40);
             button4.TabIndex = 6;
             button4.Text = "i";
             button4.UseVisualStyleBackColor = true;
+            button4.Click += button4_Click;
             // 
-            // button5
+            // toolTip1
             // 
-            button5.BackColor = Color.FromArgb(43, 64, 80);
-            button5.BackgroundImage = Properties.Resources.Buttonphon;
-            button5.BackgroundImageLayout = ImageLayout.Stretch;
-            button5.Dock = DockStyle.Fill;
-            button5.ForeColor = Color.White;
-            button5.Location = new Point(774, 3);
-            button5.Name = "button5";
-            button5.Size = new Size(252, 40);
-            button5.TabIndex = 3;
-            button5.Text = "Закрыть";
-            button5.UseVisualStyleBackColor = false;
-            button5.Click += button5_Click;
-            // 
-            // button3
-            // 
-            button3.BackColor = Color.FromArgb(43, 64, 80);
-            button3.BackgroundImage = Properties.Resources.Buttonphon;
-            button3.BackgroundImageLayout = ImageLayout.Stretch;
-            button3.Dock = DockStyle.Fill;
-            button3.ForeColor = Color.White;
-            button3.Location = new Point(3, 3);
-            button3.Name = "button3";
-            button3.Size = new Size(251, 40);
-            button3.TabIndex = 6;
-            button3.Text = "Добавить";
-            button3.UseVisualStyleBackColor = false;
-            // 
-            // button1
-            // 
-            button1.BackColor = Color.FromArgb(43, 64, 80);
-            button1.BackgroundImage = Properties.Resources.Buttonphon;
-            button1.BackgroundImageLayout = ImageLayout.Stretch;
-            button1.Dock = DockStyle.Fill;
-            button1.ForeColor = Color.White;
-            button1.Location = new Point(260, 3);
-            button1.Name = "button1";
-            button1.Size = new Size(251, 40);
-            button1.TabIndex = 4;
-            button1.Text = "Редактировать";
-            button1.UseVisualStyleBackColor = false;
+            toolTip1.ToolTipIcon = ToolTipIcon.Info;
+            toolTip1.ToolTipTitle = "Информация";
             // 
             // Administration
             // 
@@ -259,12 +282,6 @@
 
         #endregion
         private DataGridView dataGridView1;
-        private DataGridViewTextBoxColumn Column2;
-        private DataGridViewTextBoxColumn Column1;
-        private DataGridViewTextBoxColumn Column3;
-        private DataGridViewTextBoxColumn Column4;
-        private DataGridViewTextBoxColumn Column5;
-        private DataGridViewTextBoxColumn Column6;
         private Button button2;
         private Button button3;
         private Button button1;
@@ -273,5 +290,11 @@
         private Panel panel1;
         private Button button4;
         private ToolTip toolTip1;
+        private DataGridViewTextBoxColumn Column7;
+        private DataGridViewTextBoxColumn Column2;
+        private DataGridViewTextBoxColumn Column1;
+        private DataGridViewTextBoxColumn Column3;
+        private DataGridViewTextBoxColumn Column6;
+        private Button button6;
     }
 }

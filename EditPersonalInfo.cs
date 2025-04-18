@@ -10,6 +10,7 @@ using System.Windows.Forms;
 using System.Reflection;
 using System.Diagnostics.Eventing.Reader;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
+using Microsoft.VisualBasic.ApplicationServices;
 
 namespace PersonalCard
 {
@@ -17,7 +18,7 @@ namespace PersonalCard
     {
         //Редактирование
         GeneralInformation generalInformation;
-        Action <GeneralInformation> action;
+        Action<GeneralInformation> action;
         public EditPersonalInfo(GeneralInformation generalInformation, Action<GeneralInformation> action)
         {
             InitializeComponent();
@@ -43,6 +44,8 @@ namespace PersonalCard
             textBox14.Text = generalInformation.Address.By_registration;
             textBox17.Text = generalInformation.Address.Index_actual;
             textBox15.Text = generalInformation.Address.Index_by_register;
+            textBox8.Text= generalInformation.Number_phone ;
+            textBox13.Text = generalInformation.T_num_card;
             listBox1.Controls.Clear();
             foreach (LanguageInf l in generalInformation.Languages)
             {
@@ -54,7 +57,7 @@ namespace PersonalCard
 
 
         //Транзакция добавлеения!
-        public EditPersonalInfo(int a)
+        public EditPersonalInfo(int a, Action<GeneralInformation> action)
         {
             InitializeComponent();
             tableLayoutPanel1.ColumnStyles[0].SizeType = SizeType.Percent;
@@ -66,6 +69,10 @@ namespace PersonalCard
             button1.Text = "Сохранить";
             tableLayoutPanel1.Controls.Add(button4, 2, 0);
             button4.Dock = DockStyle.Fill;
+            generalInformation = new GeneralInformation();
+            generalInformation.Address = new AddressOfResidenceInf();
+            generalInformation.Languages = new List<LanguageInf>();
+            this.action = action;
         }
 
 
@@ -100,21 +107,183 @@ namespace PersonalCard
         {
             new Sections((int a, int b, int c) =>
             {
-                if (a == 1) { new Profesion().ShowDialog(); }
-                else if (a == 2) { new Benefit().ShowDialog(); }
-                else if (a == 3) { new Vacation().ShowDialog(); }
-                else if (a == 4) { new Military().ShowDialog(); }
-                else if (a == 5) { new Education().ShowDialog(); }
-                else if (a == 6) { new HiringTransfer().ShowDialog(); }
-                else if (a == 7) { new Family().ShowDialog(); }
-                else if (a == 8) { new AdvTraining().ShowDialog(); }
-                else if (a == 9) { }
-                else if (a == 10) { new Education().ShowDialog(); }
-                else if (a == 11) { new ProfTraining().ShowDialog(); }
-                else if (a == 12) { new Сertification().ShowDialog(); }
-                else if (a == 13) { new Profesion().ShowDialog(); }
-                else if (a == 14) { new Award().ShowDialog(); }
-                else { new Additional().ShowDialog(); }
+                if (a == 1)
+                {
+                    ProfessionInf profession;
+                    WorkExperienceInf workExperience;
+                    if (HasData(generalInformation.Profession) || HasData(generalInformation.WorkExperience))
+                    {
+                        profession = generalInformation.Profession;
+                        workExperience = generalInformation.WorkExperience;
+                    }
+                    else
+                    {
+                        profession = new ProfessionInf();
+                        workExperience = new WorkExperienceInf();
+                    }
+                    new Profesion(profession, workExperience, (ProfessionInf profession, WorkExperienceInf workExperience) =>
+                    {
+
+                        generalInformation.Profession = profession;
+                        generalInformation.WorkExperience = workExperience;
+                    }).ShowDialog();
+                }
+                else if (a == 2)
+                {
+                    if (generalInformation.SocialBenefits == null)generalInformation.SocialBenefits = new();
+                        SocialBenefitInf socialBenefit = new();
+                    
+                    new Benefit(socialBenefit, (SocialBenefitInf socialBenefit) =>
+                    {
+
+                        generalInformation.SocialBenefits.Add(socialBenefit);
+                    }).ShowDialog();
+                }
+                else if (a == 3)
+                {
+                    if (generalInformation.Vacations == null) generalInformation.Vacations = new();
+                    VacationInf vacation = new VacationInf();
+
+                    new Vacation(vacation, (VacationInf vacation) =>
+                    {
+
+                        generalInformation.Vacations.Add(vacation);
+                    }).ShowDialog();
+                }
+                else if (a == 4)
+                {
+                    MilitaryRegistrationInf militaryRegistration;
+                    if (HasData(generalInformation.MilitaryRegistration))
+                    {
+                        militaryRegistration = generalInformation.MilitaryRegistration;
+                    }
+                    else
+                    {
+                        militaryRegistration = new MilitaryRegistrationInf();
+                    }
+                    new Military(militaryRegistration, (MilitaryRegistrationInf militaryRegistration) =>
+                    {
+
+                        generalInformation.MilitaryRegistration = militaryRegistration;
+                    }).ShowDialog();
+                }
+                else if (a == 5)
+                {
+                    AfterEducationInf afterEducation;
+                    if (HasData(generalInformation.AfterEducation))
+                    {
+                        afterEducation = generalInformation.AfterEducation;
+                    }
+                    else
+                    {
+                        afterEducation = new();
+                    }
+                    new AfterEducation(afterEducation, (AfterEducationInf afterEducation) =>
+                    {
+
+                        generalInformation.AfterEducation = afterEducation;
+                    }).ShowDialog();
+                }
+                else if (a == 6)
+                {
+                    if (generalInformation.HiringTransfers == null)
+                        generalInformation.HiringTransfers = new();
+                    HiringTransferInf hiringTransfer = new HiringTransferInf();
+                    new HiringTransfer(hiringTransfer, (HiringTransferInf hiringTransfer) =>
+                    {
+                        generalInformation.HiringTransfers.Add(hiringTransfer);
+                    }).ShowDialog();
+                }
+                else if (a == 7)
+                {
+                    if (generalInformation.FamilyCompositions == null)
+                        generalInformation.FamilyCompositions = new();
+                    FamilyCompositionInf familyComposition = new FamilyCompositionInf();
+                    new Family(familyComposition, (FamilyCompositionInf familyComposition) =>
+                    {
+                        generalInformation.FamilyCompositions.Add(familyComposition);
+                    }).ShowDialog();
+                }
+                else if (a == 8)
+                {
+                    if (generalInformation.ProfessionalDevelopments == null)
+                        generalInformation.ProfessionalDevelopments = new();
+                    ProfessionalDevelopmentInf professionalDevelopment = new ProfessionalDevelopmentInf();
+                    new AdvTraining(professionalDevelopment, (ProfessionalDevelopmentInf professionalDevelopment) =>
+                    {
+                        generalInformation.ProfessionalDevelopments.Add(professionalDevelopment);
+                    }).ShowDialog();
+                }
+                else if (a == 10)
+                {
+                    if (generalInformation.Educations == null)
+                        generalInformation.Educations = new();
+                    EducationInf education = new EducationInf();
+                    new Education(education, (EducationInf education) =>
+                    {
+                        generalInformation.Educations.Add(education);
+                    }).ShowDialog();
+                }
+                else if (a == 11)
+                {
+                    if (generalInformation.ProfessionalRetrainings == null)
+                        generalInformation.ProfessionalRetrainings = new();
+                    ProfessionalRetrainingInf professionalRetraining = new ProfessionalRetrainingInf();
+                    new ProfTraining(professionalRetraining, (ProfessionalRetrainingInf professionalRetraining) =>
+                    {
+                        generalInformation.ProfessionalRetrainings.Add(professionalRetraining);
+                    }).ShowDialog();
+                }
+                else if (a == 12)
+                {
+                    if (generalInformation.Certifications == null)
+                        generalInformation.Certifications = new();
+                    CertificationInf certification = new CertificationInf();
+                    new Сertification(certification, (CertificationInf certification) =>
+                    {
+                        generalInformation.Certifications.Add(certification);
+                    }).ShowDialog();
+                }
+                else if (a == 13)
+                {
+                    ProfessionInf profession;
+                    WorkExperienceInf workExperience;
+                    if (HasData(generalInformation.Profession) || HasData(generalInformation.WorkExperience))
+                    {
+                        profession = generalInformation.Profession;
+                        workExperience = generalInformation.WorkExperience;
+                    }
+                    else
+                    {
+                        profession = new ProfessionInf();
+                        workExperience = new WorkExperienceInf();
+                    }
+                    new Profesion(profession, workExperience, (ProfessionInf profession, WorkExperienceInf workExperience) =>
+                    {
+                        generalInformation.Profession = profession;
+                        generalInformation.WorkExperience = workExperience;
+                    }).ShowDialog();
+                }
+                else if (a == 14)
+                {
+                    if (generalInformation.Awards == null)
+                        generalInformation.Awards = new();
+                    AwardInf award = new AwardInf();
+                    new Award(award, (AwardInf award) =>
+                    {
+                        generalInformation.Awards.Add(award);
+                    }).ShowDialog();
+                }
+                else
+                {
+                    if (generalInformation.AdditionalInformations == null)
+                        generalInformation.AdditionalInformations = new();
+                    AdditionalInformationInf additionalInformation = new AdditionalInformationInf();
+                    new Additional(additionalInformation, (AdditionalInformationInf additionalInformation) =>
+                    {
+                        generalInformation.AdditionalInformations.Add(additionalInformation);
+                    }).ShowDialog();
+                }
 
 
             }, 1).ShowDialog();
@@ -173,6 +342,9 @@ namespace PersonalCard
             generalInformation.Address.By_registration = textBox14.Text;
             generalInformation.Address.Index_actual = textBox17.Text;
             generalInformation.Address.Index_by_register = textBox15.Text;
+            generalInformation.Number_phone=textBox8.Text;
+            generalInformation.T_num_card=textBox13.Text;
+            generalInformation.First_char_lastname = generalInformation.Last_name[0].ToString();
             generalInformation.Languages.Clear();
             LanguageInf l;
             foreach (string s in listBox1.Items)
@@ -180,11 +352,11 @@ namespace PersonalCard
                 l = new LanguageInf();
                 l.Language_name = s.Split(':')[0];
                 l.Degree_of_knowledge = s.Split(':')[1];
-                l.ID_empl=generalInformation.ID_empl;
+                l.ID_empl = generalInformation.ID_empl;
                 generalInformation.Languages.Add(l);
             }
             action?.Invoke(generalInformation);
-            MessageBox.Show("Редактирование прошло успешно!", "Информация", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
+            MessageBox.Show("Операция прошла успешно!", "Информация", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
             this.Close();
         }
 
@@ -219,6 +391,30 @@ namespace PersonalCard
                 }
 
             }
+
+        }
+        public static bool HasData(object obj)
+        {
+            if (obj == null)
+                return false;
+            var type = obj.GetType();
+            var properties = type.GetProperties();
+
+            foreach (var property in properties)
+            {
+
+                if (property.Name == "ID_empl") continue;
+                var value = property.GetValue(obj);
+                if (value is string str && !string.IsNullOrEmpty(str)) return true;
+                if (value is DateTime date && date != default(DateTime)) return true;
+                if (value is int intValue && intValue != 0) return true;
+
+            }
+            return false;
+        }
+
+        private void textBox8_TextChanged(object sender, EventArgs e)
+        {
 
         }
     }

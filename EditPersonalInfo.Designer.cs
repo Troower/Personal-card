@@ -50,6 +50,8 @@
             comboBox2 = new ComboBox();
             comboBox3 = new ComboBox();
             comboBox5 = new ComboBox();
+            label17 = new Label();
+            textBox8 = new TextBox();
             groupBox2 = new GroupBox();
             flowLayoutPanel2 = new FlowLayoutPanel();
             label2 = new Label();
@@ -64,6 +66,8 @@
             textBox10 = new TextBox();
             label7 = new Label();
             textBox11 = new TextBox();
+            label18 = new Label();
+            textBox13 = new TextBox();
             groupBox10 = new GroupBox();
             listBox1 = new ListBox();
             tableLayoutPanel2 = new TableLayoutPanel();
@@ -102,12 +106,12 @@
             tableLayoutPanel1.Controls.Add(button2, 0, 0);
             tableLayoutPanel1.Controls.Add(button1, 1, 0);
             tableLayoutPanel1.Dock = DockStyle.Bottom;
-            tableLayoutPanel1.Location = new Point(0, 556);
+            tableLayoutPanel1.Location = new Point(0, 616);
             tableLayoutPanel1.Margin = new Padding(4);
             tableLayoutPanel1.Name = "tableLayoutPanel1";
             tableLayoutPanel1.RowCount = 1;
             tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
-            tableLayoutPanel1.Size = new Size(1060, 61);
+            tableLayoutPanel1.Size = new Size(1065, 61);
             tableLayoutPanel1.TabIndex = 0;
             // 
             // button2
@@ -120,7 +124,7 @@
             button2.Location = new Point(4, 6);
             button2.Margin = new Padding(4, 6, 4, 6);
             button2.Name = "button2";
-            button2.Size = new Size(522, 49);
+            button2.Size = new Size(524, 49);
             button2.TabIndex = 4;
             button2.Text = "Отмена";
             button2.UseVisualStyleBackColor = false;
@@ -133,10 +137,10 @@
             button1.BackgroundImageLayout = ImageLayout.Stretch;
             button1.Dock = DockStyle.Fill;
             button1.ForeColor = Color.White;
-            button1.Location = new Point(534, 6);
+            button1.Location = new Point(536, 6);
             button1.Margin = new Padding(4, 6, 4, 6);
             button1.Name = "button1";
-            button1.Size = new Size(522, 49);
+            button1.Size = new Size(524, 49);
             button1.TabIndex = 5;
             button1.Text = "Редактировать";
             button1.UseVisualStyleBackColor = false;
@@ -159,7 +163,7 @@
             groupBox1.Margin = new Padding(4);
             groupBox1.Name = "groupBox1";
             groupBox1.Padding = new Padding(4);
-            groupBox1.Size = new Size(267, 562);
+            groupBox1.Size = new Size(267, 612);
             groupBox1.TabIndex = 2;
             groupBox1.TabStop = false;
             groupBox1.Text = "Основная информация";
@@ -182,11 +186,13 @@
             flowLayoutPanel1.Controls.Add(comboBox2);
             flowLayoutPanel1.Controls.Add(comboBox3);
             flowLayoutPanel1.Controls.Add(comboBox5);
+            flowLayoutPanel1.Controls.Add(label17);
+            flowLayoutPanel1.Controls.Add(textBox8);
             flowLayoutPanel1.Dock = DockStyle.Fill;
             flowLayoutPanel1.FlowDirection = FlowDirection.TopDown;
             flowLayoutPanel1.Location = new Point(4, 26);
             flowLayoutPanel1.Name = "flowLayoutPanel1";
-            flowLayoutPanel1.Size = new Size(259, 532);
+            flowLayoutPanel1.Size = new Size(259, 582);
             flowLayoutPanel1.TabIndex = 0;
             // 
             // label12
@@ -331,13 +337,32 @@
             comboBox5.TabIndex = 10;
             comboBox5.Text = "Состояние в браке*";
             // 
+            // label17
+            // 
+            label17.AutoSize = true;
+            label17.Location = new Point(3, 520);
+            label17.Name = "label17";
+            label17.Size = new Size(81, 21);
+            label17.TabIndex = 19;
+            label17.Text = "Телефон*:";
+            // 
+            // textBox8
+            // 
+            textBox8.Location = new Point(4, 545);
+            textBox8.Margin = new Padding(4);
+            textBox8.Name = "textBox8";
+            textBox8.PlaceholderText = "Телефон";
+            textBox8.Size = new Size(249, 29);
+            textBox8.TabIndex = 18;
+            textBox8.TextChanged += textBox8_TextChanged;
+            // 
             // groupBox2
             // 
             groupBox2.Controls.Add(flowLayoutPanel2);
             groupBox2.ForeColor = Color.WhiteSmoke;
             groupBox2.Location = new Point(777, -4);
             groupBox2.Name = "groupBox2";
-            groupBox2.Size = new Size(280, 558);
+            groupBox2.Size = new Size(280, 617);
             groupBox2.TabIndex = 3;
             groupBox2.TabStop = false;
             groupBox2.Text = "Документы";
@@ -356,11 +381,13 @@
             flowLayoutPanel2.Controls.Add(textBox10);
             flowLayoutPanel2.Controls.Add(label7);
             flowLayoutPanel2.Controls.Add(textBox11);
+            flowLayoutPanel2.Controls.Add(label18);
+            flowLayoutPanel2.Controls.Add(textBox13);
             flowLayoutPanel2.Dock = DockStyle.Fill;
             flowLayoutPanel2.FlowDirection = FlowDirection.TopDown;
             flowLayoutPanel2.Location = new Point(3, 25);
             flowLayoutPanel2.Name = "flowLayoutPanel2";
-            flowLayoutPanel2.Size = new Size(274, 530);
+            flowLayoutPanel2.Size = new Size(274, 589);
             flowLayoutPanel2.TabIndex = 0;
             // 
             // label2
@@ -465,6 +492,24 @@
             textBox11.Size = new Size(257, 29);
             textBox11.TabIndex = 22;
             // 
+            // label18
+            // 
+            label18.AutoSize = true;
+            label18.Location = new Point(3, 343);
+            label18.Name = "label18";
+            label18.Size = new Size(172, 21);
+            label18.TabIndex = 24;
+            label18.Text = "Номер личной карты*:";
+            // 
+            // textBox13
+            // 
+            textBox13.Location = new Point(4, 368);
+            textBox13.Margin = new Padding(4);
+            textBox13.Name = "textBox13";
+            textBox13.PlaceholderText = "Номер карты";
+            textBox13.Size = new Size(249, 29);
+            textBox13.TabIndex = 23;
+            // 
             // groupBox10
             // 
             groupBox10.Controls.Add(listBox1);
@@ -472,7 +517,7 @@
             groupBox10.ForeColor = Color.White;
             groupBox10.Location = new Point(287, 268);
             groupBox10.Name = "groupBox10";
-            groupBox10.Size = new Size(484, 286);
+            groupBox10.Size = new Size(484, 345);
             groupBox10.TabIndex = 12;
             groupBox10.TabStop = false;
             groupBox10.Text = "Язык";
@@ -486,7 +531,7 @@
             listBox1.ItemHeight = 21;
             listBox1.Location = new Point(3, 25);
             listBox1.Name = "listBox1";
-            listBox1.Size = new Size(219, 258);
+            listBox1.Size = new Size(219, 317);
             listBox1.TabIndex = 0;
             // 
             // tableLayoutPanel2
@@ -505,7 +550,7 @@
             tableLayoutPanel2.RowStyles.Add(new RowStyle(SizeType.Percent, 25F));
             tableLayoutPanel2.RowStyles.Add(new RowStyle(SizeType.Percent, 25F));
             tableLayoutPanel2.RowStyles.Add(new RowStyle(SizeType.Percent, 25F));
-            tableLayoutPanel2.Size = new Size(259, 258);
+            tableLayoutPanel2.Size = new Size(259, 317);
             tableLayoutPanel2.TabIndex = 1;
             tableLayoutPanel2.Paint += tableLayoutPanel2_Paint;
             // 
@@ -514,7 +559,7 @@
             comboBox4.Dock = DockStyle.Fill;
             comboBox4.FormattingEnabled = true;
             comboBox4.Items.AddRange(new object[] { "Владею свободно", "Читаю и могу объясняться", "Читаю и перевожу со словарем" });
-            comboBox4.Location = new Point(3, 67);
+            comboBox4.Location = new Point(3, 82);
             comboBox4.Margin = new Padding(3, 3, 3, 10);
             comboBox4.Name = "comboBox4";
             comboBox4.Size = new Size(253, 29);
@@ -528,10 +573,10 @@
             button5.BackgroundImageLayout = ImageLayout.Stretch;
             button5.Dock = DockStyle.Fill;
             button5.ForeColor = Color.White;
-            button5.Location = new Point(4, 134);
+            button5.Location = new Point(4, 164);
             button5.Margin = new Padding(4, 6, 4, 6);
             button5.Name = "button5";
-            button5.Size = new Size(251, 52);
+            button5.Size = new Size(251, 67);
             button5.TabIndex = 8;
             button5.Text = "Добавить";
             button5.UseVisualStyleBackColor = false;
@@ -544,10 +589,10 @@
             button3.BackgroundImageLayout = ImageLayout.Stretch;
             button3.Dock = DockStyle.Fill;
             button3.ForeColor = Color.White;
-            button3.Location = new Point(4, 198);
+            button3.Location = new Point(4, 243);
             button3.Margin = new Padding(4, 6, 4, 6);
             button3.Name = "button3";
-            button3.Size = new Size(251, 54);
+            button3.Size = new Size(251, 68);
             button3.TabIndex = 9;
             button3.Text = "Удалить";
             button3.UseVisualStyleBackColor = false;
@@ -678,7 +723,7 @@
             AutoScaleDimensions = new SizeF(9F, 21F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(43, 64, 80);
-            ClientSize = new Size(1060, 617);
+            ClientSize = new Size(1065, 677);
             Controls.Add(groupBox3);
             Controls.Add(groupBox10);
             Controls.Add(groupBox2);
@@ -765,5 +810,9 @@
         private Label label9;
         private Label label10;
         private Label label11;
+        private Label label17;
+        private TextBox textBox8;
+        private Label label18;
+        private TextBox textBox13;
     }
 }
