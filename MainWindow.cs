@@ -739,8 +739,8 @@ namespace PersonalCard
                             new WorkExperienceRepository(connectionString).Insert(general.WorkExperience, cmd);
                             cmd.Parameters.Clear();
                         }
-                        
-                        if (general.SocialBenefits!=null)
+
+                        if (general.SocialBenefits != null)
                         {
                             foreach (SocialBenefitInf i in general.SocialBenefits)
                             {
@@ -750,7 +750,7 @@ namespace PersonalCard
                             }
 
                         }
-                        if (general.Vacations!=null)
+                        if (general.Vacations != null)
                         {
                             foreach (VacationInf i in general.Vacations)
                             {
@@ -771,7 +771,7 @@ namespace PersonalCard
                             new AfterEducationRepository(connectionString).Insert(general.AfterEducation, cmd);
                             cmd.Parameters.Clear();
                         }
-                        if (general.HiringTransfers!=null)
+                        if (general.HiringTransfers != null)
                         {
                             foreach (HiringTransferInf i in general.HiringTransfers)
                             {
@@ -780,7 +780,7 @@ namespace PersonalCard
                                 cmd.Parameters.Clear();
                             }
                         }
-                        if (general.FamilyCompositions!=null)
+                        if (general.FamilyCompositions != null)
                         {
                             foreach (FamilyCompositionInf i in general.FamilyCompositions)
                             {
@@ -789,7 +789,7 @@ namespace PersonalCard
                                 cmd.Parameters.Clear();
                             }
                         }
-                        if (general.ProfessionalDevelopments!=null)
+                        if (general.ProfessionalDevelopments != null)
                         {
                             foreach (ProfessionalDevelopmentInf i in general.ProfessionalDevelopments)
                             {
@@ -816,7 +816,7 @@ namespace PersonalCard
                                 cmd.Parameters.Clear();
                             }
                         }
-                        if (general.Certifications!= null)
+                        if (general.Certifications != null)
                         {
                             foreach (CertificationInf i in general.Certifications)
                             {
@@ -834,7 +834,7 @@ namespace PersonalCard
                                 cmd.Parameters.Clear();
                             }
                         }
-                        if (general.AdditionalInformations!=null)
+                        if (general.AdditionalInformations != null)
                         {
                             foreach (AdditionalInformationInf i in general.AdditionalInformations)
                             {
@@ -868,8 +868,10 @@ namespace PersonalCard
             List<Person> AllPerson = new List<Person>();
             MySqlConnection conn = new MySqlConnection(connectionString);
             conn.Open();
-            string sql = $"Select `ID_empl`, `last_Name`, `Name`, `Surname`, `T_num_card` From `General_information`";
+            string sql = $"Select `ID_empl`, `last_Name`, `Name`, `Surname`, `T_num_card` From `General_information` where {(radioButton1.Checked?"Last_Name like @lastName":"T_num_card like @numCard")}";
             MySqlCommand cmd = new MySqlCommand(sql, conn);
+            cmd.Parameters.AddWithValue("@lastName",$"%{toolStripTextBox1.Text}%");
+            cmd.Parameters.AddWithValue("@numCard", $"%{toolStripTextBox1.Text}%");
             Person person;
             using (MySqlDataReader reader = cmd.ExecuteReader())
             {
@@ -907,8 +909,17 @@ namespace PersonalCard
             viewDismissedEmpl();
         }
 
+        private void toolStripTextBox1_TextChanged(object sender, EventArgs e)
+        {
+            fillPersonTable();
+            if (dataGridView1.Rows.Count <= 0) return;
+            generalInformation = GeneralInformation.LoadAllEmployeeData(connectionString, Convert.ToInt32(dataGridView1.Rows[0].Cells[0].Value));
+            loadInformationUI(generalInformation);
+        }
+
         private void dataGridView1_SelectionChanged(object sender, EventArgs e)
         {
+            
             generalInformation = GeneralInformation.LoadAllEmployeeData(connectionString, Convert.ToInt32(dataGridView1.Rows[dataGridView1.CurrentRow.Index].Cells[0].Value));
             loadInformationUI(generalInformation);
 
@@ -1469,5 +1480,7 @@ namespace PersonalCard
             new GeneralInformationRepository(connectionString).Delete(generalInformation.ID_empl);
             fillPersonTable();
         }
+
+        
     }
 }

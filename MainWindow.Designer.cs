@@ -358,7 +358,6 @@
             label31 = new Label();
             label30 = new Label();
             groupBox9 = new GroupBox();
-            radioButton3 = new RadioButton();
             radioButton2 = new RadioButton();
             radioButton1 = new RadioButton();
             button10 = new Button();
@@ -722,6 +721,7 @@
             toolStripTextBox1.BorderStyle = BorderStyle.FixedSingle;
             toolStripTextBox1.Name = "toolStripTextBox1";
             toolStripTextBox1.Size = new Size(200, 67);
+            toolStripTextBox1.TextChanged += toolStripTextBox1_TextChanged;
             // 
             // toolStripLabel1
             // 
@@ -1230,7 +1230,7 @@
             // 
             splitContainer2.Panel2.Controls.Add(splitContainer4);
             splitContainer2.Size = new Size(905, 462);
-            splitContainer2.SplitterDistance = 409;
+            splitContainer2.SplitterDistance = 405;
             splitContainer2.TabIndex = 0;
             // 
             // groupBox10
@@ -1240,7 +1240,7 @@
             groupBox10.ForeColor = Color.White;
             groupBox10.Location = new Point(0, 279);
             groupBox10.Name = "groupBox10";
-            groupBox10.Size = new Size(409, 180);
+            groupBox10.Size = new Size(405, 180);
             groupBox10.TabIndex = 11;
             groupBox10.TabStop = false;
             groupBox10.Text = "Язык";
@@ -1250,7 +1250,7 @@
             flowLayoutPanel7.Dock = DockStyle.Fill;
             flowLayoutPanel7.Location = new Point(3, 22);
             flowLayoutPanel7.Name = "flowLayoutPanel7";
-            flowLayoutPanel7.Size = new Size(403, 155);
+            flowLayoutPanel7.Size = new Size(399, 155);
             flowLayoutPanel7.TabIndex = 0;
             // 
             // panel13
@@ -1261,7 +1261,7 @@
             panel13.Dock = DockStyle.Top;
             panel13.Location = new Point(0, 248);
             panel13.Name = "panel13";
-            panel13.Size = new Size(409, 31);
+            panel13.Size = new Size(405, 31);
             panel13.TabIndex = 20;
             // 
             // label14
@@ -1281,7 +1281,7 @@
             label52.BackColor = Color.FromArgb(45, 50, 80);
             label52.BorderStyle = BorderStyle.Fixed3D;
             label52.Dock = DockStyle.Right;
-            label52.Location = new Point(299, 0);
+            label52.Location = new Point(295, 0);
             label52.Margin = new Padding(5);
             label52.Name = "label52";
             label52.Size = new Size(108, 21);
@@ -1296,7 +1296,7 @@
             panel12.Dock = DockStyle.Top;
             panel12.Location = new Point(0, 217);
             panel12.Name = "panel12";
-            panel12.Size = new Size(409, 31);
+            panel12.Size = new Size(405, 31);
             panel12.TabIndex = 19;
             // 
             // label7
@@ -1316,7 +1316,7 @@
             label51.BackColor = Color.FromArgb(45, 50, 80);
             label51.BorderStyle = BorderStyle.Fixed3D;
             label51.Dock = DockStyle.Right;
-            label51.Location = new Point(257, 0);
+            label51.Location = new Point(253, 0);
             label51.Margin = new Padding(5);
             label51.Name = "label51";
             label51.RightToLeft = RightToLeft.No;
@@ -1333,7 +1333,7 @@
             panel11.Dock = DockStyle.Top;
             panel11.Location = new Point(0, 186);
             panel11.Name = "panel11";
-            panel11.Size = new Size(409, 31);
+            panel11.Size = new Size(405, 31);
             panel11.TabIndex = 18;
             // 
             // label50
@@ -1342,7 +1342,7 @@
             label50.BackColor = Color.FromArgb(45, 50, 80);
             label50.BorderStyle = BorderStyle.Fixed3D;
             label50.Dock = DockStyle.Right;
-            label50.Location = new Point(364, 0);
+            label50.Location = new Point(360, 0);
             label50.Margin = new Padding(5);
             label50.Name = "label50";
             label50.Size = new Size(43, 21);
@@ -1368,7 +1368,7 @@
             panel10.Dock = DockStyle.Top;
             panel10.Location = new Point(0, 155);
             panel10.Name = "panel10";
-            panel10.Size = new Size(409, 31);
+            panel10.Size = new Size(405, 31);
             panel10.TabIndex = 17;
             // 
             // label5
@@ -1388,7 +1388,7 @@
             label48.BackColor = Color.FromArgb(45, 50, 80);
             label48.BorderStyle = BorderStyle.Fixed3D;
             label48.Dock = DockStyle.Right;
-            label48.Location = new Point(263, 0);
+            label48.Location = new Point(259, 0);
             label48.Margin = new Padding(5);
             label48.Name = "label48";
             label48.Size = new Size(144, 21);
@@ -1401,7 +1401,7 @@
             panel8.Dock = DockStyle.Top;
             panel8.Location = new Point(0, 124);
             panel8.Name = "panel8";
-            panel8.Size = new Size(409, 31);
+            panel8.Size = new Size(405, 31);
             panel8.TabIndex = 16;
             // 
             // panel9
@@ -1412,7 +1412,7 @@
             panel9.Dock = DockStyle.Top;
             panel9.Location = new Point(0, 0);
             panel9.Name = "panel9";
-            panel9.Size = new Size(409, 31);
+            panel9.Size = new Size(405, 31);
             panel9.TabIndex = 16;
             // 
             // label6
@@ -1432,7 +1432,7 @@
             label49.BackColor = Color.FromArgb(45, 50, 80);
             label49.BorderStyle = BorderStyle.Fixed3D;
             label49.Dock = DockStyle.Right;
-            label49.Location = new Point(291, 0);
+            label49.Location = new Point(287, 0);
             label49.Margin = new Padding(5);
             label49.Name = "label49";
             label49.Size = new Size(116, 21);
@@ -1447,7 +1447,7 @@
             panel7.Dock = DockStyle.Top;
             panel7.Location = new Point(0, 93);
             panel7.Name = "panel7";
-            panel7.Size = new Size(409, 31);
+            panel7.Size = new Size(405, 31);
             panel7.TabIndex = 15;
             // 
             // label47
@@ -1456,7 +1456,7 @@
             label47.BackColor = Color.FromArgb(45, 50, 80);
             label47.BorderStyle = BorderStyle.Fixed3D;
             label47.Dock = DockStyle.Right;
-            label47.Location = new Point(275, 0);
+            label47.Location = new Point(271, 0);
             label47.Margin = new Padding(5);
             label47.Name = "label47";
             label47.Size = new Size(132, 21);
@@ -1482,7 +1482,7 @@
             panel6.Dock = DockStyle.Top;
             panel6.Location = new Point(0, 62);
             panel6.Name = "panel6";
-            panel6.Size = new Size(409, 31);
+            panel6.Size = new Size(405, 31);
             panel6.TabIndex = 14;
             // 
             // label3
@@ -1502,7 +1502,7 @@
             label46.BackColor = Color.FromArgb(45, 50, 80);
             label46.BorderStyle = BorderStyle.Fixed3D;
             label46.Dock = DockStyle.Right;
-            label46.Location = new Point(321, 0);
+            label46.Location = new Point(317, 0);
             label46.Margin = new Padding(5);
             label46.Name = "label46";
             label46.Size = new Size(86, 21);
@@ -1517,7 +1517,7 @@
             panel5.Dock = DockStyle.Top;
             panel5.Location = new Point(0, 31);
             panel5.Name = "panel5";
-            panel5.Size = new Size(409, 31);
+            panel5.Size = new Size(405, 31);
             panel5.TabIndex = 13;
             // 
             // label45
@@ -1526,7 +1526,7 @@
             label45.BackColor = Color.FromArgb(45, 50, 80);
             label45.BorderStyle = BorderStyle.Fixed3D;
             label45.Dock = DockStyle.Right;
-            label45.Location = new Point(364, 0);
+            label45.Location = new Point(360, 0);
             label45.Margin = new Padding(5);
             label45.Name = "label45";
             label45.Size = new Size(43, 21);
@@ -1553,7 +1553,7 @@
             panel4.Dock = DockStyle.Top;
             panel4.Location = new Point(0, 0);
             panel4.Name = "panel4";
-            panel4.Size = new Size(409, 31);
+            panel4.Size = new Size(405, 31);
             panel4.TabIndex = 12;
             // 
             // label1
@@ -1574,7 +1574,7 @@
             label44.BackColor = Color.FromArgb(45, 50, 80);
             label44.BorderStyle = BorderStyle.Fixed3D;
             label44.Dock = DockStyle.Right;
-            label44.Location = new Point(323, 0);
+            label44.Location = new Point(319, 0);
             label44.Margin = new Padding(5);
             label44.Name = "label44";
             label44.Size = new Size(84, 21);
@@ -1596,7 +1596,7 @@
             // splitContainer4.Panel2
             // 
             splitContainer4.Panel2.Controls.Add(groupBox8);
-            splitContainer4.Size = new Size(492, 462);
+            splitContainer4.Size = new Size(496, 462);
             splitContainer4.SplitterDistance = 231;
             splitContainer4.TabIndex = 0;
             // 
@@ -1614,7 +1614,7 @@
             groupBox7.Margin = new Padding(3, 4, 3, 4);
             groupBox7.Name = "groupBox7";
             groupBox7.Padding = new Padding(3, 4, 3, 4);
-            groupBox7.Size = new Size(492, 231);
+            groupBox7.Size = new Size(496, 231);
             groupBox7.TabIndex = 0;
             groupBox7.TabStop = false;
             groupBox7.Text = "Документы";
@@ -1628,7 +1628,7 @@
             panel19.Dock = DockStyle.Top;
             panel19.Location = new Point(3, 178);
             panel19.Name = "panel19";
-            panel19.Size = new Size(486, 31);
+            panel19.Size = new Size(490, 31);
             panel19.TabIndex = 18;
             // 
             // label58
@@ -1637,7 +1637,7 @@
             label58.BackColor = Color.FromArgb(45, 50, 80);
             label58.BorderStyle = BorderStyle.Fixed3D;
             label58.Dock = DockStyle.Right;
-            label58.Location = new Point(414, 0);
+            label58.Location = new Point(418, 0);
             label58.Margin = new Padding(5);
             label58.Name = "label58";
             label58.Size = new Size(70, 21);
@@ -1664,7 +1664,7 @@
             panel18.Dock = DockStyle.Top;
             panel18.Location = new Point(3, 147);
             panel18.Name = "panel18";
-            panel18.Size = new Size(486, 31);
+            panel18.Size = new Size(490, 31);
             panel18.TabIndex = 17;
             // 
             // label57
@@ -1673,7 +1673,7 @@
             label57.BackColor = Color.FromArgb(45, 50, 80);
             label57.BorderStyle = BorderStyle.Fixed3D;
             label57.Dock = DockStyle.Right;
-            label57.Location = new Point(437, 0);
+            label57.Location = new Point(441, 0);
             label57.Margin = new Padding(5);
             label57.Name = "label57";
             label57.Size = new Size(47, 21);
@@ -1700,7 +1700,7 @@
             panel17.Dock = DockStyle.Top;
             panel17.Location = new Point(3, 116);
             panel17.Name = "panel17";
-            panel17.Size = new Size(486, 31);
+            panel17.Size = new Size(490, 31);
             panel17.TabIndex = 16;
             // 
             // label56
@@ -1709,7 +1709,7 @@
             label56.BackColor = Color.FromArgb(45, 50, 80);
             label56.BorderStyle = BorderStyle.Fixed3D;
             label56.Dock = DockStyle.Right;
-            label56.Location = new Point(418, 0);
+            label56.Location = new Point(422, 0);
             label56.Margin = new Padding(5);
             label56.Name = "label56";
             label56.Size = new Size(66, 21);
@@ -1736,7 +1736,7 @@
             panel16.Dock = DockStyle.Top;
             panel16.Location = new Point(3, 85);
             panel16.Name = "panel16";
-            panel16.Size = new Size(486, 31);
+            panel16.Size = new Size(490, 31);
             panel16.TabIndex = 15;
             // 
             // label55
@@ -1745,7 +1745,7 @@
             label55.BackColor = Color.FromArgb(45, 50, 80);
             label55.BorderStyle = BorderStyle.Fixed3D;
             label55.Dock = DockStyle.Right;
-            label55.Location = new Point(370, 0);
+            label55.Location = new Point(374, 0);
             label55.Margin = new Padding(5);
             label55.Name = "label55";
             label55.Size = new Size(114, 21);
@@ -1772,7 +1772,7 @@
             panel15.Dock = DockStyle.Top;
             panel15.Location = new Point(3, 54);
             panel15.Name = "panel15";
-            panel15.Size = new Size(486, 31);
+            panel15.Size = new Size(490, 31);
             panel15.TabIndex = 14;
             // 
             // label54
@@ -1781,7 +1781,7 @@
             label54.BackColor = Color.FromArgb(45, 50, 80);
             label54.BorderStyle = BorderStyle.Fixed3D;
             label54.Dock = DockStyle.Right;
-            label54.Location = new Point(423, 0);
+            label54.Location = new Point(427, 0);
             label54.Margin = new Padding(5);
             label54.Name = "label54";
             label54.Size = new Size(61, 21);
@@ -1808,7 +1808,7 @@
             panel14.Dock = DockStyle.Top;
             panel14.Location = new Point(3, 23);
             panel14.Name = "panel14";
-            panel14.Size = new Size(486, 31);
+            panel14.Size = new Size(490, 31);
             panel14.TabIndex = 13;
             // 
             // label53
@@ -1817,7 +1817,7 @@
             label53.BackColor = Color.FromArgb(45, 50, 80);
             label53.BorderStyle = BorderStyle.Fixed3D;
             label53.Dock = DockStyle.Right;
-            label53.Location = new Point(421, 0);
+            label53.Location = new Point(425, 0);
             label53.Margin = new Padding(5);
             label53.Name = "label53";
             label53.Size = new Size(63, 21);
@@ -1845,7 +1845,7 @@
             groupBox8.Margin = new Padding(3, 4, 3, 4);
             groupBox8.Name = "groupBox8";
             groupBox8.Padding = new Padding(3, 4, 3, 4);
-            groupBox8.Size = new Size(492, 227);
+            groupBox8.Size = new Size(496, 227);
             groupBox8.TabIndex = 0;
             groupBox8.TabStop = false;
             groupBox8.Text = "Место жительства";
@@ -1860,7 +1860,7 @@
             panel3.Location = new Point(3, 123);
             panel3.Margin = new Padding(3, 4, 3, 4);
             panel3.Name = "panel3";
-            panel3.Size = new Size(486, 100);
+            panel3.Size = new Size(490, 100);
             panel3.TabIndex = 1;
             // 
             // label59
@@ -1869,7 +1869,7 @@
             label59.BackColor = Color.FromArgb(45, 50, 80);
             label59.BorderStyle = BorderStyle.Fixed3D;
             label59.Dock = DockStyle.Right;
-            label59.Location = new Point(338, 19);
+            label59.Location = new Point(342, 19);
             label59.Margin = new Padding(5);
             label59.Name = "label59";
             label59.Size = new Size(144, 21);
@@ -1907,7 +1907,7 @@
             panel2.Location = new Point(3, 23);
             panel2.Margin = new Padding(3, 4, 3, 4);
             panel2.Name = "panel2";
-            panel2.Size = new Size(486, 100);
+            panel2.Size = new Size(490, 100);
             panel2.TabIndex = 0;
             // 
             // label41
@@ -1916,7 +1916,7 @@
             label41.BackColor = Color.FromArgb(45, 50, 80);
             label41.BorderStyle = BorderStyle.Fixed3D;
             label41.Dock = DockStyle.Right;
-            label41.Location = new Point(338, 19);
+            label41.Location = new Point(342, 19);
             label41.Margin = new Padding(5);
             label41.Name = "label41";
             label41.Size = new Size(144, 21);
@@ -2318,7 +2318,7 @@
             // 
             splitContainer3.Panel2.Controls.Add(groupBox3);
             splitContainer3.Size = new Size(911, 474);
-            splitContainer3.SplitterDistance = 575;
+            splitContainer3.SplitterDistance = 573;
             splitContainer3.TabIndex = 0;
             // 
             // groupBox1
@@ -2331,7 +2331,7 @@
             groupBox1.Margin = new Padding(3, 4, 3, 4);
             groupBox1.Name = "groupBox1";
             groupBox1.Padding = new Padding(3, 4, 3, 4);
-            groupBox1.Size = new Size(575, 474);
+            groupBox1.Size = new Size(573, 474);
             groupBox1.TabIndex = 0;
             groupBox1.TabStop = false;
             groupBox1.Text = "Профессия";
@@ -2345,7 +2345,7 @@
             panel21.Dock = DockStyle.Top;
             panel21.Location = new Point(3, 54);
             panel21.Name = "panel21";
-            panel21.Size = new Size(569, 31);
+            panel21.Size = new Size(567, 31);
             panel21.TabIndex = 14;
             // 
             // label61
@@ -2354,7 +2354,7 @@
             label61.BackColor = Color.FromArgb(45, 50, 80);
             label61.BorderStyle = BorderStyle.Fixed3D;
             label61.Dock = DockStyle.Right;
-            label61.Location = new Point(501, 0);
+            label61.Location = new Point(499, 0);
             label61.Margin = new Padding(5);
             label61.Name = "label61";
             label61.Size = new Size(66, 21);
@@ -2381,7 +2381,7 @@
             panel20.Dock = DockStyle.Top;
             panel20.Location = new Point(3, 23);
             panel20.Name = "panel20";
-            panel20.Size = new Size(569, 31);
+            panel20.Size = new Size(567, 31);
             panel20.TabIndex = 13;
             // 
             // label60
@@ -2390,7 +2390,7 @@
             label60.BackColor = Color.FromArgb(45, 50, 80);
             label60.BorderStyle = BorderStyle.Fixed3D;
             label60.Dock = DockStyle.Right;
-            label60.Location = new Point(477, 0);
+            label60.Location = new Point(475, 0);
             label60.Margin = new Padding(5);
             label60.Name = "label60";
             label60.Size = new Size(90, 21);
@@ -2417,7 +2417,7 @@
             groupBox3.Margin = new Padding(3, 4, 3, 4);
             groupBox3.Name = "groupBox3";
             groupBox3.Padding = new Padding(3, 4, 3, 4);
-            groupBox3.Size = new Size(332, 474);
+            groupBox3.Size = new Size(334, 474);
             groupBox3.TabIndex = 0;
             groupBox3.TabStop = false;
             groupBox3.Text = "Стаж работы";
@@ -2437,7 +2437,7 @@
             tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 33.3333321F));
             tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 33.3333321F));
             tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 33.3333321F));
-            tableLayoutPanel1.Size = new Size(326, 447);
+            tableLayoutPanel1.Size = new Size(328, 447);
             tableLayoutPanel1.TabIndex = 0;
             // 
             // groupBox4
@@ -2451,7 +2451,7 @@
             groupBox4.Margin = new Padding(3, 4, 3, 4);
             groupBox4.Name = "groupBox4";
             groupBox4.Padding = new Padding(3, 4, 3, 4);
-            groupBox4.Size = new Size(320, 140);
+            groupBox4.Size = new Size(322, 140);
             groupBox4.TabIndex = 0;
             groupBox4.TabStop = false;
             groupBox4.Text = "Общий";
@@ -2503,7 +2503,7 @@
             groupBox5.Margin = new Padding(3, 4, 3, 4);
             groupBox5.Name = "groupBox5";
             groupBox5.Padding = new Padding(3, 4, 3, 4);
-            groupBox5.Size = new Size(320, 140);
+            groupBox5.Size = new Size(322, 140);
             groupBox5.TabIndex = 1;
             groupBox5.TabStop = false;
             groupBox5.Text = "Непрерывный";
@@ -2555,7 +2555,7 @@
             groupBox6.Margin = new Padding(3, 4, 3, 4);
             groupBox6.Name = "groupBox6";
             groupBox6.Padding = new Padding(3, 4, 3, 4);
-            groupBox6.Size = new Size(320, 143);
+            groupBox6.Size = new Size(322, 143);
             groupBox6.TabIndex = 2;
             groupBox6.TabStop = false;
             groupBox6.Text = "Дающий право на надбавку";
@@ -4225,7 +4225,6 @@
             // 
             // groupBox9
             // 
-            groupBox9.Controls.Add(radioButton3);
             groupBox9.Controls.Add(radioButton2);
             groupBox9.Controls.Add(radioButton1);
             groupBox9.Dock = DockStyle.Top;
@@ -4234,21 +4233,10 @@
             groupBox9.Margin = new Padding(3, 4, 3, 4);
             groupBox9.Name = "groupBox9";
             groupBox9.Padding = new Padding(3, 4, 3, 4);
-            groupBox9.Size = new Size(96, 114);
+            groupBox9.Size = new Size(96, 88);
             groupBox9.TabIndex = 8;
             groupBox9.TabStop = false;
-            groupBox9.Text = "Поиск";
-            // 
-            // radioButton3
-            // 
-            radioButton3.AutoSize = true;
-            radioButton3.Location = new Point(8, 83);
-            radioButton3.Margin = new Padding(3, 4, 3, 4);
-            radioButton3.Name = "radioButton3";
-            radioButton3.Size = new Size(125, 23);
-            radioButton3.TabIndex = 2;
-            radioButton3.Text = "По отчеству";
-            radioButton3.UseVisualStyleBackColor = true;
+            groupBox9.Text = "Параметры поиска";
             // 
             // radioButton2
             // 
@@ -4256,9 +4244,9 @@
             radioButton2.Location = new Point(6, 53);
             radioButton2.Margin = new Padding(3, 4, 3, 4);
             radioButton2.Name = "radioButton2";
-            radioButton2.Size = new Size(103, 23);
+            radioButton2.Size = new Size(154, 23);
             radioButton2.TabIndex = 1;
-            radioButton2.Text = "По имени";
+            radioButton2.Text = "По номеру дела";
             radioButton2.UseVisualStyleBackColor = true;
             // 
             // radioButton1
@@ -4761,7 +4749,6 @@
         private ToolStripMenuItem администрированиеToolStripMenuItem;
         private ToolStripMenuItem оПрограммеToolStripMenuItem;
         private SplitContainer splitContainer5;
-        private RadioButton radioButton3;
         private RadioButton radioButton2;
         private RadioButton radioButton1;
         private Button button10;
