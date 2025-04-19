@@ -23,11 +23,11 @@ namespace PersonalCard
                 string query = @"INSERT INTO General_information 
                 (ID_empl, Last_name, Name, Surname, Birthday, Place_birth, Citizenship, Marital_status, 
                 Nam_passport, Serial_passport, Date_give_passport, Who_give, Number_phone, Date_create_card, 
-                T_num_card, INN, Num_pensia, First_char_lastname, Nature_work, Type_work, Male_Female) 
+                T_num_card, INN, Num_pensia, First_char_lastname, Nature_work, Type_work, Male_Female, Hirring_date) 
                 VALUES 
                 (@ID_empl, @Last_name, @Name, @Surname, @Birthday, @Place_birth, @Citizenship, @Marital_status, 
                 @Nam_passport, @Serial_passport, @Date_give_passport, @Who_give, @Number_phone, @Date_create_card, 
-                @T_num_card, @INN, @Num_pensia, @First_char_lastname, @Nature_work, @Type_work, @Male_Female)";
+                @T_num_card, @INN, @Num_pensia, @First_char_lastname, @Nature_work, @Type_work, @Male_Female, @Hirring_date)";
 
                 var cmd = new MySqlCommand(query, conn);
                 AddParameters(cmd, info);
@@ -41,11 +41,11 @@ namespace PersonalCard
             cmd.CommandText = @"INSERT INTO General_information 
                 (ID_empl, Last_name, Name, Surname, Birthday, Place_birth, Citizenship, Marital_status, 
                 Nam_passport, Serial_passport, Date_give_passport, Who_give, Number_phone, Date_create_card, 
-                T_num_card, INN, Num_pensia, First_char_lastname, Nature_work, Type_work, Male_Female) 
+                T_num_card, INN, Num_pensia, First_char_lastname, Nature_work, Type_work, Male_Female, Hirring_date) 
                 VALUES 
                 (@ID_empl, @Last_name, @Name, @Surname, @Birthday, @Place_birth, @Citizenship, @Marital_status, 
                 @Nam_passport, @Serial_passport, @Date_give_passport, @Who_give, @Number_phone, @Date_create_card, 
-                @T_num_card, @INN, @Num_pensia, @First_char_lastname, @Nature_work, @Type_work, @Male_Female)";
+                @T_num_card, @INN, @Num_pensia, @First_char_lastname, @Nature_work, @Type_work, @Male_Female, @Hirring_date)";
 
             AddParameters(cmd, info);
             return cmd.ExecuteNonQuery() > 0;
@@ -61,7 +61,7 @@ namespace PersonalCard
                 Nam_passport = @Nam_passport, Serial_passport = @Serial_passport, Date_give_passport = @Date_give_passport, 
                 Who_give = @Who_give, Number_phone = @Number_phone, Date_create_card = @Date_create_card, 
                 T_num_card = @T_num_card, INN = @INN, Num_pensia = @Num_pensia, First_char_lastname = @First_char_lastname, 
-                Nature_work = @Nature_work, Type_work = @Type_work, Male_Female = @Male_Female 
+                Nature_work = @Nature_work, Type_work = @Type_work, Male_Female = @Male_Female , Hirring_date=@Hirring_date
                 WHERE ID_empl = @ID_empl";
 
                 var cmd = new MySqlCommand(query, conn);
@@ -108,6 +108,7 @@ namespace PersonalCard
             cmd.Parameters.AddWithValue("@Nature_work", info.Nature_work);
             cmd.Parameters.AddWithValue("@Type_work", info.Type_work);
             cmd.Parameters.AddWithValue("@Male_Female", info.Male_Female);
+            cmd.Parameters.AddWithValue("@Hirring_date", info.Hirring_date);
         }
     }
 

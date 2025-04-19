@@ -46,6 +46,7 @@ namespace PersonalCard
             textBox15.Text = generalInformation.Address.Index_by_register;
             textBox8.Text= generalInformation.Number_phone ;
             textBox13.Text = generalInformation.T_num_card;
+            dateTimePicker3.Value=generalInformation.Hirring_date;
             listBox1.Controls.Clear();
             foreach (LanguageInf l in generalInformation.Languages)
             {
@@ -345,6 +346,7 @@ namespace PersonalCard
             generalInformation.Number_phone=textBox8.Text;
             generalInformation.T_num_card=textBox13.Text;
             generalInformation.First_char_lastname = generalInformation.Last_name[0].ToString();
+            generalInformation.Hirring_date =dateTimePicker3.Value;
             generalInformation.Languages.Clear();
             LanguageInf l;
             foreach (string s in listBox1.Items)

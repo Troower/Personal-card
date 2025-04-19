@@ -1,4 +1,5 @@
 using MySql.Data.MySqlClient;
+using System.ComponentModel;
 using System.Linq;
 using ZstdSharp.Unsafe;
 
@@ -112,10 +113,7 @@ namespace PersonalCard
             splitContainer5.SplitterDistance = (splitContainer1.Panel1Collapsed ? this.Width - (this.Width * 15 / 100) : this.Width - (this.Width * 15 / 100) - splitContainer1.Panel1.Width);
         }
 
-        private void button10_Click(object sender, EventArgs e)
-        {
-            new ListEmployee().ShowDialog();
-        }
+
 
 
 
@@ -868,9 +866,9 @@ namespace PersonalCard
             List<Person> AllPerson = new List<Person>();
             MySqlConnection conn = new MySqlConnection(connectionString);
             conn.Open();
-            string sql = $"Select `ID_empl`, `last_Name`, `Name`, `Surname`, `T_num_card` From `General_information` where {(radioButton1.Checked?"Last_Name like @lastName":"T_num_card like @numCard")}";
+            string sql = $"Select `ID_empl`, `last_Name`, `Name`, `Surname`, `T_num_card` From `General_information` where {(radioButton1.Checked ? "Last_Name like @lastName" : "T_num_card like @numCard")}";
             MySqlCommand cmd = new MySqlCommand(sql, conn);
-            cmd.Parameters.AddWithValue("@lastName",$"%{toolStripTextBox1.Text}%");
+            cmd.Parameters.AddWithValue("@lastName", $"%{toolStripTextBox1.Text}%");
             cmd.Parameters.AddWithValue("@numCard", $"%{toolStripTextBox1.Text}%");
             Person person;
             using (MySqlDataReader reader = cmd.ExecuteReader())
@@ -907,6 +905,7 @@ namespace PersonalCard
                 dataGridView1.Rows[i].Cells[4].Value = persons[i].numCard;
             }
             viewDismissedEmpl();
+            dataGridView1.Sort(dataGridView1.Columns[1], ListSortDirection.Ascending);
         }
 
         private void toolStripTextBox1_TextChanged(object sender, EventArgs e)
@@ -919,7 +918,7 @@ namespace PersonalCard
 
         private void dataGridView1_SelectionChanged(object sender, EventArgs e)
         {
-            
+
             generalInformation = GeneralInformation.LoadAllEmployeeData(connectionString, Convert.ToInt32(dataGridView1.Rows[dataGridView1.CurrentRow.Index].Cells[0].Value));
             loadInformationUI(generalInformation);
 
@@ -947,6 +946,8 @@ namespace PersonalCard
             label58.Text = generalInformation.Num_pensia;
             label59.Text = generalInformation.Address.Actual;
             label41.Text = generalInformation.Address.By_registration;
+            label92.Text = generalInformation.Number_phone;
+            label94.Text = generalInformation.Hirring_date.ToString().Split(' ')[0];
             label20.Text = $"Èíäåêñ: {generalInformation.Address.Index_actual}";
             label19.Text = $"Èíäåêñ: {generalInformation.Address.Index_by_register}";
             flowLayoutPanel7.Controls.Clear();
@@ -1481,6 +1482,74 @@ namespace PersonalCard
             fillPersonTable();
         }
 
-        
+        private void button9_Click(object sender, EventArgs e)
+        {
+            MySqlConnection conn = new(connectionString);
+            string sql = $"Select ID_empl, Last_name, name, hirring_date from general_information where CalculateWorkExperience(hirring_date,now())>=3 and CalculateWorkExperience(hirring_date,now())";
+            conn.Open();
+            MySqlCommand cmd = new MySqlCommand(sql, conn);
+            new ListEmployee(cmd, 2, connectionString, selectCard).ShowDialog();
+            conn.Close();
+        }
+        private void button10_Click(object sender, EventArgs e)
+        {
+            MySqlConnection conn = new(connectionString);
+            string sql = $"Select ID_empl, Last_name, name, hirring_date from general_information where CalculateWorkExperience(hirring_date,now())>=8";
+            conn.Open();
+            MySqlCommand cmd = new MySqlCommand(sql, conn);
+            new ListEmployee(cmd, 1, connectionString, selectCard).ShowDialog();
+            conn.Close();
+        }
+
+        private void button8_Click(object sender, EventArgs e)
+        {
+            MySqlConnection conn = new(connectionString);
+            string sql = $"Select general_information.ID_empl, Last_name, name, hirring_date, dismissal.date_dismiss from general_information inner join dismissal on general_information.id_empl=dismissal.id_empl where EXISTS (SELECT 1 FROM dismissal WHERE dismissal.id_empl = general_information.id_empl);";
+            conn.Open();
+            MySqlCommand cmd = new MySqlCommand(sql, conn);
+            new ListEmployee(cmd, 3, connectionString, selectCard).ShowDialog();
+            conn.Close();
+        }
+
+        private void button7_Click(object sender, EventArgs e)
+        {
+            MySqlConnection conn = new(connectionString);
+            string sql = $"Select general_information.ID_empl, Last_name, name from general_information inner join work_experience on general_information.id_empl=work_experience.id_empl where common_year>=25";
+            conn.Open();
+            MySqlCommand cmd = new MySqlCommand(sql, conn);
+            new ListEmployee(cmd, 4, connectionString, selectCard).ShowDialog();
+            conn.Close();
+        }
+
+        private void button6_Click(object sender, EventArgs e)
+        {
+            MySqlConnection conn = new(connectionString);
+            string sql = $"Select general_information.ID_empl, Last_name, name, count(family_composition.id_person) from general_information inner join family_composition on general_information.id_empl=family_composition.id_empl where CalculateWorkExperience(family_composition.date_birth,now())<18 GROUP BY general_information.ID_empl, general_information.Last_name, general_information.name;";
+            conn.Open();
+            MySqlCommand cmd = new MySqlCommand(sql, conn);
+            new ListEmployee(cmd, 5, connectionString, selectCard).ShowDialog();
+            conn.Close();
+        }
+        private void selectCard(int id)
+        {
+            toolStripTextBox1.Text = "";
+            for (int i = 0; i < dataGridView1.Rows.Count; i++)
+            {
+                if (Convert.ToInt32(dataGridView1.Rows[i].Cells[0].Value) == id)
+                {
+                    dataGridView1.Rows[i].Cells[1].Selected = true;
+                    generalInformation = GeneralInformation.LoadAllEmployeeData(connectionString, Convert.ToInt32(dataGridView1.Rows[dataGridView1.CurrentRow.Index].Cells[0].Value));
+                    loadInformationUI(generalInformation);
+                    tabControl1.SelectTab(0);
+                    tabControl2.SelectTab(0);
+                    return;
+                }
+            }
+        }
+
+        private void ñîçäàíèåÐåçåðâíîéÊîïèèToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

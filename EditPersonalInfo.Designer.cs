@@ -68,6 +68,8 @@
             textBox11 = new TextBox();
             label18 = new Label();
             textBox13 = new TextBox();
+            label19 = new Label();
+            dateTimePicker3 = new DateTimePicker();
             groupBox10 = new GroupBox();
             listBox1 = new ListBox();
             tableLayoutPanel2 = new TableLayoutPanel();
@@ -383,6 +385,8 @@
             flowLayoutPanel2.Controls.Add(textBox11);
             flowLayoutPanel2.Controls.Add(label18);
             flowLayoutPanel2.Controls.Add(textBox13);
+            flowLayoutPanel2.Controls.Add(label19);
+            flowLayoutPanel2.Controls.Add(dateTimePicker3);
             flowLayoutPanel2.Dock = DockStyle.Fill;
             flowLayoutPanel2.FlowDirection = FlowDirection.TopDown;
             flowLayoutPanel2.Location = new Point(3, 25);
@@ -509,6 +513,22 @@
             textBox13.PlaceholderText = "Номер карты";
             textBox13.Size = new Size(249, 29);
             textBox13.TabIndex = 23;
+            // 
+            // label19
+            // 
+            label19.AutoSize = true;
+            label19.Location = new Point(3, 401);
+            label19.Name = "label19";
+            label19.Size = new Size(187, 21);
+            label19.TabIndex = 25;
+            label19.Text = "Дата приема на работу*:";
+            // 
+            // dateTimePicker3
+            // 
+            dateTimePicker3.Location = new Point(3, 425);
+            dateTimePicker3.Name = "dateTimePicker3";
+            dateTimePicker3.Size = new Size(257, 29);
+            dateTimePicker3.TabIndex = 26;
             // 
             // groupBox10
             // 
@@ -814,5 +834,7 @@
         private TextBox textBox8;
         private Label label18;
         private TextBox textBox13;
+        private Label label19;
+        private DateTimePicker dateTimePicker3;
     }
 }

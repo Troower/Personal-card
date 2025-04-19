@@ -32,6 +32,7 @@ namespace PersonalCard
         public string Nature_work { get; set; }
         public string Type_work { get; set; }
         public string Male_Female { get; set; }
+        public DateTime Hirring_date {  get; set; }
         public AddressOfResidenceInf Address { get; set; }
         public AfterEducationInf AfterEducation { get; set; }
         public List<AwardInf> Awards { get; set; }
@@ -115,6 +116,7 @@ namespace PersonalCard
                         employee.Nature_work = reader["Nature_work"].ToString();
                         employee.Type_work = reader["Type_work"].ToString();
                         employee.Male_Female = reader["Male_Female"].ToString();
+                        employee.Hirring_date= reader.GetDateTime("Hirring_date");
                     }
                 }
             }
@@ -796,7 +798,7 @@ namespace PersonalCard
                         {
                             ID_empl = employeeId,
                             Common_day = reader.GetInt32("common_day"),
-                            Common_year = reader.GetInt32("common_day"),
+                            Common_year = reader.GetInt32("common_year"),
                             Common_month = reader.GetInt32("common_month"),
                             Continuous_day = reader.GetInt32("continuous_day"),
                             Continuous_month = reader.GetInt32("continuous_month"),

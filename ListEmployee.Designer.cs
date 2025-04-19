@@ -52,11 +52,11 @@
             tableLayoutPanel1.Controls.Add(button1, 1, 0);
             tableLayoutPanel1.Controls.Add(button5, 0, 0);
             tableLayoutPanel1.Dock = DockStyle.Bottom;
-            tableLayoutPanel1.Location = new Point(0, 411);
+            tableLayoutPanel1.Location = new Point(0, 461);
             tableLayoutPanel1.Name = "tableLayoutPanel1";
             tableLayoutPanel1.RowCount = 1;
             tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
-            tableLayoutPanel1.Size = new Size(784, 100);
+            tableLayoutPanel1.Size = new Size(784, 50);
             tableLayoutPanel1.TabIndex = 0;
             // 
             // button1
@@ -68,10 +68,11 @@
             button1.ForeColor = Color.White;
             button1.Location = new Point(395, 3);
             button1.Name = "button1";
-            button1.Size = new Size(386, 94);
+            button1.Size = new Size(386, 44);
             button1.TabIndex = 4;
             button1.Text = "Перейти к карточке сотрудника";
             button1.UseVisualStyleBackColor = false;
+            button1.Click += button1_Click;
             // 
             // button5
             // 
@@ -82,7 +83,7 @@
             button5.ForeColor = Color.White;
             button5.Location = new Point(3, 3);
             button5.Name = "button5";
-            button5.Size = new Size(386, 94);
+            button5.Size = new Size(386, 44);
             button5.TabIndex = 3;
             button5.Text = "Закрыть";
             button5.UseVisualStyleBackColor = false;
@@ -132,7 +133,7 @@
             dataGridView1.RowHeadersVisible = false;
             dataGridView1.RowTemplate.DefaultCellStyle.ForeColor = SystemColors.Desktop;
             dataGridView1.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            dataGridView1.Size = new Size(784, 411);
+            dataGridView1.Size = new Size(784, 461);
             dataGridView1.TabIndex = 3;
             // 
             // Column2
@@ -174,6 +175,7 @@
             Name = "ListEmployee";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Список сотрудников";
+            Load += ListEmployee_Load;
             tableLayoutPanel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
             ResumeLayout(false);
