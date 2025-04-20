@@ -379,6 +379,8 @@
             button11 = new Button();
             tableLayoutPanel2 = new TableLayoutPanel();
             button12 = new Button();
+            openFileDialog1 = new OpenFileDialog();
+            saveFileDialog1 = new SaveFileDialog();
             menuStrip1.SuspendLayout();
             toolStrip1.SuspendLayout();
             groupBox2.SuspendLayout();
@@ -631,6 +633,7 @@
             восстановленияToolStripMenuItem.Name = "восстановленияToolStripMenuItem";
             восстановленияToolStripMenuItem.Size = new Size(183, 24);
             восстановленияToolStripMenuItem.Text = "Восстановление";
+            восстановленияToolStripMenuItem.Click += восстановленияToolStripMenuItem_Click;
             // 
             // оПрограммеToolStripMenuItem
             // 
@@ -776,6 +779,7 @@
             toolStripButton6.Name = "toolStripButton6";
             toolStripButton6.Size = new Size(64, 64);
             toolStripButton6.Text = "Получить отчет";
+            toolStripButton6.Click += toolStripButton6_Click;
             // 
             // button5
             // 
@@ -4542,6 +4546,10 @@
             button12.Visible = false;
             button12.Click += button12_Click;
             // 
+            // openFileDialog1
+            // 
+            openFileDialog1.FileName = "openFileDialog1";
+            // 
             // MainWindow
             // 
             AutoScaleDimensions = new SizeF(10F, 19F);
@@ -5042,5 +5050,7 @@
         private Panel panel40;
         private Label label93;
         private Label label94;
+        private OpenFileDialog openFileDialog1;
+        private SaveFileDialog saveFileDialog1;
     }
 }

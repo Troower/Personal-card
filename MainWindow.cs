@@ -1,6 +1,8 @@
 using MySql.Data.MySqlClient;
 using System.ComponentModel;
 using System.Linq;
+using Xceed.Document.NET;
+using Xceed.Words.NET;
 using ZstdSharp.Unsafe;
 
 namespace PersonalCard
@@ -9,13 +11,49 @@ namespace PersonalCard
     {
         string connectionString;
 
-        public MainWindow(string connectionString, string name)
+        public MainWindow(string connectionString, string name, string role)
         {
             InitializeComponent();
             this.connectionString = connectionString;
             toolStripStatusLabel1.Text = name;
+            controlRole(role);
             fillPersonTable();
 
+        }
+
+        private void controlRole(string role)
+        {
+            if (role == "UserHR")
+            {
+                администрированиеToolStripMenuItem.Visible = false;
+                toolStripButton1.Visible = false;
+                toolStripButton3.Visible = false;
+                toolStripButton2.Visible = false;
+                toolStripButton4.Visible = false;
+                добапвитьСотрудникаToolStripMenuItem.Visible = false;
+                редактироватьСотрудникаToolStripMenuItem.Visible = false;
+                удалитьСотрудникаToolStripMenuItem.Visible = false;
+                уволитьСотрудникаToolStripMenuItem.Visible = false;
+                contextMenuStrip1.Enabled = false;
+                contextMenuStrip2.Enabled = false;
+                contextMenuStrip2.Visible = false;
+                contextMenuStrip1.Visible = false;
+                button4.Visible = false;
+                button3.Visible = false;
+                button11.Visible = false;
+                button12.Enabled = false;
+                button12.Dispose();
+                button15.Visible = false;
+                button13.Visible = false;
+                button16.Visible = false;
+                button17.Visible = false;
+                button1.Visible = false;
+
+            }
+            else if (role == "ManagerHR")
+            {
+                администрированиеToolStripMenuItem.Visible = false;
+            }
         }
 
         private void закрытьToolStripMenuItem_Click(object sender, EventArgs e)
@@ -955,7 +993,7 @@ namespace PersonalCard
             {
                 Label label = new Label();
                 label.BackColor = Color.FromArgb(45, 50, 80);
-                label.BorderStyle = BorderStyle.Fixed3D;
+                label.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
                 label.AutoSize = true;
                 label.Text = $"{l.Language_name} - {l.Degree_of_knowledge}";
                 label.ForeColor = Color.White;
@@ -1549,7 +1587,177 @@ namespace PersonalCard
 
         private void созданиеРезервнойКопииToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            saveFileDialog1.Filter = "SQL files (*.sql)|*.sql";
+            if (saveFileDialog1.ShowDialog() != DialogResult.OK) return;
+            string outFile = saveFileDialog1.FileName;
+            ExportBD(connectionString, outFile);
+        }
+        private void восстановленияToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            openFileDialog1.Filter = "SQL files (*.sql)|*.sql";
+            if (openFileDialog1.ShowDialog() != DialogResult.OK) return;
+            string inFile = openFileDialog1.FileName;
+            ImportBD(connectionString, inFile);
+        }
 
+        private void ExportBD(string connectionString, string outfile)
+        {
+            using (MySqlConnection connection = new MySqlConnection(connectionString))
+            {
+                connection.Open();
+                MySqlCommand cmd = connection.CreateCommand();
+                var export = new MySqlBackup(cmd);
+                export.ExportInfo.AddCreateDatabase = false;
+                export.ExportInfo.ExportTableStructure = true;
+                export.ExportInfo.ExportRows = true;
+                export.ExportInfo.ExportFunctions = true;
+                export.ExportInfo.ExportProcedures = true;
+                export.ExportToFile(outfile);
+            }
+        }
+        private void ImportBD(string connectionString, string infile)
+        {
+            using (MySqlConnection connection = new MySqlConnection(connectionString))
+            {
+                ConfigConnection cc = ConfigReader.ReadConfig();
+                connection.Open();
+                MySqlCommand cmd = connection.CreateCommand();
+                var import = new MySqlBackup(cmd);
+                import.ImportInfo.IgnoreSqlError = true;
+                import.ImportFromFile(infile);
+                string sql = "\r\nCREATE FUNCTION CalculateWorkExperience(\r\n    start_date DATE, \r\n    end_date DATE\r\n) \r\nRETURNS INT\r\nDETERMINISTIC\r\nBEGIN\r\n    DECLARE years_worked INT;\r\n    \r\n    IF end_date IS NULL THEN\r\n        SET end_date = CURDATE();\r\n    END IF;\r\n    \r\n    SET years_worked = TIMESTAMPDIFF(YEAR, start_date, end_date);\r\n    RETURN years_worked;\r\nEND;";
+                cmd.CommandText = sql;
+                cmd.ExecuteNonQuery();
+            }
+        }
+
+        private void toolStripButton6_Click(object sender, EventArgs e)
+        {
+            saveFileDialog1.Filter = "doc file (*.docx)|*.docx";
+            saveFileDialog1.ShowDialog();
+            FillTemplate(generalInformation, saveFileDialog1.FileName);
+        }
+        public void FillTemplate(GeneralInformation employee,  string outputPath)
+        {
+            
+            string templatePath = @"..\..\..\T2.docx";
+
+            if (!File.Exists(templatePath))
+                throw new FileNotFoundException($"Шаблон не найден.");
+
+            // Загружаем документ
+            using (var doc = DocX.Load(templatePath))
+            {
+                // Замена простых полей
+
+                doc.ReplaceText("[lastName]", employee.Last_name);
+                doc.ReplaceText("[name]", employee.Name);
+                doc.ReplaceText("[surname]", employee.Surname ?? "");
+                doc.ReplaceText("[dateBirth]", employee.Birthday.ToString("dd.MM.yyyy"));
+                doc.ReplaceText("[placeBirth]", employee.Place_birth);
+                doc.ReplaceText("[citynship]", employee.Citizenship);
+                doc.ReplaceText("[dateCreate]", employee.Date_create_card.ToString("dd.MM.yyyy"));
+                doc.ReplaceText("[numCard]", employee.T_num_card);
+                doc.ReplaceText("[inn]", employee.INN);
+                doc.ReplaceText("[snils]", employee.Num_pensia ?? "");
+                doc.ReplaceText("[alf]", employee.First_char_lastname);
+                doc.ReplaceText("[haracterWork]", employee.Nature_work);
+                doc.ReplaceText("[typeWork]", employee.Type_work);
+                doc.ReplaceText("[male]", employee.Male_Female);
+                if (employee.Languages.Count == 0)
+                {
+                    doc.ReplaceText("[language]", "");
+                    doc.ReplaceText("[lanExp]", "");
+                    doc.ReplaceText("[language2]", "");
+                    doc.ReplaceText("[lanExp2]", "");
+                }
+                else
+                {
+                    doc.ReplaceText("[language]", employee.Languages[0].Language_name);
+                    doc.ReplaceText("[lanExp]", employee.Languages[0].Degree_of_knowledge);
+                    doc.ReplaceText("[language2]", employee.Languages.Count == 1 ? "" : employee.Languages[1].Language_name);
+                    doc.ReplaceText("[lanExp2]", employee.Languages.Count == 1 ? "" : employee.Languages[1].Language_name);
+                }
+                if (employee.Educations.Count == 0)
+                {
+                    doc.ReplaceText("[EducationType]", "");
+                    doc.ReplaceText("[nameEducationOrg]", "");
+                    doc.ReplaceText("[cvalAtEd]", "");
+                    doc.ReplaceText("[nameDocEd]", "");
+                    doc.ReplaceText("[seriaEd]", "");
+                    doc.ReplaceText("[numEd]", "");
+                    doc.ReplaceText("[yearEndEd]", "");
+                    doc.ReplaceText("[specialityEd]", "");
+                    doc.ReplaceText("[nameEducationOrg2]", "");
+                    doc.ReplaceText("[cvalAtEd2]", "");
+                    doc.ReplaceText("[nameDocEd2]", "");
+                    doc.ReplaceText("[seriaEd2]", "");
+                    doc.ReplaceText("[numEd2]", "");
+                    doc.ReplaceText("[yearEndEd2]", "");
+                    doc.ReplaceText("[specialityEd2]", "");
+                }
+                else
+                {
+                    doc.ReplaceText("[EducationType]", employee.Educations[0].Type_education);
+                    doc.ReplaceText("[nameEducationOrg]", employee.Educations[0].Name_orgnisation);
+                    doc.ReplaceText("[cvalAtEd]", employee.Educations[0].Qualification_doc_education);
+                    doc.ReplaceText("[nameDocEd]", employee.Educations[0].Name_doc_education);
+                    doc.ReplaceText("[seriaEd]", employee.Educations[0].Serial_doc_education);
+                    doc.ReplaceText("[numEd]", employee.Educations[0].Num_doc_education);
+                    doc.ReplaceText("[yearEndEd]", employee.Educations[0].Year_end.ToString());
+                    doc.ReplaceText("[specialityEd]", employee.Educations[0].Direction_or_specialty);
+
+                    doc.ReplaceText("[nameEducationOrg2]", employee.Educations.Count > 1 ? employee.Educations[1].Name_orgnisation : "");
+                    doc.ReplaceText("[cvalAtEd2]", employee.Educations.Count > 1 ? employee.Educations[1].Qualification_doc_education : "");
+                    doc.ReplaceText("[nameDocEd2]", employee.Educations.Count > 1 ? employee.Educations[1].Name_doc_education : "");
+                    doc.ReplaceText("[seriaEd2]", employee.Educations.Count > 1 ? employee.Educations[1].Serial_doc_education : "");
+                    doc.ReplaceText("[numEd2]", employee.Educations.Count > 1 ? employee.Educations[1].Num_doc_education : "");
+                    doc.ReplaceText("[yearEndEd2]", employee.Educations.Count > 1 ? employee.Educations[1].Year_end.ToString() : "");
+                    doc.ReplaceText("[specialityEd2]", employee.Educations.Count > 1 ? employee.Educations[1].Direction_or_specialty : "");
+
+                }
+                doc.ReplaceText("[AfterEducationType]", employee.AfterEducation.Type_education);
+                doc.ReplaceText("[nameAfterEducationOrg]", employee.AfterEducation.Name_organisation);
+                doc.ReplaceText("[nameDocAftEd]", employee.AfterEducation.Name_education_docAfter);
+                doc.ReplaceText("[numAfterEduc]", employee.AfterEducation.Num_doc_education);
+                doc.ReplaceText("[yearEndAfterEd]", employee.AfterEducation.Year_end.ToString());
+                doc.ReplaceText("[specialityAfterEd]", employee.AfterEducation.Direction_or_speciality);
+
+
+                doc.ReplaceText("[MainProfession]", employee.Profession.Basic);
+                doc.ReplaceText("[NoMainProfession]", employee.Profession.Another);
+
+                doc.ReplaceText("[Common_day]", employee.WorkExperience.Common_day.ToString());
+                doc.ReplaceText("[Common_month]", employee.WorkExperience.Common_month.ToString());
+                doc.ReplaceText("[Common_year]", employee.WorkExperience.Common_year.ToString());
+                doc.ReplaceText("[Continuous_day]", employee.WorkExperience.Continuous_day.ToString());
+                doc.ReplaceText("[Continuous_month]", employee.WorkExperience.Continuous_month.ToString());
+                doc.ReplaceText("[Continuous_year]", employee.WorkExperience.Continuous_year.ToString());
+                doc.ReplaceText("[Giver_day]", employee.WorkExperience.Giver_day.ToString());
+                doc.ReplaceText("[Giver_month]", employee.WorkExperience.Giver_month.ToString());
+                doc.ReplaceText("[Giver_year]", employee.WorkExperience.Giver_year.ToString());
+
+                doc.ReplaceText("[Marital_status]", employee.Marital_status);
+                Table table = doc.Tables.FirstOrDefault(t =>
+                 t.Rows.Any(r =>
+                    r.Cells.Any(c =>
+                      c.Paragraphs.Any(p => p.Text.Contains("[family_Composition]")))));
+                if(employee.FamilyCompositions)
+                if (table != null)
+                {
+                    table.RemoveRow(2);
+                    foreach (var person in employee.FamilyCompositions)
+                    {
+                        var row = table.InsertRow();
+                        row.Cells[0].Paragraphs[0].Append(person.Degree_of_kinship);
+                        row.Cells[1].Paragraphs[0].Append(person.FIO);
+                        row.Cells[2].Paragraphs[0].Append(person.Date_birth.ToString("dd.MM.yyyy"));
+                    }
+                }
+
+                // Сохраняем результат
+                doc.SaveAs(outputPath);
+            }
         }
     }
 }

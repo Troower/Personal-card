@@ -38,6 +38,7 @@ namespace PersonalCard
             cmd.Parameters.AddWithValue("@login", textBox1.Text);
             string connectionString="";
             string name="";
+            string role = "";
             using (MySqlDataReader reader = cmd.ExecuteReader())
             {
                 if (!reader.HasRows)
@@ -59,12 +60,15 @@ namespace PersonalCard
                     }
                     connectionString= cnf.Server+cnf.Database+"UID="+reader.GetString("role") +";Pwd=;";
                     name = $"Пользователь {reader.GetString("Name")} {reader.GetString("LastName")}";
+                    role = reader.GetString("role");
                 }
             }
             conn.Close();
-            MainWindow mainWindow = new MainWindow(connectionString,name);
+            MainWindow mainWindow = new MainWindow(connectionString,name,role);
             this.Hide();
             mainWindow.ShowDialog();
+            textBox1.Text = "";
+            textBox2.Text = "";
             this.Show();
         }
 
@@ -102,7 +106,7 @@ namespace PersonalCard
                 {
                     while (reader.Read())
                     {
-                        if (reader.GetString(0) == cc.Database.Substring(cc.Database.IndexOf('=') + 1, cc.Database.Substring(cc.Database.IndexOf('=')).Length - 2))
+                        if (reader.GetString(0).ToLower() == cc.Database.Substring(cc.Database.IndexOf('=') + 1, cc.Database.Substring(cc.Database.IndexOf('=')).Length - 2))
                         {
                             conn.Close();
                             return true;

@@ -28,7 +28,7 @@ namespace PersonalCard
             return new ConfigConnection
             {
                 Server = str[0],
-                Database = str[1],
+                Database = str[1].ToLower(),
                 Uid = str[2],
                 Password = str[3]
             };
