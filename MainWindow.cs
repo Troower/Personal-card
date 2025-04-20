@@ -1639,7 +1639,7 @@ namespace PersonalCard
         }
         public void FillTemplate(GeneralInformation employee,  string outputPath)
         {
-            
+            System.Globalization.CultureInfo russianCulture = new System.Globalization.CultureInfo("ru-RU");
             string templatePath = @"..\..\..\T2.docx";
 
             if (!File.Exists(templatePath))
@@ -1716,17 +1716,18 @@ namespace PersonalCard
                     doc.ReplaceText("[specialityEd2]", employee.Educations.Count > 1 ? employee.Educations[1].Direction_or_specialty : "");
 
                 }
-                doc.ReplaceText("[AfterEducationType]", employee.AfterEducation.Type_education);
-                doc.ReplaceText("[nameAfterEducationOrg]", employee.AfterEducation.Name_organisation);
-                doc.ReplaceText("[nameDocAftEd]", employee.AfterEducation.Name_education_docAfter);
-                doc.ReplaceText("[numAfterEduc]", employee.AfterEducation.Num_doc_education);
-                doc.ReplaceText("[yearEndAfterEd]", employee.AfterEducation.Year_end.ToString());
-                doc.ReplaceText("[specialityAfterEd]", employee.AfterEducation.Direction_or_speciality);
+                doc.ReplaceText("[AfterEducationType]",String.IsNullOrEmpty(employee.AfterEducation.Type_education)?"": employee.AfterEducation.Type_education);
+                doc.ReplaceText("[nameAfterEducationOrg]", String.IsNullOrEmpty(employee.AfterEducation.Name_organisation) ? "" :employee.AfterEducation.Name_organisation);
+                doc.ReplaceText("[nameDocAftEd]", String.IsNullOrEmpty(employee.AfterEducation.Name_education_docAfter) ? "" :employee.AfterEducation.Name_education_docAfter);
+                doc.ReplaceText("[numAfterEduc]", String.IsNullOrEmpty(employee.AfterEducation.Num_doc_education) ? "" :employee.AfterEducation.Num_doc_education);
+                doc.ReplaceText("[yearEndAfterEd]", employee.AfterEducation.Year_end==0 ? "" :employee.AfterEducation.Year_end.ToString());
+                doc.ReplaceText("[specialityAfterEd]", String.IsNullOrEmpty(employee.AfterEducation.Direction_or_speciality) ? "" :employee.AfterEducation.Direction_or_speciality);
 
 
-                doc.ReplaceText("[MainProfession]", employee.Profession.Basic);
-                doc.ReplaceText("[NoMainProfession]", employee.Profession.Another);
+                doc.ReplaceText("[MainProfession]", String.IsNullOrEmpty(employee.Profession.Basic)?"":employee.Profession.Basic);
+                doc.ReplaceText("[NoMainProfession]", String.IsNullOrEmpty(employee.Profession.Another)?"":employee.Profession.Another);
 
+                if (employee.WorkExperience != null) { 
                 doc.ReplaceText("[Common_day]", employee.WorkExperience.Common_day.ToString());
                 doc.ReplaceText("[Common_month]", employee.WorkExperience.Common_month.ToString());
                 doc.ReplaceText("[Common_year]", employee.WorkExperience.Common_year.ToString());
@@ -1736,26 +1737,452 @@ namespace PersonalCard
                 doc.ReplaceText("[Giver_day]", employee.WorkExperience.Giver_day.ToString());
                 doc.ReplaceText("[Giver_month]", employee.WorkExperience.Giver_month.ToString());
                 doc.ReplaceText("[Giver_year]", employee.WorkExperience.Giver_year.ToString());
-
+                }
+                else
+                {
+                doc.ReplaceText("[Common_day]", "");
+                doc.ReplaceText("[Common_month]", "");
+                doc.ReplaceText("[Common_year]", "");
+                doc.ReplaceText("[Continuous_day]", "");
+                doc.ReplaceText("[Continuous_month]", "");
+                doc.ReplaceText("[Continuous_year]", "");
+                doc.ReplaceText("[Giver_day]", "");
+                doc.ReplaceText("[Giver_month]", "");
+                doc.ReplaceText("[Giver_year]", "");
+                }
                 doc.ReplaceText("[Marital_status]", employee.Marital_status);
+
+
                 Table table = doc.Tables.FirstOrDefault(t =>
                  t.Rows.Any(r =>
                     r.Cells.Any(c =>
                       c.Paragraphs.Any(p => p.Text.Contains("[family_Composition]")))));
-                if(employee.FamilyCompositions)
-                if (table != null)
+                if (employee.FamilyCompositions.Count == 0)
                 {
                     table.RemoveRow(2);
-                    foreach (var person in employee.FamilyCompositions)
+                    table.InsertRow();
+                    table.InsertRow();
+                    table.InsertRow();
+                    table.InsertRow();
+                    table.InsertRow();
+                }
+                else
+                {
+                    if (table != null)
                     {
-                        var row = table.InsertRow();
-                        row.Cells[0].Paragraphs[0].Append(person.Degree_of_kinship);
-                        row.Cells[1].Paragraphs[0].Append(person.FIO);
-                        row.Cells[2].Paragraphs[0].Append(person.Date_birth.ToString("dd.MM.yyyy"));
+                        int a = 5;
+                        table.RemoveRow(2);
+                        foreach (var person in employee.FamilyCompositions)
+                        {
+                            var row = table.InsertRow();
+                            row.Cells[0].Paragraphs[0].Append(person.Degree_of_kinship).FontSize(8);
+                            row.Cells[1].Paragraphs[0].Append(person.FIO).FontSize(8);
+                            row.Cells[2].Paragraphs[0].Append(person.Date_birth.ToString("dd.MM.yyyy")).FontSize(8);
+                            a--;
+                        }
+                        while (a > 0)
+                        {
+                            table.InsertRow();
+                            a--;
+                        }
+                    }
+                }
+                doc.ReplaceText("[Serial_passport]", employee.Serial_passport);
+                doc.ReplaceText("[Num_passport]", employee.Nam_passport);
+                doc.ReplaceText("[pass_day]", employee.Date_give_passport.Day.ToString());
+                doc.ReplaceText("[pass_month]", employee.Date_give_passport.ToString("MMMM",russianCulture));
+                doc.ReplaceText("[pass_year]", employee.Date_give_passport.ToString("yyyy"));
+                doc.ReplaceText("[Who_give]", employee.Who_give);
+
+                if (HasData(employee.Address)) { 
+                doc.ReplaceText("[IndexReg]", employee.Address.Index_by_register);
+                doc.ReplaceText("[Reg]", employee.Address.By_registration);
+                doc.ReplaceText("[IndexAct]", employee.Address.Index_actual);
+                doc.ReplaceText("[Act]", employee.Address.Actual);
+                doc.ReplaceText("[reg_day]", employee.Address.Date_registration.Day.ToString());
+                doc.ReplaceText("[reg_month]", employee.Address.Date_registration.ToString("MMMM", russianCulture));
+                doc.ReplaceText("[reg_year]", employee.Address.Date_registration.ToString("yyyy"));
+                }
+                else
+                {
+                    doc.ReplaceText("[IndexReg]", "");
+                    doc.ReplaceText("[Reg]", ".");
+                    doc.ReplaceText("[IndexAct]", "");
+                    doc.ReplaceText("[Act]", ".");
+                    doc.ReplaceText("[reg_day]", "");
+                    doc.ReplaceText("[reg_month]", "");
+                    doc.ReplaceText("[reg_year]", "");
+                }
+                doc.ReplaceText("[NumberPhone]", employee.Number_phone);
+                if (HasData(employee.MilitaryRegistration))
+                {
+                    doc.ReplaceText("[cat]", employee.MilitaryRegistration.Category);
+                    doc.ReplaceText("[rang]", employee.MilitaryRegistration.Military_rank);
+                    doc.ReplaceText("[struct]", employee.MilitaryRegistration.Structure);
+                    doc.ReplaceText("[codems]", employee.MilitaryRegistration.Code_mas);
+                    doc.ReplaceText("[catlife]", employee.MilitaryRegistration.Category_life);
+                    doc.ReplaceText("[namecom]", employee.MilitaryRegistration.Military_commissariat_name);
+                    doc.ReplaceText("[nametype]", employee.MilitaryRegistration.Name_type);
+                    doc.ReplaceText("[metka]", employee.MilitaryRegistration.De_registration);
+                }
+                else
+                {
+                    doc.ReplaceText("[cat]", "");
+                    doc.ReplaceText("[rang]", "");
+                    doc.ReplaceText("[struct]", "");
+                    doc.ReplaceText("[codems]", "");
+                    doc.ReplaceText("[catlife]", "");
+                    doc.ReplaceText("[namecom]", "");
+                    doc.ReplaceText("[nametype]", "");
+                    doc.ReplaceText("[metka]", "");
+                }
+
+                table = doc.Tables.FirstOrDefault(t =>
+                t.Rows.Any(r =>
+                   r.Cells.Any(c =>
+                     c.Paragraphs.Any(p => p.Text.Contains("[hirringTr]")))));
+                if (employee.HiringTransfers.Count == 0)
+                {
+                    table.RemoveRow(2);
+                    table.InsertRow();
+                    table.InsertRow();
+                    table.InsertRow();
+                    table.InsertRow();
+                    table.InsertRow();
+                    table.InsertRow();
+                    table.InsertRow();
+                    table.InsertRow();
+                    table.InsertRow();
+                    table.InsertRow();
+                }
+                else
+                {
+                    if (table != null)
+                    {
+                        int a = 10;
+                        table.RemoveRow(2);
+                        foreach (var transfer in employee.HiringTransfers)
+                        {
+                            var row = table.InsertRow();
+                            row.Cells[0].Paragraphs[0].Append(transfer.Date.ToString("dd.mm.yy")).FontSize(9);
+                            row.Cells[1].Paragraphs[0].Append(transfer.Struct).FontSize(9);
+                            row.Cells[2].Paragraphs[0].Append(transfer.Position_category).FontSize(9);
+                            row.Cells[3].Paragraphs[0].Append(transfer.Tariff_rate.ToString()).FontSize(9);
+                            row.Cells[4].Paragraphs[0].Append(transfer.Reason).FontSize(9);
+                            row.Cells[5].Paragraphs[0].Append("").FontSize(9);
+                            a--;
+                        }
+                        while (a > 0)
+                        {
+                            table.InsertRow();
+                            a--;
+                        }
                     }
                 }
 
-                // Сохраняем результат
+
+                table = doc.Tables.FirstOrDefault(t =>
+                t.Rows.Any(r =>
+                   r.Cells.Any(c =>
+                     c.Paragraphs.Any(p => p.Text.Contains("[certif]")))));
+                if (employee.Certifications.Count == 0)
+                {
+                    table.RemoveRow(3);
+                    table.InsertRow();
+                    table.InsertRow();
+                    table.InsertRow();
+                    table.InsertRow();
+                    table.InsertRow();
+                    
+                }
+                else
+                {
+                    if (table != null)
+                    {
+                        int a = 5;
+                        table.RemoveRow(3);
+                        foreach (var cr in employee.Certifications)
+                        {
+                            var row = table.InsertRow();
+                            row.Cells[0].Paragraphs[0].Append(cr.Date_att.ToString("dd.MM.yy")).FontSize(8);
+                            row.Cells[1].Paragraphs[0].Append(cr.Decision).FontSize(9);
+                            row.Cells[2].Paragraphs[0].Append(cr.Num_doc).FontSize(9);
+                            row.Cells[3].Paragraphs[0].Append(cr.Date_doc.ToString("dd.MM.yy")).FontSize(8);
+                            row.Cells[4].Paragraphs[0].Append(cr.Reason).FontSize(9);
+                            
+                            a--;
+                        }
+                        while (a > 0)
+                        {
+                            table.InsertRow();
+                            a--;
+                        }
+                    }
+                }
+
+                table = doc.Tables.FirstOrDefault(t =>
+                t.Rows.Any(r =>
+                   r.Cells.Any(c =>
+                     c.Paragraphs.Any(p => p.Text.Contains("[profcval]")))));
+                if (employee.ProfessionalDevelopments.Count == 0)
+                {
+                    table.RemoveRow(4);
+                    table.InsertRow().MergeCells(5, 6); 
+                    table.InsertRow().MergeCells(5, 6);
+                    table.InsertRow().MergeCells(5, 6);
+                    table.InsertRow().MergeCells(5, 6);
+                    table.InsertRow().MergeCells(5, 6);
+
+                }
+                else
+                {
+                    if (table != null)
+                    {
+                        int a = 5;
+                        table.RemoveRow(4);
+                        foreach (var cr in employee.ProfessionalDevelopments)
+                        {
+                            var row = table.InsertRow();
+                            row.Cells[0].Paragraphs[0].Append(cr.Date_start.ToString("dd.MM.yy")).FontSize(8);
+                            row.Cells[1].Paragraphs[0].Append(cr.Date_end.ToString("dd.MM.yy")).FontSize(8);
+                            row.Cells[2].Paragraphs[0].Append(cr.Type_cvalification).FontSize(8);
+                            row.Cells[3].Paragraphs[0].Append(cr.Name_education_company).FontSize(8);
+                            row.Cells[4].Paragraphs[0].Append(cr.Name_doc).FontSize(8);
+                            row.Cells[5].Paragraphs[0].Append(cr.Num_doc+" "+cr.Ser_doc).FontSize(8);
+                            row.Cells[7].Paragraphs[0].Append(cr.Date_give_doc.ToString("dd.MM.yy")).FontSize(8);
+                            row.Cells[8].Paragraphs[0].Append(cr.Reason).FontSize(8);
+                            row.MergeCells(5, 6);
+                            a--;
+                        }
+                        while (a > 0)
+                        {
+                            table.InsertRow().MergeCells(5, 6);
+                            a--;
+                        }
+                    }
+                }
+
+                table = doc.Tables.FirstOrDefault(t =>
+                t.Rows.Any(r =>
+                   r.Cells.Any(c =>
+                     c.Paragraphs.Any(p => p.Text.Contains("[profper]")))));
+                if (employee.ProfessionalRetrainings.Count == 0)
+                {
+                    table.RemoveRow(3);
+                    table.InsertRow();
+                    table.InsertRow();
+                    table.InsertRow();
+                    table.InsertRow();
+                    table.InsertRow();
+
+                }
+                else
+                {
+                    if (table != null)
+                    {
+                        int a = 5;
+                        table.RemoveRow(3);
+                        foreach (var cr in employee.ProfessionalRetrainings)
+                        {
+                            var row = table.InsertRow();
+                            row.Cells[0].Paragraphs[0].Append(cr.Date_start.ToString("dd.MM.yy")).FontSize(8);
+                            row.Cells[1].Paragraphs[0].Append(cr.Date_end.ToString("dd.MM.yy")).FontSize(8);
+                            row.Cells[2].Paragraphs[0].Append(cr.Speciality).FontSize(8);
+                            row.Cells[3].Paragraphs[0].Append(cr.Name_doc).FontSize(8);
+                            row.Cells[4].Paragraphs[0].Append(cr.Num_doc ).FontSize(8);
+                            row.Cells[5].Paragraphs[0].Append(cr.Date_give_doc.ToString("dd.MM.yy")).FontSize(8);
+                            row.Cells[6].Paragraphs[0].Append(cr.Reason).FontSize(8);
+                            a--;
+                        }
+                        while (a > 0)
+                        {
+                            table.InsertRow();
+                            a--;
+                        }
+                    }
+                }
+
+                table = doc.Tables.FirstOrDefault(t =>
+                t.Rows.Any(r =>
+                   r.Cells.Any(c =>
+                     c.Paragraphs.Any(p => p.Text.Contains("[award]")))));
+                if (employee.Awards.Count == 0)
+                {
+                    table.RemoveRow(3);
+                    table.InsertRow();
+                    table.InsertRow();
+                    table.InsertRow();
+                    table.InsertRow();
+                    table.InsertRow();
+
+                }
+                else
+                {
+                    if (table != null)
+                    {
+                        int a = 5;
+                        table.RemoveRow(3);
+                        foreach (var cr in employee.Awards)
+                        {
+                            var row = table.InsertRow();
+                            row.Cells[0].Paragraphs[0].Append(cr.Name_reward).FontSize(8);
+                            row.Cells[1].Paragraphs[0].Append(cr.Name_doc).FontSize(8);
+                            row.Cells[2].Paragraphs[0].Append(cr.Num_doc).FontSize(8);
+                            row.Cells[3].Paragraphs[0].Append(cr.Date_give_doc.ToString("dd.MM.yy")).FontSize(8);
+                            
+                            a--;
+                        }
+                        while (a > 0)
+                        {
+                            table.InsertRow();
+                            a--;
+                        }
+                    }
+                }
+
+                table = doc.Tables.FirstOrDefault(t =>
+                t.Rows.Any(r =>
+                   r.Cells.Any(c =>
+                     c.Paragraphs.Any(p => p.Text.Contains("[vacation]")))));
+                if (employee.Vacations.Count == 0)
+                {
+                    table.RemoveRow(3);
+                    table.InsertRow();
+                    table.InsertRow();
+                    table.InsertRow();
+                    table.InsertRow();
+                    table.InsertRow();
+                    table.InsertRow();
+                    table.InsertRow();
+                    table.InsertRow();
+                    table.InsertRow();
+                    table.InsertRow();
+
+                }
+                else
+                {
+                    if (table != null)
+                    {
+                        int a = 10;
+                        table.RemoveRow(3);
+                        foreach (var cr in employee.Vacations)
+                        {
+                            var row = table.InsertRow();
+                            row.Cells[0].Paragraphs[0].Append(cr.Type_vacation).FontSize(8);
+                            row.Cells[1].Paragraphs[0].Append(cr.Period_work_start.ToString("dd.MM.yy")).FontSize(8);
+                            row.Cells[2].Paragraphs[0].Append(cr.Period_work_end.ToString().Split(' ')[0] ??"").FontSize(8);
+                            row.Cells[3].Paragraphs[0].Append(cr.Quantity_day.ToString()).FontSize(8);
+                            row.Cells[4].Paragraphs[0].Append(cr.Date_start.ToString("dd.MM.yy")).FontSize(8);
+                            row.Cells[5].Paragraphs[0].Append(cr.Date_end.ToString().Split(' ')[0] ?? "").FontSize(8);
+                            row.Cells[6].Paragraphs[0].Append(cr.Reason).FontSize(8);
+                            a--;
+                        }
+                        while (a > 0)
+                        {
+                            table.InsertRow();
+                            a--;
+                        }
+                    }
+                }
+
+                table = doc.Tables.FirstOrDefault(t =>
+               t.Rows.Any(r =>
+                  r.Cells.Any(c =>
+                    c.Paragraphs.Any(p => p.Text.Contains("[benefit]")))));
+                if (employee.SocialBenefits.Count == 0)
+                {
+                    table.RemoveRow(3);
+                    table.InsertRow();
+                    table.InsertRow();
+                    table.InsertRow();
+                    table.InsertRow();
+                    table.InsertRow();
+
+                }
+                else
+                {
+                    if (table != null)
+                    {
+                        int a = 5;
+                        table.RemoveRow(3);
+                        foreach (var cr in employee.SocialBenefits)
+                        {
+                            var row = table.InsertRow();
+                            row.Cells[0].Paragraphs[0].Append(cr.Name_benefit).FontSize(8);
+                            row.Cells[1].Paragraphs[0].Append(cr.Num_doc).FontSize(8);
+                            row.Cells[2].Paragraphs[0].Append(cr.Date_give_doc.ToString("dd.MM.yy")).FontSize(8);
+                            row.Cells[3].Paragraphs[0].Append(cr.Reason).FontSize(8);
+
+                            a--;
+                        }
+                        while (a > 0)
+                        {
+                            table.InsertRow();
+                            a--;
+                        }
+                    }
+                }
+                table = doc.Tables.FirstOrDefault(t =>
+              t.Rows.Any(r =>
+                 r.Cells.Any(c =>
+                   c.Paragraphs.Any(p => p.Text.Contains("[addit]")))));
+                if (employee.AdditionalInformations.Count == 0)
+                {
+                    table.InsertRow();
+                    table.RemoveRow(0);
+                    table.InsertRow();
+                    table.InsertRow();
+                }
+                else
+                {
+                    if (table != null)
+                    {
+                        int a = 5;
+                        int i = 1;
+                        var rowo = table.InsertRow();
+                        rowo.Cells[0].Paragraphs[0].Append(employee.AdditionalInformations[0].Information).FontSize(8);
+                        table.RemoveRow(0);
+                        foreach (var cr in employee.AdditionalInformations)
+                        {
+                            if (i-- == 1) continue;
+                            var row = table.InsertRow();
+                            row.Cells[0].Paragraphs[0].Append(cr.Information).FontSize(8);
+                            a--;
+                        }
+                        while (a > 0)
+                        {
+                            table.InsertRow();
+                            a--;
+                        }
+                    }
+                }
+
+                if (HasData(employee.Dismissal))
+                {
+                    doc.ReplaceText("[resDis]", employee.Dismissal.Reason);
+                    doc.ReplaceText("[dis_d]", employee.Dismissal.Date_dismiss.Day.ToString());
+                    doc.ReplaceText("[dis_m]", employee.Dismissal.Date_dismiss.ToString("MMMM", russianCulture));
+                    doc.ReplaceText("[dis_y]", employee.Dismissal.Date_dismiss.ToString("yy"));
+                    doc.ReplaceText("[numOrder]", employee.Dismissal.Num_order);
+                    doc.ReplaceText("[ord_d]", employee.Dismissal.Date_order.Day.ToString());
+                    doc.ReplaceText("[ord_m]", employee.Dismissal.Date_order.ToString("MMMM", russianCulture));
+                    doc.ReplaceText("[ord_y]", employee.Dismissal.Date_order.ToString("yy"));
+                }
+                else
+                {
+                    doc.ReplaceText("[resDis]", "");
+                    doc.ReplaceText("[dis_d]", "");
+                    doc.ReplaceText("[dis_m]", "");
+                    doc.ReplaceText("[id_y]", "");
+                    doc.ReplaceText("[numOrder]", "");
+                    doc.ReplaceText("[ord_d]", "");
+                    doc.ReplaceText("[ord_m]", "");
+                    doc.ReplaceText("[ord_y]", "");
+                }
+
+
+
+
                 doc.SaveAs(outputPath);
             }
         }

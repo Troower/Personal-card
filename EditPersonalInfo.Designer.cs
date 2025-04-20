@@ -87,6 +87,8 @@
             textBox16 = new TextBox();
             label11 = new Label();
             textBox17 = new TextBox();
+            label20 = new Label();
+            dateTimePicker4 = new DateTimePicker();
             button4 = new Button();
             tableLayoutPanel1.SuspendLayout();
             groupBox1.SuspendLayout();
@@ -309,7 +311,7 @@
             // comboBox2
             // 
             comboBox2.FormattingEnabled = true;
-            comboBox2.Items.AddRange(new object[] { "Подвижной", "Разъездной", "В пути", "Выполнение работы на дому", "Работа в полевых условиях", "Сезонный характер работы", "Выполнение временных работ", "Дистанционная работа" });
+            comboBox2.Items.AddRange(new object[] { "Постоянно", "Подвижной", "Разъездной", "В пути", "Выполнение работы на дому", "Работа в полевых условиях", "Сезонный характер работы", "Выполнение временных работ", "Дистанционная работа" });
             comboBox2.Location = new Point(3, 397);
             comboBox2.Margin = new Padding(3, 3, 3, 10);
             comboBox2.Name = "comboBox2";
@@ -535,9 +537,9 @@
             groupBox10.Controls.Add(listBox1);
             groupBox10.Controls.Add(tableLayoutPanel2);
             groupBox10.ForeColor = Color.White;
-            groupBox10.Location = new Point(287, 268);
+            groupBox10.Location = new Point(287, 308);
             groupBox10.Name = "groupBox10";
-            groupBox10.Size = new Size(484, 345);
+            groupBox10.Size = new Size(484, 305);
             groupBox10.TabIndex = 12;
             groupBox10.TabStop = false;
             groupBox10.Text = "Язык";
@@ -551,7 +553,7 @@
             listBox1.ItemHeight = 21;
             listBox1.Location = new Point(3, 25);
             listBox1.Name = "listBox1";
-            listBox1.Size = new Size(219, 317);
+            listBox1.Size = new Size(219, 277);
             listBox1.TabIndex = 0;
             // 
             // tableLayoutPanel2
@@ -570,7 +572,7 @@
             tableLayoutPanel2.RowStyles.Add(new RowStyle(SizeType.Percent, 25F));
             tableLayoutPanel2.RowStyles.Add(new RowStyle(SizeType.Percent, 25F));
             tableLayoutPanel2.RowStyles.Add(new RowStyle(SizeType.Percent, 25F));
-            tableLayoutPanel2.Size = new Size(259, 317);
+            tableLayoutPanel2.Size = new Size(259, 277);
             tableLayoutPanel2.TabIndex = 1;
             tableLayoutPanel2.Paint += tableLayoutPanel2_Paint;
             // 
@@ -579,7 +581,7 @@
             comboBox4.Dock = DockStyle.Fill;
             comboBox4.FormattingEnabled = true;
             comboBox4.Items.AddRange(new object[] { "Владею свободно", "Читаю и могу объясняться", "Читаю и перевожу со словарем" });
-            comboBox4.Location = new Point(3, 82);
+            comboBox4.Location = new Point(3, 72);
             comboBox4.Margin = new Padding(3, 3, 3, 10);
             comboBox4.Name = "comboBox4";
             comboBox4.Size = new Size(253, 29);
@@ -593,10 +595,10 @@
             button5.BackgroundImageLayout = ImageLayout.Stretch;
             button5.Dock = DockStyle.Fill;
             button5.ForeColor = Color.White;
-            button5.Location = new Point(4, 164);
+            button5.Location = new Point(4, 144);
             button5.Margin = new Padding(4, 6, 4, 6);
             button5.Name = "button5";
-            button5.Size = new Size(251, 67);
+            button5.Size = new Size(251, 57);
             button5.TabIndex = 8;
             button5.Text = "Добавить";
             button5.UseVisualStyleBackColor = false;
@@ -609,10 +611,10 @@
             button3.BackgroundImageLayout = ImageLayout.Stretch;
             button3.Dock = DockStyle.Fill;
             button3.ForeColor = Color.White;
-            button3.Location = new Point(4, 243);
+            button3.Location = new Point(4, 213);
             button3.Margin = new Padding(4, 6, 4, 6);
             button3.Name = "button3";
-            button3.Size = new Size(251, 68);
+            button3.Size = new Size(251, 58);
             button3.TabIndex = 9;
             button3.Text = "Удалить";
             button3.UseVisualStyleBackColor = false;
@@ -633,7 +635,7 @@
             groupBox3.ForeColor = Color.WhiteSmoke;
             groupBox3.Location = new Point(290, -4);
             groupBox3.Name = "groupBox3";
-            groupBox3.Size = new Size(481, 269);
+            groupBox3.Size = new Size(481, 318);
             groupBox3.TabIndex = 13;
             groupBox3.TabStop = false;
             groupBox3.Text = "Место проживания";
@@ -648,11 +650,13 @@
             flowLayoutPanel3.Controls.Add(textBox16);
             flowLayoutPanel3.Controls.Add(label11);
             flowLayoutPanel3.Controls.Add(textBox17);
+            flowLayoutPanel3.Controls.Add(label20);
+            flowLayoutPanel3.Controls.Add(dateTimePicker4);
             flowLayoutPanel3.Dock = DockStyle.Fill;
             flowLayoutPanel3.FlowDirection = FlowDirection.TopDown;
             flowLayoutPanel3.Location = new Point(3, 25);
             flowLayoutPanel3.Name = "flowLayoutPanel3";
-            flowLayoutPanel3.Size = new Size(475, 241);
+            flowLayoutPanel3.Size = new Size(475, 290);
             flowLayoutPanel3.TabIndex = 0;
             // 
             // label8
@@ -722,6 +726,22 @@
             textBox17.PlaceholderText = "Индекс фактического";
             textBox17.Size = new Size(177, 29);
             textBox17.TabIndex = 14;
+            // 
+            // label20
+            // 
+            label20.AutoSize = true;
+            label20.Location = new Point(3, 224);
+            label20.Name = "label20";
+            label20.Size = new Size(146, 21);
+            label20.TabIndex = 15;
+            label20.Text = "Дата регистрации*";
+            // 
+            // dateTimePicker4
+            // 
+            dateTimePicker4.Location = new Point(3, 248);
+            dateTimePicker4.Name = "dateTimePicker4";
+            dateTimePicker4.Size = new Size(257, 29);
+            dateTimePicker4.TabIndex = 20;
             // 
             // button4
             // 
@@ -836,5 +856,7 @@
         private TextBox textBox13;
         private Label label19;
         private DateTimePicker dateTimePicker3;
+        private Label label20;
+        private DateTimePicker dateTimePicker4;
     }
 }

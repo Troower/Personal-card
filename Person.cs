@@ -155,6 +155,7 @@ namespace PersonalCard
                         address.Date_registration = reader.GetDateTime("date_registration");
                         address.ID_empl = employeeId;
                     }
+                    
                 }
             }
             return address;
