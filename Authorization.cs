@@ -79,6 +79,7 @@ namespace PersonalCard
 
         private void Authorization_Load(object sender, EventArgs e)
         {
+            try { 
             ConfigConnection cc = ConfigReader.ReadConfig();
             if (checkDatabase() == false)
             {
@@ -88,6 +89,7 @@ namespace PersonalCard
                     createDB();
                 }
             }
+            } catch (MySqlException ex){ MessageBox.Show(ex.Code==0?"Сервер не доступен": ex.Message, "Ошибка",MessageBoxButtons.OK,MessageBoxIcon.Error);Application.Exit(); }
         }
 
 
