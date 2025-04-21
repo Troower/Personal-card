@@ -27,7 +27,7 @@ namespace PersonalCard
             textBox2.Text = generalInformation.Name;
             textBox1.Text = generalInformation.Last_name;
             textBox3.Text = generalInformation.Surname;
-            dateTimePicker1.Value = generalInformation.Birthday;
+            dateTimePicker1.Value = generalInformation.Birthday <= dateTimePicker4.MinDate ? DateTime.Now : generalInformation.Birthday;
             textBox4.Text = generalInformation.Place_birth;
             textBox5.Text = generalInformation.Citizenship;
             comboBox1.Text = generalInformation.Male_Female;
@@ -36,7 +36,7 @@ namespace PersonalCard
             comboBox5.Text = generalInformation.Marital_status;
             textBox6.Text = generalInformation.Nam_passport;
             textBox7.Text = generalInformation.Serial_passport;
-            dateTimePicker2.Value = generalInformation.Date_give_passport;
+            dateTimePicker2.Value = generalInformation.Date_give_passport <= dateTimePicker4.MinDate ? DateTime.Now : generalInformation.Date_give_passport;
             textBox9.Text = generalInformation.Who_give;
             textBox10.Text = generalInformation.INN;
             textBox11.Text = generalInformation.Num_pensia;
@@ -46,8 +46,8 @@ namespace PersonalCard
             textBox15.Text = generalInformation.Address.Index_by_register;
             textBox8.Text= generalInformation.Number_phone ;
             textBox13.Text = generalInformation.T_num_card;
-            dateTimePicker3.Value=generalInformation.Hirring_date;
-            dateTimePicker4.Value=generalInformation.Address.Date_registration;
+            dateTimePicker3.Value=generalInformation.Hirring_date <= dateTimePicker4.MinDate ? DateTime.Now :generalInformation.Hirring_date;
+            dateTimePicker4.Value=generalInformation.Address.Date_registration<=dateTimePicker4.MinDate?DateTime.Now: generalInformation.Address.Date_registration;
             listBox1.Controls.Clear();
             foreach (LanguageInf l in generalInformation.Languages)
             {
@@ -293,7 +293,7 @@ namespace PersonalCard
 
         private void button3_Click(object sender, EventArgs e)
         {
-            if (listBox1.Items.Count == 0) return;
+            if (listBox1.Items.Count == 0||listBox1.SelectedIndex==-1) return;
             listBox1.Items.RemoveAt(listBox1.SelectedIndex);
         }
 

@@ -299,9 +299,15 @@ namespace PersonalCard
                     connection.Open();
                     MySqlCommand cmd = new MySqlCommand(sql, connection);
                     cmd.ExecuteNonQuery();
+                    sql= $"DELETE FROM Address_Of_Residence WHERE ID_empl ={inf.ID_empl}";
+                    cmd.CommandText=sql;
+                    cmd.ExecuteNonQuery();
                     connection.Clone();
+                    inf.Address.ID_empl = inf.ID_empl;
+                    new AddressOfResidenceRepository(connectionString).Insert(inf.Address);
                     foreach (LanguageInf lg in inf.Languages)
                         new LanguageRepository(connectionString).Insert(lg);
+                    
                 }).ShowDialog();
                 reLoadPerson();
                 return;
@@ -747,6 +753,7 @@ namespace PersonalCard
             new FAQ().ShowDialog();
         }
 
+        //Транзакция
         private void toolStripButton1_Click(object sender, EventArgs e)
         {
 
@@ -766,6 +773,20 @@ namespace PersonalCard
                         idEm = Convert.ToInt32(cmd.ExecuteScalar());
                         general.ID_empl = idEm;
                         cmd.Parameters.Clear();
+                        string sql = $"DELETE FROM Language WHERE ID_empl ={general.ID_empl}";
+                        cmd.ExecuteNonQuery();
+                        sql = $"DELETE FROM Address_Of_Residence WHERE ID_empl ={general.ID_empl}";
+                        cmd.CommandText = sql;
+                        cmd.ExecuteNonQuery();
+                        general.Address.ID_empl = general.ID_empl;
+                        new AddressOfResidenceRepository(connectionString).Insert(general.Address,cmd);
+                        cmd.Parameters.Clear();
+                        foreach (LanguageInf lg in general.Languages) {
+                            lg.ID_empl = general.ID_empl;
+                            new LanguageRepository(connectionString).Insert(lg,cmd);
+                            cmd.Parameters.Clear();
+                        }
+                        cmd.Parameters.Clear();
                         if (general.Profession != null)
                         {
                             general.Profession.ID_empl = general.ID_empl;
@@ -775,7 +796,6 @@ namespace PersonalCard
                             new WorkExperienceRepository(connectionString).Insert(general.WorkExperience, cmd);
                             cmd.Parameters.Clear();
                         }
-
                         if (general.SocialBenefits != null)
                         {
                             foreach (SocialBenefitInf i in general.SocialBenefits)
@@ -1582,6 +1602,7 @@ namespace PersonalCard
                     tabControl2.SelectTab(0);
                     return;
                 }
+                splitContainer1.Panel1Collapsed = false;
             }
         }
 
@@ -1625,16 +1646,17 @@ namespace PersonalCard
                 var import = new MySqlBackup(cmd);
                 import.ImportInfo.IgnoreSqlError = true;
                 import.ImportFromFile(infile);
-                string sql = "\r\nCREATE FUNCTION CalculateWorkExperience(\r\n    start_date DATE, \r\n    end_date DATE\r\n) \r\nRETURNS INT\r\nDETERMINISTIC\r\nBEGIN\r\n    DECLARE years_worked INT;\r\n    \r\n    IF end_date IS NULL THEN\r\n        SET end_date = CURDATE();\r\n    END IF;\r\n    \r\n    SET years_worked = TIMESTAMPDIFF(YEAR, start_date, end_date);\r\n    RETURN years_worked;\r\nEND;";
+                string sql = "\r\nDROP FUNCTION IF EXISTS CalculateWorkExperience ; CREATE FUNCTION CalculateWorkExperience(\r\n    start_date DATE, \r\n    end_date DATE\r\n) \r\nRETURNS INT\r\nDETERMINISTIC\r\nBEGIN\r\n    DECLARE years_worked INT;\r\n    \r\n    IF end_date IS NULL THEN\r\n        SET end_date = CURDATE();\r\n    END IF;\r\n    \r\n    SET years_worked = TIMESTAMPDIFF(YEAR, start_date, end_date);\r\n    RETURN years_worked;\r\nEND;";
                 cmd.CommandText = sql;
                 cmd.ExecuteNonQuery();
+                fillPersonTable();
             }
         }
 
         private void toolStripButton6_Click(object sender, EventArgs e)
         {
             saveFileDialog1.Filter = "doc file (*.docx)|*.docx";
-            saveFileDialog1.ShowDialog();
+            if (saveFileDialog1.ShowDialog() != DialogResult.OK) return; 
             FillTemplate(generalInformation, saveFileDialog1.FileName);
         }
         public void FillTemplate(GeneralInformation employee,  string outputPath)
@@ -2173,7 +2195,7 @@ namespace PersonalCard
                     doc.ReplaceText("[resDis]", "");
                     doc.ReplaceText("[dis_d]", "");
                     doc.ReplaceText("[dis_m]", "");
-                    doc.ReplaceText("[id_y]", "");
+                    doc.ReplaceText("[dis_y]", "");
                     doc.ReplaceText("[numOrder]", "");
                     doc.ReplaceText("[ord_d]", "");
                     doc.ReplaceText("[ord_m]", "");

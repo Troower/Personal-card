@@ -951,6 +951,7 @@
             toolStripMenuItem4.Name = "toolStripMenuItem4";
             toolStripMenuItem4.Size = new Size(232, 22);
             toolStripMenuItem4.Text = "Удалить пользователя";
+            toolStripMenuItem4.Click += toolStripButton2_Click;
             // 
             // button4
             // 
