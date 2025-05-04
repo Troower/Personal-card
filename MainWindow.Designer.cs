@@ -663,6 +663,7 @@
             руководствоПользователяToolStripMenuItem.Name = "руководствоПользователяToolStripMenuItem";
             руководствоПользователяToolStripMenuItem.Size = new Size(253, 24);
             руководствоПользователяToolStripMenuItem.Text = "Руководство пользователя";
+            руководствоПользователяToolStripMenuItem.Click += руководствоПользователяToolStripMenuItem_Click;
             // 
             // toolStrip1
             // 

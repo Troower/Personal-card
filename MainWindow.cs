@@ -1,5 +1,6 @@
 using MySql.Data.MySqlClient;
 using System.ComponentModel;
+using System.Diagnostics;
 using System.Linq;
 using Xceed.Document.NET;
 using Xceed.Words.NET;
@@ -306,15 +307,15 @@ namespace PersonalCard
                     connection.Open();
                     MySqlCommand cmd = new MySqlCommand(sql, connection);
                     cmd.ExecuteNonQuery();
-                    sql= $"DELETE FROM Address_Of_Residence WHERE ID_empl ={inf.ID_empl}";
-                    cmd.CommandText=sql;
+                    sql = $"DELETE FROM Address_Of_Residence WHERE ID_empl ={inf.ID_empl}";
+                    cmd.CommandText = sql;
                     cmd.ExecuteNonQuery();
                     connection.Clone();
                     inf.Address.ID_empl = inf.ID_empl;
                     new AddressOfResidenceRepository(connectionString).Insert(inf.Address);
                     foreach (LanguageInf lg in inf.Languages)
                         new LanguageRepository(connectionString).Insert(lg);
-                    
+
                 }).ShowDialog();
                 reLoadPerson();
                 return;
@@ -786,11 +787,12 @@ namespace PersonalCard
                         cmd.CommandText = sql;
                         cmd.ExecuteNonQuery();
                         general.Address.ID_empl = general.ID_empl;
-                        new AddressOfResidenceRepository(connectionString).Insert(general.Address,cmd);
+                        new AddressOfResidenceRepository(connectionString).Insert(general.Address, cmd);
                         cmd.Parameters.Clear();
-                        foreach (LanguageInf lg in general.Languages) {
+                        foreach (LanguageInf lg in general.Languages)
+                        {
                             lg.ID_empl = general.ID_empl;
-                            new LanguageRepository(connectionString).Insert(lg,cmd);
+                            new LanguageRepository(connectionString).Insert(lg, cmd);
                             cmd.Parameters.Clear();
                         }
                         cmd.Parameters.Clear();
@@ -1663,10 +1665,10 @@ namespace PersonalCard
         private void toolStripButton6_Click(object sender, EventArgs e)
         {
             saveFileDialog1.Filter = "doc file (*.docx)|*.docx";
-            if (saveFileDialog1.ShowDialog() != DialogResult.OK) return; 
+            if (saveFileDialog1.ShowDialog() != DialogResult.OK) return;
             FillTemplate(generalInformation, saveFileDialog1.FileName);
         }
-        public void FillTemplate(GeneralInformation employee,  string outputPath)
+        public void FillTemplate(GeneralInformation employee, string outputPath)
         {
             System.Globalization.CultureInfo russianCulture = new System.Globalization.CultureInfo("ru-RU");
             string templatePath = @"..\..\..\T2.docx";
@@ -1745,39 +1747,40 @@ namespace PersonalCard
                     doc.ReplaceText("[specialityEd2]", employee.Educations.Count > 1 ? employee.Educations[1].Direction_or_specialty : "");
 
                 }
-                doc.ReplaceText("[AfterEducationType]",String.IsNullOrEmpty(employee.AfterEducation.Type_education)?"": employee.AfterEducation.Type_education);
-                doc.ReplaceText("[nameAfterEducationOrg]", String.IsNullOrEmpty(employee.AfterEducation.Name_organisation) ? "" :employee.AfterEducation.Name_organisation);
-                doc.ReplaceText("[nameDocAftEd]", String.IsNullOrEmpty(employee.AfterEducation.Name_education_docAfter) ? "" :employee.AfterEducation.Name_education_docAfter);
-                doc.ReplaceText("[numAfterEduc]", String.IsNullOrEmpty(employee.AfterEducation.Num_doc_education) ? "" :employee.AfterEducation.Num_doc_education);
-                doc.ReplaceText("[yearEndAfterEd]", employee.AfterEducation.Year_end==0 ? "" :employee.AfterEducation.Year_end.ToString());
-                doc.ReplaceText("[specialityAfterEd]", String.IsNullOrEmpty(employee.AfterEducation.Direction_or_speciality) ? "" :employee.AfterEducation.Direction_or_speciality);
+                doc.ReplaceText("[AfterEducationType]", String.IsNullOrEmpty(employee.AfterEducation.Type_education) ? "" : employee.AfterEducation.Type_education);
+                doc.ReplaceText("[nameAfterEducationOrg]", String.IsNullOrEmpty(employee.AfterEducation.Name_organisation) ? "" : employee.AfterEducation.Name_organisation);
+                doc.ReplaceText("[nameDocAftEd]", String.IsNullOrEmpty(employee.AfterEducation.Name_education_docAfter) ? "" : employee.AfterEducation.Name_education_docAfter);
+                doc.ReplaceText("[numAfterEduc]", String.IsNullOrEmpty(employee.AfterEducation.Num_doc_education) ? "" : employee.AfterEducation.Num_doc_education);
+                doc.ReplaceText("[yearEndAfterEd]", employee.AfterEducation.Year_end == 0 ? "" : employee.AfterEducation.Year_end.ToString());
+                doc.ReplaceText("[specialityAfterEd]", String.IsNullOrEmpty(employee.AfterEducation.Direction_or_speciality) ? "" : employee.AfterEducation.Direction_or_speciality);
 
 
-                doc.ReplaceText("[MainProfession]", String.IsNullOrEmpty(employee.Profession.Basic)?"":employee.Profession.Basic);
-                doc.ReplaceText("[NoMainProfession]", String.IsNullOrEmpty(employee.Profession.Another)?"":employee.Profession.Another);
+                doc.ReplaceText("[MainProfession]", String.IsNullOrEmpty(employee.Profession.Basic) ? "" : employee.Profession.Basic);
+                doc.ReplaceText("[NoMainProfession]", String.IsNullOrEmpty(employee.Profession.Another) ? "" : employee.Profession.Another);
 
-                if (employee.WorkExperience != null) { 
-                doc.ReplaceText("[Common_day]", employee.WorkExperience.Common_day.ToString());
-                doc.ReplaceText("[Common_month]", employee.WorkExperience.Common_month.ToString());
-                doc.ReplaceText("[Common_year]", employee.WorkExperience.Common_year.ToString());
-                doc.ReplaceText("[Continuous_day]", employee.WorkExperience.Continuous_day.ToString());
-                doc.ReplaceText("[Continuous_month]", employee.WorkExperience.Continuous_month.ToString());
-                doc.ReplaceText("[Continuous_year]", employee.WorkExperience.Continuous_year.ToString());
-                doc.ReplaceText("[Giver_day]", employee.WorkExperience.Giver_day.ToString());
-                doc.ReplaceText("[Giver_month]", employee.WorkExperience.Giver_month.ToString());
-                doc.ReplaceText("[Giver_year]", employee.WorkExperience.Giver_year.ToString());
+                if (employee.WorkExperience != null)
+                {
+                    doc.ReplaceText("[Common_day]", employee.WorkExperience.Common_day.ToString());
+                    doc.ReplaceText("[Common_month]", employee.WorkExperience.Common_month.ToString());
+                    doc.ReplaceText("[Common_year]", employee.WorkExperience.Common_year.ToString());
+                    doc.ReplaceText("[Continuous_day]", employee.WorkExperience.Continuous_day.ToString());
+                    doc.ReplaceText("[Continuous_month]", employee.WorkExperience.Continuous_month.ToString());
+                    doc.ReplaceText("[Continuous_year]", employee.WorkExperience.Continuous_year.ToString());
+                    doc.ReplaceText("[Giver_day]", employee.WorkExperience.Giver_day.ToString());
+                    doc.ReplaceText("[Giver_month]", employee.WorkExperience.Giver_month.ToString());
+                    doc.ReplaceText("[Giver_year]", employee.WorkExperience.Giver_year.ToString());
                 }
                 else
                 {
-                doc.ReplaceText("[Common_day]", "");
-                doc.ReplaceText("[Common_month]", "");
-                doc.ReplaceText("[Common_year]", "");
-                doc.ReplaceText("[Continuous_day]", "");
-                doc.ReplaceText("[Continuous_month]", "");
-                doc.ReplaceText("[Continuous_year]", "");
-                doc.ReplaceText("[Giver_day]", "");
-                doc.ReplaceText("[Giver_month]", "");
-                doc.ReplaceText("[Giver_year]", "");
+                    doc.ReplaceText("[Common_day]", "");
+                    doc.ReplaceText("[Common_month]", "");
+                    doc.ReplaceText("[Common_year]", "");
+                    doc.ReplaceText("[Continuous_day]", "");
+                    doc.ReplaceText("[Continuous_month]", "");
+                    doc.ReplaceText("[Continuous_year]", "");
+                    doc.ReplaceText("[Giver_day]", "");
+                    doc.ReplaceText("[Giver_month]", "");
+                    doc.ReplaceText("[Giver_year]", "");
                 }
                 doc.ReplaceText("[Marital_status]", employee.Marital_status);
 
@@ -1819,18 +1822,19 @@ namespace PersonalCard
                 doc.ReplaceText("[Serial_passport]", employee.Serial_passport);
                 doc.ReplaceText("[Num_passport]", employee.Nam_passport);
                 doc.ReplaceText("[pass_day]", employee.Date_give_passport.Day.ToString());
-                doc.ReplaceText("[pass_month]", employee.Date_give_passport.ToString("MMMM",russianCulture));
+                doc.ReplaceText("[pass_month]", employee.Date_give_passport.ToString("MMMM", russianCulture));
                 doc.ReplaceText("[pass_year]", employee.Date_give_passport.ToString("yyyy"));
                 doc.ReplaceText("[Who_give]", employee.Who_give);
 
-                if (HasData(employee.Address)) { 
-                doc.ReplaceText("[IndexReg]", employee.Address.Index_by_register);
-                doc.ReplaceText("[Reg]", employee.Address.By_registration);
-                doc.ReplaceText("[IndexAct]", employee.Address.Index_actual);
-                doc.ReplaceText("[Act]", employee.Address.Actual);
-                doc.ReplaceText("[reg_day]", employee.Address.Date_registration.Day.ToString());
-                doc.ReplaceText("[reg_month]", employee.Address.Date_registration.ToString("MMMM", russianCulture));
-                doc.ReplaceText("[reg_year]", employee.Address.Date_registration.ToString("yyyy"));
+                if (HasData(employee.Address))
+                {
+                    doc.ReplaceText("[IndexReg]", employee.Address.Index_by_register);
+                    doc.ReplaceText("[Reg]", employee.Address.By_registration);
+                    doc.ReplaceText("[IndexAct]", employee.Address.Index_actual);
+                    doc.ReplaceText("[Act]", employee.Address.Actual);
+                    doc.ReplaceText("[reg_day]", employee.Address.Date_registration.Day.ToString());
+                    doc.ReplaceText("[reg_month]", employee.Address.Date_registration.ToString("MMMM", russianCulture));
+                    doc.ReplaceText("[reg_year]", employee.Address.Date_registration.ToString("yyyy"));
                 }
                 else
                 {
@@ -1922,7 +1926,7 @@ namespace PersonalCard
                     table.InsertRow();
                     table.InsertRow();
                     table.InsertRow();
-                    
+
                 }
                 else
                 {
@@ -1938,7 +1942,7 @@ namespace PersonalCard
                             row.Cells[2].Paragraphs[0].Append(cr.Num_doc).FontSize(9);
                             row.Cells[3].Paragraphs[0].Append(cr.Date_doc.ToString("dd.MM.yy")).FontSize(8);
                             row.Cells[4].Paragraphs[0].Append(cr.Reason).FontSize(9);
-                            
+
                             a--;
                         }
                         while (a > 0)
@@ -1956,7 +1960,7 @@ namespace PersonalCard
                 if (employee.ProfessionalDevelopments.Count == 0)
                 {
                     table.RemoveRow(4);
-                    table.InsertRow().MergeCells(5, 6); 
+                    table.InsertRow().MergeCells(5, 6);
                     table.InsertRow().MergeCells(5, 6);
                     table.InsertRow().MergeCells(5, 6);
                     table.InsertRow().MergeCells(5, 6);
@@ -1977,7 +1981,7 @@ namespace PersonalCard
                             row.Cells[2].Paragraphs[0].Append(cr.Type_cvalification).FontSize(8);
                             row.Cells[3].Paragraphs[0].Append(cr.Name_education_company).FontSize(8);
                             row.Cells[4].Paragraphs[0].Append(cr.Name_doc).FontSize(8);
-                            row.Cells[5].Paragraphs[0].Append(cr.Num_doc+" "+cr.Ser_doc).FontSize(8);
+                            row.Cells[5].Paragraphs[0].Append(cr.Num_doc + " " + cr.Ser_doc).FontSize(8);
                             row.Cells[7].Paragraphs[0].Append(cr.Date_give_doc.ToString("dd.MM.yy")).FontSize(8);
                             row.Cells[8].Paragraphs[0].Append(cr.Reason).FontSize(8);
                             row.MergeCells(5, 6);
@@ -2018,7 +2022,7 @@ namespace PersonalCard
                             row.Cells[1].Paragraphs[0].Append(cr.Date_end.ToString("dd.MM.yy")).FontSize(8);
                             row.Cells[2].Paragraphs[0].Append(cr.Speciality).FontSize(8);
                             row.Cells[3].Paragraphs[0].Append(cr.Name_doc).FontSize(8);
-                            row.Cells[4].Paragraphs[0].Append(cr.Num_doc ).FontSize(8);
+                            row.Cells[4].Paragraphs[0].Append(cr.Num_doc).FontSize(8);
                             row.Cells[5].Paragraphs[0].Append(cr.Date_give_doc.ToString("dd.MM.yy")).FontSize(8);
                             row.Cells[6].Paragraphs[0].Append(cr.Reason).FontSize(8);
                             a--;
@@ -2058,7 +2062,7 @@ namespace PersonalCard
                             row.Cells[1].Paragraphs[0].Append(cr.Name_doc).FontSize(8);
                             row.Cells[2].Paragraphs[0].Append(cr.Num_doc).FontSize(8);
                             row.Cells[3].Paragraphs[0].Append(cr.Date_give_doc.ToString("dd.MM.yy")).FontSize(8);
-                            
+
                             a--;
                         }
                         while (a > 0)
@@ -2099,7 +2103,7 @@ namespace PersonalCard
                             var row = table.InsertRow();
                             row.Cells[0].Paragraphs[0].Append(cr.Type_vacation).FontSize(8);
                             row.Cells[1].Paragraphs[0].Append(cr.Period_work_start.ToString("dd.MM.yy")).FontSize(8);
-                            row.Cells[2].Paragraphs[0].Append(cr.Period_work_end.ToString().Split(' ')[0] ??"").FontSize(8);
+                            row.Cells[2].Paragraphs[0].Append(cr.Period_work_end.ToString().Split(' ')[0] ?? "").FontSize(8);
                             row.Cells[3].Paragraphs[0].Append(cr.Quantity_day.ToString()).FontSize(8);
                             row.Cells[4].Paragraphs[0].Append(cr.Date_start.ToString("dd.MM.yy")).FontSize(8);
                             row.Cells[5].Paragraphs[0].Append(cr.Date_end.ToString().Split(' ')[0] ?? "").FontSize(8);
@@ -2214,6 +2218,15 @@ namespace PersonalCard
 
                 doc.SaveAs(outputPath);
             }
+        }
+
+        private void руководствоПользователяToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Process.Start(new ProcessStartInfo("help1.chm")
+            {
+                UseShellExecute = true
+            });
+
         }
     }
 }
