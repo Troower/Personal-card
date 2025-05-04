@@ -20,7 +20,15 @@ namespace PersonalCard
             InitializeComponent();
             this.user = user;
             this.action = action;
-            if (String.IsNullOrEmpty(user.LastName)) button1.Text = "Добавить";
+            
+            if (String.IsNullOrEmpty(user.LastName))
+            {
+                button1.Text = "Добавить";
+                this.Text = "Добавить пользователя";
+            }
+            else { 
+            this.Text = "Редактирование пользователя";
+            }
             textBox1.Text = user.LastName;
             textBox2.Text = user.Name;
             textBox3.Text = user.Surname;

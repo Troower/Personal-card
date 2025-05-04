@@ -145,7 +145,7 @@
             MaximizeBox = false;
             Name = "Family";
             StartPosition = FormStartPosition.CenterScreen;
-            Text = "Family";
+            Text = "Семья";
             tableLayoutPanel1.ResumeLayout(false);
             ResumeLayout(false);
             PerformLayout();

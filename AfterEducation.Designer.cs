@@ -243,7 +243,7 @@
             MaximizeBox = false;
             Name = "AfterEducation";
             StartPosition = FormStartPosition.CenterScreen;
-            Text = "AfterEducation";
+            Text = "Послевузовское бразование";
             tableLayoutPanel1.ResumeLayout(false);
             ResumeLayout(false);
             PerformLayout();

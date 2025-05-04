@@ -46,10 +46,10 @@
             label2 = new Label();
             label3 = new Label();
             label4 = new Label();
-            label5 = new Label();
             label6 = new Label();
             label7 = new Label();
             label8 = new Label();
+            label5 = new Label();
             tableLayoutPanel1.SuspendLayout();
             flowLayoutPanel1.SuspendLayout();
             SuspendLayout();
@@ -238,15 +238,6 @@
             label4.TabIndex = 12;
             label4.Text = "Категория годности*:";
             // 
-            // label5
-            // 
-            label5.AutoSize = true;
-            label5.Location = new Point(3, 427);
-            label5.Name = "label5";
-            label5.Size = new Size(328, 21);
-            label5.TabIndex = 13;
-            label5.Text = "Доп информация к типу воинского учета:";
-            // 
             // label6
             // 
             label6.AutoSize = true;
@@ -274,6 +265,15 @@
             label8.TabIndex = 16;
             label8.Text = "Отметка о снятии с воинского учета";
             // 
+            // label5
+            // 
+            label5.AutoSize = true;
+            label5.Location = new Point(3, 427);
+            label5.Name = "label5";
+            label5.Size = new Size(328, 21);
+            label5.TabIndex = 13;
+            label5.Text = "Доп информация к типу воинского учета:";
+            // 
             // Military
             // 
             AutoScaleDimensions = new SizeF(9F, 21F);
@@ -290,7 +290,7 @@
             MaximizeBox = false;
             Name = "Military";
             StartPosition = FormStartPosition.CenterScreen;
-            Text = "Military";
+            Text = "Воинский учет";
             tableLayoutPanel1.ResumeLayout(false);
             flowLayoutPanel1.ResumeLayout(false);
             flowLayoutPanel1.PerformLayout();

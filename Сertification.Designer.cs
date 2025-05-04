@@ -205,7 +205,7 @@
             MaximizeBox = false;
             Name = "Сertification";
             StartPosition = FormStartPosition.CenterScreen;
-            Text = "Сertification";
+            Text = "Аттестация";
             tableLayoutPanel1.ResumeLayout(false);
             ResumeLayout(false);
             PerformLayout();

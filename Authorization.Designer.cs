@@ -149,7 +149,7 @@
             MaximizeBox = false;
             Name = "Authorization";
             StartPosition = FormStartPosition.CenterScreen;
-            Text = "Authorization";
+            Text = "Авторизация";
             Load += Authorization_Load;
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             tableLayoutPanel1.ResumeLayout(false);

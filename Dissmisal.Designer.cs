@@ -162,7 +162,7 @@
             MaximizeBox = false;
             Name = "Dissmisal";
             StartPosition = FormStartPosition.CenterScreen;
-            Text = "Dissmisal";
+            Text = "Увольнение";
             tableLayoutPanel1.ResumeLayout(false);
             ResumeLayout(false);
             PerformLayout();

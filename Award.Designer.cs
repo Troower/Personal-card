@@ -183,7 +183,7 @@
             MaximizeBox = false;
             Name = "Award";
             StartPosition = FormStartPosition.CenterScreen;
-            Text = "Award";
+            Text = "Награды";
             tableLayoutPanel1.ResumeLayout(false);
             ResumeLayout(false);
             PerformLayout();

@@ -778,7 +778,7 @@
             MaximizeBox = false;
             Name = "EditPersonalInfo";
             StartPosition = FormStartPosition.CenterScreen;
-            Text = "EditPersonalInfo";
+            Text = "Основная информация";
             tableLayoutPanel1.ResumeLayout(false);
             groupBox1.ResumeLayout(false);
             flowLayoutPanel1.ResumeLayout(false);

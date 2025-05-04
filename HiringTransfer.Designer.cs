@@ -204,7 +204,7 @@
             MaximizeBox = false;
             Name = "HiringTransfer";
             StartPosition = FormStartPosition.CenterScreen;
-            Text = "HiringTransfer";
+            Text = "Перевод на работу";
             tableLayoutPanel1.ResumeLayout(false);
             ResumeLayout(false);
             PerformLayout();

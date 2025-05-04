@@ -183,7 +183,7 @@
             MaximizeBox = false;
             Name = "Benefit";
             StartPosition = FormStartPosition.CenterScreen;
-            Text = "Benefit";
+            Text = "Льготы";
             tableLayoutPanel1.ResumeLayout(false);
             ResumeLayout(false);
             PerformLayout();

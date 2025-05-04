@@ -48,6 +48,13 @@ namespace PersonalCard
                 button16.Visible = false;
                 button17.Visible = false;
                 button1.Visible = false;
+                button9.Visible = false;
+                button10.Visible = false;
+                button6.Visible = false;
+                button7.Visible = false;
+                button8.Visible = false;
+                toolStripButton5.Text = "Настройки поиска";
+
 
             }
             else if (role == "ManagerHR")

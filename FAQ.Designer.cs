@@ -100,7 +100,7 @@
             MaximizeBox = false;
             Name = "FAQ";
             StartPosition = FormStartPosition.CenterScreen;
-            Text = "FAQ";
+            Text = "Информация о прилоежении";
             groupBox1.ResumeLayout(false);
             flowLayoutPanel1.ResumeLayout(false);
             flowLayoutPanel1.PerformLayout();

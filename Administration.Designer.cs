@@ -273,7 +273,7 @@
             Margin = new Padding(4);
             Name = "Administration";
             StartPosition = FormStartPosition.CenterScreen;
-            Text = "Administration";
+            Text = "Управление пользователями";
             ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
             tableLayoutPanel1.ResumeLayout(false);
             panel1.ResumeLayout(false);

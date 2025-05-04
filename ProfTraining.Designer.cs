@@ -248,7 +248,7 @@
             MaximizeBox = false;
             Name = "ProfTraining";
             StartPosition = FormStartPosition.CenterScreen;
-            Text = "ProfTraining";
+            Text = "Проф переподготовка";
             tableLayoutPanel1.ResumeLayout(false);
             ResumeLayout(false);
             PerformLayout();

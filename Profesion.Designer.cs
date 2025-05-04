@@ -47,8 +47,8 @@
             label5 = new Label();
             label6 = new Label();
             numericUpDown4 = new NumericUpDown();
-            numericUpDown5 = new NumericUpDown();
             numericUpDown6 = new NumericUpDown();
+            numericUpDown5 = new NumericUpDown();
             groupBox4 = new GroupBox();
             label3 = new Label();
             label2 = new Label();
@@ -67,8 +67,8 @@
             ((System.ComponentModel.ISupportInitialize)numericUpDown9).BeginInit();
             groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)numericUpDown4).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)numericUpDown5).BeginInit();
             ((System.ComponentModel.ISupportInitialize)numericUpDown6).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)numericUpDown5).BeginInit();
             groupBox4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)numericUpDown3).BeginInit();
             ((System.ComponentModel.ISupportInitialize)numericUpDown2).BeginInit();
@@ -275,19 +275,19 @@
             numericUpDown4.Size = new Size(120, 29);
             numericUpDown4.TabIndex = 2;
             // 
-            // numericUpDown5
-            // 
-            numericUpDown5.Location = new Point(141, 44);
-            numericUpDown5.Name = "numericUpDown5";
-            numericUpDown5.Size = new Size(120, 29);
-            numericUpDown5.TabIndex = 1;
-            // 
             // numericUpDown6
             // 
             numericUpDown6.Location = new Point(267, 44);
             numericUpDown6.Name = "numericUpDown6";
             numericUpDown6.Size = new Size(120, 29);
             numericUpDown6.TabIndex = 0;
+            // 
+            // numericUpDown5
+            // 
+            numericUpDown5.Location = new Point(141, 44);
+            numericUpDown5.Name = "numericUpDown5";
+            numericUpDown5.Size = new Size(120, 29);
+            numericUpDown5.TabIndex = 1;
             // 
             // groupBox4
             // 
@@ -403,7 +403,7 @@
             MaximizeBox = false;
             Name = "Profesion";
             StartPosition = FormStartPosition.CenterScreen;
-            Text = "Profesion";
+            Text = "Професия/Стаж";
             tableLayoutPanel1.ResumeLayout(false);
             groupBox1.ResumeLayout(false);
             groupBox3.ResumeLayout(false);
@@ -414,8 +414,8 @@
             groupBox2.ResumeLayout(false);
             groupBox2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)numericUpDown4).EndInit();
-            ((System.ComponentModel.ISupportInitialize)numericUpDown5).EndInit();
             ((System.ComponentModel.ISupportInitialize)numericUpDown6).EndInit();
+            ((System.ComponentModel.ISupportInitialize)numericUpDown5).EndInit();
             groupBox4.ResumeLayout(false);
             groupBox4.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)numericUpDown3).EndInit();

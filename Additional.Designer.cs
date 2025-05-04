@@ -109,7 +109,7 @@
             MaximizeBox = false;
             Name = "Additional";
             StartPosition = FormStartPosition.CenterScreen;
-            Text = "Additional";
+            Text = "Дополнительны сведения";
             tableLayoutPanel1.ResumeLayout(false);
             ResumeLayout(false);
             PerformLayout();

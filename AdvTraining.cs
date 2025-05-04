@@ -23,6 +23,10 @@ namespace PersonalCard
             if (professional.Date_give_doc <= DateTime.MinValue)
             {
                 button1.Text = "Добавить";
+                this.Text = "Добавить";
+            }
+            else {
+                this.Text = "редактировать";
             }
             dateTimePicker1.Value=professional.Date_start > DateTime.MinValue ? professional.Date_start : DateTime.Now; 
             dateTimePicker2.Value=professional.Date_end > DateTime.MinValue ? professional.Date_end : DateTime.Now;

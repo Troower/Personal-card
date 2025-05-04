@@ -249,7 +249,7 @@
             MaximizeBox = false;
             Name = "Vacation";
             StartPosition = FormStartPosition.CenterScreen;
-            Text = "Vacation";
+            Text = "Отпуск";
             tableLayoutPanel1.ResumeLayout(false);
             ResumeLayout(false);
             PerformLayout();
