@@ -27,9 +27,9 @@ namespace PersonalCard
             textBox2.Text = benefit.Num_doc;
             textBox3.Text = benefit.Reason;
             dateTimePicker1.Enabled = false;
-            textBox3 .Enabled = false;
-            textBox1 .Enabled = false;  
-            textBox2 .Enabled = false; 
+            textBox3.Enabled = false;
+            textBox1.Enabled = false;
+            textBox2.Enabled = false;
             tableLayoutPanel1.Visible = false;
             this.Size = new System.Drawing.Size(this.Width, this.Height - tableLayoutPanel1.Height);
         }
@@ -70,6 +70,11 @@ namespace PersonalCard
             action?.Invoke(benefit);
             MessageBox.Show("Операция прошла успешно!", "Информация", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
             this.Close();
+        }
+
+        private void Benefit_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

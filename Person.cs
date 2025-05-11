@@ -567,6 +567,7 @@ namespace PersonalCard
                 {
                     if (reader.Read())
                     {
+                        
                         profession.ID_empl = employeeId;
                         profession.Basic = reader["basic"].ToString();
                         profession.Another = reader["another"]?.ToString();

@@ -184,6 +184,7 @@
             Name = "Benefit";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Льготы";
+            Load += Benefit_Load;
             tableLayoutPanel1.ResumeLayout(false);
             ResumeLayout(false);
             PerformLayout();

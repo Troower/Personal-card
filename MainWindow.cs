@@ -1655,9 +1655,6 @@ namespace PersonalCard
                 var import = new MySqlBackup(cmd);
                 import.ImportInfo.IgnoreSqlError = true;
                 import.ImportFromFile(infile);
-                string sql = "\r\nDROP FUNCTION IF EXISTS CalculateWorkExperience ; CREATE FUNCTION CalculateWorkExperience(\r\n    start_date DATE, \r\n    end_date DATE\r\n) \r\nRETURNS INT\r\nDETERMINISTIC\r\nBEGIN\r\n    DECLARE years_worked INT;\r\n    \r\n    IF end_date IS NULL THEN\r\n        SET end_date = CURDATE();\r\n    END IF;\r\n    \r\n    SET years_worked = TIMESTAMPDIFF(YEAR, start_date, end_date);\r\n    RETURN years_worked;\r\nEND;";
-                cmd.CommandText = sql;
-                cmd.ExecuteNonQuery();
                 fillPersonTable();
             }
         }

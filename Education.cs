@@ -14,7 +14,7 @@ namespace PersonalCard
     {
         EducationInf education;
         Action<EducationInf> action;
-        int add = 0;
+        
         //редактирование
         public Education(EducationInf education, Action<EducationInf> action)
         {
@@ -58,12 +58,7 @@ namespace PersonalCard
         }
         
        
-       
-        public Education()
-        {
-            InitializeComponent();
-            
-        }
+        
         private void button2_Click(object sender, EventArgs e)
         {
             this.Close();
